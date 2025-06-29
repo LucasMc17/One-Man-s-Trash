@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp1q3ngso06dk"]
+
+[ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://iupietc6mcd4" path="res://scenes/player/states/free_move_state.gd" id="3_gmlin"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
+albedo_color = Color(0.17316, 0.718229, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_onrkg"]
+material = SubResource("StandardMaterial3D_4flbx")
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_dovo2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sh265")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_onrkg")
+
+[node name="CameraController" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+cull_mask = 1048573
+
+[node name="ItemRig" type="Node3D" parent="CameraController/Camera3D"]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("1_8afob")
+CURRENT_STATE = NodePath("FreeMoveState")
+
+[node name="FreeMoveState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("3_gmlin")
+PLAYER = NodePath("../..")
+
+[node name="ItemViewport" type="SubViewportContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="ItemViewport"]
+handle_input_locally = false
+render_target_update_mode = 0
