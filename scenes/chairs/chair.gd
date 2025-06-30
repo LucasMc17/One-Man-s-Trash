@@ -8,27 +8,33 @@ class_name Chair extends StaticBody3D
 		true_sit_position = val
 		true_sit_position.y += 1
 		sit_position = val
-		SIT_MARKER.position = sit_position
-		EYELINE_MARKER.position = true_sit_position
+		if SIT_MARKER:
+			SIT_MARKER.position = sit_position
+		if EYELINE_MARKER:
+			EYELINE_MARKER.position = true_sit_position
 
 @export_category("Model Info")
 @export var mesh : Mesh:
 	set(val):
-		CHAIR_MESH.mesh = val
+		if CHAIR_MESH:
+			CHAIR_MESH.mesh = val
 		mesh = val
 @export var mesh_position := Vector3.ZERO:
 	set(val):
-		CHAIR_MESH.position = val
+		if CHAIR_MESH:
+			CHAIR_MESH.position = val
 		mesh_position = val
 
 @export_category("Collision Info")
 @export var collision_position := Vector3.ZERO:
 	set(val):
-		COLLISION_SHAPE.position = val
+		if COLLISION_SHAPE:
+			COLLISION_SHAPE.position = val
 		collision_position = val
 @export var collision_size := Vector3.ONE:
 	set(val):
-		COLLISION_SHAPE.shape.size = val
+		if COLLISION_SHAPE:
+			COLLISION_SHAPE.shape.size = val
 		collision_size = val
 
 # NODES

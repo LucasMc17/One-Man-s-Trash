@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://jn5km13yxclu" path="res://scenes/chairs/chair.gd" id="1_6g76u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ptq21"]
+resource_local_to_scene = true
 
 [node name="Chair" type="StaticBody3D"]
 script = ExtResource("1_6g76u")
