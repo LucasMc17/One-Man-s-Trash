@@ -14,6 +14,9 @@ func _ready():
 	await owner.ready
 	CURRENT_STATE.enter(null)
 
+func _input(event):
+	CURRENT_STATE.input(event)
+
 func _process(delta):
 	CURRENT_STATE.update(delta)
 	# Global.debug.add_property("Current State", CURRENT_STATE.name, 1)

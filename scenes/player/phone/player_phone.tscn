@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxsfmtysycoo3"]
+
+[ext_resource type="ArrayMesh" uid="uid://vo3nuc5bsaf1" path="res://assets/meshes/phone_mesh.res" id="1_hx3a0"]
+[ext_resource type="Script" uid="uid://dn0kkilfhscrf" path="res://scenes/player/phone/player_phone.gd" id="2_loed6"]
+
+[node name="PlayerPhone" type="MeshInstance3D"]
+mesh = ExtResource("1_hx3a0")
+script = ExtResource("2_loed6")

@@ -7,6 +7,7 @@ class_name Player extends CharacterBody3D
 
 # NODES
 @onready var CAMERA_CONTROLLER : Node3D = %CameraController
+@onready var PHONE := %Phone
 
 # GLOBALS
 var _mouse_input : bool = false

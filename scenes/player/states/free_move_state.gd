@@ -28,3 +28,7 @@ func update(delta: float):
 	
 	if PLAYER.velocity.y < -3.0 and !PLAYER.is_on_floor():
 		transition.emit("FallingPlayerState")
+
+func input(event):
+	if event.is_action_pressed("phone"):
+		transition.emit("PhoneState")

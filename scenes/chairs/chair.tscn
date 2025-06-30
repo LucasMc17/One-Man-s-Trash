@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://uhic7j11f1st"]
+
+[ext_resource type="Script" uid="uid://jn5km13yxclu" path="res://scenes/chairs/chair.gd" id="1_6g76u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ptq21"]
+
+[node name="Chair" type="StaticBody3D"]
+script = ExtResource("1_6g76u")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_ptq21")
+
+[node name="ChairMesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+
+[node name="SitMarker" type="Marker3D" parent="."]
+unique_name_in_owner = true
+gizmo_extents = 3.85
+
+[node name="EyelineMarker" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+gizmo_extents = 3.85

@@ -13,3 +13,6 @@ func update(delta: float):
 
 func physics_update(delta: float):
 	pass
+
+func input(event: InputEvent):
+	pass
