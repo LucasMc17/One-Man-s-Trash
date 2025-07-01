@@ -11,6 +11,8 @@ func update(delta: float):
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
+	PLAYER.update_interactor(delta)
+	PLAYER.update_camera(delta)
 	
 	# set_animation_speed(PLAYER.velocity.length())
 	
@@ -28,6 +30,9 @@ func update(delta: float):
 	
 	if PLAYER.velocity.y < -3.0 and !PLAYER.is_on_floor():
 		transition.emit("FallingPlayerState")
+
+func exit():
+	PLAYER.looking_at = null
 
 func input(event):
 	if event.is_action_pressed("phone"):

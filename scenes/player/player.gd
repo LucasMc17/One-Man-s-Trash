@@ -20,7 +20,14 @@ var _player_rotation : Vector3
 var _camera_rotation : Vector3
 var _current_rotation : float
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var looking_at : Interactable
+var looking_at : Interactable:
+	set(val):
+		if INTERACT_LABEL:
+			if val:
+				INTERACT_LABEL.text = val.message
+			else:
+				INTERACT_LABEL.text = ''
+		looking_at = val
 
 func _ready():
 	# Global.player = self
@@ -38,7 +45,7 @@ func _unhandled_input(event):
 		_rotation_input = -event.relative.x * MOUSE_SENSITIVITY
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
 
-func _update_camera(delta):
+func update_camera(delta):
 	_current_rotation = _rotation_input
 	_mouse_rotation.x += _tilt_input * delta
 	_mouse_rotation.x = clamp(_mouse_rotation.x, TILT_LOWER_LIMIT, TILT_UPPER_LIMIT)
@@ -56,9 +63,7 @@ func _update_camera(delta):
 	_tilt_input = 0.0
 
 func _physics_process(delta):
-	update_interactor(delta)
-	_update_camera(delta)
-	print(looking_at)
+	pass
 
 func update_gravity(delta):
 	if not is_on_floor():
@@ -82,10 +87,8 @@ func update_interactor(_delta):
 	var coll = INTERACTOR.get_collider()
 	if coll is Interactable:
 		looking_at = coll
-		INTERACT_LABEL.text = coll.message
 	else:
 		looking_at = null
-		INTERACT_LABEL.text = ''
 
 func update_velocity():
 	move_and_slide()
