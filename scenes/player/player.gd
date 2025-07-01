@@ -9,6 +9,7 @@ class_name Player extends CharacterBody3D
 @onready var CAMERA_CONTROLLER : Node3D = %CameraController
 @onready var PHONE := %Phone
 @onready var INTERACTOR := %Interactor
+@onready var INTERACT_LABEL := %InteractLabel
 
 # GLOBALS
 var _mouse_input : bool = false
@@ -81,8 +82,10 @@ func update_interactor(_delta):
 	var coll = INTERACTOR.get_collider()
 	if coll is Interactable:
 		looking_at = coll
+		INTERACT_LABEL.text = coll.message
 	else:
 		looking_at = null
+		INTERACT_LABEL.text = ''
 
 func update_velocity():
 	move_and_slide()
