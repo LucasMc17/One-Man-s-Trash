@@ -59,7 +59,7 @@ cull_mask = 1048573
 
 [node name="Phone" parent="CameraController/Camera3D/ItemRig" instance=ExtResource("2_lvxji")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.083, -0.183, -0.12)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.083, -0.19, -0.12)
 
 [node name="Interactor" type="RayCast3D" parent="CameraController/Camera3D"]
 unique_name_in_owner = true
