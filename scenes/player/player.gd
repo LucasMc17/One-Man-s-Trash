@@ -19,6 +19,7 @@ var _player_rotation : Vector3
 var _camera_rotation : Vector3
 var _current_rotation : float
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var looking_at : Interactable
 
 func _ready():
 	# Global.player = self
@@ -56,6 +57,7 @@ func _update_camera(delta):
 func _physics_process(delta):
 	update_interactor(delta)
 	_update_camera(delta)
+	print(looking_at)
 
 func update_gravity(delta):
 	if not is_on_floor():
@@ -77,9 +79,10 @@ func update_input(speed : float, acceleration: float, deceleration: float):
 
 func update_interactor(_delta):
 	var coll = INTERACTOR.get_collider()
-	print(coll)
 	if coll is Interactable:
-		pass
+		looking_at = coll
+	else:
+		looking_at = null
 
 func update_velocity():
 	move_and_slide()

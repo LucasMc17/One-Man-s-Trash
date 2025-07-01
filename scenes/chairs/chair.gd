@@ -59,3 +59,9 @@ class_name Chair extends StaticBody3D
 
 # GLOBALS
 var true_sit_position := Vector3(0, 0.5, 0)
+
+# BUILT INS
+func _ready():
+	# force subscenes to access set functions
+	collision_shape = collision_shape
+	collision_position = collision_position
