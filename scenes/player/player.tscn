@@ -37,6 +37,11 @@ cull_mask = 1048573
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.083, -0.183, -0.12)
 
+[node name="Interactor" type="RayCast3D" parent="CameraController/Camera3D"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+debug_shape_thickness = 5
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("FreeMoveState")

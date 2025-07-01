@@ -8,6 +8,7 @@ class_name Player extends CharacterBody3D
 # NODES
 @onready var CAMERA_CONTROLLER : Node3D = %CameraController
 @onready var PHONE := %Phone
+@onready var INTERACTOR := %Interactor
 
 # GLOBALS
 var _mouse_input : bool = false
@@ -53,6 +54,7 @@ func _update_camera(delta):
 	_tilt_input = 0.0
 
 func _physics_process(delta):
+	update_interactor(delta)
 	_update_camera(delta)
 
 func update_gravity(delta):
@@ -72,6 +74,12 @@ func update_input(speed : float, acceleration: float, deceleration: float):
 		var temp = move_toward(vel.length(), 0, deceleration)
 		velocity.x = vel.normalized().x * temp
 		velocity.z = vel.normalized().y * temp
+
+func update_interactor(_delta):
+	var coll = INTERACTOR.get_collider()
+	print(coll)
+	if coll is Interactable:
+		pass
 
 func update_velocity():
 	move_and_slide()

@@ -30,23 +30,32 @@ class_name Chair extends StaticBody3D
 	set(val):
 		if COLLISION_SHAPE:
 			COLLISION_SHAPE.position = val
+		if INTERACTABLE:
+			INTERACTABLE.collision_position = val
 		collision_position = val
-@export var collision_size := Vector3.ONE:
+# @export var collision_size := Vector3.ONE:
+# 	set(val):
+# 		if COLLISION_SHAPE:
+# 			COLLISION_SHAPE.shape.size = val
+# 		if INTERACTABLE:
+# 			INTERACTABLE.collision_position = val
+# 		collision_size = val
+@export var collision_shape : Shape3D:
 	set(val):
+		print(INTERACTABLE)
 		if COLLISION_SHAPE:
-			COLLISION_SHAPE.shape.size = val
-		collision_size = val
+			COLLISION_SHAPE.shape = val
+		if INTERACTABLE:
+			print(INTERACTABLE)
+			INTERACTABLE.shape = val
+		collision_shape = val
 
 # NODES
 @onready var SIT_MARKER = %SitMarker
 @onready var EYELINE_MARKER = %EyelineMarker
 @onready var CHAIR_MESH = %ChairMesh
 @onready var COLLISION_SHAPE = %CollisionShape
+@onready var INTERACTABLE = %Interactable
 
 # GLOBALS
 var true_sit_position := Vector3(0, 0.5, 0)
-
-# BUILT INS
-# func _process(_delta):
-# 	SIT_MARKER.position = sit_position
-# 	EYELINE_MARKER.position = true_sit_position
