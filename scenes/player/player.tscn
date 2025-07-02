@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dp1q3ngso06dk"]
+[gd_scene load_steps=10 format=3 uid="uid://dp1q3ngso06dk"]
 
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://bxsfmtysycoo3" path="res://scenes/player/phone/player_phone.tscn" id="2_lvxji"]
 [ext_resource type="Script" uid="uid://iupietc6mcd4" path="res://scenes/player/states/free_move_state.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://c5iy7liovrtbk" path="res://scenes/player/states/phone_state.gd" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://cwxv6y722a417" path="res://scenes/player/states/sitting_state.gd" id="6_75vfm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -79,6 +80,10 @@ PLAYER = NodePath("../..")
 
 [node name="PhoneState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]
 script = ExtResource("5_p47bc")
+PLAYER = NodePath("../..")
+
+[node name="SittingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("6_75vfm")
 PLAYER = NodePath("../..")
 
 [node name="ItemViewport" type="SubViewportContainer" parent="."]

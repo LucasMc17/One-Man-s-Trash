@@ -7,7 +7,7 @@ func _ready():
 	for child in get_children():
 		if child is State:
 			states[child.name] = child
-			child.transition.connect(on_child_transition)
+			child.transitioned.connect(on_child_transitioned)
 		else:
 			push_warning("State machine contains incompatible child node")
 	
@@ -24,9 +24,9 @@ func _process(delta):
 func _physics_process(delta):
 	CURRENT_STATE.physics_update(delta)
 
-func on_child_transition(new_state_name: StringName):
+func on_child_transitioned(new_state_name: StringName, ext : Dictionary):
 	var new_state = states.get(new_state_name)
 	if new_state != null and new_state != CURRENT_STATE:
 		CURRENT_STATE.exit()
-		new_state.enter(CURRENT_STATE, {})
+		new_state.enter(CURRENT_STATE, ext)
 		CURRENT_STATE = new_state

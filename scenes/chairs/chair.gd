@@ -59,5 +59,4 @@ func _ready():
 
 func _on_interactable_interacted(interactor : Player):
 	print('interacted with object ' + name)
-	# Maybe this should go through a global event via an event bus eventually....... but for now:
-	interactor.current_state.transition.emit('PhoneState')
+	interactor.current_state.transition('SittingState', { "sitting_position": sit_position + global_position })

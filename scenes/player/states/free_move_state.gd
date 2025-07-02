@@ -20,23 +20,22 @@ func update(delta: float):
 	# set_animation_speed(PLAYER.velocity.length())
 	
 	# if PLAYER.velocity.length() == 0.0:
-	# 	transition.emit("IdlePlayerState")
+	# 	transition("IdlePlayerState")
 	
 	# if Input.is_action_pressed('sprint'):
-	# 	transition.emit("SprintingPlayerState")
+	# 	transition("SprintingPlayerState")
 	
 	# if Input.is_action_just_pressed("crouch") and PLAYER.is_on_floor():
-	# 	transition.emit("CrouchingPlayerState")
+	# 	transition("CrouchingPlayerState")
 	
 	# if Input.is_action_just_pressed("jump") and PLAYER.is_on_floor():
-	# 	transition.emit("JumpingPlayerState")
+	# 	transition("JumpingPlayerState")
 	
 	if PLAYER.velocity.y < -3.0 and !PLAYER.is_on_floor():
-		transition.emit("FallingPlayerState")
+		transition("FallingPlayerState")
 
 func exit():
 	PLAYER.looking_at = null
-	PLAYER.kill_momentum()
 
 func compare_events(input_event : InputEvent, expected : InputEventKey):
 	if input_event is not InputEventKey:
@@ -45,6 +44,6 @@ func compare_events(input_event : InputEvent, expected : InputEventKey):
 
 func input(event):
 	if event.is_action_pressed("phone"):
-		transition.emit("PhoneState")
+		transition("PhoneState")
 	if PLAYER.looking_at and compare_events(event, PLAYER.looking_at.interact_button):
 		PLAYER.looking_at.interact(PLAYER)

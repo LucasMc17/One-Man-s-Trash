@@ -1,6 +1,9 @@
 class_name State extends Node
 
-signal transition(new_state_name: StringName)
+signal transitioned(new_state_name: StringName, ext : Dictionary)
+
+func transition(new_state_name : StringName, ext := {}):
+	transitioned.emit(new_state_name, ext)
 
 func enter(previous_state : State, ext : Dictionary):
 	pass

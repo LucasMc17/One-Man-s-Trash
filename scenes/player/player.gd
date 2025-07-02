@@ -49,11 +49,16 @@ func _unhandled_input(event):
 		_rotation_input = -event.relative.x * MOUSE_SENSITIVITY
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
 
-# temporary baring a more in depth solution for switching to immobile states and then back
-func kill_momentum():
+func kill_camera_momentum():
 	_rotation_input = 0.0
 	_tilt_input = 0.0
-	velocity = Vector3.ZERO
+
+func handle_idle_momentum(deceleration : float):
+	var vel = Vector2(velocity.x,velocity.z)
+	var temp = move_toward(vel.length(), 0, deceleration)
+	velocity.x = vel.normalized().x * temp
+	velocity.z = vel.normalized().y * temp
+	move_and_slide()
 
 func update_camera(delta):
 	_current_rotation = _rotation_input
@@ -87,12 +92,9 @@ func update_input(speed : float, acceleration: float, deceleration: float):
 	if direction:
 		velocity.x = lerp(velocity.x, direction.x * speed, acceleration)
 		velocity.z = lerp(velocity.z, direction.z * speed, acceleration)
+		move_and_slide()
 	else:
-		var vel = Vector2(velocity.x,velocity.z)
-		var temp = move_toward(vel.length(), 0, deceleration)
-		velocity.x = vel.normalized().x * temp
-		velocity.z = vel.normalized().y * temp
-	move_and_slide()
+		handle_idle_momentum(deceleration)
 
 func update_interactor(_delta):
 	var coll = INTERACTOR.get_collider()
