@@ -15,9 +15,9 @@ run/main_scene="uid://b2m4463t40ea1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
+[autoload]
 
-window/size/mode=2
+GameState="*res://globals/GameStateNode.tscn"
 
 [input]
 

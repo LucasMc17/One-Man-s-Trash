@@ -69,11 +69,16 @@ collide_with_areas = true
 debug_shape_thickness = 5
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+unique_name_in_owner = true
 script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("FreeMoveState")
 
 [node name="FreeMoveState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]
 script = ExtResource("3_gmlin")
+TOP_ANIM_SPEED = null
+SPEED = null
+ACCELERATION = null
+DECELERATION = null
 PLAYER = NodePath("../..")
 
 [node name="PhoneState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]

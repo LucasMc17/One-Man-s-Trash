@@ -15,8 +15,15 @@ class_name Interactable extends Area3D
 		collision_position = val
 
 @export_group("Config")
-@export var interact_button : InputEvent
+@export var interact_button : InputEventKey
 @export var message: String
+
+# SIGNALS
+signal interacted(interactor : Player)
+
+# FUNCS
+func interact(interactor : Player):
+	interacted.emit(interactor)
 
 # NODES
 @onready var COLLISION = %CollisionShape3D

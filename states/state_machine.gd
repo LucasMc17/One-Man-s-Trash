@@ -12,7 +12,7 @@ func _ready():
 			push_warning("State machine contains incompatible child node")
 	
 	await owner.ready
-	CURRENT_STATE.enter(null)
+	CURRENT_STATE.enter(null, {})
 
 func _input(event):
 	CURRENT_STATE.input(event)
@@ -28,5 +28,5 @@ func on_child_transition(new_state_name: StringName):
 	var new_state = states.get(new_state_name)
 	if new_state != null and new_state != CURRENT_STATE:
 		CURRENT_STATE.exit()
-		new_state.enter(CURRENT_STATE)
+		new_state.enter(CURRENT_STATE, {})
 		CURRENT_STATE = new_state

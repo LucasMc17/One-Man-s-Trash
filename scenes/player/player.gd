@@ -10,6 +10,7 @@ class_name Player extends CharacterBody3D
 @onready var PHONE := %Phone
 @onready var INTERACTOR := %Interactor
 @onready var INTERACT_LABEL := %InteractLabel
+@onready var STATE_MACHINE := %StateMachine
 
 # GLOBALS
 var _mouse_input : bool = false
@@ -28,9 +29,12 @@ var looking_at : Interactable:
 			else:
 				INTERACT_LABEL.text = ''
 		looking_at = val
+var current_state : PlayerState:
+	get():
+		return STATE_MACHINE.CURRENT_STATE
 
 func _ready():
-	# Global.player = self
+	GameState.PLAYER = self
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

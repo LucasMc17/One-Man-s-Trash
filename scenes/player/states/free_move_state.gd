@@ -5,6 +5,9 @@ class_name FreeMoveState extends PlayerState
 @export var ACCELERATION : float = 0.2
 @export var DECELERATION : float = 0.4
 
+func enter(previous_state : State, ext : Dictionary):
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 func update(delta: float):
 	super(delta)
 	
@@ -34,6 +37,13 @@ func update(delta: float):
 func exit():
 	PLAYER.looking_at = null
 
+func compare_events(input_event : InputEvent, expected : InputEventKey):
+	if input_event is not InputEventKey:
+		return false
+	return input_event.keycode == expected.keycode and input_event.pressed == expected.pressed
+
 func input(event):
 	if event.is_action_pressed("phone"):
 		transition.emit("PhoneState")
+	if PLAYER.looking_at and compare_events(event, PLAYER.looking_at.interact_button):
+		PLAYER.looking_at.interact(PLAYER)

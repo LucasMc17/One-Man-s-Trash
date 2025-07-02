@@ -2,7 +2,7 @@ class_name State extends Node
 
 signal transition(new_state_name: StringName)
 
-func enter(previous_state):
+func enter(previous_state : State, ext : Dictionary):
 	pass
 
 func exit():

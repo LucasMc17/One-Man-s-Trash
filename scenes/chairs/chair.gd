@@ -33,20 +33,11 @@ class_name Chair extends StaticBody3D
 		if INTERACTABLE:
 			INTERACTABLE.collision_position = val
 		collision_position = val
-# @export var collision_size := Vector3.ONE:
-# 	set(val):
-# 		if COLLISION_SHAPE:
-# 			COLLISION_SHAPE.shape.size = val
-# 		if INTERACTABLE:
-# 			INTERACTABLE.collision_position = val
-# 		collision_size = val
 @export var collision_shape : Shape3D:
 	set(val):
-		print(INTERACTABLE)
 		if COLLISION_SHAPE:
 			COLLISION_SHAPE.shape = val
 		if INTERACTABLE:
-			print(INTERACTABLE)
 			INTERACTABLE.shape = val
 		collision_shape = val
 
@@ -65,3 +56,8 @@ func _ready():
 	# force subscenes to access set functions
 	collision_shape = collision_shape
 	collision_position = collision_position
+
+func _on_interactable_interacted(interactor : Player):
+	print('interacted with object ' + name)
+	# Maybe this should go through a global event via an event bus eventually....... but for now:
+	interactor.current_state.transition.emit('PhoneState')
