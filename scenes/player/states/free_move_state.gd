@@ -13,7 +13,7 @@ func update(delta: float):
 	
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
-	PLAYER.update_velocity()
+	# PLAYER.update_velocity()
 	PLAYER.update_interactor(delta)
 	PLAYER.update_camera(delta)
 	
@@ -36,6 +36,7 @@ func update(delta: float):
 
 func exit():
 	PLAYER.looking_at = null
+	PLAYER.kill_momentum()
 
 func compare_events(input_event : InputEvent, expected : InputEventKey):
 	if input_event is not InputEventKey:

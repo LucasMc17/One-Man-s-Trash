@@ -75,10 +75,6 @@ CURRENT_STATE = NodePath("FreeMoveState")
 
 [node name="FreeMoveState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]
 script = ExtResource("3_gmlin")
-TOP_ANIM_SPEED = null
-SPEED = null
-ACCELERATION = null
-DECELERATION = null
 PLAYER = NodePath("../..")
 
 [node name="PhoneState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]
