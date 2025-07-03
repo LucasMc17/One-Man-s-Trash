@@ -1,18 +1,33 @@
 class_name PhoneState extends PlayerState
 
-@export var DECELERATION : float = 0.4
+var prev_state : PlayerState
+var keep_momentum := false
+
+func _ready():
+	_phone_enabled = true
+	_mouse_enabled = true
 
 func enter(previous_state : State = null, ext := {}):
+	super(previous_state, ext)
+	if previous_state._movement_enabled:
+		keep_momentum = true
+	prev_state = previous_state
 	PLAYER.PHONE.activate()
 	PLAYER.kill_camera_momentum()
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func exit():
 	PLAYER.PHONE.deactivate()
+	keep_momentum = false
+	prev_state = null
 
 func update(_delta):
-	PLAYER.handle_idle_momentum(DECELERATION)
+	if keep_momentum:
+		PLAYER.handle_idle_momentum(DECELERATION)
 
 func input(event):
 	if event.is_action_pressed("phone"):
-		transition("FreeMoveState")
+		if prev_state:
+			print(prev_state.name)
+			transition(prev_state.name)
+		else:
+			transition('FreeMoveState')

@@ -10,6 +10,7 @@ class_name Player extends CharacterBody3D
 @onready var PHONE := %Phone
 @onready var INTERACTOR := %Interactor
 @onready var INTERACT_LABEL := %InteractLabel
+@onready var HINT_LABEL := %HintLabel
 @onready var STATE_MACHINE := %StateMachine
 
 # GLOBALS
@@ -32,6 +33,11 @@ var looking_at : Interactable:
 var current_state : PlayerState:
 	get():
 		return STATE_MACHINE.CURRENT_STATE
+var hint := '':
+	set(val):
+		if HINT_LABEL:
+			HINT_LABEL.text = val
+		hint = val
 
 func _ready():
 	GameState.PLAYER = self

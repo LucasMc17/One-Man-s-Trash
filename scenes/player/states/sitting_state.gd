@@ -4,8 +4,15 @@ class_name SittingState extends PlayerState
 var sitting_position : Vector3
 var _captured := false
 
+func _ready():
+	_phone_enabled = true
+	_camera_enabled = true
+	_gravity_enabled = false
+	_interact_enabled = true
+
 func enter(previous_state : State, ext : Dictionary):
-	print('im sitting now :)')
+	super(previous_state, ext)
+	PLAYER.hint = 'Press [SPACE] to stand up'
 	if ext.has('sitting_position'):
 		sitting_position = ext.sitting_position
 
@@ -15,4 +22,13 @@ func update(delta):
 		if PLAYER.position.distance_to(sitting_position) < 0.1:
 			_captured = true
 	else:
-		PLAYER.update_camera(delta)
+		super(delta)
+
+func input(event):
+	super(event)
+	if event.is_action_pressed("space"):
+		transition("FreeMoveState")
+
+func exit():
+	PLAYER.hint = ''
+	_captured = false
