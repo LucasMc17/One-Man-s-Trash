@@ -12,6 +12,11 @@ class_name Chair extends StaticBody3D
 			SIT_MARKER.position = sit_position
 		if EYELINE_MARKER:
 			EYELINE_MARKER.position = true_sit_position
+@export var get_off_position := Vector3(-1, 0, 0):
+	set(val):
+		if GET_OFF_MARKER:
+			GET_OFF_MARKER.position = val
+		get_off_position = val
 
 @export_category("Model Info")
 @export var mesh : Mesh:
@@ -47,6 +52,7 @@ class_name Chair extends StaticBody3D
 @onready var CHAIR_MESH = %ChairMesh
 @onready var COLLISION_SHAPE = %CollisionShape
 @onready var INTERACTABLE = %Interactable
+@onready var GET_OFF_MARKER = %GetOffMarker
 
 # GLOBALS
 var true_sit_position := Vector3(0, 0.5, 0)
@@ -59,4 +65,4 @@ func _ready():
 
 func _on_interactable_interacted(interactor : Player):
 	print('interacted with object ' + name)
-	interactor.current_state.transition('SittingState', { "sitting_position": sit_position + global_position })
+	interactor.current_state.transition('SittingState', { "sitting_position": sit_position + global_position, "get_off_position": interactor.position })

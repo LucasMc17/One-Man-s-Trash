@@ -26,6 +26,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 gizmo_extents = 1.0
 
+[node name="GetOffMarker" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+gizmo_extents = 1.0
+
 [node name="Interactable" parent="." instance=ExtResource("2_ptq21")]
 unique_name_in_owner = true
 interact_button = SubResource("InputEventKey_ptq21")
