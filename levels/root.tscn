@@ -10,7 +10,7 @@
 
 [node name="DaytimeEnv" parent="." instance=ExtResource("2_8knpd")]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_06ee0")]
+[node name="Player" parent="." instance=ExtResource("1_06ee0")]
 
 [node name="Geometry" type="Node3D" parent="."]
 

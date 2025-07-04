@@ -40,7 +40,7 @@ var hint := '':
 		hint = val
 
 func _ready():
-	GameState.PLAYER = self
+	Global.PLAYER = self
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -83,8 +83,28 @@ func update_camera(delta):
 	_rotation_input = 0.0
 	_tilt_input = 0.0
 
-func _physics_process(delta):
-	pass
+# func _physics_process(delta):
+
+func _process(_delta):
+	if Global.Debug.PLAYER_STATUS:
+		var degs = rad_to_deg(rotation.y) + 180
+		var letter = 'S'
+		if degs >= 22.5 and degs < 67.5:
+			letter = 'SE'
+		elif degs >= 67.5 and degs < 112.5:
+			letter = 'E'
+		elif degs >= 112.5 and degs < 157.5:
+			letter = 'NE'
+		elif degs >= 157.5 and degs < 202.5:
+			letter = 'N'
+		elif degs >= 202.5 and degs < 247.5:
+			letter = 'NW'
+		elif degs >= 247.5 and degs < 292.5:
+			letter = 'W'
+		elif degs >= 292.5 and degs < 337.5:
+			letter = 'SW'
+		Global.Debug.PLAYER_STATUS.direction = "%.2f" % degs + ' ' + letter
+		Global.Debug.PLAYER_STATUS.velocity = str("%.2f" % velocity.length())
 
 func update_gravity(delta):
 	if not is_on_floor():

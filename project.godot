@@ -17,7 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameState="*res://globals/GameStateNode.tscn"
+Global="*res://globals/global_node.tscn"
+
+[display]
+
+window/size/mode=3
 
 [input]
 

@@ -27,7 +27,6 @@ func update(_delta):
 func input(event):
 	if event.is_action_pressed("phone"):
 		if prev_state:
-			print(prev_state.name)
 			transition(prev_state.name)
 		else:
 			transition('FreeMoveState')

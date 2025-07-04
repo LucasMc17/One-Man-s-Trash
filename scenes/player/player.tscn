@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp1q3ngso06dk"]
+[gd_scene load_steps=11 format=3 uid="uid://dp1q3ngso06dk"]
 
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://0k1dvavxiy1l" path="res://debug/debug_ui/debug_ui.tscn" id="2_0owmy"]
 [ext_resource type="PackedScene" uid="uid://bxsfmtysycoo3" path="res://scenes/player/phone/player_phone.tscn" id="2_lvxji"]
 [ext_resource type="Script" uid="uid://iupietc6mcd4" path="res://scenes/player/states/free_move_state.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://c5iy7liovrtbk" path="res://scenes/player/states/phone_state.gd" id="5_p47bc"]
@@ -51,6 +52,9 @@ anchor_bottom = 1.0
 offset_top = -23.0
 offset_right = 40.0
 grow_vertical = 0
+
+[node name="DebugUi" parent="UI" instance=ExtResource("2_0owmy")]
+layout_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
