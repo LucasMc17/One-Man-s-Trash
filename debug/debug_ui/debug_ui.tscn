@@ -4,21 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://m6prpp4m68s6" path="res://debug/debug_ui/debug_console.tscn" id="1_mh0su"]
 
 [node name="DebugUi" type="VBoxContainer"]
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.76
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -276.0
+offset_left = 0.479919
 grow_horizontal = 0
 grow_vertical = 2
 alignment = 2
 
 [node name="PlayerStatus" parent="." instance=ExtResource("1_4xcup")]
-visible = false
-custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
 [node name="DebugConsole" parent="." instance=ExtResource("1_mh0su")]
-visible = false
-custom_minimum_size = Vector2(0, 200)
 layout_mode = 2

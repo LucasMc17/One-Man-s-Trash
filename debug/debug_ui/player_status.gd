@@ -28,6 +28,8 @@ func _ready():
 	Global.Debug.PLAYER_STATUS = self
 	if Global.Debug.debug_override or Global.Debug.show_player_status:
 		visible = true
+	else:
+		visible = false
 
 func _process(delta):
 	fps = "%.2f" % (1.0 / delta)

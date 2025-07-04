@@ -19,6 +19,8 @@ func _ready():
 	Global.Debug.DEBUG_CONSOLE = self
 	if Global.Debug.debug_override or Global.Debug.show_debug_console:
 		visible = true
+	else:
+		visible = false
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

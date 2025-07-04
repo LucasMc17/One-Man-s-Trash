@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bwo602wolgnv1" path="res://debug/debug_ui/player_status.gd" id="1_s7lcx"]
 
 [node name="PlayerStatus" type="Panel"]
+custom_minimum_size = Vector2(0, 160)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,6 +27,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
