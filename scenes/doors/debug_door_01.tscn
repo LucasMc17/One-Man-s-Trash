@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://8t3idewsxgn6"]
+
+[ext_resource type="PackedScene" uid="uid://7felxpnuw878" path="res://scenes/doors/door.tscn" id="1_ljxpf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ljxpf"]
+size = Vector3(1, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ljxpf"]
+size = Vector3(1, 2, 0.1)
+
+[node name="DebugDoor01" instance=ExtResource("1_ljxpf")]
+is_locked = null
+is_open = false
+open_degrees = 90.0
+mesh = SubResource("BoxMesh_ljxpf")
+mesh_position = Vector3(-0.5, 1, 0)
+collision_position = Vector3(-0.5, 1, 0)
+collision_shape = SubResource("BoxShape3D_ljxpf")
+
+[node name="DoorBody" parent="." index="0"]
+transform = Transform3D(1, 0, 4.2039e-45, 0, 1, 0, -4.2039e-45, 0, 1, 0.5, 0, 0)
+
+[node name="DoorMesh" parent="DoorBody" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 0)
+mesh = SubResource("BoxMesh_ljxpf")
+
+[node name="CollisionShape" parent="DoorBody" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 0)
+shape = SubResource("BoxShape3D_ljxpf")
+
+[node name="Interactable" parent="DoorBody" index="3"]
+shape = SubResource("BoxShape3D_ljxpf")
+collision_position = Vector3(-0.5, 1, 0)
+
+[connection signal="interacted" from="DoorBody/Interactable" to="." method="_on_interactable_interacted"]

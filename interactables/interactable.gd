@@ -27,3 +27,9 @@ func interact(interactor : Player):
 
 # NODES
 @onready var COLLISION = %CollisionShape3D
+
+# BUILT INS
+# this seems to be necessary for nested interactables, as is the case with Doors
+func _ready():
+	COLLISION.shape = shape
+	COLLISION.position = collision_position

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://7felxpnuw878"]
+
+[ext_resource type="Script" uid="uid://di021taalrmk8" path="res://scenes/doors/door.gd" id="1_vl1pl"]
+[ext_resource type="PackedScene" uid="uid://cc3i1lkhw8w7t" path="res://interactables/Interactable.tscn" id="2_cjc7v"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cjc7v"]
+device = -1
+keycode = 69
+unicode = 101
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_vl1pl")
+is_locked = null
+is_open = null
+open_degrees = null
+
+[node name="DoorBody" type="AnimatableBody3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="DoorBody"]
+
+[node name="DoorMesh" type="MeshInstance3D" parent="DoorBody"]
+unique_name_in_owner = true
+
+[node name="CollisionShape" type="CollisionShape3D" parent="DoorBody"]
+unique_name_in_owner = true
+
+[node name="Interactable" parent="DoorBody" instance=ExtResource("2_cjc7v")]
+unique_name_in_owner = true
+interact_button = SubResource("InputEventKey_cjc7v")
+message = "Press [E] to open"
