@@ -9,7 +9,7 @@ size = Vector3(1, 2, 0.1)
 size = Vector3(1, 2, 0.1)
 
 [node name="DebugDoor01" instance=ExtResource("1_ljxpf")]
-is_locked = null
+is_locked = false
 is_open = false
 open_degrees = 90.0
 mesh = SubResource("BoxMesh_ljxpf")

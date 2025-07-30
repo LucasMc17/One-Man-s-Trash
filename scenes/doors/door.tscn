@@ -10,9 +10,6 @@ unicode = 101
 
 [node name="Door" type="Node3D"]
 script = ExtResource("1_vl1pl")
-is_locked = null
-is_open = null
-open_degrees = null
 
 [node name="DoorBody" type="AnimatableBody3D" parent="."]
 unique_name_in_owner = true
