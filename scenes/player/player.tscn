@@ -10,11 +10,11 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0owmy"]
 albedo_color = Color(0.17316, 0.718229, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_onrkg"]
-material = SubResource("StandardMaterial3D_4flbx")
+material = SubResource("StandardMaterial3D_0owmy")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_dovo2")
