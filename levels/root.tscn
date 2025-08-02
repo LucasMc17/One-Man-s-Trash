@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2m4463t40ea1"]
+[gd_scene load_steps=7 format=3 uid="uid://b2m4463t40ea1"]
 
 [ext_resource type="PackedScene" uid="uid://dp1q3ngso06dk" path="res://scenes/player/player.tscn" id="1_06ee0"]
 [ext_resource type="PackedScene" uid="uid://bquo2sra7l7e6" path="res://scenes/envs/daytime_env.tscn" id="2_8knpd"]
 [ext_resource type="PackedScene" uid="uid://brwpkrrtos4o5" path="res://debug/debug_block.tscn" id="3_fna0s"]
 [ext_resource type="PackedScene" uid="uid://bo47ph4exyenq" path="res://scenes/chairs/debug_chair_01.tscn" id="4_70sce"]
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/npcs/base_npc.tscn" id="5_h8gg8"]
+[ext_resource type="PackedScene" uid="uid://bctvs0pbevh86" path="res://scenes/npcs/bartender/bartender.tscn" id="6_i14i6"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -62,4 +63,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, 2.97665)
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="BaseNPC" parent="." instance=ExtResource("5_h8gg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.05293, 0, 1.24452)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24623, 0, 3.63089)
+
+[node name="Bartender" parent="." instance=ExtResource("6_i14i6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13708, 0, 2.25)
+POINT_A = Vector3(3.137, 0, -4)
+POINT_B = Vector3(3.137, 0, 2.25)

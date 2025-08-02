@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cc3i1lkhw8w7t" path="res://interactables/Interactable.tscn" id="1_65blf"]
 [ext_resource type="Script" uid="uid://44ewrqrvbb6h" path="res://scenes/npcs/base_npc.gd" id="1_wwrmc"]
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="2_vy5f6"]
-[ext_resource type="Script" uid="uid://m1kjxk0oq7j1" path="res://scenes/npcs/states/npc_state.gd" id="4_iwxdd"]
+[ext_resource type="Script" uid="uid://bunxtellu4roh" path="res://scenes/npcs/states/npc_idle_state.gd" id="4_iwxdd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6qnc6"]
 
@@ -20,7 +20,7 @@ device = -1
 keycode = 69
 unicode = 101
 
-[node name="BaseNPC" type="AnimatableBody3D"]
+[node name="BaseNPC" type="CharacterBody3D"]
 script = ExtResource("1_wwrmc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -38,11 +38,9 @@ message = "Press [E] to talk"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("2_vy5f6")
-CURRENT_STATE = NodePath("TestState")
+CURRENT_STATE = NodePath("IdleState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="TestState" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("4_iwxdd")
-
-[node name="MovementPoints" type="Node3D" parent="."]
-unique_name_in_owner = true
+ACTOR = NodePath("")
