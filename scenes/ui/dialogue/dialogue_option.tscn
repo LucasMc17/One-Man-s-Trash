@@ -1,0 +1,40 @@
+[gd_scene load_steps=13 format=3 uid="uid://ca5mflnc8ygq"]
+
+[ext_resource type="Script" uid="uid://ecpi0kpm1y2b" path="res://scenes/ui/dialogue/dialogue_option.gd" id="1_urd05"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttm0r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urd05"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brhgb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwbkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qb661"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1y8ih"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qp3wf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ey2sv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75qsl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh7ar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gcgh"]
+
+[node name="DialogueOption" type="Button"]
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ttm0r")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_urd05")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_brhgb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_cwbkk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qb661")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1y8ih")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qp3wf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ey2sv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_75qsl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_yh7ar")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2gcgh")
+text = "Test Button"
+script = ExtResource("1_urd05")

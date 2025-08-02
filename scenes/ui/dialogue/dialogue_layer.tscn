@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://cekqblrfqotxk"]
+
+[ext_resource type="Script" uid="uid://dfxcywirxqjuj" path="res://scenes/ui/dialogue/dialogue_layer.gd" id="1_h4cyo"]
+
+[node name="DialogueLayer" type="VBoxContainer"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.512
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 250.0
+offset_top = -5.56805
+offset_right = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h4cyo")
+
+[node name="NPCScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="NPCLine" type="Label" parent="NPCScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hi hi hi!!!!!!"
+
+[node name="PlayerScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="PlayerOptions" type="VBoxContainer" parent="PlayerScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2

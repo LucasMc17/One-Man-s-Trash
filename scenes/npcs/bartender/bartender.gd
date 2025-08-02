@@ -21,3 +21,7 @@ class_name Bartender extends NPC
 func _ready():
 	MP_A.global_position = POINT_A
 	MP_B.global_position = POINT_B
+
+func _on_interactable_interacted(interactor : Player):
+	STATE_MACHINE.CURRENT_STATE.transition("TalkState")
+	interactor.current_state.transition('TalkState')

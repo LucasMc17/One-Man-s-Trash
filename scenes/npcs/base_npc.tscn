@@ -7,18 +7,18 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6qnc6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qnc6"]
-albedo_color = Color(1, 0.560784, 1, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_65blf"]
-material = SubResource("StandardMaterial3D_6qnc6")
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vy5f6"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_wwrmc"]
 device = -1
 keycode = 69
 unicode = 101
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qnc6"]
+albedo_color = Color(1, 0.560784, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_65blf"]
+material = SubResource("StandardMaterial3D_6qnc6")
 
 [node name="BaseNPC" type="CharacterBody3D"]
 script = ExtResource("1_wwrmc")
@@ -27,9 +27,6 @@ script = ExtResource("1_wwrmc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_6qnc6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("CapsuleMesh_65blf")
-
 [node name="Interactable" parent="." instance=ExtResource("1_65blf")]
 shape = SubResource("CapsuleShape3D_vy5f6")
 collision_position = Vector3(0, 1, 0)
@@ -37,10 +34,18 @@ interact_button = SubResource("InputEventKey_wwrmc")
 message = "Press [E] to talk"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+unique_name_in_owner = true
 script = ExtResource("2_vy5f6")
 CURRENT_STATE = NodePath("IdleState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("ACTOR")]
+[node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("4_iwxdd")
-ACTOR = NodePath("")
+
+[node name="MovementPoints" type="Node3D" parent="."]
+top_level = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_65blf")
+skeleton = NodePath("../CollisionShape3D")

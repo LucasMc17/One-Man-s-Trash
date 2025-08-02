@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp1q3ngso06dk"]
+[gd_scene load_steps=13 format=3 uid="uid://dp1q3ngso06dk"]
 
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://0k1dvavxiy1l" path="res://debug/debug_ui/debug_ui.tscn" id="2_0owmy"]
 [ext_resource type="PackedScene" uid="uid://bxsfmtysycoo3" path="res://scenes/player/phone/player_phone.tscn" id="2_lvxji"]
+[ext_resource type="PackedScene" uid="uid://cekqblrfqotxk" path="res://scenes/ui/dialogue/dialogue_layer.tscn" id="3_5gtgg"]
 [ext_resource type="Script" uid="uid://iupietc6mcd4" path="res://scenes/player/states/free_move_state.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://c5iy7liovrtbk" path="res://scenes/player/states/phone_state.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://cwxv6y722a417" path="res://scenes/player/states/sitting_state.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://lh2j23ejhb7o" path="res://scenes/player/states/talk_state.gd" id="8_qek5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -56,6 +58,9 @@ grow_vertical = 0
 [node name="DebugUi" parent="UI" instance=ExtResource("2_0owmy")]
 layout_mode = 1
 
+[node name="DialogueLayer" parent="UI" instance=ExtResource("3_5gtgg")]
+layout_mode = 1
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_sh265")
@@ -98,6 +103,10 @@ PLAYER = NodePath("../..")
 
 [node name="SittingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]
 script = ExtResource("6_75vfm")
+PLAYER = NodePath("../..")
+
+[node name="TalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("8_qek5x")
 PLAYER = NodePath("../..")
 
 [node name="ItemViewport" type="SubViewportContainer" parent="."]

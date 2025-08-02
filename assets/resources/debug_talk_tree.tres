@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=2 format=3 uid="uid://dhok5l5olgn2y"]
+
+[ext_resource type="Script" uid="uid://co185e461rg03" path="res://assets/resources/talk_tree.gd" id="1_x68lm"]
+
+[resource]
+script = ExtResource("1_x68lm")
+PROMPT = ""
+DIALOGUE = "Hello, this is dialogue"
+PLAYER_OPTIONS = Array[ExtResource("1_x68lm")]([])
+EXIT_OPTION = ""
+metadata/_custom_type_script = "uid://co185e461rg03"
