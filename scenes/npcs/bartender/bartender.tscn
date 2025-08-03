@@ -1,43 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bctvs0pbevh86"]
+[gd_scene load_steps=9 format=3 uid="uid://bctvs0pbevh86"]
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/npcs/base_npc.tscn" id="1_e6hot"]
 [ext_resource type="Script" uid="uid://c10ngdvj438bd" path="res://scenes/npcs/bartender/bartender.gd" id="2_0vtm4"]
 [ext_resource type="Script" uid="uid://dcpoadyqdlw8l" path="res://scenes/npcs/states/npc_move_to_point_state.gd" id="3_mgsqx"]
 [ext_resource type="Script" uid="uid://bonlk86vgxp5h" path="res://scenes/npcs/states/npc_idle_with_timer.gd" id="4_qblmu"]
 [ext_resource type="Script" uid="uid://byy8ut45r621x" path="res://scenes/npcs/states/npc_talk_state.gd" id="5_d1v5y"]
-
-[sub_resource type="GDScript" id="GDScript_alpou"]
-script/source = "class_name TalkTree extends Resource
-
-@export_multiline var PROMPT : String
-@export_multiline var DIALOGUE : String
-@export var RESPONSES : Array[TalkTree]
-@export var EXIT_RESPONSE : String
-"
-
-[sub_resource type="Resource" id="Resource_jmi27"]
-script = SubResource("GDScript_alpou")
-PROMPT = "Hi!"
-DIALOGUE = "Hello!"
-RESPONSES = null
-EXIT_RESPONSE = "Bye"
-metadata/_custom_type_script = "uid://biphrcv7xv16p"
-
-[sub_resource type="Resource" id="Resource_qvd3p"]
-script = SubResource("GDScript_alpou")
-PROMPT = "Leave me alone!"
-DIALOGUE = "Ok jeez..."
-RESPONSES = null
-EXIT_RESPONSE = "Bye"
-metadata/_custom_type_script = "uid://biphrcv7xv16p"
-
-[sub_resource type="Resource" id="Resource_d1v5y"]
-script = SubResource("GDScript_alpou")
-PROMPT = null
-DIALOGUE = "Hi, this is dialogue!"
-RESPONSES = [SubResource("Resource_jmi27"), SubResource("Resource_qvd3p")]
-EXIT_RESPONSE = "Bye"
-metadata/_custom_type_script = "uid://biphrcv7xv16p"
+[ext_resource type="Resource" uid="uid://dhok5l5olgn2y" path="res://assets/resources/debug_talk_tree.tres" id="6_d1v5y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qblmu"]
 albedo_color = Color(0, 0.898448, 0.45655, 1)
@@ -49,6 +17,7 @@ material = SubResource("StandardMaterial3D_qblmu")
 script = ExtResource("2_0vtm4")
 POINT_A = Vector3(0, 0, 0)
 POINT_B = Vector3(0, 0, 0)
+TALK_TREE = ExtResource("6_d1v5y")
 
 [node name="StateMachine" parent="." index="2" node_paths=PackedStringArray("CURRENT_STATE")]
 CURRENT_STATE = NodePath("IdlePointB")
@@ -79,7 +48,6 @@ metadata/_custom_type_script = "uid://bonlk86vgxp5h"
 
 [node name="TalkState" type="Node" parent="StateMachine" index="5" node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("5_d1v5y")
-TALK_TREE = SubResource("Resource_d1v5y")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://byy8ut45r621x"
 

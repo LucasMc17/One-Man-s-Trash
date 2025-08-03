@@ -37,4 +37,5 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_75qsl")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_yh7ar")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2gcgh")
 text = "Test Button"
+alignment = 0
 script = ExtResource("1_urd05")

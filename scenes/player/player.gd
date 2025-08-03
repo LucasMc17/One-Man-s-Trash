@@ -12,6 +12,7 @@ class_name Player extends CharacterBody3D
 @onready var INTERACT_LABEL := %InteractLabel
 @onready var HINT_LABEL := %HintLabel
 @onready var STATE_MACHINE := %StateMachine
+@onready var DIALOGUE_LAYER := %DialogueLayer
 
 # GLOBALS
 var _mouse_input : bool = false
@@ -22,6 +23,7 @@ var _player_rotation : Vector3
 var _camera_rotation : Vector3
 var _current_rotation : float
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var talking_to : NPC
 var looking_at : Interactable:
 	set(val):
 		if INTERACT_LABEL:
@@ -82,6 +84,13 @@ func update_camera(delta):
 	
 	_rotation_input = 0.0
 	_tilt_input = 0.0
+
+func exit_dialogue():
+	if talking_to:
+		if talking_to.current_state is NPCTalkState:
+			talking_to.current_state.return_to_last_state()
+	if current_state is TalkState:
+		current_state.return_to_last_state()
 
 # func _physics_process(delta):
 

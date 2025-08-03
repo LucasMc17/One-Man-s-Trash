@@ -1,4 +1,12 @@
 extends Button
 
+var is_exit := false
+var TALK_TREE : TalkTree
+
+signal option_clicked(talk_tree : TalkTree)
+
 func _pressed():
-	Global.log("clicked a dialog option")
+	if is_exit:
+		Global.PLAYER.exit_dialogue()
+	else:
+		option_clicked.emit(TALK_TREE)

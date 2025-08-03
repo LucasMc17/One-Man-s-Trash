@@ -4,10 +4,9 @@ class_name NPCMoveToPointState extends NPCState
 @export var POINT : Marker3D
 @export var NEXT_STATE : NPCState
 
-func physics_update(delta: float):
+func physics_update(_delta: float):
 	var direction = POINT.global_position - ACTOR.global_position
 	if ACTOR.is_on_floor():
-		# Global.log(POINT.global_position)
 		if ACTOR.global_position.distance_to(POINT.global_position) > 0.1:
 			var vector = direction.normalized() * 2.5
 			ACTOR.velocity.x = vector.x

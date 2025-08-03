@@ -1,7 +1,5 @@
 class_name NPCTalkState extends NPCState
 
-@export var TALK_TREE : TalkTree
-
 var prev_state : NPCState
 
 func enter(previous_state, ext): 
@@ -13,3 +11,7 @@ func enter(previous_state, ext):
 func exit():
 	super()
 	prev_state = null
+
+func return_to_last_state():
+	if prev_state:
+		transition(prev_state.name)

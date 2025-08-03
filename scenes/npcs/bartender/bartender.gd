@@ -13,6 +13,7 @@ class_name Bartender extends NPC
 		if MP_B:
 			MP_B.global_position = val
 		POINT_B= val
+@export var TALK_TREE : TalkTree
 
 # NODES
 @onready var MP_A = %MP_A
@@ -24,4 +25,4 @@ func _ready():
 
 func _on_interactable_interacted(interactor : Player):
 	STATE_MACHINE.CURRENT_STATE.transition("TalkState")
-	interactor.current_state.transition('TalkState')
+	interactor.current_state.transition('TalkState', {"TALK_TREE": TALK_TREE, "TALKING_TO": self})

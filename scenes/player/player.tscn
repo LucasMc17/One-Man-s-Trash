@@ -59,6 +59,7 @@ grow_vertical = 0
 layout_mode = 1
 
 [node name="DialogueLayer" parent="UI" instance=ExtResource("3_5gtgg")]
+unique_name_in_owner = true
 layout_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -1,11 +1,26 @@
-[gd_resource type="Resource" script_class="TalkTree" load_steps=2 format=3 uid="uid://dhok5l5olgn2y"]
+[gd_resource type="Resource" script_class="TalkTree" load_steps=4 format=3 uid="uid://dhok5l5olgn2y"]
 
-[ext_resource type="Script" uid="uid://co185e461rg03" path="res://assets/resources/talk_tree.gd" id="1_x68lm"]
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_tree.gd" id="1_x68lm"]
+
+[sub_resource type="Resource" id="Resource_jr27n"]
+script = ExtResource("1_x68lm")
+PROMPT = "Leave me alone!"
+DIALOGUE = "Ok, jeez..."
+PLAYER_OPTIONS = Array[ExtResource("1_x68lm")]([])
+EXIT_OPTION = "Bye"
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_x68lm"]
+script = ExtResource("1_x68lm")
+PROMPT = "Oh, Hi!"
+DIALOGUE = "Hello!"
+PLAYER_OPTIONS = Array[ExtResource("1_x68lm")]([])
+EXIT_OPTION = "Bye"
+metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
 script = ExtResource("1_x68lm")
 PROMPT = ""
 DIALOGUE = "Hello, this is dialogue"
-PLAYER_OPTIONS = Array[ExtResource("1_x68lm")]([])
-EXIT_OPTION = ""
-metadata/_custom_type_script = "uid://co185e461rg03"
+PLAYER_OPTIONS = Array[ExtResource("1_x68lm")]([SubResource("Resource_jr27n"), SubResource("Resource_x68lm")])
+EXIT_OPTION = "Bye"
