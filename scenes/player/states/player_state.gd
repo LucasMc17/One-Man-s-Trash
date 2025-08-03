@@ -36,7 +36,7 @@ func update(delta):
 	if _movement_enabled:
 		PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 
-func enter(previous_state : State, ext : Dictionary):
+func enter(_previous_state : State, _ext : Dictionary):
 	if Global.Debug.PLAYER_STATUS:
 		Global.Debug.PLAYER_STATUS.state = name
 	if _mouse_enabled:
