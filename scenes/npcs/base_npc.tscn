@@ -39,8 +39,9 @@ script = ExtResource("2_vy5f6")
 CURRENT_STATE = NodePath("IdleState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="IdleState" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("4_iwxdd")
+ACTOR = NodePath("../..")
 
 [node name="MovementPoints" type="Node3D" parent="."]
 top_level = true

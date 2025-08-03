@@ -6,6 +6,7 @@ class_name NPCIdleWithTimer extends NPCState
 var time_left := TIMEOUT
 
 func update(delta):
+	super(delta)
 	time_left -= delta
 	if time_left <= 0:
 		transition(NEXT_STATE.name, {})

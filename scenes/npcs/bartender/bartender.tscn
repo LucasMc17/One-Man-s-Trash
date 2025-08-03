@@ -36,14 +36,16 @@ NEXT_STATE = NodePath("../IdlePointB")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://dcpoadyqdlw8l"
 
-[node name="IdlePointA" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("NEXT_STATE")]
+[node name="IdlePointA" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("NEXT_STATE", "ACTOR")]
 script = ExtResource("4_qblmu")
 NEXT_STATE = NodePath("../MoveToPointB")
+ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://bonlk86vgxp5h"
 
-[node name="IdlePointB" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("NEXT_STATE")]
+[node name="IdlePointB" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("NEXT_STATE", "ACTOR")]
 script = ExtResource("4_qblmu")
 NEXT_STATE = NodePath("../MoveToPointA")
+ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://bonlk86vgxp5h"
 
 [node name="TalkState" type="Node" parent="StateMachine" index="5" node_paths=PackedStringArray("ACTOR")]

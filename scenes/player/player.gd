@@ -118,6 +118,7 @@ func _process(_delta):
 func update_gravity(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		move_and_slide()
 
 func update_input(speed : float, acceleration: float, deceleration: float):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
