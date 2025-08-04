@@ -20,6 +20,7 @@ class_name Bartender extends NPC
 @onready var MP_B = %MP_B
 
 func _ready():
+	super()
 	MP_A.global_position = POINT_A
 	MP_B.global_position = POINT_B
 

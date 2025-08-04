@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg11xi7m44ms"]
+
+[ext_resource type="Script" uid="uid://bq26wuoc71etp" path="res://debug/npc_debug/npc_debug_panel.gd" id="1_3yg1c"]
+
+[node name="NPCDebugPanel" type="Node3D"]
+script = ExtResource("1_3yg1c")
+
+[node name="NameRow" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.429222, 0)
+
+[node name="NameLabel" type="Label3D" parent="NameRow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13499, 0)
+billboard = 1
+no_depth_test = true
+text = "NPC Name:"
+font_size = 20
+
+[node name="NameValue" type="Label3D" parent="NameRow"]
+unique_name_in_owner = true
+billboard = 1
+no_depth_test = true
+text = "Name"
+
+[node name="StateRow" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.122616, 0)
+
+[node name="StateLabel" type="Label3D" parent="StateRow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13499, 0)
+billboard = 1
+no_depth_test = true
+text = "Active State:"
+font_size = 20
+
+[node name="StateValue" type="Label3D" parent="StateRow"]
+unique_name_in_owner = true
+billboard = 1
+no_depth_test = true
+text = "State"
