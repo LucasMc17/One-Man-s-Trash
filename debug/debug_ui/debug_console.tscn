@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dl4npam5575wb" path="res://debug/debug_ui/debug_console.gd" id="1_bp33c"]
 
-[node name="DebugConsole" type="Panel"]
+[node name="DebugConsole" type="Panel" groups=["debug"]]
 custom_minimum_size = Vector2(0, 500)
 anchors_preset = 15
 anchor_right = 1.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bq26wuoc71etp" path="res://debug/npc_debug/npc_debug_panel.gd" id="1_3yg1c"]
 
-[node name="NPCDebugPanel" type="Node3D"]
+[node name="NPCDebugPanel" type="Node3D" groups=["debug"]]
 script = ExtResource("1_3yg1c")
 
 [node name="NameRow" type="Node3D" parent="."]

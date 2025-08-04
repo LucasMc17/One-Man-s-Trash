@@ -17,10 +17,8 @@ func get_from_history(pointer : int):
 # BUILT INS
 func _ready():
 	Global.Debug.DEBUG_CONSOLE = self
-	if Global.Debug.debug_override or Global.Debug.show_debug_console:
-		visible = true
-	else:
-		visible = false
+	if Global.Debug.debug_override == "DEFER":
+		visible = Global.Debug.show_debug_console
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
