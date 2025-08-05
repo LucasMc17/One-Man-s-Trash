@@ -43,7 +43,7 @@ var DEBUG_SCENES : Array = []
 func log_string(string, prefix := ''):
 	DEBUG_CONSOLE.History.text += '\n' + prefix + str(string)
 
-func log(message):
+func cons_log(message):
 	# NOTE: this could get much more in depth but this will do for now
 		print(message)
 		if DEBUG_CONSOLE:
@@ -56,6 +56,94 @@ func log(message):
 					log_string(element, prefix)
 			else:
 				log_string(message, '> ')
+
+func command(command_name : String, inputs : Array, full_command : String):
+	cons_log(full_command)
+	if commands.has(command_name):
+		var result = commands[command_name].logic.call(inputs)
+		if result:
+			cons_log(result)
+	else:
+		cons_log('Error: command unknown')
+	cons_log('')
+
+var commands : Dictionary = {
+	"help": {
+		"logic": func(_options):
+			for key in self.commands.keys():
+				cons_log(key + '\n')
+				cons_log('-- ' + self.commands[key].description)
+				var examples
+				var params
+				if len(self.commands[key].examples) == 0:
+					examples = "<none>"
+				else:
+					examples = "`" + "`, `".join(self.commands[key].examples) + "`"
+				if len(self.commands[key].parameters) == 0:
+					params = "<none>"
+				else:
+					params = self.commands[key].parameters
+				cons_log('---- Parameters: ' + params)
+				cons_log('---- e.g. ' + examples + '\n'),
+		"description": "Lists the available commands of this debug console.",
+		"parameters": "",
+		"examples": ["help"]
+	},
+
+	"echo": {
+		"logic": func(message): 
+			if message.size() == 1:
+				message = message[0]
+			return message,
+		"description": "Prints a message to the console.",
+		"parameters": "Pass any text following the command to echo it to the console",
+		"examples": ["echo this", "echo that", "echo this and that"]
+	},
+
+	"clear": {
+		"logic": func(_options):
+			DEBUG_CONSOLE.clear(),
+		"description": "Clears the console",
+		"parameters": "",
+		"examples": ["clear"]
+	},
+
+	"set_npc_state": {
+		"logic": func (options):
+			if options.size() < 2:
+				return "Error: Please provide an NPC name and a state to transition to"
+			var npc_name = options[0]
+			var npc_state_name = options[1]
+			var npc_index = Global.NPCS.find_custom(func (item): return item.name == npc_name)
+			if npc_index == -1:
+				return "Error: NPC not found"
+			var npc = Global.NPCS[npc_index]
+			if !npc.STATE_MACHINE.has_node(npc_state_name):
+				return "Error: NPC " + npc_name + " does not have that state"
+			npc.current_state.transition(npc_state_name)
+			return "NPC " + npc_name + " transitioned to state " + npc_state_name,
+		"description": "Transitions a chosen NPC in the scene to a chosen behavior state",
+		"parameters": "1. The name of the NPC. 2. The name of the state to transition to",
+		"examples": ["set_npc_state Bartender MoveToPointA", "set_npc_state BarPatron01 TalkState"]
+	}
+
+	# "set_debug": {
+	# 	"logic": func(options):
+	# 		if options.size() == 0:
+	# 			return "Error: provide the option 0 to turn debug mode off, or 1 to turn it on"
+	# 		if options[0] == "1":
+	# 			debug_mode = true
+	# 			return "DEBUG MODE ON"
+	# 		elif options[0] == "0":
+	# 			debug_mode = false
+	# 			return "DEBUG MODE OFF"
+	# 		else:
+	# 			return "Error: provide the option 0 to turn debug mode off, or 1 to turn it on",
+	# 	"description": "Sets debug mode on or off.",
+	# 	"parameters": "1. Pass either 0 or 1. 0 to turn debug mode off, 1 to turn it on",
+	# 	"examples": ["set_debug 0", "set_debug 1"]
+	# },
+}
 
 func _ready():
 	DEBUG_SCENES = get_tree().get_nodes_in_group('debug')

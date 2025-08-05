@@ -21,7 +21,7 @@ albedo_color = Color(1, 0.560784, 1, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_65blf"]
 material = SubResource("StandardMaterial3D_6qnc6")
 
-[node name="BaseNPC" type="CharacterBody3D"]
+[node name="BaseNPC" type="CharacterBody3D" groups=["NPCs"]]
 script = ExtResource("1_wwrmc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

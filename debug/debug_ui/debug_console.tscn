@@ -29,3 +29,6 @@ scroll_following = true
 [node name="CommandLine" type="LineEdit" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+keep_editing_on_text_submit = true
+
+[connection signal="text_submitted" from="VBoxContainer/CommandLine" to="." method="_on_command_line_text_submitted"]

@@ -42,8 +42,7 @@ var hint := '':
 		hint = val
 
 func _ready():
-	Global.PLAYER = self
-	
+	Global.GameState.PLAYER = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
