@@ -27,7 +27,7 @@ var talking_to : NPC
 var looking_at : Interactable:
 	set(val):
 		if INTERACT_LABEL:
-			if val:
+			if val and current_state._interact_enabled:
 				INTERACT_LABEL.text = val.message
 			else:
 				INTERACT_LABEL.text = ''
@@ -133,7 +133,7 @@ func update_input(speed : float, acceleration: float, deceleration: float):
 
 func update_interactor(_delta):
 	var coll = INTERACTOR.get_collider()
-	if coll is Interactable:
+	if coll is Interactable and (coll.global_position - INTERACTOR.global_position).length() < coll.max_distance:
 		looking_at = coll
 	else:
 		looking_at = null

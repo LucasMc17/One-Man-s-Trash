@@ -43,3 +43,5 @@ func enter(_previous_state : State, _ext : Dictionary):
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if !_interact_enabled:
+		PLAYER.INTERACT_LABEL.text = ''

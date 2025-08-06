@@ -16,6 +16,7 @@ class_name Interactable extends Area3D
 
 @export_group("Config")
 @export var interact_button : InputEventKey
+@export var max_distance : = 2.0
 @export var message: String
 
 # SIGNALS

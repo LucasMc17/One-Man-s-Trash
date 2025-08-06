@@ -126,23 +126,6 @@ var commands : Dictionary = {
 		"parameters": "1. The name of the NPC. 2. The name of the state to transition to",
 		"examples": ["set_npc_state Bartender MoveToPointA", "set_npc_state BarPatron01 TalkState"]
 	}
-
-	# "set_debug": {
-	# 	"logic": func(options):
-	# 		if options.size() == 0:
-	# 			return "Error: provide the option 0 to turn debug mode off, or 1 to turn it on"
-	# 		if options[0] == "1":
-	# 			debug_mode = true
-	# 			return "DEBUG MODE ON"
-	# 		elif options[0] == "0":
-	# 			debug_mode = false
-	# 			return "DEBUG MODE OFF"
-	# 		else:
-	# 			return "Error: provide the option 0 to turn debug mode off, or 1 to turn it on",
-	# 	"description": "Sets debug mode on or off.",
-	# 	"parameters": "1. Pass either 0 or 1. 0 to turn debug mode off, 1 to turn it on",
-	# 	"examples": ["set_debug 0", "set_debug 1"]
-	# },
 }
 
 func _ready():

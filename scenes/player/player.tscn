@@ -84,7 +84,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.083
 
 [node name="Interactor" type="RayCast3D" parent="CameraController/Camera3D"]
 unique_name_in_owner = true
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -5)
 collision_mask = 2
 collide_with_areas = true
 debug_shape_thickness = 5

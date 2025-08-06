@@ -34,6 +34,7 @@ gizmo_extents = 1.0
 [node name="Interactable" parent="." instance=ExtResource("2_ptq21")]
 unique_name_in_owner = true
 interact_button = SubResource("InputEventKey_ptq21")
+max_distance = 2.5
 message = "Press [E] to sit"
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

@@ -12,6 +12,7 @@ func physics_update(delta: float):
 			var vector = direction.normalized() * 2.5
 			ACTOR.velocity.x = vector.x
 			ACTOR.velocity.z = vector.z
+			ACTOR.rotation.y = lerp_angle(ACTOR.rotation.y, atan2(-ACTOR.velocity.x, -ACTOR.velocity.z), 0.15)
 			# ACTOR.run()
 		else:
 			transition(NEXT_STATE.name)
