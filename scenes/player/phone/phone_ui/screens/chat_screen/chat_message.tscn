@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cca71k1osut06"]
+
+[ext_resource type="Texture2D" uid="uid://bwncnit2xcjb4" path="res://assets/images/message_chat_bubble.png" id="1_oyj20"]
+[ext_resource type="Script" uid="uid://dixwqdo7cktsx" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_message.gd" id="2_lo76c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oyj20"]
+texture = ExtResource("1_oyj20")
+texture_margin_left = 65.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 45.0
+
+[sub_resource type="FontFile" id="FontFile_lo76c"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_sutee"]
+default_font = SubResource("FontFile_lo76c")
+
+[node name="ChatMessage" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oyj20")
+script = ExtResource("2_lo76c")
+MESSAGE = "aaaaaaaaaaaa"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = -40
+
+[node name="Text" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(107, 0)
+layout_mode = 2
+theme = SubResource("Theme_sutee")
+autowrap_mode = 3

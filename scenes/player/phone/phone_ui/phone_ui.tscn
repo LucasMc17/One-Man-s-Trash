@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://j2j2u1vykxu3"]
+
+[ext_resource type="PackedScene" uid="uid://bqaplirhi6ao5" path="res://scenes/player/phone/phone_ui/top_bar.tscn" id="1_3dmou"]
+[ext_resource type="Script" uid="uid://c2cob8k531q64" path="res://scenes/player/phone/phone_ui/phone_ui.gd" id="1_7oyur"]
+[ext_resource type="PackedScene" uid="uid://bxh10ihs33o6w" path="res://scenes/player/phone/phone_ui/screens/home_screen.tscn" id="1_dk2uo"]
+[ext_resource type="PackedScene" uid="uid://0jm2aoblojro" path="res://scenes/player/phone/phone_ui/screens/chats_screen/chats_screen.tscn" id="2_da1kr"]
+[ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="3_rbj2s"]
+[ext_resource type="PackedScene" uid="uid://d34xb5tjwqrov" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_screen.tscn" id="4_qjcuk"]
+[ext_resource type="Script" uid="uid://cvg0s8mggcbw" path="res://scenes/player/phone/phone_states/phone_ui_state.gd" id="5_da1kr"]
+
+[sub_resource type="Curve" id="Curve_3dmou"]
+_data = [Vector2(0.0948276, 0.866255), 0.0, 0.0, 0, 0, Vector2(0.781609, 0.206972), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rbj2s"]
+_data = [Vector2(0.0833333, 0.487049), 0.0, 0.0, 0, 0, Vector2(0.577586, 0.0559187), 0.0, 0.0, 0, 0, Vector2(0.860632, 0.177076), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_dk2uo"]
+_data = [Vector2(0.25, 0.587751), 0.0, 0.0, 0, 0, Vector2(0.488506, 0.806463), 0.0, 0.0, 0, 0, Vector2(0.820402, 0.579884), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_da1kr"]
+curve_x = SubResource("Curve_3dmou")
+curve_y = SubResource("Curve_rbj2s")
+curve_z = SubResource("Curve_dk2uo")
+
+[node name="PhoneUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1944.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7oyur")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CurveXYZTexture_da1kr")
+
+[node name="Screens" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HomeScreen" parent="Screens" instance=ExtResource("1_dk2uo")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="ChatsScreen" parent="Screens" instance=ExtResource("2_da1kr")]
+visible = false
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="ChatScreen" parent="Screens" instance=ExtResource("4_qjcuk")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="TopBar" parent="." instance=ExtResource("1_3dmou")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 1080.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+unique_name_in_owner = true
+script = ExtResource("3_rbj2s")
+CURRENT_STATE = NodePath("ChatState")
+metadata/_custom_type_script = "uid://cau1wg8ulku16"
+
+[node name="HomeState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
+script = ExtResource("5_da1kr")
+SCREEN = NodePath("../../Screens/HomeScreen")
+metadata/_custom_type_script = "uid://cvg0s8mggcbw"
+
+[node name="ChatsState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
+script = ExtResource("5_da1kr")
+SCREEN = NodePath("../../Screens/ChatsScreen")
+SHOULD_POP_UP = true
+metadata/_custom_type_script = "uid://cvg0s8mggcbw"
+
+[node name="ChatState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
+script = ExtResource("5_da1kr")
+SCREEN = NodePath("../../Screens/ChatScreen")
+metadata/_custom_type_script = "uid://cvg0s8mggcbw"
+
+[connection signal="chats_tapped" from="Screens/HomeScreen" to="." method="_on_home_screen_chats_tapped"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnmyg05m7fvbd"]
+
+[ext_resource type="Texture2D" uid="uid://dqx42sc4nnfr3" path="res://assets/images/messages_app_icon.png" id="1_iieex"]
+
+[node name="PhoneIcon" type="TextureButton"]
+size_flags_horizontal = 6
+texture_normal = ExtResource("1_iieex")
