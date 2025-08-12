@@ -1,23 +1,26 @@
 [gd_scene format=3 uid="uid://bqaplirhi6ao5"]
 
 [node name="TopBar" type="HBoxContainer"]
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-offset_left = -167.0
 offset_bottom = 23.0
-grow_horizontal = 0
+grow_horizontal = 2
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="Time" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6:18 PM"
+
+[node name="Service" type="Label" parent="."]
 layout_mode = 2
 text = "Service"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Battery" type="Label" parent="."]
+layout_mode = 2
+text = "82%"
+
+[node name="WiFi" type="Label" parent="."]
 layout_mode = 2
 text = "WiFi"
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 2
-text = "Battery"

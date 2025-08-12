@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://deklgvcr480ji"]
+[gd_scene load_steps=3 format=3 uid="uid://deklgvcr480ji"]
 
+[ext_resource type="Script" uid="uid://c3cirvip7us7g" path="res://scenes/player/phone/phone_ui/screens/chats_screen/list_chat.gd" id="1_d84nc"]
 [ext_resource type="Texture2D" uid="uid://7mlokt7p4kgb" path="res://assets/images/placeholder.png" id="1_q4etd"]
 
 [node name="ListChat" type="MarginContainer"]
@@ -8,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_d84nc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

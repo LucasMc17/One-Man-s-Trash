@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bjkb3iqlr7y67"]
+
+[ext_resource type="Texture2D" uid="uid://clx1t6v53iqs3" path="res://assets/images/user_message_chat_bubble.png" id="1_bh3s1"]
+
+[resource]
+texture = ExtResource("1_bh3s1")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 65.0
+texture_margin_bottom = 45.0
+modulate_color = Color(0.266569, 0.865746, 1, 1)

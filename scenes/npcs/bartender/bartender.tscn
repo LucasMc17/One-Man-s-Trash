@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dcpoadyqdlw8l" path="res://scenes/npcs/states/npc_move_to_point_state.gd" id="3_mgsqx"]
 [ext_resource type="Script" uid="uid://bonlk86vgxp5h" path="res://scenes/npcs/states/npc_idle_with_timer.gd" id="4_qblmu"]
 [ext_resource type="Script" uid="uid://byy8ut45r621x" path="res://scenes/npcs/states/npc_talk_state.gd" id="5_d1v5y"]
-[ext_resource type="Resource" uid="uid://dhok5l5olgn2y" path="res://assets/resources/debug_talk_tree.tres" id="6_d1v5y"]
+[ext_resource type="Resource" uid="uid://dhok5l5olgn2y" path="res://assets/resources/talk_trees/debug_talk_tree.tres" id="6_d1v5y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qblmu"]
 albedo_color = Color(0, 0.898448, 0.45655, 1)

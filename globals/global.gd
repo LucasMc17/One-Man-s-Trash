@@ -9,6 +9,9 @@ var PLAYER : Player:
 var NPCS : Array:
 	get():
 		return GameState.NPCS
+var PLAYER_PHONE : Control:
+	get():
+		return GameState.PLAYER_PHONE
 
 func log(message):
-	Debug.log(message)
+	Debug.cons_log(message)

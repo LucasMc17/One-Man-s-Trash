@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://j2j2u1vykxu3"]
+[gd_scene load_steps=14 format=3 uid="uid://j2j2u1vykxu3"]
 
 [ext_resource type="PackedScene" uid="uid://bqaplirhi6ao5" path="res://scenes/player/phone/phone_ui/top_bar.tscn" id="1_3dmou"]
 [ext_resource type="Script" uid="uid://c2cob8k531q64" path="res://scenes/player/phone/phone_ui/phone_ui.gd" id="1_7oyur"]
 [ext_resource type="PackedScene" uid="uid://bxh10ihs33o6w" path="res://scenes/player/phone/phone_ui/screens/home_screen.tscn" id="1_dk2uo"]
+[ext_resource type="Theme" uid="uid://g5j6e0e6atk2" path="res://assets/themes/phone_ui.tres" id="1_uf4t0"]
 [ext_resource type="PackedScene" uid="uid://0jm2aoblojro" path="res://scenes/player/phone/phone_ui/screens/chats_screen/chats_screen.tscn" id="2_da1kr"]
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="3_rbj2s"]
 [ext_resource type="PackedScene" uid="uid://d34xb5tjwqrov" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_screen.tscn" id="4_qjcuk"]
 [ext_resource type="Script" uid="uid://cvg0s8mggcbw" path="res://scenes/player/phone/phone_states/phone_ui_state.gd" id="5_da1kr"]
+[ext_resource type="Script" uid="uid://ccwb0p4od4hq2" path="res://scenes/player/phone/phone_states/phone_chat_state.gd" id="9_35ghu"]
 
 [sub_resource type="Curve" id="Curve_3dmou"]
 _data = [Vector2(0.0948276, 0.866255), 0.0, 0.0, 0, 0, Vector2(0.781609, 0.206972), 0.0, 0.0, 0, 0]
@@ -34,6 +36,7 @@ offset_right = -1944.0
 offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_uf4t0")
 script = ExtResource("1_7oyur")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -65,6 +68,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="ChatScreen" parent="Screens" instance=ExtResource("4_qjcuk")]
+visible = false
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
@@ -72,15 +76,13 @@ offset_bottom = 0.0
 [node name="TopBar" parent="." instance=ExtResource("1_3dmou")]
 layout_mode = 2
 anchors_preset = 0
-anchor_left = 0.0
 anchor_right = 0.0
-offset_left = 0.0
 offset_right = 1080.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
 script = ExtResource("3_rbj2s")
-CURRENT_STATE = NodePath("ChatState")
+CURRENT_STATE = NodePath("HomeState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="HomeState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
@@ -91,12 +93,12 @@ metadata/_custom_type_script = "uid://cvg0s8mggcbw"
 [node name="ChatsState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
 script = ExtResource("5_da1kr")
 SCREEN = NodePath("../../Screens/ChatsScreen")
-SHOULD_POP_UP = true
 metadata/_custom_type_script = "uid://cvg0s8mggcbw"
 
 [node name="ChatState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
-script = ExtResource("5_da1kr")
+script = ExtResource("9_35ghu")
 SCREEN = NodePath("../../Screens/ChatScreen")
-metadata/_custom_type_script = "uid://cvg0s8mggcbw"
+metadata/_custom_type_script = "uid://ccwb0p4od4hq2"
 
 [connection signal="chats_tapped" from="Screens/HomeScreen" to="." method="_on_home_screen_chats_tapped"]
+[connection signal="chat_selected" from="Screens/ChatsScreen" to="." method="_on_chats_screen_chat_selected"]

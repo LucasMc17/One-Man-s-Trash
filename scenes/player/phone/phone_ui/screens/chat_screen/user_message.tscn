@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cca71k1osut06"]
+[gd_scene load_steps=5 format=3 uid="uid://bqfxkwcaplgun"]
 
-[ext_resource type="StyleBox" uid="uid://cwwb1h06ctaga" path="res://assets/themes/style_boxes/chat_message.tres" id="1_lo76c"]
-[ext_resource type="Script" uid="uid://dixwqdo7cktsx" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_message.gd" id="2_lo76c"]
+[ext_resource type="Script" uid="uid://dixwqdo7cktsx" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_message.gd" id="1_1jv53"]
+[ext_resource type="StyleBox" uid="uid://bjkb3iqlr7y67" path="res://assets/themes/style_boxes/user_chat_message.tres" id="1_k2jwc"]
 
 [sub_resource type="FontFile" id="FontFile_lo76c"]
 cache/0/16/0/ascent = 0.0
@@ -475,26 +475,27 @@ cache/0/94/0/underline_position = 0.0
 cache/0/94/0/underline_thickness = 0.0
 cache/0/94/0/scale = 1.0
 
-[sub_resource type="Theme" id="Theme_sutee"]
+[sub_resource type="Theme" id="Theme_f5umv"]
 default_font = SubResource("FontFile_lo76c")
 
-[node name="ChatMessage" type="PanelContainer"]
+[node name="UserMessage" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = ExtResource("1_lo76c")
-script = ExtResource("2_lo76c")
+size_flags_horizontal = 8
+theme_override_styles/panel = ExtResource("1_k2jwc")
+script = ExtResource("1_1jv53")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = -40
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = -40
 
 [node name="Text" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(107, 0)
 layout_mode = 2
-theme = SubResource("Theme_sutee")
+theme = SubResource("Theme_f5umv")
 autowrap_mode = 3

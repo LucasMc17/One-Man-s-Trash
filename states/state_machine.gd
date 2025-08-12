@@ -1,6 +1,8 @@
 class_name StateMachine extends Node
 
+@export var DISABLED := false
 @export var CURRENT_STATE : State
+
 var states: Dictionary = {}
 
 func _ready():
@@ -25,8 +27,9 @@ func _physics_process(delta):
 	CURRENT_STATE.physics_update(delta)
 
 func on_child_transitioned(new_state_name: StringName, ext : Dictionary):
-	var new_state = states.get(new_state_name)
-	if new_state != null and new_state != CURRENT_STATE:
-		CURRENT_STATE.exit()
-		new_state.enter(CURRENT_STATE, ext)
-		CURRENT_STATE = new_state
+	if !DISABLED:
+		var new_state = states.get(new_state_name)
+		if new_state != null and new_state != CURRENT_STATE:
+			CURRENT_STATE.exit()
+			new_state.enter(CURRENT_STATE, ext)
+			CURRENT_STATE = new_state
