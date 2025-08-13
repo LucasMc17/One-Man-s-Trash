@@ -5,17 +5,22 @@ extends Control
 
 var USER_MESSAGE = preload('./user_message.tscn')
 var CHAT_MESSAGE = preload('./chat_message.tscn')
+var TIME_STAMP = preload('./time_stamp.tscn')
 
-func activate(message_list : MessageList):
+func activate(message_list : Array[MessageList]):
 	for child in MESSAGE_HOLDER.get_children():
 		child.queue_free()
-	for message in message_list.MESSAGES:
-		if message is ContactMessage:
-			var text_scene = CHAT_MESSAGE.instantiate()
-			text_scene.MESSAGE = message.MESSAGE
-			MESSAGE_HOLDER.add_child(text_scene)
-		if message is UserMessage:
-			var text_scene = USER_MESSAGE.instantiate()
-			text_scene.MESSAGE = message.MESSAGE
-			MESSAGE_HOLDER.add_child(text_scene)
+	for list in message_list:
+		var time_stamp = TIME_STAMP.instantiate()
+		time_stamp.text = list.TIME_STAMP
+		MESSAGE_HOLDER.add_child(time_stamp)
+		for message in list.MESSAGES:
+			if message is ContactMessage:
+				var text_scene = CHAT_MESSAGE.instantiate()
+				text_scene.MESSAGE = message.MESSAGE
+				MESSAGE_HOLDER.add_child(text_scene)
+			if message is UserMessage:
+				var text_scene = USER_MESSAGE.instantiate()
+				text_scene.MESSAGE = message.MESSAGE
+				MESSAGE_HOLDER.add_child(text_scene)
 	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value

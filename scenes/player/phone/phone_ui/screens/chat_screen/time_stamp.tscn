@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d23h4bucuawbg"]
+
+[node name="TimeStamp" type="Label"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.529067, 0.529067, 0.529067, 1)
+text = "12:00 PM"
+horizontal_alignment = 1

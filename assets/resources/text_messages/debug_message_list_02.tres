@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="MessageList" load_steps=11 format=3 uid="uid://dxeriem2xhhsc"]
+
+[ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="1_tsiav"]
+[ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://assets/resources/text_messages/contact_message.gd" id="2_c5p4u"]
+[ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://assets/resources/text_messages/message_list.gd" id="2_ohs6n"]
+[ext_resource type="Script" uid="uid://c4nkxj81ujh5u" path="res://assets/resources/text_messages/user_message.gd" id="3_u36jn"]
+
+[sub_resource type="Resource" id="Resource_jaaei"]
+script = ExtResource("2_c5p4u")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "I'm texting you"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_0nb6c"]
+script = ExtResource("3_u36jn")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "cool, got it"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_nmgbr"]
+script = ExtResource("2_c5p4u")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Do you need anything from the store?"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_8hdqc"]
+script = ExtResource("3_u36jn")
+FALSE_STARTS = Array[String](["Just a loaf of", "I need a ca"])
+MESSAGE = "I'm good thanks"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_cfk22"]
+script = ExtResource("2_c5p4u")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "cool"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_g0r7s"]
+script = ExtResource("3_u36jn")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "see you soon"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[resource]
+script = ExtResource("2_ohs6n")
+MESSAGES = Array[ExtResource("1_tsiav")]([SubResource("Resource_jaaei"), SubResource("Resource_0nb6c"), SubResource("Resource_nmgbr"), SubResource("Resource_8hdqc"), SubResource("Resource_cfk22"), SubResource("Resource_g0r7s")])
+metadata/_custom_type_script = "uid://c7essjownyvxc"
