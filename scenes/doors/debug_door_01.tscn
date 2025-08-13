@@ -9,9 +9,6 @@ size = Vector3(1, 2, 0.1)
 size = Vector3(1, 2, 0.1)
 
 [node name="DebugDoor01" instance=ExtResource("1_ljxpf")]
-is_locked = false
-is_open = false
-open_degrees = 90.0
 mesh = SubResource("BoxMesh_ljxpf")
 mesh_position = Vector3(-0.5, 1, 0)
 collision_position = Vector3(-0.5, 1, 0)

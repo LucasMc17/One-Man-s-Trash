@@ -1,6 +1,7 @@
 extends Control
 
-@onready var MESSAGE_HOLDER = %MessageHolder
+@onready var MESSAGE_HOLDER := %MessageHolder
+@onready var SCROLL_CONTAINER := %ScrollContainer
 
 var USER_MESSAGE = preload('./user_message.tscn')
 var CHAT_MESSAGE = preload('./chat_message.tscn')
@@ -17,3 +18,4 @@ func activate(message_list : MessageList):
 			var text_scene = USER_MESSAGE.instantiate()
 			text_scene.MESSAGE = message.MESSAGE
 			MESSAGE_HOLDER.add_child(text_scene)
+	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value

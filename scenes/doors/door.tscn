@@ -26,4 +26,5 @@ unique_name_in_owner = true
 [node name="Interactable" parent="DoorBody" instance=ExtResource("2_cjc7v")]
 unique_name_in_owner = true
 interact_button = SubResource("InputEventKey_cjc7v")
+max_distance = 3.0
 message = "Press [E] to open"
