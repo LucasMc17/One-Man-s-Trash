@@ -23,6 +23,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+vertical_scroll_mode = 2
 
 [node name="MessageHolder" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" index="0"]
 unique_name_in_owner = true
@@ -84,3 +85,12 @@ MESSAGE = "I love flowers I’d love to have the whole place swimming in roses G
 [node name="UserMessage6" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="13" instance=ExtResource("3_jprlh")]
 layout_mode = 2
 MESSAGE = "Cool, thank you!!"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="DraftText" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c74sejw1g33e1"]
+
+[node name="TextBox" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Draft message"
