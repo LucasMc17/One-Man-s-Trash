@@ -125,6 +125,20 @@ var commands : Dictionary = {
 		"description": "Transitions a chosen NPC in the scene to a chosen behavior state",
 		"parameters": "1. The name of the NPC. 2. The name of the state to transition to",
 		"examples": ["set_npc_state Bartender MoveToPointA", "set_npc_state BarPatron01 TalkState"]
+	},
+
+	"set_level_state": {
+		"logic": func (options):
+			if options.size() < 1:
+				return "Error: Please provide a state name to transition to"
+			var state_name = options[0]
+			if !Global.LEVEL.STATE_MACHINE.has_node(state_name):
+				return "Error: Level does not have that state"
+			Global.LEVEL.CURRENT_STATE.transition(state_name)
+			return "Level transitioned to state " + state_name,
+		"description": "Transitions the level to a chosen state",
+		"parameters": "1. The name of the LevelState",
+		"examples": ["set_level_state DebugState", "set_level_state TextAmandaState"]
 	}
 }
 

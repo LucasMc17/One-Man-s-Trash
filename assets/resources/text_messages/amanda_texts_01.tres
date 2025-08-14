@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="MessageList" load_steps=16 format=3 uid="uid://dq4emaufqar8g"]
+
+[ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="1_c3ytr"]
+[ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://assets/resources/text_messages/contact_message.gd" id="2_pgrge"]
+[ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://assets/resources/text_messages/message_list.gd" id="2_tr6p5"]
+[ext_resource type="Script" uid="uid://c4nkxj81ujh5u" path="res://assets/resources/text_messages/user_message.gd" id="3_ca6cl"]
+
+[sub_resource type="Resource" id="Resource_7gyjx"]
+script = ExtResource("2_pgrge")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Hey, did you wrap?"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_o75xt"]
+script = ExtResource("3_ca6cl")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "Yeah we're just grabbing a quick dinner now"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_p8sc1"]
+script = ExtResource("2_pgrge")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "What happened today?"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_msuol"]
+script = ExtResource("2_pgrge")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "I'm hearing complaints. About Bart."
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_745hf"]
+script = ExtResource("3_ca6cl")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "He was off his game. i think the nerves got to him too tbh"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_253vo"]
+script = ExtResource("2_pgrge")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Ok."
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_7qu28"]
+script = ExtResource("2_pgrge")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "I'm just not liking what I'm hearing from the crew"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_8ef3q"]
+script = ExtResource("2_pgrge")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "It's ok if you're both nervous, that happens but"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_adeon"]
+script = ExtResource("2_pgrge")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Look you have another shoot tomorrow"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_2drgq"]
+script = ExtResource("2_pgrge")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "It just can't be like it was today."
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_xrnpv"]
+script = ExtResource("3_ca6cl")
+FALSE_STARTS = Array[String](["He didn't", "It wo"])
+MESSAGE = "Ok."
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[resource]
+script = ExtResource("2_tr6p5")
+MESSAGES = Array[ExtResource("1_c3ytr")]([SubResource("Resource_7gyjx"), SubResource("Resource_o75xt"), SubResource("Resource_p8sc1"), SubResource("Resource_msuol"), SubResource("Resource_745hf"), SubResource("Resource_253vo"), SubResource("Resource_7qu28"), SubResource("Resource_8ef3q"), SubResource("Resource_adeon"), SubResource("Resource_2drgq"), SubResource("Resource_xrnpv")])
+TIME_STAMP = "6:18 PM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"

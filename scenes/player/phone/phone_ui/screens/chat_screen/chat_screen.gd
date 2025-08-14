@@ -7,14 +7,14 @@ var USER_MESSAGE = preload('./user_message.tscn')
 var CHAT_MESSAGE = preload('./chat_message.tscn')
 var TIME_STAMP = preload('./time_stamp.tscn')
 
-func activate(message_list : Array[MessageList]):
+func activate(contact : TextContact):
 	for child in MESSAGE_HOLDER.get_children():
 		child.queue_free()
-	for list in message_list:
+	for exchange in contact.TEXT_EXCHANGES:
 		var time_stamp = TIME_STAMP.instantiate()
-		time_stamp.text = list.TIME_STAMP
+		time_stamp.text = exchange.TIME_STAMP
 		MESSAGE_HOLDER.add_child(time_stamp)
-		for message in list.MESSAGES:
+		for message in exchange.MESSAGES:
 			if message is ContactMessage:
 				var text_scene = CHAT_MESSAGE.instantiate()
 				text_scene.MESSAGE = message.MESSAGE

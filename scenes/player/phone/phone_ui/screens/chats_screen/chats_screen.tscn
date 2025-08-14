@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://0jm2aoblojro"]
+[gd_scene load_steps=3 format=3 uid="uid://0jm2aoblojro"]
 
 [ext_resource type="PackedScene" uid="uid://cxym2k2saibfc" path="res://scenes/player/phone/phone_ui/screens/base_screen.tscn" id="1_p7ptc"]
 [ext_resource type="Script" uid="uid://qlpttevmus8o" path="res://scenes/player/phone/phone_ui/screens/chats_screen/chats_screen.gd" id="2_4votk"]
-[ext_resource type="PackedScene" uid="uid://deklgvcr480ji" path="res://scenes/player/phone/phone_ui/screens/chats_screen/list_chat.tscn" id="2_k7o1a"]
-[ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://assets/resources/text_messages/message_list.gd" id="4_bjjs5"]
-[ext_resource type="Resource" uid="uid://dr4ab6pq43i18" path="res://assets/resources/text_messages/debug_message_list_01.tres" id="4_h2ue0"]
-[ext_resource type="Resource" uid="uid://dxeriem2xhhsc" path="res://assets/resources/text_messages/debug_message_list_02.tres" id="5_ih67w"]
 
 [node name="ChatsScreen" instance=ExtResource("1_p7ptc")]
 script = ExtResource("2_4votk")
@@ -22,15 +18,3 @@ horizontal_alignment = 1
 [node name="Chats" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="ListChat" parent="MarginContainer/VBoxContainer/Chats" index="0" instance=ExtResource("2_k7o1a")]
-layout_mode = 2
-MESSAGES = Array[ExtResource("4_bjjs5")]([ExtResource("4_h2ue0")])
-MESSAGES_TO_COME = ExtResource("5_ih67w")
-NAME = "John"
-
-[node name="ListChat2" parent="MarginContainer/VBoxContainer/Chats" index="1" instance=ExtResource("2_k7o1a")]
-layout_mode = 2
-MESSAGES = Array[ExtResource("4_bjjs5")]([ExtResource("4_h2ue0"), ExtResource("4_h2ue0")])
-MESSAGES_TO_COME = ExtResource("5_ih67w")
-NAME = "Sarah"

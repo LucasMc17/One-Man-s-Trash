@@ -33,3 +33,9 @@ func on_child_transitioned(new_state_name: StringName, ext : Dictionary):
 			CURRENT_STATE.exit()
 			new_state.enter(CURRENT_STATE, ext)
 			CURRENT_STATE = new_state
+
+func lock():
+	DISABLED = true
+
+func unlock():
+	DISABLED = false

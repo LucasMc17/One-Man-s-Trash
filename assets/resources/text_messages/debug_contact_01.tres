@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="TextContact" load_steps=12 format=3 uid="uid://dmvqs8ujwomyd"]
+
+[ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://assets/resources/text_messages/message_list.gd" id="1_7aiwx"]
+[ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="2_1h4vw"]
+[ext_resource type="Script" uid="uid://bl2o5yk4q2h54" path="res://assets/resources/text_messages/text_contact.gd" id="2_hy3x0"]
+[ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://assets/resources/text_messages/contact_message.gd" id="3_6xmr5"]
+[ext_resource type="Script" uid="uid://c4nkxj81ujh5u" path="res://assets/resources/text_messages/user_message.gd" id="4_6xmr5"]
+
+[sub_resource type="Resource" id="Resource_cryl6"]
+script = ExtResource("3_6xmr5")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Hello"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_4dtfe"]
+script = ExtResource("4_6xmr5")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "Hi"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_4q1o5"]
+script = ExtResource("1_7aiwx")
+MESSAGES = Array[ExtResource("2_1h4vw")]([SubResource("Resource_cryl6"), SubResource("Resource_4dtfe")])
+TIME_STAMP = "8:46 AM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[sub_resource type="Resource" id="Resource_6xmr5"]
+script = ExtResource("4_6xmr5")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "What's up?"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_5cixp"]
+script = ExtResource("3_6xmr5")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Oh, noth ing"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_7h0cv"]
+script = ExtResource("1_7aiwx")
+MESSAGES = Array[ExtResource("2_1h4vw")]([SubResource("Resource_6xmr5"), SubResource("Resource_5cixp")])
+TIME_STAMP = "12:13 PM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[resource]
+script = ExtResource("2_hy3x0")
+TEXT_EXCHANGES = Array[ExtResource("1_7aiwx")]([SubResource("Resource_4q1o5"), SubResource("Resource_7h0cv")])
+CONTACT_NAME = "John Doe"
+metadata/_custom_type_script = "uid://bl2o5yk4q2h54"
