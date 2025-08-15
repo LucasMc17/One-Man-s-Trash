@@ -16,7 +16,7 @@ func enter(previous_state : PhoneUIState, ext := {}):
 		NEW_MESSAGES = ext.new_exchange
 
 func input(event):
-	if NEW_MESSAGES and NEW_MESSAGES.MESSAGES[0] and NEW_MESSAGES.MESSAGES[0] is UserMessage:
+	if NEW_MESSAGES and NEW_MESSAGES.MESSAGES.size() > 0 and NEW_MESSAGES.MESSAGES[0] is UserMessage:
 		if Input.is_action_just_pressed("enter"):
 			if DRAFT == NEW_MESSAGES.MESSAGES[0].MESSAGE:
 				send()
@@ -26,8 +26,6 @@ func input(event):
 			var is_alpha = keycode >= KEY_A && keycode <= KEY_Z
 			if is_alpha:
 				add_character(NEW_MESSAGES.MESSAGES[0].MESSAGE)
-	# if NEW_MESSAGES and NEW_MESSAGES.MESSAGES[0]:
-	# 	Global.log(NEW_MESSAGES.MESSAGES[0].MESSAGE)
 
 func add_character(finished_message : String):
 	DRAFT = finished_message.left(DRAFT.length() + 1)
@@ -45,7 +43,6 @@ func start_response(message: ContactMessage):
 
 func update(delta):
 	if TIMER_ON:
-		Global.log(TIMER)
 		TIMER -= delta
 	if TIMER < 0:
 		TIMER = 0
@@ -55,11 +52,12 @@ func update(delta):
 
 func check_next_message():
 	if NEW_MESSAGES.MESSAGES.size() == 0:
-		Global.log('end of convo')
+		end_conversation()
 		return
 	if NEW_MESSAGES.MESSAGES[0] is ContactMessage:
 		start_response(NEW_MESSAGES.MESSAGES[0])
 		return
-	# if NEW_MESSAGES.MESSAGES[0] is UserMessage:
-	# 	start_response(NEW_MESSAGES.MESSAGES[0])
-	# 	return
+
+func end_conversation():
+	Global.PLAYER.STATE_MACHINE.unlock()
+	Global.PLAYER_PHONE.STATE_MACHINE.unlock()

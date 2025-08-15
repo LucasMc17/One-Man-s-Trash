@@ -1,4 +1,14 @@
 extends Control
 
-func _on_phone_icon_pressed():
-	Global.PLAYER_PHONE.CURRENT_STATE.transition('ChatsState')
+@onready var ICON_CONTAINER = %IconContainer
+
+var ICONS := {}
+
+func _ready():
+	for child in ICON_CONTAINER.get_children():
+		ICONS[child.name] = child
+	Events.text_received.connect(_on_text_received)
+
+func _on_text_received(_contact_name : String, _new_exchange : MessageList):
+	if ICONS.has('ChatsIcon'):
+		ICONS.ChatsIcon.NOTIFICATION = true

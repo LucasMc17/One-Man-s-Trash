@@ -10,7 +10,6 @@ var TIME_STAMP = preload('./time_stamp.tscn')
 
 var DRAFT := "":
 	set(val):
-		Global.log(val)
 		DRAFT_TEXT.text = val
 		DRAFT = val
 
@@ -31,6 +30,7 @@ func activate(contact : TextContact):
 				var text_scene = USER_MESSAGE.instantiate()
 				text_scene.MESSAGE = message.MESSAGE
 				MESSAGE_HOLDER.add_child(text_scene)
+	await get_tree().process_frame
 	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
 
 func send_text(text : UserMessage):
@@ -38,8 +38,12 @@ func send_text(text : UserMessage):
 	text_scene.MESSAGE = text.MESSAGE
 	MESSAGE_HOLDER.add_child(text_scene)
 	DRAFT = ""
+	await get_tree().process_frame
+	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
 
 func receive_text(text : ContactMessage):
 	var text_scene = CHAT_MESSAGE.instantiate()
 	text_scene.MESSAGE = text.MESSAGE
 	MESSAGE_HOLDER.add_child(text_scene)
+	await get_tree().process_frame
+	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value

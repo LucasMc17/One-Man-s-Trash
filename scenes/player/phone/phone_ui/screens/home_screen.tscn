@@ -9,34 +9,20 @@ script = ExtResource("2_u6eor")
 
 [node name="ColorRect" parent="." index="0"]
 visible = false
-color = Color(0.794121, 0.794121, 0.794121, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" index="0"]
+clip_contents = false
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer" index="0"]
+[node name="IconContainer" type="GridContainer" parent="MarginContainer/ScrollContainer" index="0"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/v_separation = 100
 columns = 3
 
-[node name="PhoneIcon" parent="MarginContainer/ScrollContainer/GridContainer" index="0" instance=ExtResource("2_exoml")]
+[node name="ChatsIcon" parent="MarginContainer/ScrollContainer/IconContainer" index="0" instance=ExtResource("2_exoml")]
 layout_mode = 2
-
-[node name="PhoneIcon2" parent="MarginContainer/ScrollContainer/GridContainer" index="1" instance=ExtResource("2_exoml")]
-layout_mode = 2
-
-[node name="PhoneIcon3" parent="MarginContainer/ScrollContainer/GridContainer" index="2" instance=ExtResource("2_exoml")]
-layout_mode = 2
-
-[node name="PhoneIcon4" parent="MarginContainer/ScrollContainer/GridContainer" index="3" instance=ExtResource("2_exoml")]
-layout_mode = 2
-
-[node name="PhoneIcon5" parent="MarginContainer/ScrollContainer/GridContainer" index="4" instance=ExtResource("2_exoml")]
-layout_mode = 2
-
-[node name="PhoneIcon6" parent="MarginContainer/ScrollContainer/GridContainer" index="5" instance=ExtResource("2_exoml")]
-layout_mode = 2
-
-[connection signal="pressed" from="MarginContainer/ScrollContainer/GridContainer/PhoneIcon" to="." method="_on_phone_icon_pressed"]
+APP_NAME = "Messages"
+STATE_NAME = "ChatsState"

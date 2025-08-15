@@ -18,12 +18,6 @@ func _ready():
 	NAME_LABEL.text = CONTACT.CONTACT_NAME
 	MESSAGE_LABEL.text = CONTACT.TEXT_EXCHANGES[-1].MESSAGES[-1].MESSAGE
 
-# func notify():
-# 	var next_message = MESSAGES_TO_COME.MESSAGES.pop_front()
-# 	var new_text_exchange = MessageList.new()
-# 	new_text_exchange.MESSAGES.append(next_message)
-# 	CONTACT.TEXT_EXCHANGES.append(new_text_exchange)
-
 func _on_text_received(contact_name : String, new_exchange : MessageList):
 	if contact_name == CONTACT.CONTACT_NAME:
 		NOTIFICATION = true
