@@ -1,6 +1,6 @@
 extends Node
 
-@export_group("Debug Settings")
+@export_group("Debug Info")
 ## Controls the visibility of all debug elements:
 ## [br][br]ON: All debug scenes are visible, regardless of their individual visibility settings.
 ## [br]OFF: All debug scenes are invisible, regardless of their individual visibility settings.
@@ -34,6 +34,12 @@ extends Node
 			for panel in NPC_STATUSES:
 				panel.visible = val
 		show_npc_status = val
+
+@export_group("Godmode Settings")
+## When set to `true`, contact messages arrive instantly during active chat state
+@export var skip_wait_times := false
+## When set to `true`, user text messages fill with a single keystroke during active chat state
+@export var skip_typing := false
 
 var DEBUG_CONSOLE : DebugConsole
 var PLAYER_STATUS : PlayerStatus

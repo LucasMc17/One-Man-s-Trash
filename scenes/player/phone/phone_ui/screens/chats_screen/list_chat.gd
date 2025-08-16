@@ -3,14 +3,20 @@ extends MarginContainer
 
 @export var MESSAGES_TO_COME : MessageList
 @export var CONTACT : TextContact
-@export var NOTIFICATION := false
+@export var NOTIFICATION := false:
+	set(val):
+		if NOTIFICATION_CIRCLE:
+			NOTIFICATION_CIRCLE.visible = val
+		NOTIFICATION = val
 
 @onready var NAME_LABEL = %ContactName
 @onready var MESSAGE_LABEL = %LastMessage
+@onready var NOTIFICATION_CIRCLE = %NotificationCircle
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Global.PLAYER_PHONE.CURRENT_STATE.transition('ChatState', { "contact": CONTACT, "active": NOTIFICATION, "new_exchange": MESSAGES_TO_COME })
+		Global.PLAYER_PHONE.STATE_MACHINE.states.HomeState.remove_notification('ChatsIcon')
 		NOTIFICATION = false
 
 func _ready():
@@ -19,6 +25,7 @@ func _ready():
 
 func _on_text_received(contact : TextContact, new_exchange : MessageList):
 	if contact == CONTACT:
+		get_parent().move_child(self, 0)
 		NOTIFICATION = true
 		var new_text_exchange = MessageList.new()
 		new_text_exchange.TIME_STAMP = new_exchange.TIME_STAMP

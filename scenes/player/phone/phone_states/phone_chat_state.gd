@@ -30,7 +30,10 @@ func input(event):
 				add_character(NEW_MESSAGES.MESSAGES[0].MESSAGE)
 
 func add_character(finished_message : String):
-	DRAFT = finished_message.left(DRAFT.length() + 1)
+	if Global.Debug.skip_typing:
+		DRAFT = finished_message
+	else:
+		DRAFT = finished_message.left(DRAFT.length() + 1)
 	SCREEN.DRAFT = DRAFT
 
 func send():
@@ -41,7 +44,10 @@ func send():
 	check_next_message()
 
 func start_response(message: ContactMessage):
-	TIMER = message.TIME_TYPING
+	if Global.Debug.skip_wait_times:
+		TIMER = 0.1
+	else:
+		TIMER = message.TIME_TYPING
 	TIMER_ON = true
 
 func update(delta):

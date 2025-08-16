@@ -6,8 +6,8 @@
 [ext_resource type="Theme" uid="uid://g5j6e0e6atk2" path="res://assets/themes/phone_ui.tres" id="1_uf4t0"]
 [ext_resource type="PackedScene" uid="uid://0jm2aoblojro" path="res://scenes/player/phone/phone_ui/screens/chats_screen/chats_screen.tscn" id="2_da1kr"]
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="3_rbj2s"]
+[ext_resource type="Script" uid="uid://dmw4uhl0a0to3" path="res://scenes/player/phone/phone_states/phone_home_state.gd" id="4_dk2uo"]
 [ext_resource type="PackedScene" uid="uid://d34xb5tjwqrov" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_screen.tscn" id="4_qjcuk"]
-[ext_resource type="Script" uid="uid://cvg0s8mggcbw" path="res://scenes/player/phone/phone_states/phone_ui_state.gd" id="5_da1kr"]
 [ext_resource type="Script" uid="uid://bl2o5yk4q2h54" path="res://assets/resources/text_messages/text_contact.gd" id="5_piq51"]
 [ext_resource type="Resource" uid="uid://dmvqs8ujwomyd" path="res://assets/resources/text_messages/debug_contact_01.tres" id="6_22iid"]
 [ext_resource type="Resource" uid="uid://dv8ce25mon2xc" path="res://assets/resources/text_messages/amanda_contact.tres" id="7_qm7od"]
@@ -92,9 +92,9 @@ CURRENT_STATE = NodePath("HomeState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="HomeState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
-script = ExtResource("5_da1kr")
+script = ExtResource("4_dk2uo")
 SCREEN = NodePath("../../Screens/HomeScreen")
-metadata/_custom_type_script = "uid://cvg0s8mggcbw"
+metadata/_custom_type_script = "uid://dmw4uhl0a0to3"
 
 [node name="ChatState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
 script = ExtResource("9_35ghu")

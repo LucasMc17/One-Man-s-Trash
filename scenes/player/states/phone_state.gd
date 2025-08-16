@@ -17,6 +17,7 @@ func enter(previous_state : State = null, ext := {}):
 
 func exit():
 	PLAYER.PHONE.deactivate()
+	Global.PLAYER_PHONE.CURRENT_STATE.transition('HomeState')
 	keep_momentum = false
 	prev_state = null
 
