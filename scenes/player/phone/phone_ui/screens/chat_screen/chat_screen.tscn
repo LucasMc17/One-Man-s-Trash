@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d34xb5tjwqrov"]
+[gd_scene load_steps=11 format=3 uid="uid://d34xb5tjwqrov"]
 
 [ext_resource type="PackedScene" uid="uid://cxym2k2saibfc" path="res://scenes/player/phone/phone_ui/screens/base_screen.tscn" id="1_q06pi"]
 [ext_resource type="Script" uid="uid://b3jdo1rro1fw5" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_screen.gd" id="2_gk1qu"]
@@ -7,6 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://cjag8is6tjtke" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_header.tscn" id="3_o5shx"]
 [ext_resource type="PackedScene" uid="uid://d23h4bucuawbg" path="res://scenes/player/phone/phone_ui/screens/chat_screen/time_stamp.tscn" id="4_2611e"]
 [ext_resource type="PackedScene" uid="uid://y8p0fji702iu" path="res://scenes/player/phone/phone_ui/screens/back_button.tscn" id="7_s6c32"]
+
+[sub_resource type="Gradient" id="Gradient_s6c32"]
+offsets = PackedFloat32Array(0.458853, 1)
+colors = PackedColorArray(0.760297, 0.760297, 0.760297, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n1dg7"]
+gradient = SubResource("Gradient_s6c32")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d02ju"]
+texture = SubResource("GradientTexture1D_n1dg7")
 
 [node name="ChatScreen" instance=ExtResource("1_q06pi")]
 script = ExtResource("2_gk1qu")
@@ -24,6 +34,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+follow_focus = true
 vertical_scroll_mode = 2
 
 [node name="MessageHolder" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" index="0"]
@@ -87,11 +98,27 @@ MESSAGE = "I love flowers I’d love to have the whole place swimming in roses G
 layout_mode = 2
 MESSAGE = "Cool, thank you!!"
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" index="2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="TypingHolder" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d02ju")
+
+[node name="TypingLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/TypingHolder" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Amanda is typing..."
+autowrap_mode = 2
+
+[node name="DraftHolder" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" index="1"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 
-[node name="DraftText" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" index="0"]
+[node name="DraftText" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 autowrap_mode = 2

@@ -2,8 +2,10 @@ class_name PhoneChatState extends PhoneUIState
 
 var NEW_MESSAGES : MessageList
 var DRAFT := ""
-var TIMER := 1000.0
-var TIMER_ON := false
+var BEFORE_TYPING_TIMER := 2.0
+var BEFORE_TYPING_TIMER_ON := false
+var TYPING_TIMER := 2.0
+var TYPING_TIMER_ON := false
 var CONTACT : TextContact
 
 func enter(previous_state : PhoneUIState, ext := {}):
@@ -12,6 +14,7 @@ func enter(previous_state : PhoneUIState, ext := {}):
 		CONTACT = ext.contact
 		SCREEN.activate(ext.contact)
 	if ext.has("active") and ext.active:
+		SCREEN.ACTIVE = true
 		Global.PLAYER.STATE_MACHINE.lock()
 		Global.PLAYER_PHONE.STATE_MACHINE.lock()
 	if ext.has("new_exchange") and ext.new_exchange:
@@ -45,21 +48,39 @@ func send():
 
 func start_response(message: ContactMessage):
 	if Global.Debug.skip_wait_times:
-		TIMER = 0.1
+		BEFORE_TYPING_TIMER = 0.1
 	else:
-		TIMER = message.TIME_TYPING
-	TIMER_ON = true
+		BEFORE_TYPING_TIMER = message.TIME_BEFORE_TYPING
+	BEFORE_TYPING_TIMER_ON = true
 
 func update(delta):
-	if TIMER_ON:
-		TIMER -= delta
-	if TIMER < 0:
-		TIMER = 0
-		TIMER_ON = false
+	super(delta)
+	if BEFORE_TYPING_TIMER_ON:
+		BEFORE_TYPING_TIMER -= delta
+	elif TYPING_TIMER_ON:
+		TYPING_TIMER -= delta
+	if BEFORE_TYPING_TIMER < 0:
+		BEFORE_TYPING_TIMER = 0
+		BEFORE_TYPING_TIMER_ON = false
+		var text = NEW_MESSAGES.MESSAGES[0]
+		start_typing(text)
+	elif TYPING_TIMER < 0:
+		TYPING_TIMER = 0
+		TYPING_TIMER_ON = false
 		var text = NEW_MESSAGES.MESSAGES.pop_front()
 		SCREEN.receive_text(text)
 		CONTACT.TEXT_EXCHANGES[-1].MESSAGES.append(text)
 		check_next_message()
+	SCREEN.keep_scroll_at_bottom()
+
+func start_typing(message: ContactMessage):
+	if Global.Debug.skip_wait_times:
+		TYPING_TIMER = 0.1
+	else:
+		TYPING_TIMER = message.TIME_TYPING
+	TYPING_TIMER_ON = true
+	SCREEN.set_typing()
+	TYPING_TIMER_ON = true
 
 func check_next_message():
 	if NEW_MESSAGES.MESSAGES.size() == 0:
@@ -70,5 +91,6 @@ func check_next_message():
 		return
 
 func end_conversation():
+	SCREEN.ACTIVE = false
 	Global.PLAYER.STATE_MACHINE.unlock()
 	Global.PLAYER_PHONE.STATE_MACHINE.unlock()

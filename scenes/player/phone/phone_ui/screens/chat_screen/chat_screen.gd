@@ -3,18 +3,30 @@ extends Control
 @onready var MESSAGE_HOLDER := %MessageHolder
 @onready var SCROLL_CONTAINER := %ScrollContainer
 @onready var DRAFT_TEXT := %DraftText
+@onready var TYPING_HOLDER := %TypingHolder
+@onready var TYPING_LABEL := %TypingLabel
 
 var USER_MESSAGE = preload('./user_message.tscn')
 var CHAT_MESSAGE = preload('./chat_message.tscn')
 var TIME_STAMP = preload('./time_stamp.tscn')
+var ACTIVE := false
 
 var DRAFT := "":
 	set(val):
 		DRAFT_TEXT.text = val
 		DRAFT = val
 
+func _ready():
+	MESSAGE_HOLDER.child_entered_tree.connect(scroll_to_bottom)
+
+func scroll_to_bottom(node):
+	await node.ready
+	if !node.is_node_ready():
+		await get_tree().process_frame
+	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
 
 func activate(contact : TextContact):
+	TYPING_LABEL.text = contact.CONTACT_NAME + ' is typing...'
 	for child in MESSAGE_HOLDER.get_children():
 		child.queue_free()
 	for exchange in contact.TEXT_EXCHANGES:
@@ -30,20 +42,29 @@ func activate(contact : TextContact):
 				var text_scene = USER_MESSAGE.instantiate()
 				text_scene.MESSAGE = message.MESSAGE
 				MESSAGE_HOLDER.add_child(text_scene)
-	await get_tree().process_frame
-	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
 
 func send_text(text : UserMessage):
 	var text_scene = USER_MESSAGE.instantiate()
 	text_scene.MESSAGE = text.MESSAGE
-	MESSAGE_HOLDER.add_child(text_scene)
 	DRAFT = ""
-	await get_tree().process_frame
-	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
+	MESSAGE_HOLDER.add_child(text_scene)
 
 func receive_text(text : ContactMessage):
 	var text_scene = CHAT_MESSAGE.instantiate()
 	text_scene.MESSAGE = text.MESSAGE
 	MESSAGE_HOLDER.add_child(text_scene)
-	await get_tree().process_frame
-	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
+	TYPING_HOLDER.visible = false
+
+func keep_scroll_at_bottom():
+	# I don't like this but it's needed until I can get the scroll to work consistently
+	if ACTIVE:
+		SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
+
+func set_typing():
+	TYPING_HOLDER.visible = true
+	# Global.log('here we go')
+	# SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
+
+	# await TYPING_HOLDER.visibility_changed
+	# Global.log('here we go')
+	# SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value

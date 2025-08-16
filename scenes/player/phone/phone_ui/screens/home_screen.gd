@@ -12,7 +12,3 @@ func _ready():
 func _on_text_received(_contact_name : TextContact, _new_exchange : MessageList):
 	if ICONS.has('ChatsIcon'):
 		ICONS.ChatsIcon.NOTIFICATION = true
-
-func remove_notification(icon_name : String):
-	if ICONS.has(icon_name):
-		ICONS[icon_name].NOTIFICATION = false
