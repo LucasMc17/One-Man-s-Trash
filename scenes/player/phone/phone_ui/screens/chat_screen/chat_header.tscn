@@ -9,10 +9,6 @@ anchor_right = 1.0
 grow_horizontal = 2
 script = ExtResource("1_tc7da")
 
-[node name="BackButton" type="Button" parent="."]
-layout_mode = 2
-text = "<"
-
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.593134, 0.593134, 0.593134, 1)
 layout_mode = 2
@@ -20,5 +16,3 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 texture = ExtResource("1_7rlkt")
 stretch_mode = 5
-
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

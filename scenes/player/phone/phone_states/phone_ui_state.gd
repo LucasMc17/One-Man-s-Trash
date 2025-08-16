@@ -2,8 +2,11 @@ class_name PhoneUIState extends State
 
 @export var SCREEN : Control
 @export var SHOULD_POP_UP := false
+var PREVIOUS_STATE : State
 
-func enter(_previous_state, _ext):
+func enter(previous_state, _ext):
+	super(previous_state, _ext)
+	PREVIOUS_STATE = previous_state
 	if SHOULD_POP_UP:
 		pop_up()
 	else:

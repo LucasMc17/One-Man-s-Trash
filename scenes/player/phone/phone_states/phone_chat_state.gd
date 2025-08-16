@@ -4,10 +4,12 @@ var NEW_MESSAGES : MessageList
 var DRAFT := ""
 var TIMER := 1000.0
 var TIMER_ON := false
+var CONTACT : TextContact
 
 func enter(previous_state : PhoneUIState, ext := {}):
 	super(previous_state, ext)
 	if ext.has("contact"):
+		CONTACT = ext.contact
 		SCREEN.activate(ext.contact)
 	if ext.has("active") and ext.active:
 		Global.PLAYER.STATE_MACHINE.lock()
@@ -34,6 +36,7 @@ func add_character(finished_message : String):
 func send():
 	var text = NEW_MESSAGES.MESSAGES.pop_front()
 	SCREEN.send_text(text)
+	CONTACT.TEXT_EXCHANGES[-1].MESSAGES.append(text)
 	DRAFT = ""
 	check_next_message()
 
@@ -47,7 +50,9 @@ func update(delta):
 	if TIMER < 0:
 		TIMER = 0
 		TIMER_ON = false
-		SCREEN.receive_text(NEW_MESSAGES.MESSAGES.pop_front())
+		var text = NEW_MESSAGES.MESSAGES.pop_front()
+		SCREEN.receive_text(text)
+		CONTACT.TEXT_EXCHANGES[-1].MESSAGES.append(text)
 		check_next_message()
 
 func check_next_message():

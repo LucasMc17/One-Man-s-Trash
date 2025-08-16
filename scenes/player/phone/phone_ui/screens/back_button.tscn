@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://y8p0fji702iu"]
+
+[ext_resource type="Script" uid="uid://bu44nni7x3ano" path="res://scenes/player/phone/phone_ui/screens/back_button.gd" id="1_h01tg"]
+
+[node name="BackButton" type="Button"]
+offset_right = 59.0
+offset_bottom = 31.0
+text = "< Back"
+script = ExtResource("1_h01tg")

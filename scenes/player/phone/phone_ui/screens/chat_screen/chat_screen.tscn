@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d34xb5tjwqrov"]
+[gd_scene load_steps=8 format=3 uid="uid://d34xb5tjwqrov"]
 
 [ext_resource type="PackedScene" uid="uid://cxym2k2saibfc" path="res://scenes/player/phone/phone_ui/screens/base_screen.tscn" id="1_q06pi"]
 [ext_resource type="Script" uid="uid://b3jdo1rro1fw5" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_screen.gd" id="2_gk1qu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqfxkwcaplgun" path="res://scenes/player/phone/phone_ui/screens/chat_screen/user_message.tscn" id="3_jprlh"]
 [ext_resource type="PackedScene" uid="uid://cjag8is6tjtke" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_header.tscn" id="3_o5shx"]
 [ext_resource type="PackedScene" uid="uid://d23h4bucuawbg" path="res://scenes/player/phone/phone_ui/screens/chat_screen/time_stamp.tscn" id="4_2611e"]
+[ext_resource type="PackedScene" uid="uid://y8p0fji702iu" path="res://scenes/player/phone/phone_ui/screens/back_button.tscn" id="7_s6c32"]
 
 [node name="ChatScreen" instance=ExtResource("1_q06pi")]
 script = ExtResource("2_gk1qu")
@@ -94,3 +95,9 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 autowrap_mode = 2
+
+[node name="BackButton" parent="MarginContainer" index="1" instance=ExtResource("7_s6c32")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+PREVIOUS_STATE_NAME = "ChatsState"

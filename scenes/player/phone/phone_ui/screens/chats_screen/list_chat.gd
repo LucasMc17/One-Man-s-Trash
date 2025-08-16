@@ -15,11 +15,10 @@ func _gui_input(event):
 
 func _ready():
 	Events.text_received.connect(_on_text_received)
-	NAME_LABEL.text = CONTACT.CONTACT_NAME
-	MESSAGE_LABEL.text = CONTACT.TEXT_EXCHANGES[-1].MESSAGES[-1].MESSAGE
+	refresh()
 
-func _on_text_received(contact_name : String, new_exchange : MessageList):
-	if contact_name == CONTACT.CONTACT_NAME:
+func _on_text_received(contact : TextContact, new_exchange : MessageList):
+	if contact == CONTACT:
 		NOTIFICATION = true
 		var new_text_exchange = MessageList.new()
 		new_text_exchange.TIME_STAMP = new_exchange.TIME_STAMP
@@ -28,3 +27,7 @@ func _on_text_received(contact_name : String, new_exchange : MessageList):
 		MESSAGE_LABEL.text = first_text.MESSAGE
 		CONTACT.TEXT_EXCHANGES.append(new_text_exchange)
 		MESSAGES_TO_COME = new_exchange
+
+func refresh():
+	NAME_LABEL.text = CONTACT.CONTACT_NAME
+	MESSAGE_LABEL.text = CONTACT.TEXT_EXCHANGES[-1].MESSAGES[-1].MESSAGE
