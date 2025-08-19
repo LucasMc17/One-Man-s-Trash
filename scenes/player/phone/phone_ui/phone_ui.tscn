@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://j2j2u1vykxu3"]
+[gd_scene load_steps=19 format=3 uid="uid://j2j2u1vykxu3"]
 
 [ext_resource type="PackedScene" uid="uid://bqaplirhi6ao5" path="res://scenes/player/phone/phone_ui/top_bar.tscn" id="1_3dmou"]
 [ext_resource type="Script" uid="uid://c2cob8k531q64" path="res://scenes/player/phone/phone_ui/phone_ui.gd" id="1_7oyur"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="3_rbj2s"]
 [ext_resource type="Script" uid="uid://dmw4uhl0a0to3" path="res://scenes/player/phone/phone_states/phone_home_state.gd" id="4_dk2uo"]
 [ext_resource type="PackedScene" uid="uid://d34xb5tjwqrov" path="res://scenes/player/phone/phone_ui/screens/chat_screen/chat_screen.tscn" id="4_qjcuk"]
-[ext_resource type="Script" uid="uid://bl2o5yk4q2h54" path="res://assets/resources/text_messages/text_contact.gd" id="5_piq51"]
+[ext_resource type="Script" uid="uid://bl2o5yk4q2h54" path="res://assets/resources/contacts/text_contact.gd" id="5_piq51"]
+[ext_resource type="Resource" uid="uid://ddfh7v57htm4s" path="res://assets/resources/contacts/bart_contact.tres" id="6_2vh5f"]
 [ext_resource type="Resource" uid="uid://dmvqs8ujwomyd" path="res://assets/resources/text_messages/debug_contact_01.tres" id="6_22iid"]
-[ext_resource type="Resource" uid="uid://dv8ce25mon2xc" path="res://assets/resources/text_messages/amanda_contact.tres" id="7_qm7od"]
+[ext_resource type="Resource" uid="uid://dv8ce25mon2xc" path="res://assets/resources/contacts/amanda_contact.tres" id="7_qm7od"]
 [ext_resource type="Script" uid="uid://ccwb0p4od4hq2" path="res://scenes/player/phone/phone_states/phone_chat_state.gd" id="9_35ghu"]
 [ext_resource type="Script" uid="uid://cvbeqhcm51h3j" path="res://scenes/player/phone/phone_states/phone_chats_state.gd" id="10_dqcrv"]
 
@@ -70,7 +71,7 @@ visible = false
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
-CONTACTS = Array[ExtResource("5_piq51")]([ExtResource("6_22iid"), ExtResource("7_qm7od")])
+CONTACTS = Array[ExtResource("5_piq51")]([ExtResource("6_2vh5f"), ExtResource("6_22iid"), ExtResource("7_qm7od")])
 
 [node name="ChatScreen" parent="Screens" instance=ExtResource("4_qjcuk")]
 visible = false

@@ -14,9 +14,11 @@ func enter(previous_state : PhoneUIState, ext := {}):
 		CONTACT = ext.contact
 		SCREEN.activate(ext.contact)
 	if ext.has("active") and ext.active:
+		SCREEN.activate_draft()
 		SCREEN.ACTIVE = true
 		Global.PLAYER.STATE_MACHINE.lock()
 		Global.PLAYER_PHONE.STATE_MACHINE.lock()
+		SCREEN.BACK_BUTTON.disabled = true
 	if ext.has("new_exchange") and ext.new_exchange:
 		NEW_MESSAGES = ext.new_exchange
 
@@ -36,7 +38,7 @@ func add_character(finished_message : String):
 	if Global.Debug.skip_typing:
 		DRAFT = finished_message
 	else:
-		DRAFT = finished_message.left(DRAFT.length() + 1)
+		DRAFT = finished_message.left(DRAFT.length() + 2)
 	SCREEN.DRAFT = DRAFT
 
 func send():
@@ -89,8 +91,14 @@ func check_next_message():
 	if NEW_MESSAGES.MESSAGES[0] is ContactMessage:
 		start_response(NEW_MESSAGES.MESSAGES[0])
 		return
+	else:
+		SCREEN.activate_draft()
 
 func end_conversation():
 	SCREEN.ACTIVE = false
 	Global.PLAYER.STATE_MACHINE.unlock()
 	Global.PLAYER_PHONE.STATE_MACHINE.unlock()
+	SCREEN.BACK_BUTTON.disabled = false
+
+# func _process(delta):
+# 	Global.log(get_viewport().gui_get_focus_owner())

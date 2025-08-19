@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://assets/resources/text_messages/message_list.gd" id="1_7aiwx"]
 [ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="2_1h4vw"]
-[ext_resource type="Script" uid="uid://bl2o5yk4q2h54" path="res://assets/resources/text_messages/text_contact.gd" id="2_hy3x0"]
+[ext_resource type="Script" uid="uid://bl2o5yk4q2h54" path="res://assets/resources/contacts/text_contact.gd" id="2_hy3x0"]
 [ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://assets/resources/text_messages/contact_message.gd" id="3_6xmr5"]
 [ext_resource type="Script" uid="uid://c4nkxj81ujh5u" path="res://assets/resources/text_messages/user_message.gd" id="4_6xmr5"]
 

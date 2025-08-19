@@ -11,6 +11,7 @@ class_name Player extends CharacterBody3D
 @onready var INTERACTOR := %Interactor
 @onready var INTERACT_LABEL := %InteractLabel
 @onready var HINT_LABEL := %HintLabel
+@onready var NOTIFICATION_LABEL = %NotificationLabel
 @onready var STATE_MACHINE := %StateMachine
 @onready var DIALOGUE_LAYER := %DialogueLayer
 
@@ -44,6 +45,10 @@ var hint := '':
 func _ready():
 	Global.GameState.PLAYER = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Events.text_received.connect(func(_contact, _new_messages): set_notification(true))
+
+func set_notification(val := true):
+	NOTIFICATION_LABEL.visible = val
 
 func _input(event):
 	if event.is_action_pressed("exit"):

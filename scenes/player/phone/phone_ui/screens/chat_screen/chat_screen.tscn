@@ -115,16 +115,31 @@ text = "Amanda is typing..."
 autowrap_mode = 2
 
 [node name="DraftHolder" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5)
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 
-[node name="DraftText" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder" index="0"]
+layout_mode = 2
+
+[node name="DraftText" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder/HBoxContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 autowrap_mode = 2
 
+[node name="SendButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "SEND"
+
 [node name="BackButton" parent="MarginContainer" index="1" instance=ExtResource("7_s6c32")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 PREVIOUS_STATE_NAME = "ChatsState"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder/HBoxContainer/SendButton" to="." method="_on_send_button_pressed"]

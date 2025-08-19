@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2m4463t40ea1"]
+[gd_scene load_steps=16 format=3 uid="uid://b2m4463t40ea1"]
 
 [ext_resource type="Script" uid="uid://krn38ubei1hi" path="res://levels/level_01/root.gd" id="1_06tnj"]
 [ext_resource type="PackedScene" uid="uid://bquo2sra7l7e6" path="res://scenes/envs/daytime_env.tscn" id="1_jsf6y"]
@@ -10,8 +10,11 @@
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="7_e1ace"]
 [ext_resource type="Script" uid="uid://cl72tt8fe8l65" path="res://levels/states/level_state.gd" id="8_34nx1"]
 [ext_resource type="Script" uid="uid://dvwhpd62w54hn" path="res://levels/states/level_texting_state.gd" id="10_06tnj"]
-[ext_resource type="Resource" uid="uid://dv8ce25mon2xc" path="res://assets/resources/text_messages/amanda_contact.tres" id="11_v74tu"]
+[ext_resource type="Resource" uid="uid://dv8ce25mon2xc" path="res://assets/resources/contacts/amanda_contact.tres" id="11_v74tu"]
 [ext_resource type="Resource" uid="uid://dq4emaufqar8g" path="res://assets/resources/text_messages/amanda_texts_01.tres" id="12_e1ace"]
+[ext_resource type="Resource" uid="uid://ddfh7v57htm4s" path="res://assets/resources/contacts/bart_contact.tres" id="13_xjxtq"]
+[ext_resource type="Resource" uid="uid://b28n4idy1lf3m" path="res://assets/resources/text_messages/bart_texts_01.tres" id="14_x43fk"]
+[ext_resource type="Script" uid="uid://daxt11k50236q" path="res://levels/states/level_wait_state.gd" id="15_x43fk"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_06tnj")
@@ -80,7 +83,7 @@ POINT_B = Vector3(3.137, 0, 2.25)
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
 script = ExtResource("7_e1ace")
-CURRENT_STATE = NodePath("TextAmandaState")
+CURRENT_STATE = NodePath("WaitForAmandaTextState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="DebugState" type="Node" parent="StateMachine"]
@@ -92,3 +95,17 @@ script = ExtResource("10_06tnj")
 CONTACT = ExtResource("11_v74tu")
 NEW_EXCHANGE = ExtResource("12_e1ace")
 metadata/_custom_type_script = "uid://dvwhpd62w54hn"
+
+[node name="TextBartState" type="Node" parent="StateMachine"]
+script = ExtResource("10_06tnj")
+CONTACT = ExtResource("13_xjxtq")
+NEW_EXCHANGE = ExtResource("14_x43fk")
+metadata/_custom_type_script = "uid://dvwhpd62w54hn"
+
+[node name="WaitForAmandaTextState" type="Node" parent="StateMachine" node_paths=PackedStringArray("TIMER", "NEXT_STATE")]
+script = ExtResource("15_x43fk")
+TIMER = NodePath("../../LevelTimer")
+NEXT_STATE = NodePath("../TextAmandaState")
+metadata/_custom_type_script = "uid://daxt11k50236q"
+
+[node name="LevelTimer" type="Timer" parent="."]

@@ -1,0 +1,101 @@
+[gd_resource type="Resource" script_class="TextContact" load_steps=20 format=3 uid="uid://ddfh7v57htm4s"]
+
+[ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://assets/resources/text_messages/message_list.gd" id="1_kk7sq"]
+[ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="2_0ljuu"]
+[ext_resource type="Script" uid="uid://bl2o5yk4q2h54" path="res://assets/resources/contacts/text_contact.gd" id="2_rh8y1"]
+[ext_resource type="Script" uid="uid://c4nkxj81ujh5u" path="res://assets/resources/text_messages/user_message.gd" id="3_n60uf"]
+[ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://assets/resources/text_messages/contact_message.gd" id="4_6i8cc"]
+
+[sub_resource type="Resource" id="Resource_sjtm2"]
+script = ExtResource("3_n60uf")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "Hey give me a call when you can, I have some ideas about the show"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_6i8cc"]
+script = ExtResource("1_kk7sq")
+MESSAGES = Array[ExtResource("2_0ljuu")]([SubResource("Resource_sjtm2")])
+TIME_STAMP = "1:00 PM, 3 days ago"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[sub_resource type="Resource" id="Resource_v1trv"]
+script = ExtResource("3_n60uf")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "I think we need to find a hook"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_08nfk"]
+script = ExtResource("3_n60uf")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "Something to set us apart. I know it's just some show for WSTQ, but I think we could have a pretty good thing here. I mean, Amanda says we hit just a couple hundred regular viewers and the station will extend the contract. It's steady work, and a good excuse to get on the road, see more of NY"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_4gfp4"]
+script = ExtResource("3_n60uf")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "Anyway, give me a call, I think we just need that extra oomph to get it over the edge"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_a7l8e"]
+script = ExtResource("1_kk7sq")
+MESSAGES = Array[ExtResource("2_0ljuu")]([SubResource("Resource_v1trv"), SubResource("Resource_08nfk"), SubResource("Resource_4gfp4")])
+TIME_STAMP = "2:10 PM, 3 days ago"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[sub_resource type="Resource" id="Resource_hjmv0"]
+script = ExtResource("4_6i8cc")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "What time is shoot tomorrow?"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_daydj"]
+script = ExtResource("3_n60uf")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "8AM."
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_ps161"]
+script = ExtResource("4_6i8cc")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Ok"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_vsfcv"]
+script = ExtResource("1_kk7sq")
+MESSAGES = Array[ExtResource("2_0ljuu")]([SubResource("Resource_hjmv0"), SubResource("Resource_daydj"), SubResource("Resource_ps161")])
+TIME_STAMP = "12:22 AM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[sub_resource type="Resource" id="Resource_g2phq"]
+script = ExtResource("3_n60uf")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "Where did you go?"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_b6lqs"]
+script = ExtResource("4_6i8cc")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Bar"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_2spp2"]
+script = ExtResource("4_6i8cc")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Around the cornr"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_n60uf"]
+script = ExtResource("1_kk7sq")
+MESSAGES = Array[ExtResource("2_0ljuu")]([SubResource("Resource_g2phq"), SubResource("Resource_b6lqs"), SubResource("Resource_2spp2")])
+TIME_STAMP = "5:16 PM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[resource]
+script = ExtResource("2_rh8y1")
+TEXT_EXCHANGES = Array[ExtResource("1_kk7sq")]([SubResource("Resource_6i8cc"), SubResource("Resource_a7l8e"), SubResource("Resource_vsfcv"), SubResource("Resource_n60uf")])
+CONTACT_NAME = "Bart"
+metadata/_custom_type_script = "uid://bl2o5yk4q2h54"

@@ -5,6 +5,9 @@ extends Control
 @onready var DRAFT_TEXT := %DraftText
 @onready var TYPING_HOLDER := %TypingHolder
 @onready var TYPING_LABEL := %TypingLabel
+@onready var BACK_BUTTON := %BackButton
+@onready var DRAFT_HOLDER := %DraftHolder
+@onready var SEND_BUTTON := %SendButton
 
 var USER_MESSAGE = preload('./user_message.tscn')
 var CHAT_MESSAGE = preload('./chat_message.tscn')
@@ -48,6 +51,10 @@ func send_text(text : UserMessage):
 	text_scene.MESSAGE = text.MESSAGE
 	DRAFT = ""
 	MESSAGE_HOLDER.add_child(text_scene)
+	DRAFT_HOLDER.modulate = Color(1, 1, 1, 0.5)
+
+func activate_draft():
+	DRAFT_HOLDER.modulate = Color(1, 1, 1, 1)
 
 func receive_text(text : ContactMessage):
 	var text_scene = CHAT_MESSAGE.instantiate()
@@ -62,9 +69,18 @@ func keep_scroll_at_bottom():
 
 func set_typing():
 	TYPING_HOLDER.visible = true
-	# Global.log('here we go')
 	# SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
 
 	# await TYPING_HOLDER.visibility_changed
-	# Global.log('here we go')
 	# SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
+
+
+func _on_send_button_pressed():
+	Global.log("Nice try this doesn't work yet")
+	# var event = InputEventAction.new()
+	# # Set the action name to the one defined in Project Settings
+	# event.action = "enter" 
+	# # Set 'pressed' to true to simulate a key press
+	# event.pressed = true 
+	# # Dispatch the event through the Input singleton
+	# Input.parse_input_event(event) 

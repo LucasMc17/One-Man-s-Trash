@@ -45,6 +45,19 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="NotificationLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 40.0
+offset_bottom = -18.0
+grow_vertical = 0
+text = "You have a notification. Press [TAB] to open your phone."
+
 [node name="HintLabel" type="Label" parent="UI"]
 unique_name_in_owner = true
 layout_mode = 1

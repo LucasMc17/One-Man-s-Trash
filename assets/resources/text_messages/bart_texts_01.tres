@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="MessageList" load_steps=11 format=3 uid="uid://b28n4idy1lf3m"]
+
+[ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="1_ebva7"]
+[ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://assets/resources/text_messages/contact_message.gd" id="2_7nju4"]
+[ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://assets/resources/text_messages/message_list.gd" id="2_vl1cj"]
+[ext_resource type="Script" uid="uid://c4nkxj81ujh5u" path="res://assets/resources/text_messages/user_message.gd" id="3_r3jcy"]
+
+[sub_resource type="Resource" id="Resource_mmqck"]
+script = ExtResource("2_7nju4")
+TIME_BEFORE_TYPING = 0.5
+TIME_TYPING = 2.0
+MESSAGE = "Come here"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_dp56g"]
+script = ExtResource("3_r3jcy")
+FALSE_STARTS = Array[String](["Wh"])
+MESSAGE = "?"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_hntgb"]
+script = ExtResource("3_r3jcy")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "Where are you?"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_7xxlg"]
+script = ExtResource("2_7nju4")
+TIME_BEFORE_TYPING = 1.0
+TIME_TYPING = 5.0
+MESSAGE = "The bathroom"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_dfw6x"]
+script = ExtResource("3_r3jcy")
+FALSE_STARTS = Array[String]([])
+MESSAGE = "And you want me to come in there?"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_uh1xc"]
+script = ExtResource("2_7nju4")
+TIME_BEFORE_TYPING = 2.0
+TIME_TYPING = 6.0
+MESSAGE = "👍"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[resource]
+script = ExtResource("2_vl1cj")
+MESSAGES = Array[ExtResource("1_ebva7")]([SubResource("Resource_mmqck"), SubResource("Resource_dp56g"), SubResource("Resource_hntgb"), SubResource("Resource_7xxlg"), SubResource("Resource_dfw6x"), SubResource("Resource_uh1xc")])
+TIME_STAMP = "6:22 PM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"

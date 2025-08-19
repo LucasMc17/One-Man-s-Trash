@@ -17,7 +17,9 @@ func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Global.PLAYER_PHONE.CURRENT_STATE.transition('ChatState', { "contact": CONTACT, "active": NOTIFICATION, "new_exchange": MESSAGES_TO_COME })
 		Global.PLAYER_PHONE.STATE_MACHINE.states.HomeState.remove_notification('ChatsIcon')
-		NOTIFICATION = false
+		if NOTIFICATION:
+			NOTIFICATION = false
+			Global.PLAYER.set_notification(false)
 
 func _ready():
 	Events.text_received.connect(_on_text_received)
