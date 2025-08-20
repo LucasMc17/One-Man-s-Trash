@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2dfyascy06e8"]
+
+[ext_resource type="Script" uid="uid://dh7pd5155oktw" path="res://debug/debug_ui/level_status.gd" id="1_1levy"]
+
+[node name="LevelStatus" type="HBoxContainer" groups=["debug"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1levy")
+
+[node name="StatusPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="MarginContainer" type="MarginContainer" parent="StatusPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatusPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="StatusPanel/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="StatusPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="StateLabel" type="Label" parent="StatusPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "State:"
+
+[node name="State" type="Label" parent="StatusPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FreeMoveState"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="StatusPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level Timer"
+
+[node name="Timer" type="Label" parent="StatusPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0.0"
+horizontal_alignment = 1
+
+[node name="StatesPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatesPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StatesPanel/VBoxContainer"]
+layout_mode = 2
+text = "Level States"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StatesPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LevelStates" type="VBoxContainer" parent="StatesPanel/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

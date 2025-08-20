@@ -8,3 +8,4 @@ var CURRENT_STATE : LevelState:
 
 func _ready():
 	Global.GameState.LEVEL = self
+	Events.level_loaded.emit()

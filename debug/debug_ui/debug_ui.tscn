@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://0k1dvavxiy1l"]
+[gd_scene load_steps=5 format=3 uid="uid://0k1dvavxiy1l"]
 
 [ext_resource type="PackedScene" uid="uid://bl15heufv4pt" path="res://debug/debug_ui/player_status.tscn" id="1_4xcup"]
+[ext_resource type="PackedScene" uid="uid://cvox05glnh6l3" path="res://debug/debug_ui/npc_control_unit/npc_control_unit.tscn" id="1_gnlu6"]
 [ext_resource type="PackedScene" uid="uid://m6prpp4m68s6" path="res://debug/debug_ui/debug_console.tscn" id="1_mh0su"]
+[ext_resource type="PackedScene" uid="uid://d2dfyascy06e8" path="res://debug/debug_ui/level_status.tscn" id="1_ux37n"]
 
 [node name="DebugUi" type="VBoxContainer"]
 anchors_preset = -1
@@ -13,8 +15,15 @@ grow_horizontal = 0
 grow_vertical = 2
 alignment = 2
 
+[node name="NpcStateControlUnit" parent="." instance=ExtResource("1_gnlu6")]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="LevelStatus" parent="." instance=ExtResource("1_ux37n")]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
 [node name="PlayerStatus" parent="." instance=ExtResource("1_4xcup")]
-custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 
 [node name="DebugConsole" parent="." instance=ExtResource("1_mh0su")]

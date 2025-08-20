@@ -1,4 +1,4 @@
-class_name PlayerStatus extends Panel
+class_name PlayerStatus extends PanelContainer
 
 @onready var STATE = %State
 var state : StringName:

@@ -1,4 +1,4 @@
-class_name DebugConsole extends Panel
+class_name DebugConsole extends PanelContainer
 
 # NODES
 @onready var History = %History

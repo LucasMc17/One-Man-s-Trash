@@ -13,5 +13,8 @@ func enter(previous_state, ext):
 	TIMER.wait_time = WAIT_TIME
 	TIMER.start()
 
+func exit():
+	TIMER.stop()
+
 func _on_timer_timeout():
 	transition(NEXT_STATE.name, NEXT_STATE_EXTENSION)

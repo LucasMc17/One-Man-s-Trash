@@ -27,6 +27,13 @@ extends Node
 			PLAYER_STATUS.visible = val
 		show_player_status = val
 
+## Controls the visibility of the level's status module (when debug_override is set to 'DEFER')
+@export var show_level_status := false:
+	set(val):
+		if debug_override == "DEFER" and LEVEL_STATUS:
+			LEVEL_STATUS.visible = val
+		show_level_status = val
+
 ## Controls the visibility of NPC status modules (when debug_override is set to 'DEFER')
 @export var show_npc_status := false:
 	set(val):
@@ -43,6 +50,7 @@ extends Node
 
 var DEBUG_CONSOLE : DebugConsole
 var PLAYER_STATUS : PlayerStatus
+var LEVEL_STATUS : LevelStatus
 var NPC_STATUSES : Array = []
 var DEBUG_SCENES : Array = []
 
