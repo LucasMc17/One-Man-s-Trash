@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dp1q3ngso06dk" path="res://scenes/player/player.tscn" id="2_34nx1"]
 [ext_resource type="PackedScene" uid="uid://brwpkrrtos4o5" path="res://debug/debug_block.tscn" id="3_qgp6h"]
 [ext_resource type="PackedScene" uid="uid://bo47ph4exyenq" path="res://scenes/chairs/debug_chair_01.tscn" id="4_06tnj"]
-[ext_resource type="PackedScene" uid="uid://8t3idewsxgn6" path="res://scenes/doors/debug_door_01.tscn" id="5_ncg6h"]
 [ext_resource type="PackedScene" uid="uid://bctvs0pbevh86" path="res://scenes/npcs/bartender/bartender.tscn" id="6_v74tu"]
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="7_e1ace"]
 [ext_resource type="Script" uid="uid://cl72tt8fe8l65" path="res://levels/states/level_state.gd" id="8_34nx1"]
@@ -14,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://dq4emaufqar8g" path="res://assets/resources/text_messages/amanda_texts_01.tres" id="12_e1ace"]
 [ext_resource type="Resource" uid="uid://ddfh7v57htm4s" path="res://assets/resources/contacts/bart_contact.tres" id="13_xjxtq"]
 [ext_resource type="Resource" uid="uid://b28n4idy1lf3m" path="res://assets/resources/text_messages/bart_texts_01.tres" id="14_x43fk"]
+[ext_resource type="PackedScene" uid="uid://c7jcuvst7cih2" path="res://scenes/props/inert_props/beer_bottle.tscn" id="15_thd0o"]
 [ext_resource type="Script" uid="uid://daxt11k50236q" path="res://levels/states/level_wait_state.gd" id="15_x43fk"]
 
 [node name="Node3D" type="Node3D"]
@@ -70,9 +70,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, 1.46014)
 [node name="DebugChair03" parent="Seats" instance=ExtResource("4_06tnj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, 2.97665)
 
-[node name="DebugDoor01" parent="Seats" instance=ExtResource("5_ncg6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03016, 0, -6.89327)
-
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="Bartender" parent="." instance=ExtResource("6_v74tu")]
@@ -109,3 +106,18 @@ NEXT_STATE = NodePath("../TextAmandaState")
 metadata/_custom_type_script = "uid://daxt11k50236q"
 
 [node name="LevelTimer" type="Timer" parent="."]
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="InertProps" type="Node3D" parent="Props"]
+
+[node name="BeerBottle" parent="Props/InertProps" instance=ExtResource("15_thd0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86657, 1.04585, 0)
+
+[node name="BeerBottle2" parent="Props/InertProps" instance=ExtResource("15_thd0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78854, 1.04585, 0.128315)
+
+[node name="BeerBottle3" parent="Props/InertProps" instance=ExtResource("15_thd0o")]
+transform = Transform3D(-3.63786e-08, -0.832245, -0.554409, 1, -4.37114e-08, 0, -2.4234e-08, -0.554409, 0.832245, 2.07561, 1.02977, -1.59145)
+
+[node name="PhysicsProps" type="Node3D" parent="Props"]
