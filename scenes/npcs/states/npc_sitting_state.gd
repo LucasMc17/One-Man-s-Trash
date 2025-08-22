@@ -24,11 +24,11 @@ func enter(previous_state, ext):
 func update(delta):
 	if !_captured:
 		ACTOR.position = lerp(ACTOR.position, sit_position, 0.08)
-		if ACTOR.position.distance_to(sit_position) < 0.1:
+		if ACTOR.position.distance_to(sit_position) < 0.01:
 			_captured = true
 		elif _exiting:
 			ACTOR.position = lerp(ACTOR.position, get_off_position, 0.08)
-			if ACTOR.position.distance_to(get_off_position) < 0.1:
+			if ACTOR.position.distance_to(get_off_position) < 0.01:
 				transition(_next_state.name)
 	else:
 		super(delta)

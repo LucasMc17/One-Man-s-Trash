@@ -23,11 +23,11 @@ func enter(previous_state : State, ext : Dictionary):
 func update(delta):
 	if !_captured:
 		PLAYER.position = lerp(PLAYER.position, sitting_position, 0.08)
-		if PLAYER.position.distance_to(sitting_position) < 0.1:
+		if PLAYER.position.distance_to(sitting_position) < 0.01:
 			_captured = true
 	elif _exiting:
 		PLAYER.position = lerp(PLAYER.position, get_off_position, 0.08)
-		if PLAYER.position.distance_to(get_off_position) < 0.1:
+		if PLAYER.position.distance_to(get_off_position) < 0.01:
 			transition("FreeMoveState")
 	else:
 		super(delta)
