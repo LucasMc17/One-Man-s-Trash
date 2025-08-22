@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://oi5poak31x26"]
+
+[ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/npcs/base_npc.tscn" id="1_mkmu5"]
+[ext_resource type="Script" uid="uid://82v0o456gjpd" path="res://scenes/npcs/states/npc_sitting_state.gd" id="2_rm8ni"]
+
+[node name="Bart" instance=ExtResource("1_mkmu5")]
+
+[node name="StateMachine" parent="." index="2" node_paths=PackedStringArray("CURRENT_STATE")]
+CURRENT_STATE = NodePath("SittingState")
+
+[node name="SittingState" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("ACTOR")]
+script = ExtResource("2_rm8ni")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://82v0o456gjpd"

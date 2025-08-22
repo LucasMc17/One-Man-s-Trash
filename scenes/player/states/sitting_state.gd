@@ -35,7 +35,6 @@ func update(delta):
 func input(event):
 	super(event)
 	if event.is_action_pressed("space"):
-		# transition("FreeMoveState")
 		_exiting = true
 
 func exit():
