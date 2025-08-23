@@ -1,0 +1,99 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=13 format=3 uid="uid://crqw6gtw2lj3n"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_mh1u8"]
+
+[sub_resource type="Resource" id="Resource_8ep85"]
+script = ExtResource("1_mh1u8")
+PROMPT = "..."
+DIALOGUE = "I, uh, gotta piss."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
+EXIT_OPTION = "Sure."
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_rh5yg"]
+script = ExtResource("1_mh1u8")
+PROMPT = "*cough*"
+DIALOGUE = "Get me another, I gotta hit the head."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
+EXIT_OPTION = "You got it."
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_dpj24"]
+script = ExtResource("1_mh1u8")
+PROMPT = "Nice little bar."
+DIALOGUE = "What? Yeah it's ok. You g- I gotta piss."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
+EXIT_OPTION = "Don't let me keep you."
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_f562j"]
+script = ExtResource("1_mh1u8")
+PROMPT = "..."
+DIALOGUE = "..."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_8ep85"), SubResource("Resource_rh5yg"), SubResource("Resource_dpj24")])
+EXIT_OPTION = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_pawjp"]
+script = ExtResource("1_mh1u8")
+PROMPT = "What are you having again?"
+DIALOGUE = "You know what, nevermind. I gotta take a piss. I'll order one when I get back."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
+EXIT_OPTION = "Sure, yeah."
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_mtdcs"]
+script = ExtResource("1_mh1u8")
+PROMPT = "You want another one?"
+DIALOGUE = "...Yeah, ok."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_pawjp")])
+EXIT_OPTION = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_mh1u8"]
+script = ExtResource("1_mh1u8")
+PROMPT = "..."
+DIALOGUE = "Anyway, I gotta piss."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
+EXIT_OPTION = "sure, think I saw the bathroom in the back."
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_c8uok"]
+script = ExtResource("1_mh1u8")
+PROMPT = "Yeah, me too."
+DIALOGUE = "Anyway, I gotta piss."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
+EXIT_OPTION = "sure, think I saw the bathroom in the back."
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_5rwxn"]
+script = ExtResource("1_mh1u8")
+PROMPT = "The shoot!"
+DIALOGUE = "Oh, yeah, fine. I mean, really good, yeah."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_mh1u8"), SubResource("Resource_c8uok")])
+EXIT_OPTION = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_efqtc"]
+script = ExtResource("1_mh1u8")
+PROMPT = "Nothing, nevermind."
+DIALOGUE = "OK. I gotta piss."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
+EXIT_OPTION = "Sure."
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_edmo6"]
+script = ExtResource("1_mh1u8")
+PROMPT = "How do you think it went today?"
+DIALOGUE = "What?"
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_5rwxn"), SubResource("Resource_efqtc")])
+EXIT_OPTION = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_mh1u8")
+PROMPT = ""
+DIALOGUE = "..."
+PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_f562j"), SubResource("Resource_mtdcs"), SubResource("Resource_edmo6")])
+EXIT_OPTION = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"

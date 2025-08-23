@@ -128,10 +128,11 @@ var commands : Dictionary = {
 				return "Error: Please provide an NPC name and a state to transition to"
 			var npc_name = options[0]
 			var npc_state_name = options[1]
-			var npc_index = Global.NPCS.find_custom(func (item): return item.name == npc_name)
-			if npc_index == -1:
-				return "Error: NPC not found"
-			var npc = Global.NPCS[npc_index]
+			# var npc_index = Global.NPCS.find_custom(func (item): return item.name == npc_name)
+			# if npc_index == -1:
+			# 	return "Error: NPC not found"
+			# var npc = Global.NPCS[npc_index]
+			var npc = Global.NPCS[npc_name]
 			if !npc.STATE_MACHINE.has_node(npc_state_name):
 				return "Error: NPC " + npc_name + " does not have that state"
 			npc.current_state.transition(npc_state_name)

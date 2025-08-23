@@ -79,7 +79,7 @@ func update_camera(delta):
 	_mouse_rotation.y += _rotation_input * delta
 	
 	_player_rotation = Vector3(0.0, _mouse_rotation.y, 0.0)
-	_camera_rotation = Vector3(_mouse_rotation.x, 0.0, 0.0)
+	_camera_rotation = Vector3(_mouse_rotation.x, 0.0, 0.0) # think this is where the issue is where I can't change the character's starting rotation
 	
 	CAMERA_CONTROLLER.transform.basis = Basis.from_euler(_camera_rotation)
 	CAMERA_CONTROLLER.rotation.z = 0.0

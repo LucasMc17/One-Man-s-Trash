@@ -1,6 +1,10 @@
 @tool
 class_name NPC extends CharacterBody3D
 
+@export var TALK_TREE : TalkTree
+# @export var TALK_TREES : Array[TalkTree] = []
+@export var MOVE_PATHS : Array[Path3D] = []
+
 @onready var STATE_MACHINE := %StateMachine
 @onready var DEBUG_PANEL := %NPCDebugPanel
 
@@ -19,3 +23,8 @@ func update_gravity(delta):
 
 func _ready():
 	DEBUG_PANEL.npc_name = name
+
+func _on_interactable_interacted(interactor : Player):
+	if current_state._talk_enabled:
+		current_state.transition("TalkState")
+		interactor.current_state.transition('TalkState', {"TALK_TREE": TALK_TREE, "TALKING_TO": self})

@@ -100,5 +100,3 @@ func end_conversation():
 	Global.PLAYER_PHONE.STATE_MACHINE.unlock()
 	SCREEN.BACK_BUTTON.disabled = false
 
-# func _process(delta):
-# 	Global.log(get_viewport().gui_get_focus_owner())

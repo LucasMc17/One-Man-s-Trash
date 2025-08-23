@@ -6,7 +6,7 @@ extends Node
 var PLAYER : Player:
 	get():
 		return GameState.PLAYER
-var NPCS : Array:
+var NPCS : Dictionary:
 	get():
 		return GameState.NPCS
 var PLAYER_PHONE : Control:
@@ -15,6 +15,9 @@ var PLAYER_PHONE : Control:
 var LEVEL : Node3D:
 	get():
 		return GameState.LEVEL
+var IMPORTANT_SCENES : Dictionary:
+	get():
+		return GameState.IMPORTANT_SCENES
 
 func log(message):
 	Debug.cons_log(message)
