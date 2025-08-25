@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp1q3ngso06dk"]
+[gd_scene load_steps=13 format=3 uid="uid://dp1q3ngso06dk"]
 
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/characters/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://0k1dvavxiy1l" path="res://debug/debug_ui/debug_ui.tscn" id="2_0owmy"]
 [ext_resource type="PackedScene" uid="uid://bxsfmtysycoo3" path="res://scenes/characters/player/phone/player_phone.tscn" id="2_lvxji"]
 [ext_resource type="PackedScene" uid="uid://cekqblrfqotxk" path="res://scenes/ui/dialogue/dialogue_layer.tscn" id="3_5gtgg"]
-[ext_resource type="Script" uid="uid://bi3ul4r0336hs" path="res://scenes/characters/player/states/movement_states/player_movement_state.gd" id="6_6avc5"]
 [ext_resource type="Script" uid="uid://0kqfhx68yfos" path="res://scenes/characters/player/states/attention_states/player_freelook_state.gd" id="7_xuses"]
 [ext_resource type="Script" uid="uid://lh2j23ejhb7o" path="res://scenes/characters/player/states/attention_states/talk_state.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://cd6aba0yvmgkq" path="res://scenes/characters/player/states/movement_states/player_freemove_state.gd" id="8_xuses"]
+[ext_resource type="Script" uid="uid://papflnia2cun" path="res://scenes/characters/player/states/movement_states/player_sit_state.gd" id="9_42irl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -120,13 +121,18 @@ metadata/_custom_type_script = "uid://0kqfhx68yfos"
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
 script = ExtResource("1_8afob")
-CURRENT_STATE = NodePath("PlayerMovementState")
+CURRENT_STATE = NodePath("Freemove")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="PlayerMovementState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("PLAYER")]
-script = ExtResource("6_6avc5")
+[node name="Freemove" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("8_xuses")
 PLAYER = NodePath("../..")
-metadata/_custom_type_script = "uid://bi3ul4r0336hs"
+metadata/_custom_type_script = "uid://cd6aba0yvmgkq"
+
+[node name="Sit" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("9_42irl")
+PLAYER = NodePath("../..")
+metadata/_custom_type_script = "uid://papflnia2cun"
 
 [node name="ItemViewport" type="SubViewportContainer" parent="."]
 visible = false

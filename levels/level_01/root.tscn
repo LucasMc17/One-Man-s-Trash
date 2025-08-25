@@ -33,9 +33,6 @@ script = ExtResource("1_06tnj")
 
 [node name="Player" parent="." instance=ExtResource("2_34nx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0856678, 0, -1.38034)
-MOUSE_SENSITIVITY = null
-TILT_LOWER_LIMIT = null
-TILT_UPPER_LIMIT = null
 
 [node name="Geometry" type="Node3D" parent="."]
 

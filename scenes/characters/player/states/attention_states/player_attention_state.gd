@@ -3,6 +3,7 @@ class_name PlayerAttentionState extends PlayerState
 # STATE ALLOWANCES
 var CAPTURE_MOUSE := true
 var DISABLE_MOVEMENT := false
+var DISABLE_INPUT := false
 var CAN_INTERACT := false
 var CAN_USE_PHONE := false
 

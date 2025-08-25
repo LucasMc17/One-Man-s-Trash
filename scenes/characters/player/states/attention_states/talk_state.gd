@@ -4,6 +4,8 @@ class_name TalkState extends PlayerAttentionState
 # var keep_momentum := false
 
 func _ready():
+	DISABLE_MOVEMENT = true
+	DISABLE_INPUT = true
 	CAPTURE_MOUSE = false
 
 func enter(previous_state : State = null, ext := {}):

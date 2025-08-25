@@ -8,11 +8,11 @@ var get_off_position : Vector3
 var _captured := false
 var _exiting := false
 
-func _ready():
-	_phone_enabled = true
-	_camera_enabled = true
-	_gravity_enabled = false
-	_interact_enabled = true
+# func _ready():
+# 	_phone_enabled = true
+# 	_camera_enabled = true
+# 	_gravity_enabled = false
+# 	_interact_enabled = true
 
 func enter(previous_state : State, ext : Dictionary):
 	super(previous_state, ext)
