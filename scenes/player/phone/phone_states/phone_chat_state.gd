@@ -95,6 +95,7 @@ func check_next_message():
 		SCREEN.activate_draft()
 
 func end_conversation():
+	Events.texting_ended.emit(CONTACT)
 	SCREEN.ACTIVE = false
 	Global.PLAYER.STATE_MACHINE.unlock()
 	Global.PLAYER_PHONE.STATE_MACHINE.unlock()

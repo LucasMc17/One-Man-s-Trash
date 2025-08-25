@@ -12,4 +12,4 @@ script = ExtResource("1_fekn7")
 
 [node name="Debug" type="Node" parent="."]
 script = ExtResource("2_u1vfw")
-debug_override = "ON"
+debug_override = "OFF"

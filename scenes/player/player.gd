@@ -90,6 +90,7 @@ func update_camera(delta):
 	_tilt_input = 0.0
 
 func exit_dialogue():
+	Events.conversation_ended.emit(talking_to)
 	if talking_to:
 		if talking_to.current_state is NPCTalkState:
 			talking_to.current_state.return_to_last_state()

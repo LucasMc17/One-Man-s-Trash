@@ -9,3 +9,9 @@ signal level_state_changed(new_state : LevelState)
 
 ## Signal fired when the current level is loaded completely
 signal level_loaded()
+
+## Signal fired when a player's conversation is ended
+signal conversation_ended(npc : NPC)
+
+## Signal fired when a player's text conversation ends
+signal texting_ended(contact : TextContact)
