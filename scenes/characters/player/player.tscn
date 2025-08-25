@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dp1q3ngso06dk"]
+[gd_scene load_steps=14 format=3 uid="uid://dp1q3ngso06dk"]
 
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/characters/player/player.gd" id="1_dovo2"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bxsfmtysycoo3" path="res://scenes/characters/player/phone/player_phone.tscn" id="2_lvxji"]
 [ext_resource type="PackedScene" uid="uid://cekqblrfqotxk" path="res://scenes/ui/dialogue/dialogue_layer.tscn" id="3_5gtgg"]
 [ext_resource type="Script" uid="uid://0kqfhx68yfos" path="res://scenes/characters/player/states/attention_states/player_freelook_state.gd" id="7_xuses"]
-[ext_resource type="Script" uid="uid://lh2j23ejhb7o" path="res://scenes/characters/player/states/attention_states/talk_state.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://c5iy7liovrtbk" path="res://scenes/characters/player/states/attention_states/player_phone_state.gd" id="8_3xnwo"]
+[ext_resource type="Script" uid="uid://lh2j23ejhb7o" path="res://scenes/characters/player/states/attention_states/player_talk_state.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://cd6aba0yvmgkq" path="res://scenes/characters/player/states/movement_states/player_freemove_state.gd" id="8_xuses"]
 [ext_resource type="Script" uid="uid://papflnia2cun" path="res://scenes/characters/player/states/movement_states/player_sit_state.gd" id="9_42irl"]
 
@@ -117,6 +118,11 @@ metadata/_custom_type_script = "uid://lh2j23ejhb7o"
 script = ExtResource("7_xuses")
 PLAYER = NodePath("../..")
 metadata/_custom_type_script = "uid://0kqfhx68yfos"
+
+[node name="Phone" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("8_3xnwo")
+PLAYER = NodePath("../..")
+metadata/_custom_type_script = "uid://c5iy7liovrtbk"
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
