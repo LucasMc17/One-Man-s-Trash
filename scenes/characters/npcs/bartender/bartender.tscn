@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://bctvs0pbevh86"]
+
+[ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_e6hot"]
+[ext_resource type="Script" uid="uid://c10ngdvj438bd" path="res://scenes/characters/npcs/bartender/bartender.gd" id="2_0vtm4"]
+[ext_resource type="Script" uid="uid://dcpoadyqdlw8l" path="res://scenes/characters/npcs/states/npc_move_to_point_state.gd" id="3_mgsqx"]
+[ext_resource type="Script" uid="uid://bonlk86vgxp5h" path="res://scenes/characters/npcs/states/npc_idle_with_timer.gd" id="4_qblmu"]
+[ext_resource type="Script" uid="uid://byy8ut45r621x" path="res://scenes/characters/npcs/states/npc_talk_state.gd" id="5_d1v5y"]
+[ext_resource type="Resource" uid="uid://dhok5l5olgn2y" path="res://assets/resources/talk_trees/debug_talk_tree.tres" id="6_d1v5y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qblmu"]
+albedo_color = Color(0, 0.898448, 0.45655, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_alpou"]
+material = SubResource("StandardMaterial3D_qblmu")
+
+[sub_resource type="BoxMesh" id="BoxMesh_d1v5y"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Bartender" instance=ExtResource("1_e6hot")]
+script = ExtResource("2_0vtm4")
+POINT_A = Vector3(0, 0, 0)
+POINT_B = Vector3(0, 0, 0)
+TALK_TREE = ExtResource("6_d1v5y")
+
+[node name="StateMachine" parent="." index="2" node_paths=PackedStringArray("CURRENT_STATE")]
+CURRENT_STATE = NodePath("IdlePointB")
+
+[node name="MoveToPointA" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("POINT", "NEXT_STATE", "ACTOR")]
+script = ExtResource("3_mgsqx")
+POINT = NodePath("../../MovementPoints/MP_A")
+NEXT_STATE = NodePath("../IdlePointA")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://dcpoadyqdlw8l"
+
+[node name="MoveToPointB" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("POINT", "NEXT_STATE", "ACTOR")]
+script = ExtResource("3_mgsqx")
+POINT = NodePath("../../MovementPoints/MP_B")
+NEXT_STATE = NodePath("../IdlePointB")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://dcpoadyqdlw8l"
+
+[node name="IdlePointA" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("NEXT_STATE", "ACTOR")]
+script = ExtResource("4_qblmu")
+NEXT_STATE = NodePath("../MoveToPointB")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://bonlk86vgxp5h"
+
+[node name="IdlePointB" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("NEXT_STATE", "ACTOR")]
+script = ExtResource("4_qblmu")
+NEXT_STATE = NodePath("../MoveToPointA")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://bonlk86vgxp5h"
+
+[node name="TalkState" type="Node" parent="StateMachine" index="5" node_paths=PackedStringArray("ACTOR")]
+script = ExtResource("5_d1v5y")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://byy8ut45r621x"
+
+[node name="MP_A" type="Marker3D" parent="MovementPoints" index="0"]
+unique_name_in_owner = true
+gizmo_extents = 1.0
+
+[node name="MP_B" type="Marker3D" parent="MovementPoints" index="1"]
+unique_name_in_owner = true
+gizmo_extents = 1.0
+
+[node name="MeshInstance3D" parent="." index="4"]
+mesh = SubResource("CapsuleMesh_alpou")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417822, -0.26928)
+mesh = SubResource("BoxMesh_d1v5y")
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

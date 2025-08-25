@@ -1,0 +1,141 @@
+[gd_scene load_steps=12 format=3 uid="uid://dp1q3ngso06dk"]
+
+[ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/characters/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://0k1dvavxiy1l" path="res://debug/debug_ui/debug_ui.tscn" id="2_0owmy"]
+[ext_resource type="PackedScene" uid="uid://bxsfmtysycoo3" path="res://scenes/characters/player/phone/player_phone.tscn" id="2_lvxji"]
+[ext_resource type="PackedScene" uid="uid://cekqblrfqotxk" path="res://scenes/ui/dialogue/dialogue_layer.tscn" id="3_5gtgg"]
+[ext_resource type="Script" uid="uid://bi3ul4r0336hs" path="res://scenes/characters/player/states/movement_states/player_movement_state.gd" id="6_6avc5"]
+[ext_resource type="Script" uid="uid://0kqfhx68yfos" path="res://scenes/characters/player/states/attention_states/player_freelook_state.gd" id="7_xuses"]
+[ext_resource type="Script" uid="uid://lh2j23ejhb7o" path="res://scenes/characters/player/states/attention_states/talk_state.gd" id="8_qek5x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0owmy"]
+albedo_color = Color(0.17316, 0.718229, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_onrkg"]
+material = SubResource("StandardMaterial3D_0owmy")
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_dovo2")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InteractLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NotificationLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 40.0
+offset_bottom = -18.0
+grow_vertical = 0
+text = "You have a notification. Press [TAB] to open your phone."
+
+[node name="HintLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="DebugUi" parent="UI" instance=ExtResource("2_0owmy")]
+layout_mode = 1
+
+[node name="DialogueLayer" parent="UI" instance=ExtResource("3_5gtgg")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sh265")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_onrkg")
+
+[node name="CameraController" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+cull_mask = 1048573
+
+[node name="ItemRig" type="Node3D" parent="CameraController/Camera3D"]
+
+[node name="Phone" parent="CameraController/Camera3D/ItemRig" instance=ExtResource("2_lvxji")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.083, -0.19, -0.12)
+
+[node name="Interactor" type="RayCast3D" parent="CameraController/Camera3D"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -5)
+collision_mask = 2
+collide_with_areas = true
+debug_shape_thickness = 5
+
+[node name="AttentionStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+unique_name_in_owner = true
+script = ExtResource("1_8afob")
+CURRENT_STATE = NodePath("Freelook")
+metadata/_custom_type_script = "uid://cau1wg8ulku16"
+
+[node name="TalkState" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("8_qek5x")
+PLAYER = NodePath("../..")
+metadata/_custom_type_script = "uid://lh2j23ejhb7o"
+
+[node name="Freelook" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("7_xuses")
+PLAYER = NodePath("../..")
+metadata/_custom_type_script = "uid://0kqfhx68yfos"
+
+[node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+unique_name_in_owner = true
+script = ExtResource("1_8afob")
+CURRENT_STATE = NodePath("PlayerMovementState")
+metadata/_custom_type_script = "uid://cau1wg8ulku16"
+
+[node name="PlayerMovementState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("PLAYER")]
+script = ExtResource("6_6avc5")
+PLAYER = NodePath("../..")
+metadata/_custom_type_script = "uid://bi3ul4r0336hs"
+
+[node name="ItemViewport" type="SubViewportContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="ItemViewport"]
+handle_input_locally = false
+render_target_update_mode = 0
