@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://buguuxwjtfcow"]
+[gd_scene load_steps=12 format=3 uid="uid://buguuxwjtfcow"]
 
 [ext_resource type="PackedScene" uid="uid://cc3i1lkhw8w7t" path="res://interactables/Interactable.tscn" id="1_65blf"]
 [ext_resource type="Script" uid="uid://44ewrqrvbb6h" path="res://scenes/characters/npcs/base_npc.gd" id="1_wwrmc"]
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="2_vy5f6"]
-[ext_resource type="Script" uid="uid://bunxtellu4roh" path="res://scenes/characters/npcs/states/npc_idle_state.gd" id="4_iwxdd"]
+[ext_resource type="Script" uid="uid://bunxtellu4roh" path="res://scenes/characters/npcs/states/movement_states/npc_idle_state.gd" id="4_iwxdd"]
 [ext_resource type="PackedScene" uid="uid://dg11xi7m44ms" path="res://debug/npc_debug/npc_debug_panel.tscn" id="5_0ji00"]
+[ext_resource type="Script" uid="uid://befgswxuxfmxp" path="res://scenes/characters/npcs/states/attention_states/npc_attention_state.gd" id="6_c4o2l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6qnc6"]
 
@@ -35,19 +36,6 @@ interact_button = SubResource("InputEventKey_wwrmc")
 max_distance = 4.0
 message = "Press [E] to talk"
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
-unique_name_in_owner = true
-script = ExtResource("2_vy5f6")
-CURRENT_STATE = NodePath("IdleState")
-metadata/_custom_type_script = "uid://cau1wg8ulku16"
-
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("ACTOR")]
-script = ExtResource("4_iwxdd")
-ACTOR = NodePath("../..")
-
-[node name="MovementPoints" type="Node3D" parent="."]
-top_level = true
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_65blf")
@@ -56,3 +44,26 @@ skeleton = NodePath("../CollisionShape3D")
 [node name="NPCDebugPanel" parent="." instance=ExtResource("5_0ji00")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.04068, 0)
+
+[node name="AttentionStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+unique_name_in_owner = true
+script = ExtResource("2_vy5f6")
+CURRENT_STATE = NodePath("IdleAttention")
+metadata/_custom_type_script = "uid://cau1wg8ulku16"
+
+[node name="IdleAttention" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("ACTOR")]
+script = ExtResource("6_c4o2l")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://befgswxuxfmxp"
+
+[node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+unique_name_in_owner = true
+script = ExtResource("2_vy5f6")
+CURRENT_STATE = NodePath("IdleMovement")
+metadata/_custom_type_script = "uid://cau1wg8ulku16"
+
+[node name="IdleMovement" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("NEXT_STATE", "ACTOR")]
+script = ExtResource("4_iwxdd")
+NEXT_STATE = NodePath(".")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://bunxtellu4roh"

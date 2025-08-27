@@ -17,8 +17,3 @@ class_name Bartender extends NPC
 # NODES
 @onready var MP_A = %MP_A
 @onready var MP_B = %MP_B
-
-func _ready():
-	super()
-	MP_A.global_position = POINT_A
-	MP_B.global_position = POINT_B

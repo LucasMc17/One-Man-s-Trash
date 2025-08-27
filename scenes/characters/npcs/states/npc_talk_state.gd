@@ -1,4 +1,5 @@
-class_name NPCTalkState extends NPCState
+# class_name NPCTalkState
+extends NPCState
 
 var prev_state : NPCState
 

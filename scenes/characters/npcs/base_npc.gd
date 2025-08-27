@@ -5,14 +5,22 @@ class_name NPC extends CharacterBody3D
 # @export var TALK_TREES : Array[TalkTree] = []
 @export var MOVE_PATHS : Array[Path3D] = []
 
-@onready var STATE_MACHINE := %StateMachine
+# @onready var STATE_MACHINE := %StateMachine
+@onready var ATTENTION_STATE_MACHINE := %AttentionStateMachine
+@onready var MOVEMENT_STATE_MACHINE := %MovementStateMachine
 @onready var DEBUG_PANEL := %NPCDebugPanel
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var current_state : NPCState:
+var current_attention : NPCAttentionState:
 	get():
-		if STATE_MACHINE:
-			return STATE_MACHINE.CURRENT_STATE
+		if ATTENTION_STATE_MACHINE:
+			return ATTENTION_STATE_MACHINE.CURRENT_STATE
+		else:
+			return null
+var current_movement : NPCMovementState:
+	get():
+		if MOVEMENT_STATE_MACHINE:
+			return MOVEMENT_STATE_MACHINE.CURRENT_STATE
 		else:
 			return null
 
@@ -25,6 +33,6 @@ func _ready():
 	DEBUG_PANEL.npc_name = name
 
 func _on_interactable_interacted(interactor : Player):
-	if current_state._talk_enabled:
-		current_state.transition("TalkState")
-		interactor.current_attention.transition('TalkState', {"TALK_TREE": TALK_TREE, "TALKING_TO": self})
+	if current_attention.TALK_ENABLED:
+		current_attention.transition("Talk")
+		interactor.current_attention.transition('Talk', {"TALK_TREE": TALK_TREE, "TALKING_TO": self})

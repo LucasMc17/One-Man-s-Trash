@@ -109,19 +109,19 @@ script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("Freelook")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="TalkState" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("PLAYER")]
+[node name="Talk" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("8_qek5x")
-PLAYER = NodePath("../..")
+ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://lh2j23ejhb7o"
 
-[node name="Freelook" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("PLAYER")]
+[node name="Freelook" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("7_xuses")
-PLAYER = NodePath("../..")
+ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://0kqfhx68yfos"
 
-[node name="Phone" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("PLAYER")]
+[node name="Phone" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("8_3xnwo")
-PLAYER = NodePath("../..")
+ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://c5iy7liovrtbk"
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
@@ -130,14 +130,14 @@ script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("Freemove")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="Freemove" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("PLAYER")]
+[node name="Freemove" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("8_xuses")
-PLAYER = NodePath("../..")
+ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://cd6aba0yvmgkq"
 
-[node name="Sit" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("PLAYER")]
+[node name="Sit" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("9_42irl")
-PLAYER = NodePath("../..")
+ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://papflnia2cun"
 
 [node name="ItemViewport" type="SubViewportContainer" parent="."]

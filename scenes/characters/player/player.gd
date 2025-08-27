@@ -97,8 +97,8 @@ func update_camera(delta):
 func exit_dialogue():
 	Events.conversation_ended.emit(talking_to)
 	if talking_to:
-		if talking_to.current_state is NPCTalkState:
-			talking_to.current_state.return_to_last_state()
+		if talking_to.current_attention is NPCTalkState:
+			talking_to.current_attention.transition('IdleAttention')
 	if current_attention is TalkState:
 		current_attention.transition("Freelook")
 		# current_attention.return_to_last_state()

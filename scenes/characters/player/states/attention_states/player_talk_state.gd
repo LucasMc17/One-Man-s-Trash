@@ -13,22 +13,22 @@ func enter(previous_state : State = null, ext := {}):
 	# if previous_state._movement_enabled:
 	# 	keep_momentum = true
 	# prev_state = previous_state
-	PLAYER.kill_camera_momentum()
+	ACTOR.kill_camera_momentum()
 	if ext.has('TALK_TREE'):
-		PLAYER.DIALOGUE_LAYER.TALK_TREE = ext.TALK_TREE
+		ACTOR.DIALOGUE_LAYER.TALK_TREE = ext.TALK_TREE
 	if ext.has('TALKING_TO'):
-		PLAYER.talking_to = ext.TALKING_TO
-	PLAYER.DIALOGUE_LAYER.visible = true
+		ACTOR.talking_to = ext.TALKING_TO
+	ACTOR.DIALOGUE_LAYER.visible = true
 
 func exit():
 	# keep_momentum = false
 	# prev_state = null
-	PLAYER.DIALOGUE_LAYER.visible = false
-	PLAYER.talking_to = null
+	ACTOR.DIALOGUE_LAYER.visible = false
+	ACTOR.talking_to = null
 
 # func update(_delta):
 # 	if keep_momentum:
-# 		PLAYER.handle_idle_momentum(DECELERATION)
+# 		ACTOR.handle_idle_momentum(DECELERATION)
 
 # func return_to_last_state():
 # 	if prev_state:

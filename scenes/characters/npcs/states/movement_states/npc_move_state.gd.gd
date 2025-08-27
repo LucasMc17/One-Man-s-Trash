@@ -1,5 +1,4 @@
-# class_name NPCMoveState
-extends NPCState
+class_name NPCMoveState extends NPCMovementState
 
 @export var PATH_INDEX := 0
 @export var SHOULD_LOOP := false

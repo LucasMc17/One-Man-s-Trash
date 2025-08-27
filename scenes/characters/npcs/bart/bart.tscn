@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://oi5poak31x26"]
+[gd_scene load_steps=9 format=3 uid="uid://oi5poak31x26"]
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_mkmu5"]
 [ext_resource type="Resource" uid="uid://crqw6gtw2lj3n" path="res://assets/resources/talk_trees/bart_bar_chat/bart_bar_chat.tres" id="2_kcs5t"]
 [ext_resource type="Script" uid="uid://82v0o456gjpd" path="res://scenes/characters/npcs/states/npc_sitting_state.gd" id="2_rm8ni"]
 [ext_resource type="Script" uid="uid://byy8ut45r621x" path="res://scenes/characters/npcs/states/npc_talk_state.gd" id="3_2hohu"]
 [ext_resource type="Script" uid="uid://bb242vl6r0yge" path="res://scenes/characters/npcs/states/npc_move_state.gd" id="5_qbkuw"]
+[ext_resource type="Script" uid="uid://b1sqa5tyud8nt" path="res://scenes/characters/npcs/states/attention_states/npc_talk_state.gd" id="6_clixb"]
+[ext_resource type="Script" uid="uid://bo023d5lgrcn8" path="res://scenes/characters/npcs/states/movement_states/npc_sit_state.gd" id="7_v1oga"]
+[ext_resource type="Script" uid="uid://ckjkuwqqpjt54" path="res://scenes/characters/npcs/states/movement_states/npc_move_state.gd.gd" id="8_furea"]
 
 [node name="Bart" instance=ExtResource("1_mkmu5")]
 TALK_TREE = ExtResource("2_kcs5t")
@@ -24,5 +27,21 @@ script = ExtResource("5_qbkuw")
 NEXT_STATE = NodePath("../IdleState")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://bb242vl6r0yge"
+
+[node name="Talk" type="Node" parent="AttentionStateMachine" index="1" node_paths=PackedStringArray("ACTOR")]
+script = ExtResource("6_clixb")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://b1sqa5tyud8nt"
+
+[node name="Sit" type="Node" parent="MovementStateMachine" index="1" node_paths=PackedStringArray("ACTOR")]
+script = ExtResource("7_v1oga")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://bo023d5lgrcn8"
+
+[node name="GoToBathroom" type="Node" parent="MovementStateMachine" index="2" node_paths=PackedStringArray("NEXT_STATE", "ACTOR")]
+script = ExtResource("8_furea")
+NEXT_STATE = NodePath("../IdleMovement")
+ACTOR = NodePath("../..")
+metadata/_custom_type_script = "uid://ckjkuwqqpjt54"
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

@@ -13,18 +13,18 @@ func enter(previous_state : State = null, ext := {}):
 	# if previous_state._movement_enabled:
 	# 	keep_momentum = true
 	# prev_state = previous_state
-	PLAYER.PHONE.activate()
-	PLAYER.kill_camera_momentum()
+	ACTOR.PHONE.activate()
+	ACTOR.kill_camera_momentum()
 
 func exit():
-	PLAYER.PHONE.deactivate()
+	ACTOR.PHONE.deactivate()
 	Global.PLAYER_PHONE.CURRENT_STATE.transition('HomeState')
 	# keep_momentum = false
 	# prev_state = null
 
 # func update(_delta):
 # 	if keep_momentum:
-# 		PLAYER.handle_idle_momentum(DECELERATION)
+# 		ACTOR.handle_idle_momentum(DECELERATION)
 
 func input(event):
 	if event.is_action_pressed("phone"):
