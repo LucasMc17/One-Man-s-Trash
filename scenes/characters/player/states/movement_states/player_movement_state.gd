@@ -1,5 +1,12 @@
 class_name PlayerMovementState extends PlayerState
 
+var GRAVITY_ENABLED := true
+
+func update(delta):
+	super(delta)
+	if GRAVITY_ENABLED:
+		PLAYER.update_gravity(delta)
+
 # func update(delta):
 	# not working yet
 	# if get_script() != self.get_script(): # Simple check to see if it's the base script

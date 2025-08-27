@@ -8,6 +8,9 @@ var GET_OFF_POSITION : Vector3
 var _CAPTURED := false
 var _EXITING := false
 
+func _ready():
+	GRAVITY_ENABLED = false
+
 func enter(previous_state, ext):
 	super(previous_state, ext)
 	PLAYER.hint = 'Press [SPACE] to stand up'
