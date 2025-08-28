@@ -32,6 +32,17 @@ func update_gravity(delta):
 func _ready():
 	DEBUG_PANEL.npc_name = name
 
+func update_movement(speed : float, target : Vector3, acceleration : float):
+	if current_attention.DISABLE_MOVEMENT:
+		return
+	var direction = (target) - global_position
+	if is_on_floor():
+		var vector = direction.normalized()
+		velocity.x = lerp(velocity.x, vector.x * speed, acceleration)
+		velocity.z = lerp(velocity.z, vector.z * speed, acceleration)
+		rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), 0.15)
+	move_and_slide()
+
 func _on_interactable_interacted(interactor : Player):
 	if current_attention.TALK_ENABLED:
 		current_attention.transition("Talk")

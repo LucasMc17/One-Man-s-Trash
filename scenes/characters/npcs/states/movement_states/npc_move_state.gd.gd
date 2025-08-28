@@ -18,18 +18,12 @@ func enter(previous_state, ext):
 
 func physics_update(delta: float):
 	super(delta)
-	var direction = (TARGET_POSITION + PATH.global_position) - ACTOR.global_position
-	if ACTOR.is_on_floor():
-		if ACTOR.global_position.distance_to(TARGET_POSITION + PATH.global_position) > 0.2:
-			var vector = direction.normalized() * 2.5
-			ACTOR.velocity.x = vector.x
-			ACTOR.velocity.z = vector.z
-			ACTOR.rotation.y = lerp_angle(ACTOR.rotation.y, atan2(-ACTOR.velocity.x, -ACTOR.velocity.z), 0.15)
-			# ACTOR.run()
-		else:
-			check_next_point()
-	
-	ACTOR.move_and_slide()
+	var target = TARGET_POSITION + PATH.global_position
+	if ACTOR.global_position.distance_to(target) < 0.2:
+		check_next_point()
+	else:
+		ACTOR.update_movement(SPEED, target, ACCELERATION)
+
 
 func check_next_point():
 	if TARGET_INDEX == POINT_COUNT:

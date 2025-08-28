@@ -3,6 +3,9 @@ extends NPCState
 
 var prev_state : NPCState
 
+func _ready():
+	DISABLE_MOVEMENT = true
+
 func enter(previous_state, ext): 
 	super(previous_state, ext)
 	prev_state = previous_state

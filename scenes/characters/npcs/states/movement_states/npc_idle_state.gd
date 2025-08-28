@@ -13,5 +13,10 @@ func update(delta):
 		if TIME_LEFT <= 0:
 			transition(NEXT_STATE.name, {})
 
+func enter(previous_state, ext):
+	super(previous_state, ext)
+	ACTOR.velocity.x = 0
+	ACTOR.velocity.z = 0
+
 func exit():
 	TIME_LEFT = TIMEOUT

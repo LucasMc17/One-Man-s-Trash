@@ -1,5 +1,10 @@
 class_name NPCMovementState extends NPCState
 
+@export_group("Movement Settings")
+@export var SPEED : float = 2.5
+@export var ACCELERATION : float = 0.2
+@export var DECELERATION : float = 0.4
+
 var GRAVITY_ENABLED := true
 
 func update(delta):
