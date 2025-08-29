@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bctvs0pbevh86"]
+[gd_scene load_steps=9 format=3 uid="uid://bctvs0pbevh86"]
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_e6hot"]
-[ext_resource type="Script" uid="uid://c10ngdvj438bd" path="res://scenes/characters/npcs/bartender/bartender.gd" id="2_0vtm4"]
 [ext_resource type="Resource" uid="uid://dhok5l5olgn2y" path="res://assets/resources/talk_trees/debug_talk_tree.tres" id="6_d1v5y"]
 [ext_resource type="Script" uid="uid://b1sqa5tyud8nt" path="res://scenes/characters/npcs/states/attention_states/npc_talk_state.gd" id="7_e0apy"]
 [ext_resource type="Script" uid="uid://ckjkuwqqpjt54" path="res://scenes/characters/npcs/states/movement_states/npc_move_state.gd.gd" id="7_mh6sq"]
@@ -17,7 +16,6 @@ material = SubResource("StandardMaterial3D_qblmu")
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Bartender" instance=ExtResource("1_e6hot")]
-script = ExtResource("2_0vtm4")
 TALK_TREE = ExtResource("6_d1v5y")
 
 [node name="MeshInstance3D" parent="." index="2"]

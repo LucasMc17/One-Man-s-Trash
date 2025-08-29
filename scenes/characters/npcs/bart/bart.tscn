@@ -2,30 +2,148 @@
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_mkmu5"]
 [ext_resource type="Resource" uid="uid://crqw6gtw2lj3n" path="res://assets/resources/talk_trees/bart_bar_chat/bart_bar_chat.tres" id="2_kcs5t"]
-[ext_resource type="Script" uid="uid://82v0o456gjpd" path="res://scenes/characters/npcs/states/npc_sitting_state.gd" id="2_rm8ni"]
-[ext_resource type="Script" uid="uid://byy8ut45r621x" path="res://scenes/characters/npcs/states/npc_talk_state.gd" id="3_2hohu"]
-[ext_resource type="Script" uid="uid://bb242vl6r0yge" path="res://scenes/characters/npcs/states/npc_move_state.gd" id="5_qbkuw"]
 [ext_resource type="Script" uid="uid://b1sqa5tyud8nt" path="res://scenes/characters/npcs/states/attention_states/npc_talk_state.gd" id="6_clixb"]
 [ext_resource type="Script" uid="uid://bo023d5lgrcn8" path="res://scenes/characters/npcs/states/movement_states/npc_sit_state.gd" id="7_v1oga"]
 [ext_resource type="Script" uid="uid://ckjkuwqqpjt54" path="res://scenes/characters/npcs/states/movement_states/npc_move_state.gd.gd" id="8_furea"]
 
+[sub_resource type="GDScript" id="GDScript_oju1j"]
+script/source = "class_name NPCSittingState extends NPCState
+
+@export var SEAT : Chair
+
+# var SIT_POSITION : Vector3
+# var GET_OFF_POSITION : Vector3
+# var _CAPTURED := false
+# var _EXITING := false
+# var _NEXT_STATE : StringName
+
+# func _ready():
+# 	_gravity_enabled = false
+
+# func enter(previous_state, ext):
+# 	super(previous_state, ext)
+# 	if ext.has('seat'):
+# 		SEAT = ext.seat
+# 	sit_position = SEAT.global_position + SEAT.sit_position
+# 	if ext.has('get_off_position'):
+# 		get_off_position = ext.get_off_position
+# 	else:
+# 		get_off_position = SEAT.GET_OFF_MARKER.global_position
+# 	if ext.has('next_state'):
+# 		_next_state = ext.next_state
+
+# func update(delta):
+# 	if !_captured:
+# 		ACTOR.position = lerp(ACTOR.position, sit_position, 0.08)
+# 		if ACTOR.position.distance_to(sit_position) < 0.01:
+# 			_captured = true
+# 	elif _exiting:
+# 		ACTOR.position = lerp(ACTOR.position, get_off_position, 0.08)
+# 		if ACTOR.position.distance_to(get_off_position) < 0.01:
+# 			super.transition(_next_state)
+# 	else:
+# 		super(delta)
+
+# func transition(new_state_name : StringName, _ext := {}):
+# 	_next_state = new_state_name
+# 	_exiting = true
+
+# func exit():
+# 	_captured = false
+# 	_exiting = false
+"
+
+[sub_resource type="GDScript" id="GDScript_clixb"]
+script/source = "# class_name NPCTalkState
+extends NPCState
+
+var prev_state : NPCState
+
+func _ready():
+	DISABLE_MOVEMENT = true
+
+func enter(previous_state, ext): 
+	super(previous_state, ext)
+	prev_state = previous_state
+	# ACTOR.look_at(Global.PLAYER.global_position)
+	ACTOR.rotation.x = 0
+	ACTOR.rotation.z = 0
+	# var direction = POINT.global_position - ACTOR.global_position
+
+func exit():
+	super()
+	prev_state = null
+
+func return_to_last_state():
+	if prev_state:
+		transition(prev_state.name)
+
+func physics_update(delta: float):
+	super(delta)
+	# var direction = Global.PLAYER.CAMERA_CONTROLLER.global_position - ACTOR.global_position
+	# ACTOR.rotation.y = lerp_angle(ACTOR.rotation.y, atan2(-direction.x, -direction.y), 0.15)
+"
+
+[sub_resource type="GDScript" id="GDScript_v1oga"]
+script/source = "# class_name NPCMoveState
+extends NPCState
+
+@export var PATH_INDEX := 0
+@export var SHOULD_LOOP := false
+
+@export var NEXT_STATE : NPCState
+
+var PATH : Path3D
+var TARGET_INDEX := 0
+var TARGET_POSITION : Vector3
+var POINT_COUNT := 0
+
+func enter(previous_state, ext):
+	super(previous_state, ext)
+	PATH = ACTOR.MOVE_PATHS[PATH_INDEX]
+	POINT_COUNT = PATH.curve.point_count - 1
+	TARGET_POSITION = PATH.curve.get_point_position(TARGET_INDEX)
+
+func physics_update(delta: float):
+	super(delta)
+	var direction = (TARGET_POSITION + PATH.global_position) - ACTOR.global_position
+	if ACTOR.is_on_floor():
+		if ACTOR.global_position.distance_to(TARGET_POSITION + PATH.global_position) > 0.2:
+			var vector = direction.normalized() * 2.5
+			ACTOR.velocity.x = vector.x
+			ACTOR.velocity.z = vector.z
+			ACTOR.rotation.y = lerp_angle(ACTOR.rotation.y, atan2(-ACTOR.velocity.x, -ACTOR.velocity.z), 0.15)
+			# ACTOR.run()
+		else:
+			check_next_point()
+	
+	ACTOR.move_and_slide()
+
+func check_next_point():
+	if TARGET_INDEX == POINT_COUNT:
+		if SHOULD_LOOP:
+			TARGET_INDEX = 0
+		else:
+			transition(NEXT_STATE.name)
+			return
+	else:
+		TARGET_INDEX += 1
+	TARGET_POSITION = PATH.curve.get_point_position(TARGET_INDEX)
+"
+
 [node name="Bart" instance=ExtResource("1_mkmu5")]
 TALK_TREE = ExtResource("2_kcs5t")
 
-[node name="SittingState" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("ACTOR")]
-script = ExtResource("2_rm8ni")
-ACTOR = NodePath("../..")
+[node name="StateMachine#SittingState" type="Node" parent="." index="1"]
+script = SubResource("GDScript_oju1j")
 metadata/_custom_type_script = "uid://82v0o456gjpd"
 
-[node name="TalkState" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("ACTOR")]
-script = ExtResource("3_2hohu")
-ACTOR = NodePath("../..")
+[node name="StateMachine#TalkState" type="Node" parent="." index="2"]
+script = SubResource("GDScript_clixb")
 metadata/_custom_type_script = "uid://byy8ut45r621x"
 
-[node name="GoToBathroom" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("NEXT_STATE", "ACTOR")]
-script = ExtResource("5_qbkuw")
-NEXT_STATE = NodePath("../IdleState")
-ACTOR = NodePath("../..")
+[node name="StateMachine#GoToBathroom" type="Node" parent="." index="3"]
+script = SubResource("GDScript_v1oga")
 metadata/_custom_type_script = "uid://bb242vl6r0yge"
 
 [node name="Talk" type="Node" parent="AttentionStateMachine" index="1" node_paths=PackedStringArray("ACTOR")]
