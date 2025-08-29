@@ -2,6 +2,6 @@ class_name NPCAttentionState extends NPCState
 
 var TALK_ENABLED := true
 
-# func enter(p, e):
-# 	super(p, e) 
-# 	Global.log(self.name)
+func enter(previous_state, ext):
+	super(previous_state, ext)
+	ACTOR.DEBUG_PANEL.attention_state = name

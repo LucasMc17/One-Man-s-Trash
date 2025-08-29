@@ -8,7 +8,7 @@ var TIME_LEFT := TIMEOUT
 
 func update(delta):
 	super(delta)
-	if USE_TIMER:
+	if USE_TIMER and !ACTOR.current_attention.DISABLE_MOVEMENT:
 		TIME_LEFT -= delta
 		if TIME_LEFT <= 0:
 			transition(NEXT_STATE.name, {})

@@ -7,6 +7,10 @@ class_name NPCMovementState extends NPCState
 
 var GRAVITY_ENABLED := true
 
+func enter(previous_state, ext):
+	super(previous_state, ext)
+	ACTOR.DEBUG_PANEL.movement_state = name
+
 func update(delta):
 	super(delta)
 	if GRAVITY_ENABLED:

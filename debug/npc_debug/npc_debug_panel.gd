@@ -1,10 +1,16 @@
 class_name NPCDebugPanel extends Node3D
 
-@onready var STATE = %StateValue
-var state : StringName:
+@onready var MOVEMENT = %MovementValue
+var movement_state : StringName:
 	set(val):
-		STATE.text = val
-		state = val
+		MOVEMENT.text = val
+		movement_state = val
+
+@onready var ATTENTION = %AttentionValue
+var attention_state : StringName:
+	set(val):
+		ATTENTION.text = val
+		attention_state = val
 
 @onready var NAME = %NameValue
 var npc_name : StringName:
