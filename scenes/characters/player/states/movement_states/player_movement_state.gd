@@ -1,26 +1,18 @@
 class_name PlayerMovementState extends PlayerState
 
-var GRAVITY_ENABLED := true
+# EXPORTS
+@export_group("Movement Settings")
+@export var GRAVITY_ENABLED := true
+@export var SPEED : float = 5.0
+@export var ACCELERATION : float = 0.2
+@export var DECELERATION : float = 0.4
 
 func update(delta):
 	super(delta)
 	if GRAVITY_ENABLED:
 		ACTOR.update_gravity(delta)
 
-# func update(delta):
-	# not working yet
-	# if get_script() != self.get_script(): # Simple check to see if it's the base script
-	# 	push_warning('Movement states should not extend the `update` function. Extend `movement_update` instead.')
-	# super(delta)
-	# if !ACTOR.current_attention.DISABLE_MOVEMENT:
-	# 	movement_update(delta)
-
-# func movement_update(delta):
-# 	pass
-
 func input(event):
-	# if get_script() != self.get_script(): # Simple check to see if it's the base script
-	# 	push_warning('Movement states should not extend the `input` function. Extend `movement_input` instead.')
 	super(event)
 	if !ACTOR.current_attention.DISABLE_INPUT:
 		movement_input(event)

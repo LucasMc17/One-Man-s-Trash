@@ -1,17 +1,5 @@
 class_name PlayerState extends ActorState
 
-# EXPORTS
-# @export var PLAYER : Player
-@export_group("Movement Settings")
-@export var SPEED : float = 5.0
-@export var ACCELERATION : float = 0.2
-@export var DECELERATION : float = 0.4
-
-# var PLAYER : Player
-
-# func _ready():
-# 	PLAYER = ACTOR
-
 func compare_events(input_event : InputEvent, expected : InputEventKey):
 	if input_event is not InputEventKey:
 		return false
