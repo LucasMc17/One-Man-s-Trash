@@ -9,7 +9,7 @@ func enter(previous_state, ext):
 	bart.global_position = bart_chair.SIT_MARKER.global_position
 	Global.PLAYER.global_position = player_chair.SIT_MARKER.global_position
 	Global.PLAYER.current_movement.transition('Sit', { "seat": player_chair })
-	bart.current_movement.transition('SittingState', { "seat": bart_chair })
+	bart.current_movement.transition('Sit', { "seat": bart_chair })
 
 func exit():
 	super()
