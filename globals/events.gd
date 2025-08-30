@@ -15,3 +15,9 @@ signal conversation_ended(npc : NPC)
 
 ## Signal fired when a player's text conversation ends
 signal texting_ended(contact : TextContact)
+
+## Signal fired when an npc changes their movement state
+signal npc_movement_changed(npc : NPC, new_movement : StringName, previous_movement : StringName)
+
+## Signal fired when an npc changes their attention state
+signal npc_attention_changed(npc : NPC, new_attention : StringName, previous_attention : StringName)

@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://papflnia2cun" path="res://scenes/characters/player/states/movement_states/player_sit_state.gd" id="9_42irl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0owmy"]
 albedo_color = Color(0.17316, 0.718229, 1, 1)

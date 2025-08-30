@@ -17,5 +17,4 @@ func exit():
 
 func _on_conversation_ended(npc : NPC):
 	if npc == Global.NPCS.Bart:
-		Global.log('bart chat ended')
 		transition('WaitForAmandaText')

@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://b2m4463t40ea1"]
+[gd_scene load_steps=23 format=3 uid="uid://b2m4463t40ea1"]
 
 [ext_resource type="Script" uid="uid://krn38ubei1hi" path="res://levels/level_01/root.gd" id="1_06tnj"]
 [ext_resource type="PackedScene" uid="uid://bquo2sra7l7e6" path="res://envs/daytime_env.tscn" id="1_jsf6y"]
 [ext_resource type="PackedScene" uid="uid://dp1q3ngso06dk" path="res://scenes/characters/player/player.tscn" id="2_34nx1"]
 [ext_resource type="PackedScene" uid="uid://brwpkrrtos4o5" path="res://debug/debug_block.tscn" id="3_qgp6h"]
 [ext_resource type="PackedScene" uid="uid://bo47ph4exyenq" path="res://scenes/chairs/debug_chair_01.tscn" id="4_06tnj"]
+[ext_resource type="PackedScene" uid="uid://8t3idewsxgn6" path="res://scenes/doors/debug_door_01.tscn" id="6_510th"]
 [ext_resource type="PackedScene" uid="uid://bctvs0pbevh86" path="res://scenes/characters/npcs/bartender/bartender.tscn" id="6_v74tu"]
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="7_e1ace"]
 [ext_resource type="PackedScene" uid="uid://oi5poak31x26" path="res://scenes/characters/npcs/bart/bart.tscn" id="7_thd0o"]
@@ -70,9 +71,17 @@ size = Vector3(7.5, 0.5, 40)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 20.3)
 size = Vector3(8, 7, 0.5)
 
-[node name="DebugBlock" parent="Geometry" instance=ExtResource("3_qgp6h")]
+[node name="Counter" parent="Geometry" instance=ExtResource("3_qgp6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
 size = Vector3(1, 1, 10)
+
+[node name="BathroomWall" parent="Geometry" instance=ExtResource("3_qgp6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22085, 1.01758, 12.9966)
+size = Vector3(1.5, 2, 0.2)
+
+[node name="BathroomWall2" parent="Geometry" instance=ExtResource("3_qgp6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.703888, 1.01758, 12.9966)
+size = Vector3(1.5, 2, 0.2)
 
 [node name="Seats" type="Node3D" parent="."]
 
@@ -95,6 +104,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, 1.46014)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, 2.97665)
 
 [node name="Doors" type="Node3D" parent="."]
+
+[node name="BathroomDoor" parent="Doors" groups=["LevelImportant"] instance=ExtResource("6_510th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96809, 0, 12.9894)
+is_locked = true
+is_open = true
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true

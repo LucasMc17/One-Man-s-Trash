@@ -70,6 +70,9 @@ var target_rotation := 0.0
 @onready var INTERACTABLE = %Interactable
 
 # BUILT INS
+func _ready():
+	is_open = is_open
+	
 func _physics_process(_delta):
 	DOOR_BODY.rotation.y = lerp(DOOR_BODY.rotation.y, target_rotation, 0.1)
 
