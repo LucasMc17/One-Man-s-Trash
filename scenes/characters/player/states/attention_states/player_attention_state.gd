@@ -11,7 +11,7 @@ func enter(previous_state : State, ext : Dictionary):
 	if CAPTURE_MOUSE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if !CAN_INTERACT:
 		ACTOR.INTERACT_LABEL.text = ''
 	super(previous_state, ext)

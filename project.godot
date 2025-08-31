@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Global="*res://globals/global_node.tscn"
 Events="*res://globals/events.gd"
 
+[debug]
+
+shapes/collision/shape_color=Color(1, 0.372549, 0.364706, 1)
+
 [display]
 
 window/size/viewport_width=3024

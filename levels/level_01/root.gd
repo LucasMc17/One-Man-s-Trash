@@ -9,3 +9,6 @@ var CURRENT_STATE : LevelState:
 func _ready():
 	Global.GameState.LEVEL = self
 	Events.level_loaded.emit()
+
+func _on_bart_bathroom_oneoff_entered(area, body):
+	Global.IMPORTANT_SCENES.BathroomDoor.is_open = false

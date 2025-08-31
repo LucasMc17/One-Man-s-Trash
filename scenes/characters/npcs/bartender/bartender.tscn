@@ -18,6 +18,9 @@ size = Vector3(0.5, 0.5, 0.5)
 [node name="Bartender" instance=ExtResource("1_e6hot")]
 TALK_TREE = ExtResource("6_d1v5y")
 
+[node name="CollisionShape3D" parent="." index="0"]
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [node name="MeshInstance3D" parent="." index="2"]
 mesh = SubResource("CapsuleMesh_alpou")
 

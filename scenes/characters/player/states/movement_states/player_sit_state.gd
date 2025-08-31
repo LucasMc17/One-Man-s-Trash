@@ -38,9 +38,10 @@ func update(delta):
 		super(delta)
 
 func transition(new_state_name : StringName, ext := {}):
-	_NEXT_STATE_NAME = new_state_name
-	_NEXT_STATE_EXT = ext
-	_EXITING = true
+	if !Global.PLAYER.MOVEMENT_STATE_MACHINE.DISABLED:
+		_NEXT_STATE_NAME = new_state_name
+		_NEXT_STATE_EXT = ext
+		_EXITING = true
 
 
 func movement_input(event):
