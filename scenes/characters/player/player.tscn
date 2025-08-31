@@ -21,6 +21,7 @@ albedo_color = Color(0.17316, 0.718229, 1, 1)
 material = SubResource("StandardMaterial3D_0owmy")
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 5
 script = ExtResource("1_dovo2")
 
 [node name="UI" type="Control" parent="."]
