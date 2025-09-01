@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b2m4463t40ea1"]
+[gd_scene load_steps=30 format=3 uid="uid://b2m4463t40ea1"]
 
 [ext_resource type="Script" uid="uid://krn38ubei1hi" path="res://levels/level_01/root.gd" id="1_06tnj"]
 [ext_resource type="PackedScene" uid="uid://bquo2sra7l7e6" path="res://envs/daytime_env.tscn" id="1_jsf6y"]
@@ -20,7 +20,9 @@
 [ext_resource type="Resource" uid="uid://b28n4idy1lf3m" path="res://assets/resources/text_messages/bart_texts_01.tres" id="14_x43fk"]
 [ext_resource type="PackedScene" uid="uid://c7jcuvst7cih2" path="res://scenes/props/inert_props/beer_bottle.tscn" id="15_thd0o"]
 [ext_resource type="Script" uid="uid://daxt11k50236q" path="res://levels/states/level_wait_state.gd" id="15_x43fk"]
-[ext_resource type="Script" uid="uid://bhbey35polldl" path="res://area_triggers/area_trigger_oneoff.gd" id="22_bt03r"]
+[ext_resource type="PackedScene" uid="uid://dps1at258aprq" path="res://area_triggers/area_trigger_oneoff.tscn" id="21_2q5mi"]
+[ext_resource type="PackedScene" uid="uid://cjdsdi4crt385" path="res://area_triggers/area_trigger.tscn" id="22_2q5mi"]
+[ext_resource type="PackedScene" uid="uid://ox4r47a7ajrg" path="res://area_triggers/area_counter.tscn" id="23_2q5mi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bt03r"]
 size = Vector3(1, 1.96729, 1)
@@ -48,6 +50,8 @@ point_count = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xxjo0"]
 size = Vector3(2.41992, 1.68164, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2q5mi"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_06tnj")
@@ -214,14 +218,24 @@ curve = SubResource("Curve3D_3qwjj")
 [node name="Triggers" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="BartBathroomOneoff" type="Area3D" parent="Triggers" node_paths=PackedStringArray("INCLUDED")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97778, 0.67033, 15.2947)
-script = ExtResource("22_bt03r")
+[node name="BartBathroomOneoff" parent="Triggers" node_paths=PackedStringArray("INCLUDED") instance=ExtResource("21_2q5mi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.978, 0.67, 15.295)
 INCLUDED = [NodePath("../../NPCs/Bart")]
-metadata/_custom_type_script = "uid://bhbey35polldl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/BartBathroomOneoff"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34082, 0)
 shape = SubResource("BoxShape3D_xxjo0")
+
+[node name="AreaTrigger" parent="." node_paths=PackedStringArray("INCLUDED") instance=ExtResource("22_2q5mi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.619475, 0, 11.5909)
+INCLUDED = [NodePath("../Player")]
+
+[node name="AreaCounter" parent="." node_paths=PackedStringArray("INCLUDED") instance=ExtResource("23_2q5mi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15372, 6.17273)
+INCLUDED = [NodePath("../Player")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCounter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.23245)
+shape = SubResource("SphereShape3D_2q5mi")
 
 [connection signal="entered" from="Triggers/BartBathroomOneoff" to="." method="_on_bart_bathroom_oneoff_entered"]

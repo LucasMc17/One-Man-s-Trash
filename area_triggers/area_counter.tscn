@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ox4r47a7ajrg"]
+
+[ext_resource type="PackedScene" uid="uid://bghca01qsq1sq" path="res://debug/debug_ui/debug_label.tscn" id="1_1i47u"]
+[ext_resource type="Script" uid="uid://dmcjjufdygxii" path="res://area_triggers/area_counter.gd" id="2_hb2us"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hb2us"]
+viewport_path = NodePath("SubViewport")
+
+[node name="AreaCounter" type="Area3D"]
+script = ExtResource("2_hb2us")
+
+[node name="DebugLabel" parent="." instance=ExtResource("1_1i47u")]
+unique_name_in_owner = true
+texture = SubResource("ViewportTexture_hb2us")
+VP_SIZE = Vector2i(400, 160)
+TEXT = "AREA COUNTER
+SCENES: Lorem, Ipsum, Lorem, Ipsum, Lorem
+GROUPS: Lorem, Ipsum, Lorem
+
+0 / 3 DETECTED
+FILLED: FALSE"

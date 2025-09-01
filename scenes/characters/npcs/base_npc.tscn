@@ -29,6 +29,7 @@ script = ExtResource("1_wwrmc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_6qnc6")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Interactable" parent="." instance=ExtResource("1_65blf")]
 shape = SubResource("CapsuleShape3D_vy5f6")

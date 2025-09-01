@@ -42,6 +42,7 @@ class_name Chair extends StaticBody3D
 	set(val):
 		if COLLISION_SHAPE:
 			COLLISION_SHAPE.shape = val
+			# NOTE: Forces the collision shape to be slightly smaller than the interact box so the player interactor can still see it
 			COLLISION_SHAPE.scale = Vector3(0.95, 0.95, 0.95)
 		if INTERACTABLE:
 			INTERACTABLE.shape = val
