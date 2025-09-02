@@ -232,6 +232,7 @@ INCLUDED = [NodePath("../Player")]
 
 [node name="AreaCounter" parent="." node_paths=PackedStringArray("INCLUDED") instance=ExtResource("23_2q5mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15372, 6.17273)
+LIMIT = 1
 INCLUDED = [NodePath("../Player")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCounter"]

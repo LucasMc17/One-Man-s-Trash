@@ -12,15 +12,34 @@ billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_4uiuj")
 script = ExtResource("1_4uiuj")
-TEXT = "aaaaaa"
+TEXT = "Exampe text
+Lorem Ipsum Lorem Ipsum
+Lorem: Ipsum"
 
 [node name="SubViewport" type="SubViewport" parent="."]
 unique_name_in_owner = true
 transparent_bg = true
 size = Vector2i(500, 500)
 
-[node name="Label" type="Label" parent="SubViewport"]
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport/Control"]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 23.0
-text = "aaaaaa"
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_right = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exampe text
+Lorem Ipsum Lorem Ipsum
+Lorem: Ipsum"

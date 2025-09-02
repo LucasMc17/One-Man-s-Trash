@@ -6,7 +6,6 @@ class_name DebugLabel extends Sprite3D
 
 @export var VP_SIZE := Vector2i(500,500):
 	set(val):
-		print(VIEWPORT)
 		if VIEWPORT:
 			VIEWPORT.size = val
 		VP_SIZE = val

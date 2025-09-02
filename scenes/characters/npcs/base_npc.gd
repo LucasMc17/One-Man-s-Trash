@@ -9,6 +9,7 @@ class_name NPC extends CharacterBody3D
 @onready var ATTENTION_STATE_MACHINE := %AttentionStateMachine
 @onready var MOVEMENT_STATE_MACHINE := %MovementStateMachine
 @onready var DEBUG_PANEL := %NPCDebugPanel
+@onready var DEBUG_LABEL := %DebugLabel
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var current_attention : NPCAttentionState:
@@ -28,6 +29,13 @@ func update_gravity(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		move_and_slide()
+
+func make_label():
+	DEBUG_LABEL.TEXT = "\n".join([
+		name,
+		"ATTENTION: " + current_attention.name,
+		"MOVEMENT: " + current_movement.name,
+	])
 
 func _ready():
 	DEBUG_PANEL.npc_name = name

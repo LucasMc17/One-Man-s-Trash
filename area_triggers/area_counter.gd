@@ -3,8 +3,6 @@ class_name AreaCounter extends AreaTrigger
 signal filled()
 signal unfilled()
 
-# @onready var DEBUG_LABEL := %DebugLabel
-
 @export var LIMIT : int
 
 var COUNT := 0
