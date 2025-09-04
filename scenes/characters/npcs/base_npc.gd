@@ -2,13 +2,10 @@
 class_name NPC extends CharacterBody3D
 
 @export var TALK_TREE : TalkTree
-# @export var TALK_TREES : Array[TalkTree] = []
 @export var MOVE_PATHS : Array[Path3D] = []
 
-# @onready var STATE_MACHINE := %StateMachine
 @onready var ATTENTION_STATE_MACHINE := %AttentionStateMachine
 @onready var MOVEMENT_STATE_MACHINE := %MovementStateMachine
-@onready var DEBUG_PANEL := %NPCDebugPanel
 @onready var DEBUG_LABEL := %DebugLabel
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -32,7 +29,8 @@ func update_gravity(delta):
 
 func _ready():
 	DEBUG_LABEL.change_param('name', name)
-	DEBUG_PANEL.npc_name = name
+	if Global.Debug.debug_override == "DEFER":
+		DEBUG_LABEL.visible = Global.Debug.show_npc_status
 
 func update_movement(speed : float, target : Vector3, acceleration : float):
 	if current_attention.DISABLE_MOVEMENT:

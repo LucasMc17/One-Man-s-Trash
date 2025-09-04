@@ -63,7 +63,7 @@ func receive_text(text : ContactMessage):
 	TYPING_HOLDER.visible = false
 
 func keep_scroll_at_bottom():
-	# I don't like this but it's needed until I can get the scroll to work consistently
+	# TODO: I don't like this but it's needed until I can get the scroll to work consistently
 	if ACTIVE:
 		SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
 

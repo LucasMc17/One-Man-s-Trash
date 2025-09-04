@@ -8,20 +8,14 @@ signal exited(area, body)
 @export var INCLUDED_BY_NAME : Array[StringName]
 @export var INCLUDED_BY_GROUP : Array[StringName]
 
-var DEBUG_LABEL : DebugLabel
+@onready var DEBUG_LABEL = %DebugLabel
 
 func _ready():
-	# NOTE: Not sure why i have to do it this way. Something about inheritance makes regular onready var not work in inherited classes
-	DEBUG_LABEL = get_node('DebugLabel')
+	visible = true
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	if DEBUG_LABEL:
-		DEBUG_LABEL.change_param('scenes', ", ".join((INCLUDED + INCLUDED_BY_NAME).map(func (scene): return scene.name)))
-		DEBUG_LABEL.change_param('groups', ", ".join(INCLUDED_BY_GROUP))
-
-	# if DEBUG_LABEL:
-		# Global.log(make_label())
-		# DEBUG_LABEL.TEXT = self.make_label()
+	DEBUG_LABEL.change_param('scenes', ", ".join((INCLUDED).map(func (scene): return scene.name) + INCLUDED_BY_NAME))
+	DEBUG_LABEL.change_param('groups', ", ".join(INCLUDED_BY_GROUP))
 
 func check_elligibility(body : Node3D) -> bool:
 	if INCLUDED.has(body):

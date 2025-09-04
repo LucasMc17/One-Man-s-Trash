@@ -159,7 +159,8 @@ var commands : Dictionary = {
 
 func _ready():
 	DEBUG_SCENES = get_tree().get_nodes_in_group('debug')
-	NPC_STATUSES = DEBUG_SCENES.filter(func(scene): return scene is NPCDebugPanel)
+	# TODO: There is work to be done here. Not sure if new solution will be a group or a class
+	# NPC_STATUSES = DEBUG_SCENES.filter(func(scene): return scene is NPCDebugPanel)
 	if debug_override == "ON":
 		for scene in DEBUG_SCENES:
 			scene.visible = true

@@ -4,8 +4,6 @@ extends MeshInstance3D
 @export_group("Phone State")
 @export var y_position := -0.19
 @export var y_rotation := 90.0:
-	# set(val):
-	# 	y_rotation = deg_to_rad(val)
 	get():
 		return deg_to_rad(y_rotation)
 @export var active := false

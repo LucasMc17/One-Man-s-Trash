@@ -1,9 +1,5 @@
 extends Node3D
 
-# @onready var node_viewport = %SubViewport
-# @onready var node_quad = %MeshInstance3D
-# @onready var node_area = %Area3D
-
 ## Used for checking if the mouse is inside the Area3D.
 var is_mouse_inside := false
 

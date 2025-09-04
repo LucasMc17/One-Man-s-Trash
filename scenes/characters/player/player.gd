@@ -12,7 +12,6 @@ class_name Player extends CharacterBody3D
 @onready var INTERACT_LABEL := %InteractLabel
 @onready var HINT_LABEL := %HintLabel
 @onready var NOTIFICATION_LABEL = %NotificationLabel
-# @onready var STATE_MACHINE := %StateMachine
 @onready var ATTENTION_STATE_MACHINE := %AttentionStateMachine
 @onready var MOVEMENT_STATE_MACHINE := %MovementStateMachine
 @onready var DIALOGUE_LAYER := %DialogueLayer
@@ -84,7 +83,7 @@ func update_camera(delta):
 	_mouse_rotation.y += _rotation_input * delta
 	
 	_player_rotation = Vector3(0.0, _mouse_rotation.y, 0.0)
-	_camera_rotation = Vector3(_mouse_rotation.x, 0.0, 0.0) # think this is where the issue is where I can't change the character's starting rotation
+	_camera_rotation = Vector3(_mouse_rotation.x, 0.0, 0.0) # NOTE: I think this is where the issue is where I can't change the character's starting rotation
 	
 	CAMERA_CONTROLLER.transform.basis = Basis.from_euler(_camera_rotation)
 	CAMERA_CONTROLLER.rotation.z = 0.0
@@ -101,9 +100,6 @@ func exit_dialogue():
 			talking_to.current_attention.transition('IdleAttention')
 	if current_attention is TalkState:
 		current_attention.transition("Freelook")
-		# current_attention.return_to_last_state()
-
-# func _physics_process(delta):
 
 func _process(_delta):
 	if Global.Debug.PLAYER_STATUS:

@@ -1,7 +1,5 @@
 class_name AreaTriggerOneoff extends AreaTrigger
 
-# @onready var DEBUG_LABEL = %DebugLabel
-
 @export var LISTENING := true:
 	set(val):
 		set_deferred("monitoring", val)

@@ -13,7 +13,6 @@ func enter(previous_state, ext):
 	if previous_state:
 		previous_name = previous_state.name
 	Events.npc_movement_changed.emit(ACTOR, name, previous_name)
-	ACTOR.DEBUG_PANEL.movement_state = name
 
 func update(delta):
 	super(delta)
