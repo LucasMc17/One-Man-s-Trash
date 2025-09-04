@@ -12,9 +12,9 @@ script = ExtResource("1_0hiwc")
 [node name="DebugLabel" parent="." instance=ExtResource("1_idf4n")]
 unique_name_in_owner = true
 texture = SubResource("ViewportTexture_0hiwc")
-VP_SIZE = Vector2i(400, 500)
+VP_SIZE = Vector2i(400, 160)
 TEXT = "AREA TRIGGER listening for:
-SCENES: Lorem, Ipsum, Lorem, Ipsum, Lorem
-GROUPS: Lorem, Ipsum, Lorem
+SCENES: {scenes}
+GROUPS: {groups}
 
-LISTENING: TRUE"
+LISTENING: {listening}"

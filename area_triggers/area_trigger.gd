@@ -10,21 +10,18 @@ signal exited(area, body)
 
 var DEBUG_LABEL : DebugLabel
 
-func make_label():
-	return "\n".join([
-		"AREA TRIGGER listening for:",
-		"SCENES: " + ", ".join([", ".join(INCLUDED.map(func (scene): return scene.name)), ", ".join(INCLUDED_BY_NAME)]),
-		"GROUPS: " + ", ".join(INCLUDED_BY_GROUP)
-	])
-
 func _ready():
 	# NOTE: Not sure why i have to do it this way. Something about inheritance makes regular onready var not work in inherited classes
 	DEBUG_LABEL = get_node('DebugLabel')
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-
 	if DEBUG_LABEL:
-		DEBUG_LABEL.TEXT = self.make_label()
+		DEBUG_LABEL.change_param('scenes', ", ".join((INCLUDED + INCLUDED_BY_NAME).map(func (scene): return scene.name)))
+		DEBUG_LABEL.change_param('groups', ", ".join(INCLUDED_BY_GROUP))
+
+	# if DEBUG_LABEL:
+		# Global.log(make_label())
+		# DEBUG_LABEL.TEXT = self.make_label()
 
 func check_elligibility(body : Node3D) -> bool:
 	if INCLUDED.has(body):

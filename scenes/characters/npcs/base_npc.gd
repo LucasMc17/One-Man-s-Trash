@@ -30,14 +30,8 @@ func update_gravity(delta):
 		velocity.y -= gravity * delta
 		move_and_slide()
 
-func make_label():
-	DEBUG_LABEL.TEXT = "\n".join([
-		name,
-		"ATTENTION: " + current_attention.name,
-		"MOVEMENT: " + current_movement.name,
-	])
-
 func _ready():
+	DEBUG_LABEL.change_param('name', name)
 	DEBUG_PANEL.npc_name = name
 
 func update_movement(speed : float, target : Vector3, acceleration : float):

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://oi5poak31x26"]
+[gd_scene load_steps=7 format=3 uid="uid://oi5poak31x26"]
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_mkmu5"]
 [ext_resource type="Resource" uid="uid://crqw6gtw2lj3n" path="res://assets/resources/talk_trees/bart_bar_chat/bart_bar_chat.tres" id="2_kcs5t"]
 [ext_resource type="Script" uid="uid://b1sqa5tyud8nt" path="res://scenes/characters/npcs/states/attention_states/npc_talk_state.gd" id="6_clixb"]
 [ext_resource type="Script" uid="uid://bo023d5lgrcn8" path="res://scenes/characters/npcs/states/movement_states/npc_sit_state.gd" id="7_v1oga"]
 [ext_resource type="Script" uid="uid://ckjkuwqqpjt54" path="res://scenes/characters/npcs/states/movement_states/npc_move_state.gd.gd" id="8_furea"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oju1j"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Bart" instance=ExtResource("1_mkmu5")]
 TALK_TREE = ExtResource("2_kcs5t")
@@ -24,5 +27,8 @@ script = ExtResource("8_furea")
 NEXT_STATE = NodePath("../IdleMovement")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://ckjkuwqqpjt54"
+
+[node name="DebugLabel" parent="." index="6"]
+texture = SubResource("ViewportTexture_oju1j")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

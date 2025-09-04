@@ -8,15 +8,16 @@ signal unfilled()
 var COUNT := 0
 var FILLED := false
 
-func make_label():
-	return "\n".join([
-		"AREA COUNTER listening for:",
-		"SCENES: " + ", ".join([", ".join(INCLUDED.map(func (scene): return scene.name)), ", ".join(INCLUDED_BY_NAME)]),
-		"GROUPS: " + ", ".join(INCLUDED_BY_GROUP),
-		"",
-		str(COUNT) + ((" / " + str(LIMIT)) if LIMIT > 0 else "") + " DETECTED",
-		"FILLED: " + ("TRUE" if FILLED else "FALSE")
-	])
+func _ready():
+	super()
+	DEBUG_LABEL.change_param('count', make_count())
+	DEBUG_LABEL.change_param('filled', "FALSE")
+
+func make_count():
+	if LIMIT < 1:
+		return str(COUNT)
+	else:
+		return str(COUNT) + ' / ' + str(LIMIT)
 
 func handle_entered(body : Node3D):
 	super(body)
@@ -24,8 +25,8 @@ func handle_entered(body : Node3D):
 	if LIMIT > 0 && COUNT >= LIMIT:
 		FILLED = true
 		filled.emit()
-	DEBUG_LABEL.TEXT = make_label()
-
+	DEBUG_LABEL.change_param('count', make_count())
+	DEBUG_LABEL.change_param('filled', "TRUE" if FILLED else "FALSE")
 
 func handle_exited(body : Node3D):
 	super(body)
@@ -33,4 +34,5 @@ func handle_exited(body : Node3D):
 		FILLED = false
 		unfilled.emit()
 	COUNT -= 1
-	DEBUG_LABEL.TEXT = make_label()
+	DEBUG_LABEL.change_param('count', make_count())
+	DEBUG_LABEL.change_param('filled', "TRUE" if FILLED else "FALSE")

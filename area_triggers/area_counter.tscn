@@ -14,8 +14,8 @@ unique_name_in_owner = true
 texture = SubResource("ViewportTexture_hb2us")
 VP_SIZE = Vector2i(400, 160)
 TEXT = "AREA COUNTER
-SCENES: Lorem, Ipsum, Lorem, Ipsum, Lorem
-GROUPS: Lorem, Ipsum, Lorem
+SCENES: {scenes}
+GROUPS: {groups}
 
-0 / 3 DETECTED
-FILLED: FALSE"
+{count} DETECTED
+FILLED: {filled}"

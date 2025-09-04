@@ -12,7 +12,7 @@ script = ExtResource("1_obwg5")
 [node name="DebugLabel" parent="." instance=ExtResource("2_65f6i")]
 unique_name_in_owner = true
 texture = SubResource("ViewportTexture_65f6i")
-VP_SIZE = Vector2i(300, 80)
+VP_SIZE = Vector2i(400, 80)
 TEXT = "AREA TRIGGER listening for:
-SCENES: Lorem, Ipsum, Lorem, Ipsum, Lorem
-GROUPS: Lorem, Ipsum, Lorem"
+SCENES: {scenes}
+GROUPS: {groups}"

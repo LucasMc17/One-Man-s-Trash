@@ -6,17 +6,11 @@ class_name AreaTriggerOneoff extends AreaTrigger
 	set(val):
 		set_deferred("monitoring", val)
 		LISTENING = val
-		DEBUG_LABEL.TEXT = make_label()
+		DEBUG_LABEL.change_param('listening', "TRUE" if val else "FALSE")
 	
-
-func make_label():
-	return "\n".join([
-		"AREA TRIGGER listening for:",
-		"SCENES: " + ", ".join([", ".join(INCLUDED.map(func (scene): return scene.name)), ", ".join(INCLUDED_BY_NAME)]),
-		"GROUPS: " + ", ".join(INCLUDED_BY_GROUP),
-		"",
-		"LISTENING: " + ("TRUE" if LISTENING else "FALSE")
-	])
+func _ready():
+	super()
+	DEBUG_LABEL.change_param('listening', 'TRUE')
 
 func handle_entered(body : Node3D):
 	super(body)

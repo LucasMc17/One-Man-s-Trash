@@ -8,6 +8,7 @@ class_name NPCMovementState extends NPCState
 
 func enter(previous_state, ext):
 	super(previous_state, ext)
+	ACTOR.DEBUG_LABEL.change_param('movement', name)
 	var previous_name : StringName
 	if previous_state:
 		previous_name = previous_state.name
