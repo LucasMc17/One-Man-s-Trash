@@ -17,7 +17,6 @@ func enter(previous_state, ext):
 	super(previous_state, ext)
 	ACTOR.hint = 'Press [SPACE] to stand up'
 	if ext.has('seat'):
-		print(ext.seat)
 		SEAT = ext.seat
 	SIT_POSITION = SEAT.SIT_MARKER.global_position
 	if ext.has('get_off_position'):
