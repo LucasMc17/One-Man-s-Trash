@@ -22,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 0)
 mesh = SubResource("BoxMesh_ljxpf")
 
 [node name="CollisionShape" parent="DoorBody" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 0)
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -0.5, 1, 0)
 shape = SubResource("BoxShape3D_ljxpf")
 
 [node name="Interactable" parent="DoorBody" index="3"]

@@ -18,6 +18,9 @@ var LEVEL : Node3D:
 var IMPORTANT_SCENES : Dictionary:
 	get():
 		return GameState.IMPORTANT_SCENES
+var CAMERAS : Dictionary:
+	get():
+		return GameState.CAMERAS
 
 func log(message):
 	Debug.cons_log(message)

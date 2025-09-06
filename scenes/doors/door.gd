@@ -60,6 +60,7 @@ var target_rotation := 0.0
 	set(val):
 		if COLLISION_SHAPE:
 			COLLISION_SHAPE.shape = val
+			COLLISION_SHAPE.scale = Vector3(0.95, 0.95, 0.95)
 		if INTERACTABLE:
 			INTERACTABLE.shape = val
 		collision_shape = val

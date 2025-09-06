@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=8 format=3 uid="uid://dniflj63b5iyj"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_b4gnc"]
+[ext_resource type="Resource" uid="uid://bqwcusa34trt3" path="res://assets/resources/talk_trees/bart_bathroom_chat/chat_checkpoint_03.tres" id="2_djcju"]
+
+[sub_resource type="Resource" id="Resource_djcju"]
+script = ExtResource("1_b4gnc")
+PROMPT = "Ugh, Christ... Alright, fine, I'll-- what do I even do?"
+DIALOGUE = "Uh, maybe go talk to the bartender? They might have a screwdriver to get the gr- uh, the cover thing off."
+PLAYER_OPTIONS = Array[ExtResource("1_b4gnc")]([ExtResource("2_djcju")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_axdw7"]
+script = ExtResource("1_b4gnc")
+PROMPT = "Alright. Fine. But-- but how do we even do this?"
+DIALOGUE = "I don't know... maybe go talk to the bartender. Maybe he has a screwdriver to get the lid off it."
+PLAYER_OPTIONS = Array[ExtResource("1_b4gnc")]([ExtResource("2_djcju")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_hrdvt"]
+script = ExtResource("1_b4gnc")
+PROMPT = "Ugh, Bart, you're killing me here. "
+DIALOGUE = "..."
+PLAYER_OPTIONS = Array[ExtResource("1_b4gnc")]([SubResource("Resource_axdw7")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_ixe07"]
+script = ExtResource("1_b4gnc")
+PROMPT = "Absolutely not. No fucking way."
+DIALOGUE = "Hey, I mean, fine by me. We'll just stay here tonight. Sober up in this fuckin' toilet. I've slept worse places. It's the station's money anyway."
+PLAYER_OPTIONS = Array[ExtResource("1_b4gnc")]([SubResource("Resource_hrdvt")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_b4gnc"]
+script = ExtResource("1_b4gnc")
+PROMPT = "What? Why me?"
+DIALOGUE = "I'm already drunk. Drunker than I look. Plus I already fat-fingered it in the first place. You send me in there I'm likely to fall in myself. Find the keycard in-- in China, or something. *burp*"
+PLAYER_OPTIONS = Array[ExtResource("1_b4gnc")]([SubResource("Resource_djcju"), SubResource("Resource_ixe07")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_b4gnc")
+PROMPT = "Ok, so what do we do?"
+DIALOGUE = "You gotta get it out of there."
+PLAYER_OPTIONS = Array[ExtResource("1_b4gnc")]([SubResource("Resource_b4gnc")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"

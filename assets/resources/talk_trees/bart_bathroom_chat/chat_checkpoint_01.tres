@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=7 format=3 uid="uid://d36wndcejtpj3"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_7ecby"]
+[ext_resource type="Resource" uid="uid://dniflj63b5iyj" path="res://assets/resources/talk_trees/bart_bathroom_chat/chat_checkpoint_02.tres" id="2_8giwi"]
+
+[sub_resource type="Resource" id="Resource_7ecby"]
+script = ExtResource("1_7ecby")
+PROMPT = "...ok."
+DIALOGUE = "Yeah, it's in there"
+PLAYER_OPTIONS = Array[ExtResource("1_7ecby")]([ExtResource("2_8giwi")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_8giwi"]
+script = ExtResource("1_7ecby")
+PROMPT = "Oh Jesus."
+DIALOGUE = "I know."
+PLAYER_OPTIONS = Array[ExtResource("1_7ecby")]([ExtResource("2_8giwi")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_jc5bq"]
+script = ExtResource("1_7ecby")
+PROMPT = "..."
+DIALOGUE = "...Uh, yeah. It fell in."
+PLAYER_OPTIONS = Array[ExtResource("1_7ecby")]([ExtResource("2_8giwi")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_w7nby"]
+script = ExtResource("1_7ecby")
+PROMPT = "Ok... So it fell out of your pocket, and... where is it now?"
+DIALOGUE = "The grate, over there."
+PLAYER_OPTIONS = Array[ExtResource("1_7ecby")]([SubResource("Resource_7ecby"), SubResource("Resource_8giwi"), SubResource("Resource_jc5bq")])
+EXIT_OPTION = ""
+CAMERA_ID = &"BathroomGrateCam"
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_7ecby")
+PROMPT = "For the hotel? Our room key?"
+DIALOGUE = "Yeah."
+PLAYER_OPTIONS = Array[ExtResource("1_7ecby")]([SubResource("Resource_w7nby")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"

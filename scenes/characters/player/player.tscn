@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp1q3ngso06dk"]
+[gd_scene load_steps=15 format=3 uid="uid://dp1q3ngso06dk"]
 
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/characters/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://0k1dvavxiy1l" path="res://debug/debug_ui/debug_ui.tscn" id="2_0owmy"]
+[ext_resource type="Theme" uid="uid://cl3gmjal1cqia" path="res://assets/themes/UI_theme.tres" id="2_djydg"]
 [ext_resource type="PackedScene" uid="uid://bxsfmtysycoo3" path="res://scenes/characters/player/phone/player_phone.tscn" id="2_lvxji"]
 [ext_resource type="PackedScene" uid="uid://cekqblrfqotxk" path="res://scenes/ui/dialogue/dialogue_layer.tscn" id="3_5gtgg"]
 [ext_resource type="Script" uid="uid://0kqfhx68yfos" path="res://scenes/characters/player/states/attention_states/player_freelook_state.gd" id="7_xuses"]
@@ -32,6 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_djydg")
 
 [node name="InteractLabel" type="Label" parent="UI"]
 unique_name_in_owner = true
@@ -91,6 +93,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
+unique_name_in_owner = true
 cull_mask = 1048573
 
 [node name="ItemRig" type="Node3D" parent="CameraController/Camera3D"]

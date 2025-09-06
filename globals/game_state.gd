@@ -6,6 +6,7 @@ var NPCS := {}
 var IMPORTANT_SCENES := {}
 var PLAYER_PHONE : Control
 var LEVEL : Node3D
+var CAMERAS := {}
 
 func _ready():
 	var all_npcs = get_tree().get_nodes_in_group('NPCs')
@@ -14,3 +15,6 @@ func _ready():
 	var important_scenes = get_tree().get_nodes_in_group('LevelImportant')
 	for scene in important_scenes:
 		IMPORTANT_SCENES[scene.name] = scene
+	var all_cameras = get_tree().get_nodes_in_group('LevelCameras')
+	for camera in all_cameras:
+		CAMERAS[camera.name] = camera

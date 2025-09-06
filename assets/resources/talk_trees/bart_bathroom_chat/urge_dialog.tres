@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=2 format=3 uid="uid://eqa7r6s3ds5r"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_ecgwh"]
+
+[resource]
+script = ExtResource("1_ecgwh")
+PROMPT = ""
+DIALOGUE = "Well? Get going so we can get out of here!"
+PLAYER_OPTIONS = Array[ExtResource("1_ecgwh")]([])
+EXIT_OPTION = "Yeah yeah."
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"

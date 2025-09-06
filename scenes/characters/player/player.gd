@@ -7,6 +7,7 @@ class_name Player extends CharacterBody3D
 
 # NODES
 @onready var CAMERA_CONTROLLER : Node3D = %CameraController
+@onready var CAMERA : Camera3D = %Camera3D
 @onready var PHONE := %Phone
 @onready var INTERACTOR := %Interactor
 @onready var INTERACT_LABEL := %InteractLabel

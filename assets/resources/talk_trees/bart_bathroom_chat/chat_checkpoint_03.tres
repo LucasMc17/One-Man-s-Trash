@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=2 format=3 uid="uid://bqwcusa34trt3"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_xamgn"]
+
+[resource]
+script = ExtResource("1_xamgn")
+PROMPT = "Fine. I'll go and see."
+DIALOGUE = "Great, ok. I'll wait here. Keep the drunks away so we can get this sorted."
+PLAYER_OPTIONS = Array[ExtResource("1_xamgn")]([])
+EXIT_OPTION = "Amazing. You do that."
+CAMERA_ID = &""
+metadata/_custom_type_script = "uid://bymb602613n3g"
