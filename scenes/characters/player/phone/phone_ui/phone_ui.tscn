@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://j2j2u1vykxu3"]
+[gd_scene load_steps=21 format=3 uid="uid://j2j2u1vykxu3"]
 
 [ext_resource type="PackedScene" uid="uid://bqaplirhi6ao5" path="res://scenes/characters/player/phone/phone_ui/top_bar.tscn" id="1_3dmou"]
 [ext_resource type="Script" uid="uid://c2cob8k531q64" path="res://scenes/characters/player/phone/phone_ui/phone_ui.gd" id="1_7oyur"]
@@ -14,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://dv8ce25mon2xc" path="res://assets/resources/contacts/amanda_contact.tres" id="7_qm7od"]
 [ext_resource type="Script" uid="uid://ccwb0p4od4hq2" path="res://scenes/characters/player/phone/phone_states/phone_chat_state.gd" id="9_35ghu"]
 [ext_resource type="Script" uid="uid://cvbeqhcm51h3j" path="res://scenes/characters/player/phone/phone_states/phone_chats_state.gd" id="10_dqcrv"]
+[ext_resource type="PackedScene" uid="uid://lbymbtpxu5dl" path="res://scenes/characters/player/phone/phone_ui/screens/bank_screen/bank_screen.tscn" id="10_v3qjb"]
+[ext_resource type="Script" uid="uid://cvg0s8mggcbw" path="res://scenes/characters/player/phone/phone_states/phone_ui_state.gd" id="16_8ja7m"]
 
 [sub_resource type="Curve" id="Curve_3dmou"]
 _data = [Vector2(0.0948276, 0.866255), 0.0, 0.0, 0, 0, Vector2(0.781609, 0.206972), 0.0, 0.0, 0, 0]
@@ -79,6 +81,12 @@ layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 
+[node name="BankScreen" parent="Screens" instance=ExtResource("10_v3qjb")]
+visible = false
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
 [node name="TopBar" parent="." instance=ExtResource("1_3dmou")]
 layout_mode = 2
 anchors_preset = 0
@@ -106,3 +114,9 @@ metadata/_custom_type_script = "uid://ccwb0p4od4hq2"
 script = ExtResource("10_dqcrv")
 SCREEN = NodePath("../../Screens/ChatsScreen")
 metadata/_custom_type_script = "uid://cvbeqhcm51h3j"
+
+[node name="BankState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
+script = ExtResource("16_8ja7m")
+SCREEN = NodePath("../../Screens/BankScreen")
+SHOULD_POP_UP = true
+metadata/_custom_type_script = "uid://cvg0s8mggcbw"

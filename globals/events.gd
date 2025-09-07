@@ -13,6 +13,9 @@ signal level_loaded()
 ## Signal fired when a player enters conversation with an NPC
 signal conversation_begun(npc : NPC)
 
+## Signal fired when a player selects a dialog option while in conversation with an NPC
+signal dialog_chosen(npc : NPC, behavior_flag : String)
+
 ## Signal fired when a player's conversation is ended
 signal conversation_ended(npc : NPC)
 

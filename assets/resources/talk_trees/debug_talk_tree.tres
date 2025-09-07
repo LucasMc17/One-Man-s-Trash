@@ -8,6 +8,7 @@ PROMPT = "Leave me alone!"
 DIALOGUE = "Ok, jeez..."
 PLAYER_OPTIONS = Array[ExtResource("1_x68lm")]([])
 EXIT_OPTION = "Bye"
+CAMERA_ID = &""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_x68lm"]
@@ -16,6 +17,7 @@ PROMPT = "Oh, Hi!"
 DIALOGUE = "Hello!"
 PLAYER_OPTIONS = Array[ExtResource("1_x68lm")]([])
 EXIT_OPTION = "Bye"
+CAMERA_ID = &""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
@@ -24,3 +26,4 @@ PROMPT = ""
 DIALOGUE = "Hello, this is dialogue"
 PLAYER_OPTIONS = Array[ExtResource("1_x68lm")]([SubResource("Resource_jr27n"), SubResource("Resource_x68lm")])
 EXIT_OPTION = "Bye"
+CAMERA_ID = &""

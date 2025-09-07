@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=5 format=3 uid="uid://bss4ohvgq7bp8"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_lchoe"]
+
+[sub_resource type="Resource" id="Resource_lchoe"]
+script = ExtResource("1_lchoe")
+PROMPT = "Can I get an old fashioned please?"
+DIALOGUE = "You got it."
+PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([])
+EXIT_OPTION = "Thanks."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = "OldFashioned"
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_c3xp3"]
+script = ExtResource("1_lchoe")
+PROMPT = "Could I have the IPA?"
+DIALOGUE = "You got it."
+PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([])
+EXIT_OPTION = "Thanks."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = "IPA"
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_csfnt"]
+script = ExtResource("1_lchoe")
+PROMPT = "Just give me a shot of tequila please."
+DIALOGUE = "You got it."
+PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([])
+EXIT_OPTION = "Thanks."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = "TequilaShot"
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_lchoe")
+PROMPT = ""
+DIALOGUE = "What can I get you?"
+PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([SubResource("Resource_lchoe"), SubResource("Resource_c3xp3"), SubResource("Resource_csfnt")])
+EXIT_OPTION = "Actually, I'm ok for the moment."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"

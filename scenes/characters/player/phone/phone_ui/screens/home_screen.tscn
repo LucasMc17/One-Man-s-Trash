@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxh10ihs33o6w"]
+[gd_scene load_steps=5 format=3 uid="uid://bxh10ihs33o6w"]
 
 [ext_resource type="PackedScene" uid="uid://cxym2k2saibfc" path="res://scenes/characters/player/phone/phone_ui/screens/base_screen.tscn" id="1_p8rtc"]
 [ext_resource type="PackedScene" uid="uid://cnmyg05m7fvbd" path="res://scenes/characters/player/phone/phone_ui/phone_icon.tscn" id="2_exoml"]
 [ext_resource type="Script" uid="uid://ueycmsty2fe4" path="res://scenes/characters/player/phone/phone_ui/screens/home_screen.gd" id="2_u6eor"]
+[ext_resource type="Texture2D" uid="uid://clj78yiq0r67u" path="res://assets/images/bank_app_icon.png" id="4_m06wh"]
 
 [node name="HomeScreen" instance=ExtResource("1_p8rtc")]
 script = ExtResource("2_u6eor")
@@ -26,3 +27,9 @@ columns = 3
 layout_mode = 2
 APP_NAME = "Messages"
 STATE_NAME = "ChatsState"
+
+[node name="BankIcon" parent="MarginContainer/ScrollContainer/IconContainer" index="1" instance=ExtResource("2_exoml")]
+layout_mode = 2
+texture_normal = ExtResource("4_m06wh")
+APP_NAME = "Archer Bank"
+STATE_NAME = "BankState"
