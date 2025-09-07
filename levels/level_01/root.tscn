@@ -169,6 +169,7 @@ script = ExtResource("10_06tnj")
 CONTACT = ExtResource("13_xjxtq")
 NEW_EXCHANGE = ExtResource("14_x43fk")
 NEXT_STATE = NodePath("../GoToBartState")
+TIME = "6:22 PM"
 metadata/_custom_type_script = "uid://dvwhpd62w54hn"
 
 [node name="GoToBartState" type="Node" parent="StateMachine"]
@@ -176,6 +177,7 @@ script = ExtResource("18_bt03r")
 
 [node name="LookForScrewdriverState" type="Node" parent="StateMachine"]
 script = ExtResource("19_2q5mi")
+TIME = "6:25 PM"
 
 [node name="LevelTimer" type="Timer" parent="."]
 

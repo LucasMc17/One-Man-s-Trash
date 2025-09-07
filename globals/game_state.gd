@@ -1,5 +1,13 @@
 extends Node
 
+## A string representing the current time in the level, formatted as "H:MM AM/PM" (e.g. 6:18 PM)
+@export var TIME := '6:18 PM':
+	set(val):
+		Events.time_changed.emit(val)
+		TIME = val
+## The character's current bank balance as a two decimal point float
+@export var BANK_BALANCE := 45.62
+
 # GLOBALS
 var PLAYER : Player
 var NPCS := {}

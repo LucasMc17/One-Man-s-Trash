@@ -27,3 +27,6 @@ signal npc_movement_changed(npc : NPC, new_movement : StringName, previous_movem
 
 ## Signal fired when an npc changes their attention state
 signal npc_attention_changed(npc : NPC, new_attention : StringName, previous_attention : StringName)
+
+## Signal fired when the time changes in the level so that all in game clocks can update
+signal time_changed(new_time : String)

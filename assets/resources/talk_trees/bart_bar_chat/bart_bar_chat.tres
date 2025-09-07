@@ -8,6 +8,8 @@ PROMPT = "..."
 DIALOGUE = "I, uh, gotta piss."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "Sure."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_rh5yg"]
@@ -16,6 +18,8 @@ PROMPT = "*cough*"
 DIALOGUE = "Get me another, I gotta hit the head."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "You got it."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_dpj24"]
@@ -24,6 +28,8 @@ PROMPT = "Nice little bar."
 DIALOGUE = "What? Yeah it's ok. You g- I gotta piss."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "Don't let me keep you."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_f562j"]
@@ -32,6 +38,8 @@ PROMPT = "..."
 DIALOGUE = "..."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_8ep85"), SubResource("Resource_rh5yg"), SubResource("Resource_dpj24")])
 EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_pawjp"]
@@ -40,6 +48,8 @@ PROMPT = "What are you having again?"
 DIALOGUE = "You know what, nevermind. I gotta take a piss. I'll order one when I get back."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "Sure, yeah."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_mtdcs"]
@@ -48,6 +58,8 @@ PROMPT = "You want another one?"
 DIALOGUE = "...Yeah, ok."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_pawjp")])
 EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_mh1u8"]
@@ -56,6 +68,8 @@ PROMPT = "..."
 DIALOGUE = "Anyway, I gotta piss."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "sure, think I saw the bathroom in the back."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_c8uok"]
@@ -64,6 +78,8 @@ PROMPT = "Yeah, me too."
 DIALOGUE = "Anyway, I gotta piss."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "sure, think I saw the bathroom in the back."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_5rwxn"]
@@ -72,6 +88,8 @@ PROMPT = "The shoot!"
 DIALOGUE = "Oh, yeah, fine. I mean, really good, yeah."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_mh1u8"), SubResource("Resource_c8uok")])
 EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_efqtc"]
@@ -80,6 +98,8 @@ PROMPT = "Nothing, nevermind."
 DIALOGUE = "OK. I gotta piss."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "Sure."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_edmo6"]
@@ -88,6 +108,8 @@ PROMPT = "How do you think it went today?"
 DIALOGUE = "What?"
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_5rwxn"), SubResource("Resource_efqtc")])
 EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
@@ -96,4 +118,6 @@ PROMPT = ""
 DIALOGUE = "..."
 PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_f562j"), SubResource("Resource_mtdcs"), SubResource("Resource_edmo6")])
 EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
 metadata/_custom_type_script = "uid://bymb602613n3g"
