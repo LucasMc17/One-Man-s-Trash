@@ -13,5 +13,3 @@ script = ExtResource("1_fekn7")
 [node name="Debug" type="Node" parent="."]
 script = ExtResource("2_u1vfw")
 debug_override = "OFF"
-skip_wait_times = true
-skip_typing = true

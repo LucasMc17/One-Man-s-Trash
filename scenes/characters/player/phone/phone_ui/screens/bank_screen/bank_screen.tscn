@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://lbymbtpxu5dl"]
+[gd_scene load_steps=4 format=3 uid="uid://lbymbtpxu5dl"]
 
 [ext_resource type="PackedScene" uid="uid://cxym2k2saibfc" path="res://scenes/characters/player/phone/phone_ui/screens/base_screen.tscn" id="1_b0uet"]
+[ext_resource type="Script" uid="uid://caramndnewc0o" path="res://scenes/characters/player/phone/phone_ui/screens/bank_screen/bank_screen.gd" id="2_fdyj4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0uet"]
 bg_color = Color(0.920995, 0.920995, 0.920995, 1)
 
 [node name="BankScreen" instance=ExtResource("1_b0uet")]
+script = ExtResource("2_fdyj4")
 
 [node name="ColorRect" parent="." index="0"]
 color = Color(0.371581, 0.447824, 0.723557, 1)
@@ -20,7 +22,8 @@ text = "Checking Account - 0758"
 [node name="Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer" index="1"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel" index="0"]
+[node name="Balance" type="Label" parent="MarginContainer/VBoxContainer/Panel" index="0"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 75

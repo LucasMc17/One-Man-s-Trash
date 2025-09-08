@@ -43,6 +43,10 @@ func update_movement(speed : float, target : Vector3, acceleration : float):
 		rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), 0.15)
 	move_and_slide()
 
+func look_at_player():
+	var direction = (Global.PLAYER.global_position - global_position).normalized()
+	rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), 0.15)
+
 func _on_interactable_interacted(interactor : Player):
 	if current_attention.TALK_ENABLED:
 		current_attention.transition("Talk")

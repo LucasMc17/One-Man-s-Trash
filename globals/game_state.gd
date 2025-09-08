@@ -6,7 +6,10 @@ extends Node
 		Events.time_changed.emit(val)
 		TIME = val
 ## The character's current bank balance as a two decimal point float
-@export var BANK_BALANCE := 45.62
+@export var BANK_BALANCE := 45.62:
+	set(val):
+		Events.balance_changed.emit(val)
+		BANK_BALANCE = val
 
 # GLOBALS
 var PLAYER : Player

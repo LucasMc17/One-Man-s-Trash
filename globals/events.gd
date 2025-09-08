@@ -30,3 +30,6 @@ signal npc_attention_changed(npc : NPC, new_attention : StringName, previous_att
 
 ## Signal fired when the time changes in the level so that all in game clocks can update
 signal time_changed(new_time : String)
+
+## Signal fired when the player's bank account balance changes
+signal balance_changed(new_balance : float)
