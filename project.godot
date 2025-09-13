@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://globals/global_node.tscn"
 Events="*res://globals/events.gd"
+Paths="*res://globals/paths.gd"
 
 [debug]
 

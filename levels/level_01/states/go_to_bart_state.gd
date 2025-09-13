@@ -1,6 +1,6 @@
 extends LevelState
 
-var talk_tree = preload('res://scenes/characters/npcs/bart/dialog/bathroom_chat/bart_bathroom_chat.tres')
+var talk_tree = load(Paths.get_dialog_path('bart', 'bathroom_chat'))
 
 func enter(previous_state, ext):
 	super(previous_state, ext)
