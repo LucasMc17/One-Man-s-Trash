@@ -7,6 +7,7 @@
 viewport_path = NodePath("SubViewport")
 
 [node name="AreaTriggerOneoff" type="Area3D"]
+collision_layer = 0
 script = ExtResource("1_0hiwc")
 
 [node name="DebugLabel" parent="." instance=ExtResource("1_idf4n")]
