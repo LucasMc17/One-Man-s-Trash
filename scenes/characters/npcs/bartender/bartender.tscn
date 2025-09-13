@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bctvs0pbevh86"]
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_e6hot"]
-[ext_resource type="Resource" uid="uid://bss4ohvgq7bp8" path="res://assets/resources/talk_trees/bartender_chats/bartender_order.tres" id="2_a0avn"]
+[ext_resource type="Resource" uid="uid://bss4ohvgq7bp8" path="res://scenes/characters/npcs/bartender/dialog/order_drink/bartender_order.tres" id="2_a0avn"]
 [ext_resource type="Script" uid="uid://b1sqa5tyud8nt" path="res://scenes/characters/npcs/states/attention_states/npc_talk_state.gd" id="7_e0apy"]
 [ext_resource type="Script" uid="uid://ckjkuwqqpjt54" path="res://scenes/characters/npcs/states/movement_states/npc_move_state.gd.gd" id="7_mh6sq"]
 [ext_resource type="Script" uid="uid://bunxtellu4roh" path="res://scenes/characters/npcs/states/movement_states/npc_idle_state.gd" id="8_h4q6d"]

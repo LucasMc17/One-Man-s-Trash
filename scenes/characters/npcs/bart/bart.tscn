@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://oi5poak31x26"]
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_mkmu5"]
-[ext_resource type="Resource" uid="uid://crqw6gtw2lj3n" path="res://assets/resources/talk_trees/bart_bar_chat/bart_bar_chat.tres" id="2_kcs5t"]
+[ext_resource type="Resource" uid="uid://crqw6gtw2lj3n" path="res://scenes/characters/npcs/bart/dialog/stool_chat/bart_bar_chat.tres" id="2_kcs5t"]
 [ext_resource type="Script" uid="uid://b1sqa5tyud8nt" path="res://scenes/characters/npcs/states/attention_states/npc_talk_state.gd" id="6_clixb"]
 [ext_resource type="Script" uid="uid://bo023d5lgrcn8" path="res://scenes/characters/npcs/states/movement_states/npc_sit_state.gd" id="7_v1oga"]
 [ext_resource type="Script" uid="uid://ckjkuwqqpjt54" path="res://scenes/characters/npcs/states/movement_states/npc_move_state.gd.gd" id="8_furea"]
