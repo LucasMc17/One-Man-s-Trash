@@ -40,6 +40,7 @@ collision_position = Vector3(0, 1, 0)
 interact_button = SubResource("InputEventKey_wwrmc")
 max_distance = 4.0
 message = "Press [E] to talk"
+interactable_key = &"npc"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

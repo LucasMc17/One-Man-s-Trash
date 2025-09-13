@@ -13,6 +13,7 @@ script = ExtResource("1_6g76u")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 
 [node name="ChairMesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -36,5 +37,6 @@ unique_name_in_owner = true
 interact_button = SubResource("InputEventKey_ptq21")
 max_distance = 2.5
 message = "Press [E] to sit"
+interactable_key = &"chair"
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

@@ -144,7 +144,7 @@ func update_input(speed : float, acceleration: float, deceleration: float):
 
 func update_interactor(_delta):
 	var coll = INTERACTOR.get_collider()
-	if coll is Interactable and (coll.global_position - INTERACTOR.global_position).length() < coll.max_distance:
+	if coll is Interactable and (coll.global_position - INTERACTOR.global_position).length() < coll.max_distance and !current_movement.BLOCKED_INTERACTABLES.has(coll.interactable_key):
 		looking_at = coll
 	else:
 		looking_at = null

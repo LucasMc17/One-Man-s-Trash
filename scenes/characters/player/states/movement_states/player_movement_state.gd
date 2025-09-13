@@ -6,6 +6,7 @@ class_name PlayerMovementState extends PlayerState
 @export var SPEED : float = 5.0
 @export var ACCELERATION : float = 0.2
 @export var DECELERATION : float = 0.4
+@export var BLOCKED_INTERACTABLES : Array[StringName] = []
 
 func update(delta):
 	super(delta)

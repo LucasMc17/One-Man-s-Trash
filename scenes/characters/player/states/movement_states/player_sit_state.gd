@@ -12,6 +12,7 @@ var _NEXT_STATE_EXT := {}
 
 func _ready():
 	GRAVITY_ENABLED = false
+	BLOCKED_INTERACTABLES = ['chair']
 
 func enter(previous_state, ext):
 	super(previous_state, ext)
