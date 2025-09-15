@@ -13,6 +13,7 @@ class_name Interactable extends Area3D
 		if COLLISION:
 			COLLISION.position = val
 		collision_position = val
+@export var ACTIVE := true
 
 @export_group("Config")
 @export var interact_button : InputEventKey
@@ -35,3 +36,6 @@ func interact(interactor : Player):
 func _ready():
 	COLLISION.shape = shape
 	COLLISION.position = collision_position
+
+func get_interactive() -> bool:
+	return ACTIVE

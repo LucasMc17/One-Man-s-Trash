@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=7 format=3 uid="uid://cq5n4dxfhcvbr"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_pvdp8"]
+
+[sub_resource type="Resource" id="Resource_kxukl"]
+script = ExtResource("1_pvdp8")
+PROMPT = "You're not gonna believe it. My friend, he went into the bathroom, and he dropped our hotel keycard through the grate in the floor. We have to get it out of there somewhere so we can get into our room tonight."
+DIALOGUE = "Oh, wow. That sucks. Yeah, I can check the back room though."
+PLAYER_OPTIONS = Array[ExtResource("1_pvdp8")]([])
+EXIT_OPTION = "Thanks, man, thanks a lot."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_qyk81"]
+script = ExtResource("1_pvdp8")
+PROMPT = "Oh no, I think I can make a normal sized one work. Might even be better, frankly."
+DIALOGUE = "...Uh huh. I'll check, gimme a sec."
+PLAYER_OPTIONS = Array[ExtResource("1_pvdp8")]([])
+EXIT_OPTION = "Thanks, I really appreciate it."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_b4107"]
+script = ExtResource("1_pvdp8")
+PROMPT = "It's-- it's my stupid phone. The back is coming off, but I have the screw. I just wanna screw it back on real quick before I lose it."
+DIALOGUE = "Huh. I don't know if I have one that small..."
+PLAYER_OPTIONS = Array[ExtResource("1_pvdp8")]([SubResource("Resource_qyk81")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_aey1y"]
+script = ExtResource("1_pvdp8")
+PROMPT = "Oh, no, I mean an actual, physical screwdriver"
+DIALOGUE = "Oh. Uh... Maybe somewhere in the back room? I mean, why?"
+PLAYER_OPTIONS = Array[ExtResource("1_pvdp8")]([SubResource("Resource_kxukl"), SubResource("Resource_b4107")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_pvdp8"]
+script = ExtResource("1_pvdp8")
+PROMPT = "Hey man, weird question, but do you have a screwdriver back there?"
+DIALOGUE = "I'm out of orange juice at the moment, but I can do a vodka cranberry?"
+PLAYER_OPTIONS = Array[ExtResource("1_pvdp8")]([SubResource("Resource_aey1y")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_pvdp8")
+PROMPT = ""
+DIALOGUE = "What can I get you?"
+PLAYER_OPTIONS = Array[ExtResource("1_pvdp8")]([SubResource("Resource_pvdp8")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"

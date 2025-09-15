@@ -15,7 +15,7 @@ material = SubResource("StandardMaterial3D_qblmu")
 [sub_resource type="BoxMesh" id="BoxMesh_d1v5y"]
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0nuxq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_a0avn"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Bartender" instance=ExtResource("1_e6hot")]
@@ -64,6 +64,6 @@ ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://bunxtellu4roh"
 
 [node name="DebugLabel" parent="." index="5"]
-texture = SubResource("ViewportTexture_0nuxq")
+texture = SubResource("ViewportTexture_a0avn")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

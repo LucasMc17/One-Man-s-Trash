@@ -30,7 +30,7 @@ var talking_to : NPC
 var looking_at : Interactable:
 	set(val):
 		if INTERACT_LABEL:
-			if val and current_attention.CAN_INTERACT:
+			if val:
 				INTERACT_LABEL.text = val.message
 			else:
 				INTERACT_LABEL.text = ''
@@ -142,9 +142,15 @@ func update_input(speed : float, acceleration: float, deceleration: float):
 	else:
 		handle_idle_momentum(deceleration)
 
+func get_interactibility(collider : Node3D) -> bool:
+	return collider is Interactable \
+	and (collider.global_position - INTERACTOR.global_position).length() < collider.max_distance \
+	and collider.get_interactive() \
+	and !current_movement.BLOCKED_INTERACTABLES.has(collider.interactable_key)
+
 func update_interactor(_delta):
 	var coll = INTERACTOR.get_collider()
-	if coll is Interactable and (coll.global_position - INTERACTOR.global_position).length() < coll.max_distance and !current_movement.BLOCKED_INTERACTABLES.has(coll.interactable_key):
+	if get_interactibility(coll):
 		looking_at = coll
 	else:
 		looking_at = null
