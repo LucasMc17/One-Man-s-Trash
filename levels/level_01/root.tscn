@@ -135,7 +135,7 @@ is_open = true
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
 script = ExtResource("7_e1ace")
-CURRENT_STATE = NodePath("LookForScrewdriverState")
+CURRENT_STATE = NodePath("BartChat")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="DebugState" type="Node" parent="StateMachine"]

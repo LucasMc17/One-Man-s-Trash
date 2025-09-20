@@ -50,6 +50,7 @@ func movement_input(event):
 		transition("Freemove")
 
 func exit():
+	SEAT.INTERACTABLE.ACTIVE = true
 	ACTOR.hint = ''
 	_CAPTURED = false
 	_EXITING = false

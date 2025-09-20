@@ -40,5 +40,6 @@ func transition(new_state_name : StringName, ext := {}):
 	_EXITING = true
 
 func exit():
+	SEAT.INTERACTABLE.ACTIVE = true
 	_CAPTURED = false
 	_EXITING = false

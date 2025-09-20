@@ -66,4 +66,5 @@ func _ready():
 	collision_position = collision_position
 
 func _on_interactable_interacted(interactor : Player):
+	INTERACTABLE.ACTIVE = false
 	interactor.current_movement.transition('Sit', { "seat": self, "get_off_position": interactor.position })

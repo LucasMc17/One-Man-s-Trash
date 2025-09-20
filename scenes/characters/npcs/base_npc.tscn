@@ -24,7 +24,7 @@ albedo_color = Color(1, 0.560784, 1, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_65blf"]
 material = SubResource("StandardMaterial3D_6qnc6")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_c4o2l"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2gx3w"]
 viewport_path = NodePath("SubViewport")
 
 [node name="BaseNPC" type="CharacterBody3D" groups=["NPCs"]]
@@ -77,7 +77,7 @@ metadata/_custom_type_script = "uid://bunxtellu4roh"
 [node name="DebugLabel" parent="." instance=ExtResource("7_2gx3w")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25052, 0)
-texture = SubResource("ViewportTexture_c4o2l")
+texture = SubResource("ViewportTexture_2gx3w")
 VP_SIZE = Vector2i(280, 80)
 TEXT = "{name}
 ATTENTION: {attention}
