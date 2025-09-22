@@ -29,6 +29,7 @@ func update_gravity(delta):
 		move_and_slide()
 
 func _ready():
+	INTERACTABLE.interacted.connect(_on_interactable_interacted)
 	DEBUG_LABEL.change_param('name', name)
 	if Global.Debug.debug_override == "DEFER":
 		DEBUG_LABEL.visible = Global.Debug.show_npc_status
@@ -49,6 +50,8 @@ func look_at_player():
 	rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), 0.15)
 
 func _on_interactable_interacted(interactor : Player):
+	Global.log('hi')
 	if current_attention.TALK_ENABLED:
+		Global.log('talk enabled')
 		current_attention.transition("Talk")
 		interactor.current_attention.transition('Talk', {"TALK_TREE": TALK_TREE, "TALKING_TO": self})

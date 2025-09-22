@@ -28,7 +28,7 @@ NEXT_STATE = NodePath("../IdleMovement")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://ckjkuwqqpjt54"
 
-[node name="DebugLabel" parent="." index="6"]
+[node name="DebugLabel" parent="." index="5"]
 texture = SubResource("ViewportTexture_oju1j")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=5 format=3 uid="uid://d3rlr2lnahcrt"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_k220e"]
+
+[sub_resource type="Resource" id="Resource_k220e"]
+script = ExtResource("1_k220e")
+PROMPT = "What's good here?"
+DIALOGUE = "Uh, I just get the IPA. Listen, I'm waiting on a call here, I can't really talk."
+PLAYER_OPTIONS = Array[ExtResource("1_k220e")]([])
+EXIT_OPTION = "Oh yeah, no problem. Don't let me keep you."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_y0je0"]
+script = ExtResource("1_k220e")
+PROMPT = "How are you doing tonight?"
+DIALOGUE = "I'm good. Listen, buddy, I'm waiting on a call here, I can't talk right now."
+PLAYER_OPTIONS = Array[ExtResource("1_k220e")]([])
+EXIT_OPTION = "Oh yeah, no problem. Don't let me keep you."
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_52co2"]
+script = ExtResource("1_k220e")
+PROMPT = "Hi."
+DIALOGUE = "Uh, hey."
+PLAYER_OPTIONS = Array[ExtResource("1_k220e")]([SubResource("Resource_k220e"), SubResource("Resource_y0je0")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = ""
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_k220e")
+PROMPT = ""
+DIALOGUE = "..."
+PLAYER_OPTIONS = Array[ExtResource("1_k220e")]([SubResource("Resource_52co2")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAG = "CHANGE_TALK_TREE"
+metadata/_custom_type_script = "uid://bymb602613n3g"

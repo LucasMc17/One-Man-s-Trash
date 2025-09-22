@@ -16,6 +16,8 @@ func enter(previous_state, ext):
 	super(previous_state, ext)
 	if ext.has('seat'):
 		SEAT = ext.seat
+		Global.log(SEAT)
+		SEAT.INTERACTABLE.ACTIVE = false
 	SIT_POSITION = SEAT.SIT_MARKER.global_position
 	if ext.has('get_off_position'):
 		GET_OFF_POSITION = ext.get_off_position

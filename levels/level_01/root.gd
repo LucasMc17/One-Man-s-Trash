@@ -15,6 +15,10 @@ func _ready():
 	Global.GameState.LEVEL = self
 	Events.level_loaded.emit()
 	Events.dialog_chosen.connect(_on_dialog_chosen)
+	var mike = Global.NPCS.Mike
+	var mike_chair = Global.IMPORTANT_SCENES.MikeChair
+	mike.global_position = mike_chair.SIT_MARKER.global_position
+	mike.current_movement.transition('Sit', { "seat": mike_chair })
 
 func _on_dialog_chosen(_npc : NPC, behavior_flag : String):
 	if behavior_flag == "TequilaShot":
