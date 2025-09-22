@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="TalkTree" load_steps=5 format=3 uid="uid://d3rlr2lnahcrt"]
+[gd_resource type="Resource" script_class="TalkTree" load_steps=6 format=3 uid="uid://d3rlr2lnahcrt"]
 
 [ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_k220e"]
+[ext_resource type="Resource" uid="uid://bmwuuen0as0n7" path="res://scenes/characters/npcs/bar_npcs/mike/dialog/stranger_chat/urge.tres" id="1_y0je0"]
 
 [sub_resource type="Resource" id="Resource_k220e"]
 script = ExtResource("1_k220e")
@@ -9,7 +10,7 @@ DIALOGUE = "Uh, I just get the IPA. Listen, I'm waiting on a call here, I can't 
 PLAYER_OPTIONS = Array[ExtResource("1_k220e")]([])
 EXIT_OPTION = "Oh yeah, no problem. Don't let me keep you."
 CAMERA_ID = &""
-BEHAVIOR_FLAG = ""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_y0je0"]
@@ -19,7 +20,7 @@ DIALOGUE = "I'm good. Listen, buddy, I'm waiting on a call here, I can't talk ri
 PLAYER_OPTIONS = Array[ExtResource("1_k220e")]([])
 EXIT_OPTION = "Oh yeah, no problem. Don't let me keep you."
 CAMERA_ID = &""
-BEHAVIOR_FLAG = ""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_52co2"]
@@ -29,7 +30,7 @@ DIALOGUE = "Uh, hey."
 PLAYER_OPTIONS = Array[ExtResource("1_k220e")]([SubResource("Resource_k220e"), SubResource("Resource_y0je0")])
 EXIT_OPTION = ""
 CAMERA_ID = &""
-BEHAVIOR_FLAG = ""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
@@ -39,5 +40,7 @@ DIALOGUE = "..."
 PLAYER_OPTIONS = Array[ExtResource("1_k220e")]([SubResource("Resource_52co2")])
 EXIT_OPTION = ""
 CAMERA_ID = &""
-BEHAVIOR_FLAG = "CHANGE_TALK_TREE"
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"CHANGE_TREE_BY_PATH": ExtResource("1_y0je0")
+})
 metadata/_custom_type_script = "uid://bymb602613n3g"

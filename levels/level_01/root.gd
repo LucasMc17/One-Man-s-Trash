@@ -20,7 +20,9 @@ func _ready():
 	mike.global_position = mike_chair.SIT_MARKER.global_position
 	mike.current_movement.transition('Sit', { "seat": mike_chair })
 
-func _on_dialog_chosen(_npc : NPC, behavior_flags : Dictionary):
+func _on_dialog_chosen(npc : NPC, behavior_flags : Dictionary):
+	if behavior_flags.has("CHANGE_TREE_BY_PATH"):
+		npc.TALK_TREE = behavior_flags.CHANGE_TREE_BY_PATH
 	if behavior_flags.has("ADD_TO_TAB"):
 		TAB += behavior_flags.ADD_TO_TAB
 

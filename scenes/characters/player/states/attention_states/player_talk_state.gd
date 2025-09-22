@@ -18,6 +18,7 @@ func enter(previous_state : State = null, ext := {}):
 		ACTOR.DIALOGUE_LAYER.TALK_TREE = ext.TALK_TREE
 	if ext.has('TALKING_TO'):
 		ACTOR.talking_to = ext.TALKING_TO
+	Events.dialog_chosen.emit(ext.TALKING_TO, ext.TALK_TREE.BEHAVIOR_FLAGS)
 	ACTOR.DIALOGUE_LAYER.visible = true
 
 func exit():
