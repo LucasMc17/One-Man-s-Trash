@@ -26,6 +26,4 @@ func input(event : InputEvent):
 	if name != 'Phone' and CAN_USE_PHONE and event.is_action_pressed("phone"):
 		transition("Phone")
 	if CAN_INTERACT and ACTOR.looking_at and compare_events(event, ACTOR.looking_at.interact_button):
-		Global.log('events are the same')
-		Global.log(ACTOR.looking_at)
 		ACTOR.looking_at.interact(ACTOR)

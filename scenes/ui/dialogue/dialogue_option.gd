@@ -10,4 +10,4 @@ func _pressed():
 		Global.PLAYER.exit_dialogue()
 	else:
 		option_clicked.emit(TALK_TREE)
-		Events.dialog_chosen.emit(Global.PLAYER.talking_to, TALK_TREE.BEHAVIOR_FLAG)
+		Events.dialog_chosen.emit(Global.PLAYER.talking_to, TALK_TREE.BEHAVIOR_FLAGS)

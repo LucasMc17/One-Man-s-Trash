@@ -10,4 +10,4 @@ class_name TalkTree extends Resource
 ## The unique Name property of the camera to be used for this dialogue line. Will revert to player's POV on next line if it has no unique camera
 @export var CAMERA_ID : StringName
 ## A string representing a special flag to be passed into the dialog selected global event to trigger special effects in the global scope
-@export var BEHAVIOR_FLAG : String
+@export var BEHAVIOR_FLAGS : Dictionary[String, Variant]

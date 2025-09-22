@@ -50,8 +50,6 @@ func look_at_player():
 	rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), 0.15)
 
 func _on_interactable_interacted(interactor : Player):
-	Global.log('hi')
 	if current_attention.TALK_ENABLED:
-		Global.log('talk enabled')
 		current_attention.transition("Talk")
 		interactor.current_attention.transition('Talk', {"TALK_TREE": TALK_TREE, "TALKING_TO": self})

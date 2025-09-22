@@ -20,16 +20,9 @@ func _ready():
 	mike.global_position = mike_chair.SIT_MARKER.global_position
 	mike.current_movement.transition('Sit', { "seat": mike_chair })
 
-func _on_dialog_chosen(_npc : NPC, behavior_flag : String):
-	if behavior_flag == "TequilaShot":
-		TAB += 7.0
-		return
-	if behavior_flag == "OldFashioned":
-		TAB += 12.0
-		return
-	if behavior_flag == "IPA":
-		TAB += 8.0
-		return
+func _on_dialog_chosen(_npc : NPC, behavior_flags : Dictionary):
+	if behavior_flags.has("ADD_TO_TAB"):
+		TAB += behavior_flags.ADD_TO_TAB
 
 func _on_bart_bathroom_oneoff_entered(_area, _body):
 	Global.IMPORTANT_SCENES.BathroomDoor.is_open = false

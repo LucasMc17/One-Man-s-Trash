@@ -9,7 +9,9 @@ DIALOGUE = "You got it."
 PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([])
 EXIT_OPTION = "Thanks."
 CAMERA_ID = &""
-BEHAVIOR_FLAG = "OldFashioned"
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"ADD_TO_TAB": 12.0
+})
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_c3xp3"]
@@ -19,7 +21,9 @@ DIALOGUE = "You got it."
 PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([])
 EXIT_OPTION = "Thanks."
 CAMERA_ID = &""
-BEHAVIOR_FLAG = "IPA"
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"ADD_TO_TAB": 8.0
+})
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_csfnt"]
@@ -29,7 +33,9 @@ DIALOGUE = "You got it."
 PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([])
 EXIT_OPTION = "Thanks."
 CAMERA_ID = &""
-BEHAVIOR_FLAG = "TequilaShot"
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"ADD_TO_TAB": 6.0
+})
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
@@ -39,5 +45,5 @@ DIALOGUE = "What can I get you?"
 PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([SubResource("Resource_lchoe"), SubResource("Resource_c3xp3"), SubResource("Resource_csfnt")])
 EXIT_OPTION = "Actually, I'm ok for the moment."
 CAMERA_ID = &""
-BEHAVIOR_FLAG = ""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
 metadata/_custom_type_script = "uid://bymb602613n3g"
