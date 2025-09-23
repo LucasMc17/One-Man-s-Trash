@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bms2osakwmclh"]
+
+[ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_5ebfn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ebfn"]
+albedo_color = Color(0.885974, 0.000746604, 0.905859, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3utvq"]
+material = SubResource("StandardMaterial3D_5ebfn")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3utvq"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Josie" instance=ExtResource("1_5ebfn")]
+
+[node name="MeshInstance3D" parent="." index="2"]
+mesh = SubResource("CapsuleMesh_3utvq")
+
+[node name="DebugLabel" parent="." index="5"]
+texture = SubResource("ViewportTexture_3utvq")

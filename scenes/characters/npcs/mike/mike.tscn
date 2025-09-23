@@ -32,5 +32,3 @@ metadata/_custom_type_script = "uid://bo023d5lgrcn8"
 
 [node name="DebugLabel" parent="." index="5"]
 texture = SubResource("ViewportTexture_orqlb")
-
-[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

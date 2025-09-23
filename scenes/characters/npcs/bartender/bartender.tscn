@@ -65,5 +65,3 @@ metadata/_custom_type_script = "uid://bunxtellu4roh"
 
 [node name="DebugLabel" parent="." index="5"]
 texture = SubResource("ViewportTexture_a0avn")
-
-[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

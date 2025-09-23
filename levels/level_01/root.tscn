@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b2m4463t40ea1"]
+[gd_scene load_steps=32 format=3 uid="uid://b2m4463t40ea1"]
 
 [ext_resource type="Script" uid="uid://krn38ubei1hi" path="res://levels/level_01/root.gd" id="1_06tnj"]
 [ext_resource type="PackedScene" uid="uid://bquo2sra7l7e6" path="res://envs/daytime_env.tscn" id="1_jsf6y"]
@@ -23,7 +23,9 @@
 [ext_resource type="Script" uid="uid://c6pfgu73jm2sd" path="res://levels/level_01/states/go_to_bart_state.gd" id="18_bt03r"]
 [ext_resource type="Script" uid="uid://b6p3ht05y6mes" path="res://levels/level_01/states/look_for_screwdriver_state.gd" id="19_2q5mi"]
 [ext_resource type="PackedScene" uid="uid://dps1at258aprq" path="res://area_triggers/area_trigger_oneoff.tscn" id="21_2q5mi"]
+[ext_resource type="PackedScene" uid="uid://bf24jn3v0wwk5" path="res://scenes/characters/npcs/jordan/jordan.tscn" id="23_f78q5"]
 [ext_resource type="PackedScene" uid="uid://bbfb6b3h24aq1" path="res://scenes/characters/npcs/mike/mike.tscn" id="23_q0ki3"]
+[ext_resource type="PackedScene" uid="uid://bms2osakwmclh" path="res://scenes/characters/npcs/josie/josie.tscn" id="24_vy6qu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bt03r"]
 size = Vector3(1, 1.96729, 1)
@@ -205,6 +207,12 @@ MOVE_PATHS = [NodePath("../../Paths/Bartender/PointA"), NodePath("../../Paths/Ba
 
 [node name="Bart" parent="NPCs" node_paths=PackedStringArray("MOVE_PATHS") instance=ExtResource("7_thd0o")]
 MOVE_PATHS = [NodePath("../../Paths/Bart/ToBathroom")]
+
+[node name="Jordan" parent="NPCs" instance=ExtResource("23_f78q5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9225, 0, 2.21473)
+
+[node name="Josie" parent="NPCs" instance=ExtResource("24_vy6qu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95512, 0, 0.0283406)
 
 [node name="Mike" parent="NPCs" instance=ExtResource("23_q0ki3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.16871)
