@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_jld5o"]
 [ext_resource type="Script" uid="uid://bo023d5lgrcn8" path="res://scenes/characters/npcs/states/movement_states/npc_sit_state.gd" id="2_aewfi"]
-[ext_resource type="Resource" uid="uid://d3rlr2lnahcrt" path="res://scenes/characters/npcs/bar_npcs/mike/dialog/stranger_chat/index.tres" id="2_im3f3"]
+[ext_resource type="Resource" uid="uid://d3rlr2lnahcrt" path="res://scenes/characters/npcs/mike/dialog/stranger_chat/index.tres" id="2_im3f3"]
 [ext_resource type="Script" uid="uid://b1sqa5tyud8nt" path="res://scenes/characters/npcs/states/attention_states/npc_talk_state.gd" id="3_jc5k1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jld5o"]
@@ -11,7 +11,7 @@ albedo_color = Color(0.777573, 0.696592, 0.99732, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_aewfi"]
 material = SubResource("StandardMaterial3D_jld5o")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_im3f3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_orqlb"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Mike" instance=ExtResource("1_jld5o")]
@@ -31,6 +31,6 @@ ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://bo023d5lgrcn8"
 
 [node name="DebugLabel" parent="." index="5"]
-texture = SubResource("ViewportTexture_im3f3")
+texture = SubResource("ViewportTexture_orqlb")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

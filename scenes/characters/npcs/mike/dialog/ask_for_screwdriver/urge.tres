@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=2 format=3 uid="uid://bx8yf763n5s"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_y05jv"]
+
+[resource]
+script = ExtResource("1_y05jv")
+PROMPT = ""
+DIALOGUE = "I already told you, I don't have a screwdriver, a wrench, or any other fucking tools. Leave me alone."
+PLAYER_OPTIONS = Array[ExtResource("1_y05jv")]([])
+EXIT_OPTION = "Ok, ok, sorry."
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+metadata/_custom_type_script = "uid://bymb602613n3g"

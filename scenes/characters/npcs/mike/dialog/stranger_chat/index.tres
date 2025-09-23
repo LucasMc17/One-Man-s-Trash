@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TalkTree" load_steps=6 format=3 uid="uid://d3rlr2lnahcrt"]
 
 [ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_k220e"]
-[ext_resource type="Resource" uid="uid://bmwuuen0as0n7" path="res://scenes/characters/npcs/bar_npcs/mike/dialog/stranger_chat/urge.tres" id="1_y0je0"]
+[ext_resource type="Resource" uid="uid://bmwuuen0as0n7" path="res://scenes/characters/npcs/mike/dialog/stranger_chat/urge.tres" id="1_y0je0"]
 
 [sub_resource type="Resource" id="Resource_k220e"]
 script = ExtResource("1_k220e")

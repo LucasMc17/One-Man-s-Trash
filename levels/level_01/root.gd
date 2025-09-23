@@ -2,6 +2,8 @@ extends Node3D
 
 @onready var STATE_MACHINE = %StateMachine
 
+var NPCS_ASKED_FOR_SCREWDRIVER := 0
+
 var TAB : float:
 	set(val):
 		TAB = val
@@ -23,6 +25,8 @@ func _ready():
 func _on_dialog_chosen(npc : NPC, behavior_flags : Dictionary):
 	if behavior_flags.has("CHANGE_TREE_BY_PATH"):
 		npc.TALK_TREE = behavior_flags.CHANGE_TREE_BY_PATH
+	if behavior_flags.has("CHANGE_TREE_BY_PATH"):
+		NPCS_ASKED_FOR_SCREWDRIVER += 1
 	if behavior_flags.has("ADD_TO_TAB"):
 		TAB += behavior_flags.ADD_TO_TAB
 

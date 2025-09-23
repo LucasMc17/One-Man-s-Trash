@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=5 format=3 uid="uid://ckjv8qp3tme8v"]
+
+[ext_resource type="Resource" uid="uid://bx8yf763n5s" path="res://scenes/characters/npcs/mike/dialog/ask_for_screwdriver/urge.tres" id="1_3iwyu"]
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_qoojl"]
+
+[sub_resource type="Resource" id="Resource_3iwyu"]
+script = ExtResource("1_qoojl")
+PROMPT = "*sigh* A screwdriver. I really need one. Don't ask."
+DIALOGUE = "...No, man."
+PLAYER_OPTIONS = Array[ExtResource("1_qoojl")]([])
+EXIT_OPTION = "I didn't think so. Thanks anyway."
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_qoojl"]
+script = ExtResource("1_qoojl")
+PROMPT = "Hey, this is a weird question, but you don't happen to have a screw driver, do you?"
+DIALOGUE = "...A what?"
+PLAYER_OPTIONS = Array[ExtResource("1_qoojl")]([SubResource("Resource_3iwyu")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_qoojl")
+PROMPT = ""
+DIALOGUE = "..."
+PLAYER_OPTIONS = Array[ExtResource("1_qoojl")]([SubResource("Resource_qoojl")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"ASK_FOR_SCREWDRIVER": true,
+"CHANGE_TREE_BY_PATH": ExtResource("1_3iwyu")
+})
+metadata/_custom_type_script = "uid://bymb602613n3g"
