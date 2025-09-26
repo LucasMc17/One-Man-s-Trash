@@ -10,12 +10,9 @@ func _ready():
 
 func update(delta):
 	super(delta)
-	# var target = ACTOR.talking_to.global_position
-	# var direction = target - ACTOR.global_position
-	# # var vector = direction.normalized()
-	# Global.log(direction)
-	# ACTOR.global_transform.basis = Basis.from_euler(direction)
-	# ACTOR.CAMERA.rotation.y = lerp_angle(ACTOR.CAMERA_CONTROLLER.rotation.y, atan2(direction.x, direction.z), 0.15)
+	var target = ACTOR.talking_to.global_position
+	var direction = (target - ACTOR.global_position).normalized()
+	ACTOR.rotation.y = lerp_angle(ACTOR.rotation.y, atan2(-direction.x, -direction.z), 0.15)
 
 func enter(previous_state : State = null, ext := {}):
 	super(previous_state, ext)
