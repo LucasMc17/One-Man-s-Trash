@@ -11,3 +11,7 @@ class_name TalkTree extends Resource
 @export var CAMERA_ID : StringName
 ## A string representing a special flag to be passed into the dialog selected global event to trigger special effects in the global scope
 @export var BEHAVIOR_FLAGS : Dictionary[String, Variant]
+
+func activate(npc : NPC):
+	Global.log(['TALK TREE ACTIVATED, ', npc])
+	Events.dialog_chosen.emit(npc, BEHAVIOR_FLAGS)

@@ -42,7 +42,7 @@ func update_movement(speed : float, target : Vector3, acceleration : float):
 		var vector = direction.normalized()
 		velocity.x = lerp(velocity.x, vector.x * speed, acceleration)
 		velocity.z = lerp(velocity.z, vector.z * speed, acceleration)
-		rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), 0.15)
+		rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), 0.15) # MARK
 	move_and_slide()
 
 func look_at_player():
