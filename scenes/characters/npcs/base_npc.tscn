@@ -82,3 +82,7 @@ VP_SIZE = Vector2i(280, 80)
 TEXT = "{name}
 ATTENTION: {attention}
 MOVEMENT: {movement}"
+
+[node name="FocusMarker" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
