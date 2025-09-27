@@ -4,6 +4,9 @@ var PREV_X_ROTATION : float
 var PREV_Y_ROTATION : float
 var TARGET_X_ROTATION : float
 var TARGET_Y_ROTATION : float
+var _NEXT_STATE_NAME : StringName = ""
+var _NEXT_STATE_EXT := {}
+var _EXITING := false
 
 func _ready():
 	DISABLE_MOVEMENT = true
@@ -12,7 +15,15 @@ func _ready():
 
 func update(delta):
 	super(delta)
-	lerp_toward_target()
+	if _EXITING:
+		lerp_away_from_target()
+		if ACTOR.rotation.y < PREV_Y_ROTATION + 0.01 && ACTOR.rotation.y > PREV_Y_ROTATION - 0.01:
+			print('y ok')
+			if ACTOR.CAMERA_CONTROLLER.rotation.x < PREV_X_ROTATION + 0.01 && ACTOR.CAMERA_CONTROLLER.rotation.x > PREV_X_ROTATION - 0.01:
+				print('x ok')
+				super.transition(_NEXT_STATE_NAME, _NEXT_STATE_EXT)
+	else:
+		lerp_toward_target()
 
 func enter(previous_state : State = null, ext := {}):
 	super(previous_state, ext)
@@ -43,10 +54,17 @@ func exit():
 	PREV_Y_ROTATION = 0.0
 	TARGET_X_ROTATION = 0.0
 	TARGET_Y_ROTATION = 0.0
+	_EXITING = false
 	# keep_momentum = false
 	# prev_state = null
 	ACTOR.DIALOGUE_LAYER.visible = false
 	ACTOR.talking_to = null
+
+func transition(new_state_name : StringName, ext := {}):
+	if !Global.PLAYER.MOVEMENT_STATE_MACHINE.DISABLED:
+		_NEXT_STATE_NAME = new_state_name
+		_NEXT_STATE_EXT = ext
+		_EXITING = true
 
 # func update(_delta):
 # 	if keep_momentum:
@@ -59,3 +77,7 @@ func exit():
 func lerp_toward_target():
 	ACTOR.rotation.y = lerp_angle(ACTOR.rotation.y, TARGET_Y_ROTATION, 0.15)
 	ACTOR.CAMERA_CONTROLLER.rotation.x = lerp_angle(ACTOR.CAMERA_CONTROLLER.rotation.x, TARGET_X_ROTATION, 0.15)
+
+func lerp_away_from_target():
+	ACTOR.rotation.y = lerp_angle(ACTOR.rotation.y, PREV_Y_ROTATION, 0.15)
+	ACTOR.CAMERA_CONTROLLER.rotation.x = lerp_angle(ACTOR.CAMERA_CONTROLLER.rotation.x, PREV_X_ROTATION, 0.15)
