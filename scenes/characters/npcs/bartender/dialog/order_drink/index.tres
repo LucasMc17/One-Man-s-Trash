@@ -12,6 +12,10 @@ CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
 "ADD_TO_TAB": 12.0
 })
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_c3xp3"]
@@ -24,6 +28,10 @@ CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
 "ADD_TO_TAB": 8.0
 })
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(1, 1, 1)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_csfnt"]
@@ -36,6 +44,10 @@ CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
 "ADD_TO_TAB": 6.0
 })
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
@@ -46,4 +58,8 @@ PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([SubResource("Resource_lchoe"), S
 EXIT_OPTION = "Actually, I'm ok for the moment."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"

@@ -10,6 +10,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "Sure."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_rh5yg"]
@@ -20,6 +24,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "You got it."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_dpj24"]
@@ -30,6 +38,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "Don't let me keep you."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_f562j"]
@@ -40,6 +52,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_8ep85"), S
 EXIT_OPTION = ""
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_pawjp"]
@@ -50,6 +66,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "Sure, yeah."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_mtdcs"]
@@ -60,6 +80,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_pawjp")])
 EXIT_OPTION = ""
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_mh1u8"]
@@ -70,6 +94,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "sure, think I saw the bathroom in the back."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_c8uok"]
@@ -80,6 +108,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "sure, think I saw the bathroom in the back."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_5rwxn"]
@@ -90,6 +122,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_mh1u8"), S
 EXIT_OPTION = ""
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_efqtc"]
@@ -100,6 +136,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([])
 EXIT_OPTION = "Sure."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_edmo6"]
@@ -110,6 +150,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_5rwxn"), S
 EXIT_OPTION = ""
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
@@ -120,4 +164,8 @@ PLAYER_OPTIONS = Array[ExtResource("1_mh1u8")]([SubResource("Resource_f562j"), S
 EXIT_OPTION = ""
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"

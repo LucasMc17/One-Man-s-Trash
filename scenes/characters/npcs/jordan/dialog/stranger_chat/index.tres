@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=7 format=3 uid="uid://m8towykpux3a"]
+
+[ext_resource type="Resource" uid="uid://1moyiihku2i" path="res://scenes/characters/npcs/josie/dialog/stranger_chat/urge.tres" id="1_2hls5"]
+[ext_resource type="Resource" uid="uid://cuomc2uvbh06c" path="res://scenes/characters/npcs/jordan/dialog/stranger_chat/urge.tres" id="1_2w1ug"]
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_xjefo"]
+
+[sub_resource type="Resource" id="Resource_2hls5"]
+script = ExtResource("1_xjefo")
+PROMPT = "..."
+DIALOGUE = "Did you, uh... need something?"
+PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([])
+EXIT_OPTION = "...No, I guess not."
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_xjefo"]
+script = ExtResource("1_xjefo")
+PROMPT = "..."
+DIALOGUE = "Hi."
+PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_2hls5")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "NPC"
+FOCUS_NPC = &"Josie"
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_2w1ug"]
+script = ExtResource("1_xjefo")
+PROMPT = "Hey folks."
+DIALOGUE = "Hey."
+PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_xjefo")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_xjefo")
+PROMPT = ""
+DIALOGUE = "..."
+PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_2w1ug")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+NEXT_TALK_TREE = ExtResource("1_2w1ug")
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"SET_NPC_TALK_TREE": ["Josie", ExtResource("1_2hls5")]
+})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"

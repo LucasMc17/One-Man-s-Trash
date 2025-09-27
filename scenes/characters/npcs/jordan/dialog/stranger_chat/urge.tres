@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=2 format=3 uid="uid://cuomc2uvbh06c"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_oyrp3"]
+
+[resource]
+script = ExtResource("1_oyrp3")
+PROMPT = ""
+DIALOGUE = "We're in the middle of a conversation here, man."
+PLAYER_OPTIONS = Array[ExtResource("1_oyrp3")]([])
+EXIT_OPTION = "Sorry."
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"

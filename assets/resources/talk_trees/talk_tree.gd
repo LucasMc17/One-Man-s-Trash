@@ -9,9 +9,15 @@ class_name TalkTree extends Resource
 @export_category('Special Behavior')
 ## The unique Name property of the camera to be used for this dialogue line. Will revert to player's POV on next line if it has no unique camera
 @export var CAMERA_ID : StringName
+@export var NEXT_TALK_TREE : TalkTree
 ## A string representing a special flag to be passed into the dialog selected global event to trigger special effects in the global scope
 @export var BEHAVIOR_FLAGS : Dictionary[String, Variant]
 
+@export_category('Player Focus')
+@export_enum('DEFAULT', 'NPC', 'OBJECT', 'POINT') var FOCUS_TYPE = "DEFAULT"
+@export var FOCUS_NPC : StringName
+@export var FOCUS_OBJECT : StringName
+@export var FOCUS_POINT : Vector3
+
 func activate(npc : NPC):
-	Global.log(['TALK TREE ACTIVATED, ', npc])
-	Events.dialog_chosen.emit(npc, BEHAVIOR_FLAGS)
+	Events.dialog_chosen.emit(npc, self)

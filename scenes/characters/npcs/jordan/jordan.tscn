@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf24jn3v0wwk5"]
+[gd_scene load_steps=6 format=3 uid="uid://bf24jn3v0wwk5"]
 
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_ivbon"]
+[ext_resource type="Resource" uid="uid://m8towykpux3a" path="res://scenes/characters/npcs/jordan/dialog/stranger_chat/index.tres" id="2_k2ap4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivbon"]
 albedo_color = Color(0.900242, 0.735344, 0, 1)
@@ -8,13 +9,14 @@ albedo_color = Color(0.900242, 0.735344, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_k2ap4"]
 material = SubResource("StandardMaterial3D_ivbon")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_k2ap4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ivbon"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Jordan" instance=ExtResource("1_ivbon")]
+TALK_TREE = ExtResource("2_k2ap4")
 
 [node name="MeshInstance3D" parent="." index="2"]
 mesh = SubResource("CapsuleMesh_k2ap4")
 
 [node name="DebugLabel" parent="." index="5"]
-texture = SubResource("ViewportTexture_k2ap4")
+texture = SubResource("ViewportTexture_ivbon")

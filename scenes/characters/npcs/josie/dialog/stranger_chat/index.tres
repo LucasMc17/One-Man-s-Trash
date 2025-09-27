@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=8 format=3 uid="uid://dy8rk04w3ifxj"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_3xmym"]
+[ext_resource type="Resource" uid="uid://cuomc2uvbh06c" path="res://scenes/characters/npcs/jordan/dialog/stranger_chat/urge.tres" id="1_45dgw"]
+[ext_resource type="Resource" uid="uid://1moyiihku2i" path="res://scenes/characters/npcs/josie/dialog/stranger_chat/urge.tres" id="1_k3npg"]
+
+[sub_resource type="Resource" id="Resource_7kuv6"]
+script = ExtResource("1_3xmym")
+PROMPT = "..."
+DIALOGUE = "Do you need something? We're in the middle of a conversation here."
+PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([])
+EXIT_OPTION = "Sorry."
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "NPC"
+FOCUS_NPC = &"Jordan"
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_45dgw"]
+script = ExtResource("1_3xmym")
+PROMPT = "..."
+DIALOGUE = "Um..."
+PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([SubResource("Resource_7kuv6")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_3xmym"]
+script = ExtResource("1_3xmym")
+PROMPT = "..."
+DIALOGUE = "Hi."
+PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([SubResource("Resource_45dgw")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "NPC"
+FOCUS_NPC = &"Jordan"
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_k3npg"]
+script = ExtResource("1_3xmym")
+PROMPT = "Hey folks."
+DIALOGUE = "Oh, hi."
+PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([SubResource("Resource_3xmym")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_3xmym")
+PROMPT = ""
+DIALOGUE = "..."
+PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([SubResource("Resource_k3npg")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+NEXT_TALK_TREE = ExtResource("1_k3npg")
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"SET_NPC_TALK_TREE": ["Jordan", ExtResource("1_45dgw")]
+})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"

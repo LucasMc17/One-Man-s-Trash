@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=2 format=3 uid="uid://1moyiihku2i"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_j8hxc"]
+
+[resource]
+script = ExtResource("1_j8hxc")
+PROMPT = ""
+DIALOGUE = "Sorry, but we're kind of on a date here. Could you leave us alone?"
+PLAYER_OPTIONS = Array[ExtResource("1_j8hxc")]([])
+EXIT_OPTION = "Of course, sorry."
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
