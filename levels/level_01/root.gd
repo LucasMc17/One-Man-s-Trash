@@ -14,7 +14,6 @@ var CURRENT_STATE : LevelState:
 		return STATE_MACHINE.CURRENT_STATE
 
 func _ready():
-	print(Vector2.UP.normalized())
 	Global.GameState.LEVEL = self
 	Events.level_loaded.emit()
 	Events.dialog_chosen.connect(_on_dialog_chosen)

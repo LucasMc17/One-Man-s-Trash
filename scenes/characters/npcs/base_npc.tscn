@@ -9,9 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bghca01qsq1sq" path="res://debug/debug_ui/debug_label.tscn" id="7_2gx3w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6qnc6"]
-radius = 0.4
+radius = 0.25
+height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2gx3w"]
+radius = 0.3
+height = 1.8
 
 [sub_resource type="InputEventKey" id="InputEventKey_2gx3w"]
 device = -1
@@ -23,6 +26,8 @@ albedo_color = Color(1, 0.560784, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_65blf"]
 material = SubResource("StandardMaterial3D_6qnc6")
+radius = 0.3
+height = 1.8
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2gx3w"]
 viewport_path = NodePath("SubViewport")
@@ -31,7 +36,7 @@ viewport_path = NodePath("SubViewport")
 script = ExtResource("1_wwrmc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_6qnc6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
@@ -40,14 +45,14 @@ unique_name_in_owner = true
 script = ExtResource("3_2gx3w")
 ACTOR = NodePath("..")
 shape = SubResource("CapsuleShape3D_2gx3w")
-collision_position = Vector3(0, 1, 0)
+collision_position = Vector3(0, 0.9, 0)
 interact_button = SubResource("InputEventKey_2gx3w")
 max_distance = 4.0
 message = "Press [E] to talk"
 interactable_key = &"npc"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 mesh = SubResource("CapsuleMesh_65blf")
 skeleton = NodePath("../CollisionShape3D")
 

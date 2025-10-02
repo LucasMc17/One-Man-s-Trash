@@ -1,10 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://b2m4463t40ea1"]
+[gd_scene load_steps=32 format=3 uid="uid://b2m4463t40ea1"]
 
 [ext_resource type="Script" uid="uid://krn38ubei1hi" path="res://levels/level_01/root.gd" id="1_06tnj"]
 [ext_resource type="PackedScene" uid="uid://bquo2sra7l7e6" path="res://envs/daytime_env.tscn" id="1_jsf6y"]
 [ext_resource type="PackedScene" uid="uid://dp1q3ngso06dk" path="res://scenes/characters/player/player.tscn" id="2_34nx1"]
 [ext_resource type="PackedScene" uid="uid://brwpkrrtos4o5" path="res://debug/debug_block.tscn" id="3_qgp6h"]
-[ext_resource type="PackedScene" uid="uid://bo47ph4exyenq" path="res://scenes/chairs/debug_chair_01.tscn" id="4_06tnj"]
 [ext_resource type="PackedScene" uid="uid://cd024r0w1hp4p" path="res://invisible_walls/invisible_wall.tscn" id="5_metud"]
 [ext_resource type="PackedScene" uid="uid://8t3idewsxgn6" path="res://scenes/doors/debug_door_01.tscn" id="6_510th"]
 [ext_resource type="PackedScene" uid="uid://bctvs0pbevh86" path="res://scenes/characters/npcs/bartender/bartender.tscn" id="6_v74tu"]
@@ -89,7 +88,7 @@ size = Vector3(8, 7, 0.5)
 
 [node name="Counter" parent="Geometry/Visible" instance=ExtResource("3_qgp6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
-size = Vector3(1, 1, 10)
+size = Vector3(1, 1.04, 10)
 
 [node name="BathroomWall" parent="Geometry/Visible" instance=ExtResource("3_qgp6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22085, 1.01758, 12.9966)
@@ -111,26 +110,23 @@ shape = SubResource("BoxShape3D_bt03r")
 
 [node name="Seats" type="Node3D" parent="."]
 
-[node name="PlayerChair" parent="Seats" groups=["LevelImportant"] instance=ExtResource("4_06tnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, 0)
+[node name="BarStool2" parent="Seats" instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.994014, 0, 0.109249, 0, 1, 0, -0.109249, 0, 0.994014, 0.969832, 0, -2.77164)
 
-[node name="DebugChair04" parent="Seats" instance=ExtResource("4_06tnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, -1.46479)
+[node name="BarStool3" parent="Seats" instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.736794, 0, -0.676118, 0, 1, 0, 0.676118, 0, 0.736794, 1.06479, 0, -1.48258)
 
-[node name="DebugChair05" parent="Seats" instance=ExtResource("4_06tnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, -2.77926)
+[node name="BartChair" parent="Seats" groups=["LevelImportant"] instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.997947, 0, -0.0640446, 0, 1, 0, 0.0640446, 0, 0.997947, 0.989219, -2.38419e-07, 1.42217)
 
-[node name="MikeChair" parent="Seats" groups=["LevelImportant"] instance=ExtResource("4_06tnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, -4.36483)
+[node name="PlayerChair" parent="Seats" groups=["LevelImportant"] instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.754366, 0, -0.656454, 0, 1, 0, 0.656454, 0, 0.754366, 0.964934, 0, -0.0179952)
 
-[node name="BartChair" parent="Seats" groups=["LevelImportant"] instance=ExtResource("4_06tnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, 1.46014)
-
-[node name="DebugChair03" parent="Seats" instance=ExtResource("4_06tnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.744456, 0, 2.97665)
+[node name="MikeChair" parent="Seats" groups=["LevelImportant"] instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.826324, 0, -0.563194, 0, 1, 0, 0.563194, 0, 0.826324, 0.965058, 0, -4.22544)
 
 [node name="BarStool" parent="Seats" instance=ExtResource("7_vy6qu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.596025, 0, 3.74173)
+transform = Transform3D(0.891276, 0, 0.453462, 0, 1, 0, -0.453462, 0, 0.891276, 0.891695, 2.38419e-07, 2.98454)
 
 [node name="Doors" type="Node3D" parent="."]
 
@@ -193,13 +189,13 @@ TIME = "6:25 PM"
 [node name="InertProps" type="Node3D" parent="Props"]
 
 [node name="BeerBottle" parent="Props/InertProps" instance=ExtResource("15_thd0o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86657, 1.04585, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86657, 1.06711, 0)
 
 [node name="BeerBottle2" parent="Props/InertProps" instance=ExtResource("15_thd0o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78854, 1.04585, 0.128315)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78854, 1.06711, 0.128315)
 
 [node name="BeerBottle3" parent="Props/InertProps" instance=ExtResource("15_thd0o")]
-transform = Transform3D(-3.63786e-08, -0.832245, -0.554409, 1, -4.37114e-08, 0, -2.4234e-08, -0.554409, 0.832245, 2.07561, 1.02977, -1.59145)
+transform = Transform3D(-3.63786e-08, -0.832245, -0.554409, 1, -4.37114e-08, 0, -2.4234e-08, -0.554409, 0.832245, 2.07561, 1.05103, -1.59145)
 
 [node name="PhysicsProps" type="Node3D" parent="Props"]
 
