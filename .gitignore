@@ -2,3 +2,5 @@
 .godot/
 # CSV metadata 
 *.translation
+
+blender
