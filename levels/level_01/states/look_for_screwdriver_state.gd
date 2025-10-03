@@ -3,6 +3,8 @@ extends LevelState
 var bart_urge = load(Paths.get_dialog_path('bart', 'bathroom_chat', 'urge'))
 var bartender_dialog = load(Paths.get_dialog_path('bartender', 'ask_for_screwdriver'))
 var mike_dialog = load(Paths.get_dialog_path('mike', 'ask_for_screwdriver'))
+var jordan_dialog = load(Paths.get_dialog_path('jordan', 'ask_for_screwdriver'))
+var josie_dialog = load(Paths.get_dialog_path('josie', 'ask_for_screwdriver'))
 
 func enter(previous_state, ext):
 	Global.log(mike_dialog)
@@ -11,6 +13,8 @@ func enter(previous_state, ext):
 	Global.NPCS.Bart.TALK_TREE = bart_urge
 	Global.NPCS.Bartender.TALK_TREE = bartender_dialog
 	Global.NPCS.Mike.TALK_TREE = mike_dialog
+	Global.NPCS.Jordan.TALK_TREE = jordan_dialog
+	Global.NPCS.Josie.TALK_TREE = josie_dialog
 
 func exit():
 	super()

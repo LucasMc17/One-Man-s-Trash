@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=6 format=3 uid="uid://dgis47v850gde"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_226my"]
+[ext_resource type="Resource" uid="uid://lwvdnh0urm8f" path="res://scenes/characters/npcs/jordan/dialog/ask_for_screwdriver/urge.tres" id="1_h8xy1"]
+[ext_resource type="Resource" uid="uid://jmwgoeqaxauv" path="res://scenes/characters/npcs/josie/dialog/ask_for_screwdriver/urge.tres" id="2_tlkw0"]
+
+[sub_resource type="Resource" id="Resource_j4hiy"]
+script = ExtResource("1_226my")
+PROMPT = "Yeah..."
+DIALOGUE = "No, we don't have a screwdriver, dude. Anything else?"
+PLAYER_OPTIONS = Array[ExtResource("1_226my")]([])
+EXIT_OPTION = "No, that's the only thing I need right now. Sorry."
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "NPC"
+FOCUS_NPC = &"Jordan"
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_bllsh"]
+script = ExtResource("1_226my")
+PROMPT = "Hi, sorry, this is so weird to ask, but do either of you have a screwdriver?"
+DIALOGUE = "...A screwdriver?"
+PLAYER_OPTIONS = Array[ExtResource("1_226my")]([SubResource("Resource_j4hiy")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_226my")
+PROMPT = ""
+DIALOGUE = "Um, yes?"
+PLAYER_OPTIONS = Array[ExtResource("1_226my")]([SubResource("Resource_bllsh")])
+EXIT_OPTION = "..."
+CAMERA_ID = &""
+NEXT_TALK_TREE = ExtResource("2_tlkw0")
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"ASK_FOR_SCREWDRIVER": true,
+"SET_NPC_TALK_TREE": ["Jordan", ExtResource("1_h8xy1")]
+})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"

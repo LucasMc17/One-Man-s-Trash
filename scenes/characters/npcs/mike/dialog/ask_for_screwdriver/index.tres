@@ -11,6 +11,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_qoojl")]([])
 EXIT_OPTION = "I didn't think so. Thanks anyway."
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_qoojl"]
@@ -21,6 +25,10 @@ PLAYER_OPTIONS = Array[ExtResource("1_qoojl")]([SubResource("Resource_3iwyu")])
 EXIT_OPTION = ""
 CAMERA_ID = &""
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
@@ -34,4 +42,8 @@ BEHAVIOR_FLAGS = Dictionary[String, Variant]({
 "ASK_FOR_SCREWDRIVER": true,
 "CHANGE_TREE_BY_PATH": ExtResource("1_3iwyu")
 })
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"

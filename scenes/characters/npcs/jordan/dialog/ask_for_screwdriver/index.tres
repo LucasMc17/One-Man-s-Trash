@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="TalkTree" load_steps=5 format=3 uid="uid://cu3f5elj56fv7"]
+
+[ext_resource type="Resource" uid="uid://lwvdnh0urm8f" path="res://scenes/characters/npcs/jordan/dialog/ask_for_screwdriver/urge.tres" id="1_bfj3s"]
+[ext_resource type="Resource" uid="uid://jmwgoeqaxauv" path="res://scenes/characters/npcs/josie/dialog/ask_for_screwdriver/urge.tres" id="1_bls1v"]
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_xi2t5"]
+
+[sub_resource type="Resource" id="Resource_xi2t5"]
+script = ExtResource("1_xi2t5")
+PROMPT = "Hey, sorry to interrupt you, but do either of you have a screwdriver?"
+DIALOGUE = "...Why on earth would we have a screwdriver?"
+PLAYER_OPTIONS = Array[ExtResource("1_xi2t5")]([])
+EXIT_OPTION = "I truly do not know. Sorry to bother you."
+CAMERA_ID = &""
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_xi2t5")
+PROMPT = ""
+DIALOGUE = "..."
+PLAYER_OPTIONS = Array[ExtResource("1_xi2t5")]([SubResource("Resource_xi2t5")])
+EXIT_OPTION = ""
+CAMERA_ID = &""
+NEXT_TALK_TREE = ExtResource("1_bfj3s")
+BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"ASK_FOR_SCREWDRIVER": true,
+"SET_NPC_TALK_TREE": ["Josie", ExtResource("1_bls1v")]
+})
+FOCUS_TYPE = "DEFAULT"
+FOCUS_NPC = &""
+FOCUS_OBJECT = &""
+FOCUS_POINT = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://bymb602613n3g"
