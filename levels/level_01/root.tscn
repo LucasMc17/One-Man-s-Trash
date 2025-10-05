@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b2m4463t40ea1"]
+[gd_scene load_steps=33 format=3 uid="uid://b2m4463t40ea1"]
 
 [ext_resource type="Script" uid="uid://krn38ubei1hi" path="res://levels/level_01/root.gd" id="1_06tnj"]
 [ext_resource type="PackedScene" uid="uid://bquo2sra7l7e6" path="res://envs/daytime_env.tscn" id="1_jsf6y"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cd024r0w1hp4p" path="res://invisible_walls/invisible_wall.tscn" id="5_metud"]
 [ext_resource type="PackedScene" uid="uid://8t3idewsxgn6" path="res://scenes/doors/debug_door_01.tscn" id="6_510th"]
 [ext_resource type="PackedScene" uid="uid://bctvs0pbevh86" path="res://scenes/characters/npcs/bartender/bartender.tscn" id="6_v74tu"]
+[ext_resource type="Material" uid="uid://r83u4ggd56sv" path="res://assets/materials/wood_boards.tres" id="6_vy6qu"]
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="7_e1ace"]
 [ext_resource type="PackedScene" uid="uid://oi5poak31x26" path="res://scenes/characters/npcs/bart/bart.tscn" id="7_thd0o"]
 [ext_resource type="PackedScene" uid="uid://6belqg5jikur" path="res://scenes/chairs/bar_stool.tscn" id="7_vy6qu"]
@@ -75,8 +76,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.5, 0)
 size = Vector3(0.5, 7, 40)
 
 [node name="Floor" parent="Geometry/Visible" instance=ExtResource("3_qgp6h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-size = Vector3(7.5, 0.5, 40)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.25, 0)
+material = ExtResource("6_vy6qu")
+size = Vector3(40, 0.5, 7.5)
 
 [node name="Ceiling" parent="Geometry/Visible" instance=ExtResource("3_qgp6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
@@ -138,7 +140,7 @@ is_open = true
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
 script = ExtResource("7_e1ace")
-CURRENT_STATE = NodePath("BartChat")
+CURRENT_STATE = NodePath("DebugState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="DebugState" type="Node" parent="StateMachine"]

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://r83u4ggd56sv"]
+
+[ext_resource type="Texture2D" uid="uid://chmggqreiqp4i" path="res://assets/textures/wood-boards_n.jpg" id="2_3ay8n"]
+[ext_resource type="Texture2D" uid="uid://cn37a7n43d2ax" path="res://assets/textures/wood-boards.jpg" id="2_r6ek4"]
+
+[resource]
+albedo_texture = ExtResource("2_r6ek4")
+emission_energy_multiplier = 7.0
+normal_enabled = true
+normal_texture = ExtResource("2_3ay8n")
+rim_tint = 0.0
+uv1_triplanar = true
+texture_filter = 0
