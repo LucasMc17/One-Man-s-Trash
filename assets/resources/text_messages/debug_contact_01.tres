@@ -8,14 +8,11 @@
 
 [sub_resource type="Resource" id="Resource_cryl6"]
 script = ExtResource("3_6xmr5")
-TIME_BEFORE_TYPING = 0.5
-TIME_TYPING = 2.0
 MESSAGE = "Hello"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_4dtfe"]
 script = ExtResource("4_6xmr5")
-FALSE_STARTS = Array[String]([])
 MESSAGE = "Hi"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
@@ -27,14 +24,11 @@ metadata/_custom_type_script = "uid://c7essjownyvxc"
 
 [sub_resource type="Resource" id="Resource_6xmr5"]
 script = ExtResource("4_6xmr5")
-FALSE_STARTS = Array[String]([])
 MESSAGE = "What's up?"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_5cixp"]
 script = ExtResource("3_6xmr5")
-TIME_BEFORE_TYPING = 0.5
-TIME_TYPING = 2.0
 MESSAGE = "Oh, noth ing"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 

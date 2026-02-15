@@ -8,14 +8,7 @@
 script = ExtResource("1_xjefo")
 PROMPT = "..."
 DIALOGUE = "Did you, uh... need something?"
-PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([])
 EXIT_OPTION = "...No, I guess not."
-CAMERA_ID = &""
-BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
-FOCUS_TYPE = "DEFAULT"
-FOCUS_NPC = &""
-FOCUS_OBJECT = &""
-FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_xjefo"]
@@ -23,13 +16,8 @@ script = ExtResource("1_xjefo")
 PROMPT = "..."
 DIALOGUE = "Hi."
 PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_2hls5")])
-EXIT_OPTION = ""
-CAMERA_ID = &""
-BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
 FOCUS_TYPE = "NPC"
 FOCUS_NPC = &"Josie"
-FOCUS_OBJECT = &""
-FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_2w1ug"]
@@ -37,28 +25,14 @@ script = ExtResource("1_xjefo")
 PROMPT = "Hey folks."
 DIALOGUE = "Hey."
 PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_xjefo")])
-EXIT_OPTION = ""
-CAMERA_ID = &""
-BEHAVIOR_FLAGS = Dictionary[String, Variant]({})
-FOCUS_TYPE = "DEFAULT"
-FOCUS_NPC = &""
-FOCUS_OBJECT = &""
-FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
 script = ExtResource("1_xjefo")
-PROMPT = ""
 DIALOGUE = "..."
 PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_2w1ug")])
-EXIT_OPTION = ""
-CAMERA_ID = &""
 NEXT_TALK_TREE = ExtResource("1_2w1ug")
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
 "SET_NPC_TALK_TREE": ["Josie", ExtResource("1_2hls5")]
 })
-FOCUS_TYPE = "DEFAULT"
-FOCUS_NPC = &""
-FOCUS_OBJECT = &""
-FOCUS_POINT = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://bymb602613n3g"

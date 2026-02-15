@@ -7,8 +7,6 @@
 
 [sub_resource type="Resource" id="Resource_mmqck"]
 script = ExtResource("2_7nju4")
-TIME_BEFORE_TYPING = 0.5
-TIME_TYPING = 2.0
 MESSAGE = "Come here"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
@@ -20,7 +18,6 @@ metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_hntgb"]
 script = ExtResource("3_r3jcy")
-FALSE_STARTS = Array[String]([])
 MESSAGE = "Where are you?"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
@@ -33,7 +30,6 @@ metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_dfw6x"]
 script = ExtResource("3_r3jcy")
-FALSE_STARTS = Array[String]([])
 MESSAGE = "And you want me to come in there?"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
