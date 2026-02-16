@@ -19,14 +19,8 @@ var DRAFT := "":
 		DRAFT_TEXT.text = val
 		DRAFT = val
 
-func _ready():
-	MESSAGE_HOLDER.child_entered_tree.connect(scroll_to_bottom)
-
-func scroll_to_bottom(node):
-	await node.ready
-	if !node.is_node_ready():
-		await get_tree().process_frame
-	SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
+func scroll_to_bottom():
+	SCROLL_CONTAINER.set_deferred("scroll_vertical", SCROLL_CONTAINER.get_v_scroll_bar().max_value)
 
 func activate(contact : TextContact):
 	TYPING_LABEL.text = contact.CONTACT_NAME + ' is typing...'
@@ -45,6 +39,7 @@ func activate(contact : TextContact):
 				var text_scene = USER_MESSAGE.instantiate()
 				text_scene.MESSAGE = message.MESSAGE
 				MESSAGE_HOLDER.add_child(text_scene)
+	scroll_to_bottom.call_deferred()
 
 func send_text(text : UserMessage):
 	var text_scene = USER_MESSAGE.instantiate()
@@ -52,6 +47,7 @@ func send_text(text : UserMessage):
 	DRAFT = ""
 	MESSAGE_HOLDER.add_child(text_scene)
 	DRAFT_HOLDER.modulate = Color(1, 1, 1, 0.5)
+	scroll_to_bottom.call_deferred()
 
 func activate_draft():
 	DRAFT_HOLDER.modulate = Color(1, 1, 1, 1)
@@ -61,18 +57,12 @@ func receive_text(text : ContactMessage):
 	text_scene.MESSAGE = text.MESSAGE
 	MESSAGE_HOLDER.add_child(text_scene)
 	TYPING_HOLDER.visible = false
-
-func keep_scroll_at_bottom():
-	# TODO: I don't like this but it's needed until I can get the scroll to work consistently
-	if ACTIVE:
-		SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
+	scroll_to_bottom.call_deferred()
 
 func set_typing():
 	TYPING_HOLDER.visible = true
-	# SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
-
-	# await TYPING_HOLDER.visibility_changed
-	# SCROLL_CONTAINER.scroll_vertical = SCROLL_CONTAINER.get_v_scroll_bar().max_value
+	# TODO: This one's not quite working yet
+	scroll_to_bottom.call_deferred()
 
 
 func _on_send_button_pressed():

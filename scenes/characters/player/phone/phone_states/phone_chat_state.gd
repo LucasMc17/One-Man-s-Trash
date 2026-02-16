@@ -73,7 +73,6 @@ func update(delta):
 		SCREEN.receive_text(text)
 		CONTACT.TEXT_EXCHANGES[-1].MESSAGES.append(text)
 		check_next_message()
-	SCREEN.keep_scroll_at_bottom()
 
 func start_typing(message: ContactMessage):
 	if Global.Debug.skip_wait_times:
