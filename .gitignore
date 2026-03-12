@@ -2,6 +2,3 @@
 .godot/
 # CSV metadata 
 *.translation
-
-blender
-krita
