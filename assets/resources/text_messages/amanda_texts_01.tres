@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MessageList" load_steps=16 format=3 uid="uid://dq4emaufqar8g"]
+[gd_resource type="Resource" script_class="MessageList" format=3 uid="uid://dq4emaufqar8g"]
 
 [ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="1_c3ytr"]
 [ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://assets/resources/text_messages/contact_message.gd" id="2_pgrge"]

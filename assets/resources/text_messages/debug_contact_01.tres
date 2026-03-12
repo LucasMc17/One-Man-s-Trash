@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TextContact" load_steps=12 format=3 uid="uid://dmvqs8ujwomyd"]
+[gd_resource type="Resource" script_class="TextContact" format=3 uid="uid://dmvqs8ujwomyd"]
 
 [ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://assets/resources/text_messages/message_list.gd" id="1_7aiwx"]
 [ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="2_1h4vw"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TalkTree" load_steps=7 format=3 uid="uid://m8towykpux3a"]
+[gd_resource type="Resource" script_class="TalkTree" format=3 uid="uid://m8towykpux3a"]
 
 [ext_resource type="Resource" uid="uid://1moyiihku2i" path="res://scenes/characters/npcs/josie/dialog/stranger_chat/urge.tres" id="1_2hls5"]
 [ext_resource type="Resource" uid="uid://cuomc2uvbh06c" path="res://scenes/characters/npcs/jordan/dialog/stranger_chat/urge.tres" id="1_2w1ug"]

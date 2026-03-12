@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TalkTree" load_steps=5 format=3 uid="uid://bss4ohvgq7bp8"]
+[gd_resource type="Resource" script_class="TalkTree" format=3 uid="uid://bss4ohvgq7bp8"]
 
 [ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_lchoe"]
 
