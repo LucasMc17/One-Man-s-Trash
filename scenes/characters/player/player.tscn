@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dp1q3ngso06dk"]
+[gd_scene format=4 uid="uid://dp1q3ngso06dk"]
 
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://2by0a437meos" path="res://scenes/characters/player/player.gd" id="1_dovo2"]
@@ -119,11 +119,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4etl4")
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=35831557]
 collision_mask = 5
 script = ExtResource("1_dovo2")
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1490143767]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,7 +133,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_djydg")
 
-[node name="InteractLabel" type="Label" parent="UI"]
+[node name="InteractLabel" type="Label" parent="UI" unique_id=1104146771]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -148,7 +148,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NotificationLabel" type="Label" parent="UI"]
+[node name="NotificationLabel" type="Label" parent="UI" unique_id=1764895113]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -161,7 +161,7 @@ offset_bottom = -18.0
 grow_vertical = 0
 text = "You have a notification. Press [TAB] to open your phone."
 
-[node name="HintLabel" type="Label" parent="UI"]
+[node name="HintLabel" type="Label" parent="UI" unique_id=904453574]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
@@ -171,37 +171,37 @@ offset_top = -23.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="DebugUi" parent="UI" instance=ExtResource("2_0owmy")]
+[node name="DebugUi" parent="UI" unique_id=407400569 instance=ExtResource("2_0owmy")]
 layout_mode = 1
 
-[node name="DialogueLayer" parent="UI" instance=ExtResource("3_5gtgg")]
+[node name="DialogueLayer" parent="UI" unique_id=1215230955 instance=ExtResource("3_5gtgg")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=518389255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_sh265")
 debug_fill = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1482630026]
 mesh = SubResource("CapsuleMesh_onrkg")
 
-[node name="CameraController" type="Node3D" parent="."]
+[node name="CameraController" type="Node3D" parent="." unique_id=159688452]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraController"]
+[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=13979482]
 unique_name_in_owner = true
 cull_mask = 1048573
 
-[node name="ItemRig" type="Node3D" parent="CameraController/Camera3D"]
+[node name="ItemRig" type="Node3D" parent="CameraController/Camera3D" unique_id=116237181]
 
-[node name="Phone" parent="CameraController/Camera3D/ItemRig" instance=ExtResource("2_lvxji")]
+[node name="Phone" parent="CameraController/Camera3D/ItemRig" unique_id=329692428 instance=ExtResource("2_lvxji")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.083, -0.19, -0.12)
 mesh = SubResource("ArrayMesh_djydg")
 
-[node name="Interactor" type="RayCast3D" parent="CameraController/Camera3D"]
+[node name="Interactor" type="RayCast3D" parent="CameraController/Camera3D" unique_id=1486191980]
 unique_name_in_owner = true
 visible = false
 target_position = Vector3(0, 0, -5)
@@ -209,44 +209,44 @@ collision_mask = 3
 collide_with_areas = true
 debug_shape_thickness = 5
 
-[node name="AttentionStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="AttentionStateMachine" type="Node" parent="." unique_id=34343123 node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
 script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("Freelook")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="Talk" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("ACTOR")]
+[node name="Talk" type="Node" parent="AttentionStateMachine" unique_id=1713398366 node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("8_qek5x")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://lh2j23ejhb7o"
 
-[node name="Freelook" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("ACTOR")]
+[node name="Freelook" type="Node" parent="AttentionStateMachine" unique_id=1339991340 node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("7_xuses")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://0kqfhx68yfos"
 
-[node name="Phone" type="Node" parent="AttentionStateMachine" node_paths=PackedStringArray("ACTOR")]
+[node name="Phone" type="Node" parent="AttentionStateMachine" unique_id=1459955273 node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("8_3xnwo")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://c5iy7liovrtbk"
 
-[node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="MovementStateMachine" type="Node" parent="." unique_id=1337822167 node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
 script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("Freemove")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="Freemove" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("ACTOR")]
+[node name="Freemove" type="Node" parent="MovementStateMachine" unique_id=1381410600 node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("8_xuses")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://cd6aba0yvmgkq"
 
-[node name="Sit" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("ACTOR")]
+[node name="Sit" type="Node" parent="MovementStateMachine" unique_id=1645005974 node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("9_42irl")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://papflnia2cun"
 
-[node name="ItemViewport" type="SubViewportContainer" parent="."]
+[node name="ItemViewport" type="SubViewportContainer" parent="." unique_id=747481523]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -254,6 +254,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="ItemViewport"]
+[node name="SubViewport" type="SubViewport" parent="ItemViewport" unique_id=105303787]
 handle_input_locally = false
 render_target_update_mode = 0
