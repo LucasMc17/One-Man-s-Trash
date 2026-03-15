@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://states/state_machine.gd" id="2_vy5f6"]
 [ext_resource type="Script" uid="uid://cycqlk1nnmnkj" path="res://scenes/characters/npcs/talk_interactable.gd" id="3_2gx3w"]
 [ext_resource type="Script" uid="uid://bunxtellu4roh" path="res://scenes/characters/npcs/states/movement_states/npc_idle_state.gd" id="4_iwxdd"]
-[ext_resource type="ArrayMesh" uid="uid://bhtu4swe5bjyv" path="res://assets/meshes/template_Cube.res" id="4_ufsub"]
+[ext_resource type="ArrayMesh" uid="uid://b3i5ql7fkxod6" path="res://assets/meshes/template_Cube.res" id="4_ufsub"]
 [ext_resource type="Script" uid="uid://befgswxuxfmxp" path="res://scenes/characters/npcs/states/attention_states/npc_attention_state.gd" id="6_c4o2l"]
 [ext_resource type="PackedScene" uid="uid://bghca01qsq1sq" path="res://debug/debug_ui/debug_label.tscn" id="7_2gx3w"]
 
@@ -22,7 +22,7 @@ device = -1
 keycode = 69
 unicode = 101
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4oxjl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ufsub"]
 viewport_path = NodePath("DebugLabel/SubViewport")
 
 [node name="BaseNPC" type="CharacterBody3D" unique_id=885084072 groups=["NPCs"]]
@@ -74,7 +74,7 @@ metadata/_custom_type_script = "uid://bunxtellu4roh"
 [node name="DebugLabel" parent="." unique_id=1566404866 instance=ExtResource("7_2gx3w")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25052, 0)
-texture = SubResource("ViewportTexture_4oxjl")
+texture = SubResource("ViewportTexture_ufsub")
 VP_SIZE = Vector2i(280, 80)
 TEXT = "{name}
 ATTENTION: {attention}
