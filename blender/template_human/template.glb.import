@@ -32,7 +32,7 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
-animation/import_rest_as_RESET=false
+animation/import_rest_as_RESET=true
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
@@ -44,7 +44,7 @@ _subresources={
 "save_to_file/fallback_path": "res://assets/animations/humans/walk.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://dbsv4xr7q5rks",
-"settings/loop_mode": 0,
+"settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
@@ -2105,6 +2105,11 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://assets/meshes/template_Cube.res",
 "save_to_file/path": "uid://b3i5ql7fkxod6"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
 }
 }
 }

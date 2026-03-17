@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var animation_player := %AnimationPlayer
+@onready var animation_player : AnimationPlayer= %AnimationPlayer
 
-func _ready():
-	print(animation_player)
+func play_animation(animation_name : String) -> void:
+	animation_player.play(animation_name)

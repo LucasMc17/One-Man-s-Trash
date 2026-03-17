@@ -9,6 +9,7 @@ class_name NPC extends CharacterBody3D
 @onready var DEBUG_LABEL := %DebugLabel
 @onready var INTERACTABLE := %Interactable
 @onready var FOCUS_MARKER := %FocusMarker
+@onready var template_model := %TemplateNPCModel
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var current_attention : NPCAttentionState:
