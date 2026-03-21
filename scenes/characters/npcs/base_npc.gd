@@ -3,13 +3,16 @@ class_name NPC extends CharacterBody3D
 
 @export var TALK_TREE : TalkTree
 @export var MOVE_PATHS : Array[Path3D] = []
+# must be AnimatedMesh
+@export var packed_mesh : PackedScene
 
 @onready var ATTENTION_STATE_MACHINE := %AttentionStateMachine
 @onready var MOVEMENT_STATE_MACHINE := %MovementStateMachine
 @onready var DEBUG_LABEL := %DebugLabel
 @onready var INTERACTABLE := %Interactable
 @onready var FOCUS_MARKER := %FocusMarker
-@onready var template_model := %TemplateNPCModel
+
+var animated_mesh : AnimatedMesh
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var current_attention : NPCAttentionState:
@@ -31,6 +34,8 @@ func update_gravity(delta):
 		move_and_slide()
 
 func _ready():
+	animated_mesh = packed_mesh.instantiate()
+	add_child(animated_mesh)
 	INTERACTABLE.interacted.connect(_on_interactable_interacted)
 	DEBUG_LABEL.change_param('name', name)
 	if Global.Debug.debug_override == "DEFER":

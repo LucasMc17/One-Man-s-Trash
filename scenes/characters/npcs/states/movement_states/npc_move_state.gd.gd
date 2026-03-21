@@ -16,7 +16,7 @@ func enter(previous_state, ext):
 	PATH = ACTOR.MOVE_PATHS[PATH_INDEX]
 	POINT_COUNT = PATH.curve.point_count - 1
 	TARGET_POSITION = PATH.curve.get_point_position(TARGET_INDEX)
-	ACTOR.template_model.play_animation("humans/walk")
+	ACTOR.animated_mesh.play_animation("humans/walk")
 
 func physics_update(delta: float):
 	super(delta)

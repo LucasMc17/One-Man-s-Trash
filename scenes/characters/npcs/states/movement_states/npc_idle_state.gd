@@ -17,7 +17,7 @@ func enter(previous_state, ext):
 	super(previous_state, ext)
 	ACTOR.velocity.x = 0
 	ACTOR.velocity.z = 0
-	ACTOR.template_model.play_animation("humans/idle")
+	ACTOR.animated_mesh.play_animation("humans/idle")
 
 func exit():
 	TIME_LEFT = TIMEOUT

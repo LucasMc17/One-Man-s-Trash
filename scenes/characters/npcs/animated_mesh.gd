@@ -1,4 +1,5 @@
-extends Node3D
+@tool
+class_name AnimatedMesh extends Node3D
 
 @onready var animation_player : AnimationPlayer= %AnimationPlayer
 

@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody3D
 
 # EXPORTS
-@export var MOUSE_SENSITIVITY := 0.3
+@export var MOUSE_SENSITIVITY := 0.2
 @export var TILT_LOWER_LIMIT := deg_to_rad(-90.0)
 @export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
 
