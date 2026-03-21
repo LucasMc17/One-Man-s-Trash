@@ -1,17 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dph6io0vket86"]
+[gd_scene format=3 uid="uid://dph6io0vket86"]
 
 [ext_resource type="Script" uid="uid://bwf4m0a3uil2u" path="res://globals/game_state.gd" id="1_fekn7"]
 [ext_resource type="Script" uid="uid://hvjnor6otntv" path="res://globals/global.gd" id="1_tvui4"]
 [ext_resource type="Script" uid="uid://uk2aglsfy3uh" path="res://globals/debug.gd" id="2_u1vfw"]
 
-[node name="GlobalNode" type="Node"]
+[node name="GlobalNode" type="Node" unique_id=26173043]
 script = ExtResource("1_tvui4")
 
-[node name="GameState" type="Node" parent="."]
+[node name="GameState" type="Node" parent="." unique_id=1637676072]
 script = ExtResource("1_fekn7")
 
-[node name="Debug" type="Node" parent="."]
+[node name="Debug" type="Node" parent="." unique_id=1770779416]
 script = ExtResource("2_u1vfw")
-debug_override = "OFF"
-skip_wait_times = true
-skip_typing = true
+debug_override = "ON"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7jcuvst7cih2"]
 
-[ext_resource type="ArrayMesh" uid="uid://bjt8iywllqhkg" path="res://assets/meshes/beer-bottle.res" id="1_jkpmk"]
+[ext_resource type="ArrayMesh" uid="uid://dq653a2jdycpt" path="res://assets/meshes/beer-bottle_Cylinder.res" id="1_jkpmk"]
 
 [node name="BeerBottle" type="MeshInstance3D"]
 mesh = ExtResource("1_jkpmk")

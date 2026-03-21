@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MessageList" load_steps=16 format=3 uid="uid://dq4emaufqar8g"]
+[gd_resource type="Resource" script_class="MessageList" format=3 uid="uid://dq4emaufqar8g"]
 
 [ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://assets/resources/text_messages/text_message.gd" id="1_c3ytr"]
 [ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://assets/resources/text_messages/contact_message.gd" id="2_pgrge"]
@@ -7,21 +7,16 @@
 
 [sub_resource type="Resource" id="Resource_7gyjx"]
 script = ExtResource("2_pgrge")
-TIME_BEFORE_TYPING = 0.5
-TIME_TYPING = 2.0
 MESSAGE = "Hey, did you wrap?"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_o75xt"]
 script = ExtResource("3_ca6cl")
-FALSE_STARTS = Array[String]([])
 MESSAGE = "Yeah we're just grabbing a quick dinner now"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_p8sc1"]
 script = ExtResource("2_pgrge")
-TIME_BEFORE_TYPING = 0.5
-TIME_TYPING = 2.0
 MESSAGE = "What happened today?"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
@@ -34,7 +29,6 @@ metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_745hf"]
 script = ExtResource("3_ca6cl")
-FALSE_STARTS = Array[String]([])
 MESSAGE = "He was off his game. i think the nerves got to him too tbh"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
@@ -48,21 +42,18 @@ metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 [sub_resource type="Resource" id="Resource_7qu28"]
 script = ExtResource("2_pgrge")
 TIME_BEFORE_TYPING = 0.2
-TIME_TYPING = 2.0
 MESSAGE = "I'm just not liking what I'm hearing from the crew"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_8ef3q"]
 script = ExtResource("2_pgrge")
 TIME_BEFORE_TYPING = 0.2
-TIME_TYPING = 2.0
 MESSAGE = "It's ok if you're both nervous, that happens but"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_adeon"]
 script = ExtResource("2_pgrge")
 TIME_BEFORE_TYPING = 0.2
-TIME_TYPING = 2.0
 MESSAGE = "Look you have another shoot tomorrow"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://6belqg5jikur"]
 
 [ext_resource type="PackedScene" uid="uid://uhic7j11f1st" path="res://scenes/chairs/chair.tscn" id="1_gpkyd"]
-[ext_resource type="ArrayMesh" uid="uid://byoxycjtvp65c" path="res://assets/meshes/bar_stool.res" id="2_wu4xo"]
+[ext_resource type="ArrayMesh" uid="uid://bkkpnymfixmo1" path="res://assets/meshes/bar_stool_mesh.res" id="2_wu4xo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wu4xo"]
 height = 0.6

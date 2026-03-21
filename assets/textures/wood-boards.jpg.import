@@ -2,26 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b56ooewl2w24w"
-path.s3tc="res://.godot/imported/bar_stool_low-res-leather.jpg-4359a57a83924060ef4d360ddd7fdaa2.s3tc.ctex"
+uid="uid://cn37a7n43d2ax"
+path.s3tc="res://.godot/imported/wood-boards.jpg-f04fb1c3b2c3e08645f060a89dfad9ee.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "7703a063a2b082073926746b1915ba4f"
-}
 
 [deps]
 
-source_file="res://assets/meshes/bar_stool_low-res-leather.jpg"
-dest_files=["res://.godot/imported/bar_stool_low-res-leather.jpg-4359a57a83924060ef4d360ddd7fdaa2.s3tc.ctex"]
+source_file="res://assets/textures/wood-boards.jpg"
+dest_files=["res://.godot/imported/wood-boards.jpg-f04fb1c3b2c3e08645f060a89dfad9ee.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -29,6 +28,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

@@ -54,7 +54,6 @@ func exit():
 	TALKING_TO = null
 
 func transition(new_state_name : StringName, ext := {}):
-	print('leaving the talk state')
 	if !Global.PLAYER.ATTENTION_STATE_MACHINE.DISABLED:
 		ACTOR.DIALOGUE_LAYER.visible = false
 		_NEXT_STATE_NAME = new_state_name
