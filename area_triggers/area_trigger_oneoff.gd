@@ -1,15 +1,21 @@
-class_name AreaTriggerOneoff extends AreaTrigger
+class_name AreaTriggerOneoff
+extends AreaTrigger
+## AreaTrigger which disables itself after being entered once by elligible actor.
 
-@export var LISTENING := true:
+## Boolean tracking whether the trigger is still listening for its elligible actor(s).
+@export var _listening := true:
 	set(val):
 		set_deferred("monitoring", val)
-		LISTENING = val
-		DEBUG_LABEL.change_param('listening', "TRUE" if val else "FALSE")
-	
+		_listening = val
+		_debug_label.change_param('listening', "TRUE" if val else "FALSE")
+
 func _ready():
 	super()
-	DEBUG_LABEL.change_param('listening', 'TRUE')
+	_debug_label.change_param('listening', 'TRUE')
 
-func handle_entered(body : Node3D):
+
+func _handle_entered(body : Node3D):
 	super(body)
-	LISTENING = false
+	_listening = false
+
+# REFACTORED TO BEST PRACTICE, MARCH 2026
