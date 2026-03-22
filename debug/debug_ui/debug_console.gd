@@ -1,52 +1,62 @@
-class_name DebugConsole extends PanelContainer
+class_name DebugConsole
+extends PanelContainer
 
-# NODES
-@onready var History = %History
-@onready var CommandLine = %CommandLine
+@onready var _history = %History
+@onready var _command_line = %CommandLine
 
-# GLOBALS
-var command_history := []
+## Array representing the history of commands issued to the console by the user.
+var _command_history := []
+## A pointer indicating position within the `_command_history` array when tabbing through past commands via the arrow keys.
 var _history_pointer
 
-# FUNCS
-func get_from_history(pointer : int):
-	_history_pointer = pointer
-	CommandLine.text = command_history[pointer]
-	CommandLine.set_caret_column(1000)
-
-func clear():
-	History.text = ''
-
-# BUILT INS
 func _ready():
+	# TODO: This whole file needs an overhaul. See how Cryptr does it, I no longer like this format. 
+	# In particular, I feel like we shouldn't need this next line, and the commands for logging to the terminal should live here, not on `Debug`
 	Global.Debug.DEBUG_CONSOLE = self
 	if Global.Debug.debug_override == "DEFER":
 		visible = Global.Debug.show_debug_console
 
+
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		CommandLine.grab_focus()
+		_command_line.grab_focus()
+
 
 func _input(_event):
-	if CommandLine.has_focus() and Input.is_action_just_pressed("up"):
+	if _command_line.has_focus() and Input.is_action_just_pressed("up"):
 		if _history_pointer == 0:
 			return
 		if _history_pointer != null and _history_pointer > 0:
-			get_from_history(_history_pointer - 1)
+			_get_from_history(_history_pointer - 1)
 			return
-		elif !_history_pointer and command_history.size() > 0:
-			get_from_history(command_history.size() - 1)
+		elif !_history_pointer and _command_history.size() > 0:
+			_get_from_history(_command_history.size() - 1)
 			return
-	elif CommandLine.has_focus() and Input.is_action_just_pressed("down"):
-		if _history_pointer != null and _history_pointer < command_history.size() - 1:
-			get_from_history(_history_pointer + 1)
+	elif _command_line.has_focus() and Input.is_action_just_pressed("down"):
+		if _history_pointer != null and _history_pointer < _command_history.size() - 1:
+			_get_from_history(_history_pointer + 1)
 			return
 
-# SIGNAL LISTENERS
-func _on_command_line_text_submitted(new_text):
-	command_history.append(new_text)
+
+## Utilizes the `_history_pointer` to find a command from the `_command_history`.
+func _get_from_history(pointer : int) -> void:
+	_history_pointer = pointer
+	_command_line.text = _command_history[pointer]
+	_command_line.set_caret_column(1000)
+
+
+## Clears the console.
+func clear() -> void:
+	_history.text = ''
+
+
+## Signal listener for text input.
+func _on_command_line_text_submitted(new_text) -> void:
+	_command_history.append(new_text)
 	_history_pointer = null
 	var inputs = Array(new_text.split(' '))
 	var command_name = inputs.pop_front()
 	Global.Debug.command(command_name, inputs, 'Query: ' + new_text)
-	CommandLine.text = ''
+	_command_line.text = ''
+
+# REFACTORED TO BEST PRACTICE, MARCH 2026

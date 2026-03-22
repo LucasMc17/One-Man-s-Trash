@@ -7,4 +7,4 @@ func compare_events(input_event : InputEvent, expected : InputEventKey):
 
 func enter(_previous_state : State, _ext : Dictionary):
 	if Global.Debug.PLAYER_STATUS:
-		Global.Debug.PLAYER_STATUS.state = name
+		Global.Debug.PLAYER_STATUS.update_state(name)

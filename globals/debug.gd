@@ -55,7 +55,7 @@ var NPC_STATUSES : Array = []
 var DEBUG_SCENES : Array = []
 
 func log_string(string, prefix := ''):
-	DEBUG_CONSOLE.History.text += '\n' + prefix + str(string)
+	DEBUG_CONSOLE._history.text += '\n' + prefix + str(string)
 
 func cons_log(message):
 	# NOTE: this could get much more in depth but this will do for now

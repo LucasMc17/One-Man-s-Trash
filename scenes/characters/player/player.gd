@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody3D
 
 # EXPORTS
-@export var MOUSE_SENSITIVITY := 0.2
+@export var MOUSE_SENSITIVITY := 0.1
 @export var TILT_LOWER_LIMIT := deg_to_rad(-90.0)
 @export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
 
@@ -120,8 +120,8 @@ func _process(_delta):
 			letter = 'W'
 		elif degs >= 292.5 and degs < 337.5:
 			letter = 'SW'
-		Global.Debug.PLAYER_STATUS.direction = "%.2f" % degs + ' ' + letter
-		Global.Debug.PLAYER_STATUS.velocity = str("%.2f" % velocity.length())
+		Global.Debug.PLAYER_STATUS.update_direction("%.2f" % degs + ' ' + letter)
+		Global.Debug.PLAYER_STATUS.update_velocity("%.2f" % velocity.length())
 
 func update_gravity(delta):
 	if not is_on_floor():

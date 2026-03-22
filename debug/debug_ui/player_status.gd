@@ -1,33 +1,34 @@
-class_name PlayerStatus extends PanelContainer
+class_name PlayerStatus
+extends PanelContainer
+## Debug UI component representing info about the player.
 
-@onready var STATE = %State
-var state : StringName:
-	set(val):
-		STATE.text = val
-		state = val
-
-@onready var VELOCITY = %Velocity
-var velocity : String:
-	set(val):
-		VELOCITY.text = val
-		velocity = val
-
-@onready var DIRECTION = %Direction
-var direction : String:
-	set(val):
-		DIRECTION.text = val
-		direction = val
-
-@onready var FPS = %FPS
-var fps : String:
-	set(val):
-		FPS.text = val
-		fps = val
+@onready var _state_label := %State
+@onready var _velocity_label := %Velocity
+@onready var _direction_label := %Direction
+@onready var _fps_label := %FPS
 
 func _ready():
 	Global.Debug.PLAYER_STATUS = self
 	if Global.Debug.debug_override == "DEFER":
 		visible = Global.Debug.show_player_status
 
+
 func _process(delta):
-	fps = "%.2f" % (1.0 / delta)
+	_fps_label.text = "%.2f" % (1.0 / delta)
+
+
+## Update the label for the player's current velocity.
+func update_velocity(new_velocity : String) -> void:
+	_velocity_label.text = new_velocity
+
+
+## Update the label for the player's current state.
+func update_state(state_name : String) -> void:
+	_state_label.text = state_name
+
+
+## Update the label for the player's current direction.
+func update_direction(new_direction : String) -> void:
+	_direction_label.text = new_direction
+
+# REFACTORED TO BEST PRACTICE, MARCH 2026

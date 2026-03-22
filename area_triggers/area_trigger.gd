@@ -9,11 +9,11 @@ signal exited(area, body)
 
 @export_group('Triggers')
 ## List of listened for actors by direct reference to other instantiated scenes in world.
-@export var INCLUDED : Array[Node3D]
+@export var _included : Array[Node3D]
 ## List of listened for actors by scene name.
-@export var INCLUDED_BY_NAME : Array[StringName]
+@export var _included_by_name : Array[StringName]
 ## List of listened for actors by group name.
-@export var INCLUDED_BY_GROUP : Array[StringName]
+@export var _included_by_group : Array[StringName]
 
 ## Label representing real time info to the user.
 @onready var _debug_label : DebugLabel = %DebugLabel
@@ -22,18 +22,18 @@ func _ready():
 	visible = true
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	_debug_label.change_param('scenes', ", ".join((INCLUDED).map(func (scene): return scene.name) + INCLUDED_BY_NAME))
-	_debug_label.change_param('groups', ", ".join(INCLUDED_BY_GROUP))
+	_debug_label.change_param('scenes', ", ".join((_included).map(func (scene): return scene.name) + _included_by_name))
+	_debug_label.change_param('groups', ", ".join(_included_by_group))
 
 
 ## Utility function for determining if the body which has just interacted with the trigger is listened for or not.
 func _check_elligibility(body : Node3D) -> bool:
-	if INCLUDED.has(body):
+	if _included.has(body):
 		return true
-	if INCLUDED_BY_NAME.has(body.name):
+	if _included_by_name.has(body.name):
 		return true
 	var body_groups = body.get_groups()
-	for group in INCLUDED_BY_GROUP:
+	for group in _included_by_group:
 		if body_groups.has(group):
 			return true
 	return false

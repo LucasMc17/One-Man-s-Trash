@@ -1,21 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dps1at258aprq"]
+[gd_scene format=3 uid="uid://dps1at258aprq"]
 
 [ext_resource type="Script" uid="uid://bhbey35polldl" path="res://area_triggers/area_trigger_oneoff.gd" id="1_0hiwc"]
 [ext_resource type="PackedScene" uid="uid://bghca01qsq1sq" path="res://debug/debug_ui/debug_label.tscn" id="1_idf4n"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0hiwc"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("DebugLabel/SubViewport")
 
-[node name="AreaTriggerOneoff" type="Area3D"]
+[node name="AreaTriggerOneoff" type="Area3D" unique_id=702650466]
 collision_layer = 0
 script = ExtResource("1_0hiwc")
 
-[node name="DebugLabel" parent="." instance=ExtResource("1_idf4n")]
+[node name="DebugLabel" parent="." unique_id=1724924919 instance=ExtResource("1_idf4n")]
 unique_name_in_owner = true
 texture = SubResource("ViewportTexture_0hiwc")
-VP_SIZE = Vector2i(400, 160)
-TEXT = "AREA TRIGGER listening for:
-SCENES: {scenes}
-GROUPS: {groups}
+_viewport_size = Vector2i(400, 160)
+_text = "AreaTriggerOneoff
+Listening for scnes: {scenes}
+Listening for groups: {groups}
 
-LISTENING: {listening}"
+Listening: {listening}"

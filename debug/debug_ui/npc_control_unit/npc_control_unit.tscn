@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvox05glnh6l3"]
+[gd_scene format=3 uid="uid://cvox05glnh6l3"]
 
 [ext_resource type="Script" uid="uid://bjujic2t28pfk" path="res://debug/debug_ui/npc_control_unit/npc_control_unit.gd" id="1_4dgeb"]
 
-[node name="NpcStateControlUnit" type="HBoxContainer" groups=["debug"]]
+[node name="NpcStateControlUnit" type="HBoxContainer" unique_id=1819072644 groups=["debug"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,70 +10,70 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4dgeb")
 
-[node name="NpcPanel" type="PanelContainer" parent="."]
+[node name="NpcPanel" type="PanelContainer" parent="." unique_id=174287439]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NpcPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NpcPanel" unique_id=1539909452]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NpcPanel/VBoxContainer"]
+[node name="Label" type="Label" parent="NpcPanel/VBoxContainer" unique_id=1085917756]
 layout_mode = 2
 text = "NPCs in World"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="NpcPanel/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="NpcPanel/VBoxContainer" unique_id=1235931847]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NPCs" type="VBoxContainer" parent="NpcPanel/VBoxContainer/ScrollContainer"]
+[node name="NPCs" type="VBoxContainer" parent="NpcPanel/VBoxContainer/ScrollContainer" unique_id=1722063804]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="StatesPanel" type="PanelContainer" parent="."]
+[node name="StatesPanel" type="PanelContainer" parent="." unique_id=368362705]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 7.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StatesPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="StatesPanel" unique_id=1006724897]
 layout_mode = 2
 
-[node name="Movement" type="VBoxContainer" parent="StatesPanel/HBoxContainer"]
+[node name="Movement" type="VBoxContainer" parent="StatesPanel/HBoxContainer" unique_id=48221217]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="StatesPanel/HBoxContainer/Movement"]
+[node name="Label" type="Label" parent="StatesPanel/HBoxContainer/Movement" unique_id=467835745]
 layout_mode = 2
 text = "NPC Movement States"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="StatesPanel/HBoxContainer/Movement"]
+[node name="ScrollContainer" type="ScrollContainer" parent="StatesPanel/HBoxContainer/Movement" unique_id=1496331289]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MovementStates" type="VBoxContainer" parent="StatesPanel/HBoxContainer/Movement/ScrollContainer"]
+[node name="MovementStates" type="VBoxContainer" parent="StatesPanel/HBoxContainer/Movement/ScrollContainer" unique_id=1096475186]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Attention" type="VBoxContainer" parent="StatesPanel/HBoxContainer"]
+[node name="Attention" type="VBoxContainer" parent="StatesPanel/HBoxContainer" unique_id=801740677]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="StatesPanel/HBoxContainer/Attention"]
+[node name="Label" type="Label" parent="StatesPanel/HBoxContainer/Attention" unique_id=2102988521]
 layout_mode = 2
 text = "NPC Attention States"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="StatesPanel/HBoxContainer/Attention"]
+[node name="ScrollContainer" type="ScrollContainer" parent="StatesPanel/HBoxContainer/Attention" unique_id=1815699078]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AttentionStates" type="VBoxContainer" parent="StatesPanel/HBoxContainer/Attention/ScrollContainer"]
+[node name="AttentionStates" type="VBoxContainer" parent="StatesPanel/HBoxContainer/Attention/ScrollContainer" unique_id=1034809786]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

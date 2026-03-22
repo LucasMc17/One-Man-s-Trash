@@ -238,9 +238,9 @@ curve = SubResource("Curve3D_3qwjj")
 [node name="Triggers" type="Node" parent="." unique_id=228868267]
 unique_name_in_owner = true
 
-[node name="BartBathroomOneoff" parent="Triggers" unique_id=1711742388 node_paths=PackedStringArray("INCLUDED") instance=ExtResource("21_2q5mi")]
+[node name="BartBathroomOneoff" parent="Triggers" unique_id=1711742388 node_paths=PackedStringArray("_included") instance=ExtResource("21_2q5mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.978, 0.67, 15.295)
-INCLUDED = [NodePath("../../NPCs/Bart")]
+_included = [NodePath("../../NPCs/Bart")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/BartBathroomOneoff" unique_id=1800127974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34082, 0)

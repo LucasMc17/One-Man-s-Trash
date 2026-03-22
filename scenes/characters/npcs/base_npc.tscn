@@ -73,10 +73,10 @@ metadata/_custom_type_script = "uid://bunxtellu4roh"
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25052, 0)
 texture = SubResource("ViewportTexture_4oxjl")
-VP_SIZE = Vector2i(280, 80)
-TEXT = "{name}
-ATTENTION: {attention}
-MOVEMENT: {movement}"
+_viewport_size = Vector2i(300, 120)
+_text = "{name}
+Attention: {attention}
+Movement: {movement}"
 
 [node name="FocusMarker" type="Marker3D" parent="." unique_id=2032850941]
 unique_name_in_owner = true
