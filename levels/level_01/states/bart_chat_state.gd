@@ -12,10 +12,12 @@ func enter(previous_state, ext):
 	Global.player.MOVEMENT_STATE_MACHINE.lock()
 	bart.current_movement.transition('Sit', { "seat": bart_chair })
 
+
 func exit():
 	super()
 	Global.player.MOVEMENT_STATE_MACHINE.unlock()
 	Events.conversation_ended.disconnect(_on_conversation_ended)
+
 
 func _on_conversation_ended(npc : NPC):
 	if npc == Global.npcs.Bart:

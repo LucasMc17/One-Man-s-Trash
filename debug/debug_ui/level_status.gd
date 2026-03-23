@@ -37,7 +37,7 @@ func _on_level_state_changed(new_state : LevelState) -> void:
 func _populate_states() -> void:
 	for child in _level_states.get_children():
 		child.queue_free()
-	for level_state in Global.level.STATE_MACHINE.states.values():
+	for level_state in Global.level.state_machine.states.values():
 		if level_state is LevelState:
 			var button_scene = Button.new()
 			button_scene.text = level_state.name

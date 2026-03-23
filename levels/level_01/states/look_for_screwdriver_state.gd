@@ -16,10 +16,12 @@ func enter(previous_state, ext):
 	Global.npcs.Jordan.TALK_TREE = jordan_dialog
 	Global.npcs.Josie.TALK_TREE = josie_dialog
 
+
 func exit():
 	super()
 	Events.conversation_ended.disconnect(_on_conversation_ended)
 	Global.npcs.Bartender.INTERACTABLE.monitorable = true
+
 
 func _on_conversation_ended(npc : NPC):
 	pass
