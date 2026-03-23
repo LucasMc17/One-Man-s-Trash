@@ -84,6 +84,4 @@ metadata/_custom_type_script = "uid://c7essjownyvxc"
 script = ExtResource("2_rh8y1")
 TEXT_EXCHANGES = Array[ExtResource("1_kk7sq")]([SubResource("Resource_6i8cc"), SubResource("Resource_a7l8e"), SubResource("Resource_vsfcv"), SubResource("Resource_n60uf")])
 CONTACT_NAME = "Bart"
-text_exchanges = Array[ExtResource("1_kk7sq")]([SubResource("Resource_6i8cc"), SubResource("Resource_a7l8e"), SubResource("Resource_vsfcv"), SubResource("Resource_n60uf")])
-contact_name = "Bart"
 metadata/_custom_type_script = "uid://bl2o5yk4q2h54"

@@ -19,7 +19,7 @@ func enter(previous_state, ext):
 	ACTOR.hint = 'Press [SPACE] to stand up'
 	if ext.has('seat'):
 		SEAT = ext.seat
-		SEAT.INTERACTABLE.ACTIVE = false
+		SEAT.INTERACTABLE.deactivate()
 	SIT_POSITION = SEAT.SIT_MARKER.global_position
 	if ext.has('get_off_position'):
 		GET_OFF_POSITION = ext.get_off_position
@@ -51,7 +51,7 @@ func movement_input(event):
 		transition("Freemove")
 
 func exit():
-	SEAT.INTERACTABLE.ACTIVE = true
+	SEAT.INTERACTABLE.activate()
 	ACTOR.hint = ''
 	_CAPTURED = false
 	_EXITING = false

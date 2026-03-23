@@ -16,7 +16,7 @@ func enter(previous_state, ext):
 	super(previous_state, ext)
 	if ext.has('seat'):
 		SEAT = ext.seat
-		SEAT.INTERACTABLE.ACTIVE = false
+		SEAT.INTERACTABLE.deactivate()
 	SIT_POSITION = SEAT.SIT_MARKER.global_position
 	if ext.has('get_off_position'):
 		GET_OFF_POSITION = ext.get_off_position
@@ -41,6 +41,6 @@ func transition(new_state_name : StringName, ext := {}):
 	_EXITING = true
 
 func exit():
-	SEAT.INTERACTABLE.ACTIVE = true
+	SEAT.INTERACTABLE.activate()
 	_CAPTURED = false
 	_EXITING = false

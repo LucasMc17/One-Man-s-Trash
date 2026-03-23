@@ -104,7 +104,7 @@ size = Vector3(1.5, 2, 0.2)
 
 [node name="BathroomInvisP" parent="Geometry/Invisible" unique_id=292482563 groups=["LevelImportant"] instance=ExtResource("5_metud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96389, 0.533929, 13.3911)
-PLAYER_ONLY = true
+_player_only = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Invisible/BathroomInvisP" unique_id=1890408597]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483643, 0)
