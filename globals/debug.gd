@@ -2,13 +2,13 @@ extends Node
 
 @export_group("Debug Info")
 ## Controls the visibility of all debug elements:
-## [br][br]ON: All debug scenes are visible, regardless of their individual visibility settings.
+## [br]ON: All debug scenes are visible, regardless of their individual visibility settings.
 ## [br]OFF: All debug scenes are invisible, regardless of their individual visibility settings.
 ## [br]DEFER: Debug scenes will default to their own individual visibility settings.
 @export_enum("ON", "OFF", "DEFER") var debug_override = "DEFER":
 	set(val):
 		if val == "ON" or val == "OFF":
-			for scene in DEBUG_SCENES:
+			for scene in debug_scenes:
 				if scene:
 					scene.visible = val == "ON"
 		debug_override = val
@@ -16,29 +16,29 @@ extends Node
 ## Controls the visibility of the player's debug console (when debug_override is set to 'DEFER')
 @export var show_debug_console := false:
 	set(val):
-		if debug_override == "DEFER" and DEBUG_CONSOLE:
-			DEBUG_CONSOLE.visible = val
+		if debug_override == "DEFER" and debug_console:
+			debug_console.visible = val
 		show_debug_console = val
 
 ## Controls the visibility of the player's status module (when debug_override is set to 'DEFER')
 @export var show_player_status := false:
 	set(val):
-		if debug_override == "DEFER" and PLAYER_STATUS:
-			PLAYER_STATUS.visible = val
+		if debug_override == "DEFER" and player_status:
+			player_status.visible = val
 		show_player_status = val
 
 ## Controls the visibility of the level's status module (when debug_override is set to 'DEFER')
 @export var show_level_status := false:
 	set(val):
-		if debug_override == "DEFER" and LEVEL_STATUS:
-			LEVEL_STATUS.visible = val
+		if debug_override == "DEFER" and level_status:
+			level_status.visible = val
 		show_level_status = val
 
 ## Controls the visibility of NPC status modules (when debug_override is set to 'DEFER')
 @export var show_npc_status := false:
 	set(val):
 		if debug_override == "DEFER":
-			for panel in NPC_STATUSES:
+			for panel in npc_statuses:
 				panel.visible = val
 		show_npc_status = val
 
@@ -48,58 +48,34 @@ extends Node
 ## When set to `true`, user text messages fill with a single keystroke during active chat state
 @export var skip_typing := false
 
-var DEBUG_CONSOLE : DebugConsole
-var PLAYER_STATUS : PlayerStatus
-var LEVEL_STATUS : LevelStatus
-var NPC_STATUSES : Array = []
-var DEBUG_SCENES : Array = []
+var debug_console : DebugConsole
+var player_status : PlayerStatus
+var level_status : LevelStatus
+var npc_statuses : Array = []
+var debug_scenes : Array = []
 
-func log_string(string, prefix := ''):
-	DEBUG_CONSOLE._history.text += '\n' + prefix + str(string)
 
-func cons_log(message):
-	# NOTE: this could get much more in depth but this will do for now
-		print(message)
-		if DEBUG_CONSOLE:
-			if message is Array:
-				for i in message.size():
-					var element = message[i]
-					var prefix = ''
-					if i == 0:
-						prefix = '> '
-					log_string(element, prefix)
-			else:
-				log_string(message, '> ')
-
-func command(command_name : String, inputs : Array, full_command : String):
-	cons_log(full_command)
-	if commands.has(command_name):
-		var result = commands[command_name].logic.call(inputs)
-		if result:
-			cons_log(result)
-	else:
-		cons_log('Error: command unknown')
-	cons_log('')
-
-var commands : Dictionary = {
+# TODO: Jesus put this somewhere else. Again, refer to Cryptr, I ended up liking what I did there.
+## Object representing functionality and examples of all supported console commands.
+var _commands : Dictionary = {
 	"help": {
 		"logic": func(_options):
-			for key in self.commands.keys():
+			for key in _commands.keys():
 				cons_log(key + '\n')
-				cons_log('-- ' + self.commands[key].description)
+				cons_log('-- ' + _commands[key].description)
 				var examples
 				var params
-				if len(self.commands[key].examples) == 0:
+				if len(_commands[key].examples) == 0:
 					examples = "<none>"
 				else:
-					examples = "`" + "`, `".join(self.commands[key].examples) + "`"
-				if len(self.commands[key].parameters) == 0:
+					examples = "`" + "`, `".join(_commands[key].examples) + "`"
+				if len(_commands[key].parameters) == 0:
 					params = "<none>"
 				else:
-					params = self.commands[key].parameters
+					params = _commands[key].parameters
 				cons_log('---- Parameters: ' + params)
 				cons_log('---- e.g. ' + examples + '\n'),
-		"description": "Lists the available commands of this debug console.",
+		"description": "Lists the available _commands of this debug console.",
 		"parameters": "",
 		"examples": ["help"]
 	},
@@ -116,7 +92,7 @@ var commands : Dictionary = {
 
 	"clear": {
 		"logic": func(_options):
-			DEBUG_CONSOLE.clear(),
+			debug_console.clear(),
 		"description": "Clears the console",
 		"parameters": "",
 		"examples": ["clear"]
@@ -128,11 +104,11 @@ var commands : Dictionary = {
 				return "Error: Please provide an NPC name and a state to transition to"
 			var npc_name = options[0]
 			var npc_state_name = options[1]
-			# var npc_index = Global.NPCS.find_custom(func (item): return item.name == npc_name)
+			# var npc_index = Global.npcs.find_custom(func (item): return item.name == npc_name)
 			# if npc_index == -1:
 			# 	return "Error: NPC not found"
-			# var npc = Global.NPCS[npc_index]
-			var npc = Global.NPCS[npc_name]
+			# var npc = Global.npcs[npc_index]
+			var npc = Global.npcs[npc_name]
 			if !npc.STATE_MACHINE.has_node(npc_state_name):
 				return "Error: NPC " + npc_name + " does not have that state"
 			npc.current_state.transition(npc_state_name)
@@ -147,9 +123,9 @@ var commands : Dictionary = {
 			if options.size() < 1:
 				return "Error: Please provide a state name to transition to"
 			var state_name = options[0]
-			if !Global.LEVEL.STATE_MACHINE.has_node(state_name):
+			if !Global.level.STATE_MACHINE.has_node(state_name):
 				return "Error: Level does not have that state"
-			Global.LEVEL.CURRENT_STATE.transition(state_name)
+			Global.level.CURRENT_STATE.transition(state_name)
 			return "Level transitioned to state " + state_name,
 		"description": "Transitions the level to a chosen state",
 		"parameters": "1. The name of the LevelState",
@@ -158,15 +134,16 @@ var commands : Dictionary = {
 }
 
 func _ready():
-	DEBUG_SCENES = get_tree().get_nodes_in_group('debug')
+	debug_scenes = get_tree().get_nodes_in_group('debug')
 	# TODO: There is work to be done here. Not sure if new solution will be a group or a class
-	# NPC_STATUSES = DEBUG_SCENES.filter(func(scene): return scene is NPCDebugPanel)
+	# npc_statuses = debug_scenes.filter(func(scene): return scene is NPCDebugPanel)
 	if debug_override == "ON":
-		for scene in DEBUG_SCENES:
+		for scene in debug_scenes:
 			scene.visible = true
 	elif debug_override == "OFF":
-		for scene in DEBUG_SCENES:
+		for scene in debug_scenes:
 			scene.visible = false
+
 
 func _input(event):
 	if event.is_action_pressed("debug"):
@@ -174,3 +151,38 @@ func _input(event):
 			debug_override = "ON"
 		else:
 			debug_override = "OFF"
+
+
+## Log a string to the debug console, if it exists.
+func cons_log(message) -> void:
+	# NOTE: this could get much more in depth but this will do for now
+		print(message)
+		if debug_console:
+			if message is Array:
+				for i in message.size():
+					var element = message[i]
+					var prefix = ''
+					if i == 0:
+						prefix = '> '
+					_log_string(element, prefix)
+			else:
+				_log_string(message, '> ')
+
+
+## Run a command in the debug console.
+func command(command_name : String, inputs : Array, full_command : String) -> void:
+	cons_log(full_command)
+	if _commands.has(command_name):
+		var result = _commands[command_name].logic.call(inputs)
+		if result:
+			cons_log(result)
+	else:
+		cons_log('Error: command unknown')
+	cons_log('')
+
+
+## Log a string to the debug console.
+func _log_string(string, prefix := '') -> void:
+	debug_console._history.text += '\n' + prefix + str(string)
+
+# REFACTORED TO BEST PRACTICE, MARCH 2026

@@ -10,18 +10,18 @@ func enter(previous_state, ext):
 	Global.log(mike_dialog)
 	super(previous_state, ext)
 	Events.conversation_ended.connect(_on_conversation_ended)
-	Global.NPCS.Bart.TALK_TREE = bart_urge
-	Global.NPCS.Bartender.TALK_TREE = bartender_dialog
-	Global.NPCS.Mike.TALK_TREE = mike_dialog
-	Global.NPCS.Jordan.TALK_TREE = jordan_dialog
-	Global.NPCS.Josie.TALK_TREE = josie_dialog
+	Global.npcs.Bart.TALK_TREE = bart_urge
+	Global.npcs.Bartender.TALK_TREE = bartender_dialog
+	Global.npcs.Mike.TALK_TREE = mike_dialog
+	Global.npcs.Jordan.TALK_TREE = jordan_dialog
+	Global.npcs.Josie.TALK_TREE = josie_dialog
 
 func exit():
 	super()
 	Events.conversation_ended.disconnect(_on_conversation_ended)
-	Global.NPCS.Bartender.INTERACTABLE.monitorable = true
+	Global.npcs.Bartender.INTERACTABLE.monitorable = true
 
 func _on_conversation_ended(npc : NPC):
 	pass
-	if npc == Global.NPCS.Bartender:
+	if npc == Global.npcs.Bartender:
 		npc.TALK_TREE = null

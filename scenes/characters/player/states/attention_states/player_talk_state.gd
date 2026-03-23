@@ -54,7 +54,7 @@ func exit():
 	TALKING_TO = null
 
 func transition(new_state_name : StringName, ext := {}):
-	if !Global.PLAYER.ATTENTION_STATE_MACHINE.DISABLED:
+	if !Global.player.ATTENTION_STATE_MACHINE.DISABLED:
 		ACTOR.DIALOGUE_LAYER.visible = false
 		_NEXT_STATE_NAME = new_state_name
 		_NEXT_STATE_EXT = ext
@@ -76,14 +76,14 @@ func _on_dialog_chosen(npc : NPC, talk_tree: TalkTree):
 	if talk_tree.FOCUS_TYPE == "DEFAULT":
 		target = npc.FOCUS_MARKER.global_position
 	elif talk_tree.FOCUS_TYPE == "NPC":
-		var FOCUS_NPC = Global.NPCS[talk_tree.FOCUS_NPC]
+		var FOCUS_NPC = Global.npcs[talk_tree.FOCUS_NPC]
 		if FOCUS_NPC is NPC:
 			target = FOCUS_NPC.FOCUS_MARKER.global_position
 		else:
 			push_warning('NO NPC BY THAT NAME FOUND')
 			target = npc.FOCUS_MARKER.global_position
 	elif talk_tree.FOCUS_TYPE == "OBJECT":
-		var FOCUS_OBJECT = Global.IMPORTANT_SCENES[talk_tree.FOCUS_OBJECT]
+		var FOCUS_OBJECT = Global.important_scenes[talk_tree.FOCUS_OBJECT]
 		if FOCUS_OBJECT:
 			target = FOCUS_OBJECT.global_position
 		else:

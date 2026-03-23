@@ -16,4 +16,4 @@ func _ready():
 	LABEL.text = APP_NAME
 
 func _pressed():
-	Global.PLAYER_PHONE.CURRENT_STATE.transition(STATE_NAME)
+	Global.player_phone.CURRENT_STATE.transition(STATE_NAME)

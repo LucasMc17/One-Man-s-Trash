@@ -6,5 +6,5 @@ func compare_events(input_event : InputEvent, expected : InputEventKey):
 	return input_event.keycode == expected.keycode and input_event.pressed == expected.pressed
 
 func enter(_previous_state : State, _ext : Dictionary):
-	if Global.Debug.PLAYER_STATUS:
-		Global.Debug.PLAYER_STATUS.update_state(name)
+	if Global.debug.player_status:
+		Global.debug.player_status.update_state(name)

@@ -16,8 +16,8 @@ func enter(previous_state : PhoneUIState, ext := {}):
 	if ext.has("active") and ext.active:
 		SCREEN.activate_draft()
 		SCREEN.ACTIVE = true
-		Global.PLAYER.ATTENTION_STATE_MACHINE.lock()
-		Global.PLAYER_PHONE.STATE_MACHINE.lock()
+		Global.player.ATTENTION_STATE_MACHINE.lock()
+		Global.player_phone.STATE_MACHINE.lock()
 		SCREEN.BACK_BUTTON.disabled = true
 	if ext.has("new_exchange") and ext.new_exchange:
 		NEW_MESSAGES = ext.new_exchange
@@ -35,7 +35,7 @@ func input(event):
 				add_character(NEW_MESSAGES.MESSAGES[0].MESSAGE)
 
 func add_character(finished_message : String):
-	if Global.Debug.skip_typing:
+	if Global.debug.skip_typing:
 		DRAFT = finished_message
 	else:
 		DRAFT = finished_message.left(DRAFT.length() + 2)
@@ -49,7 +49,7 @@ func send():
 	check_next_message()
 
 func start_response(message: ContactMessage):
-	if Global.Debug.skip_wait_times:
+	if Global.debug.skip_wait_times:
 		BEFORE_TYPING_TIMER = 0.1
 	else:
 		BEFORE_TYPING_TIMER = message.TIME_BEFORE_TYPING
@@ -75,7 +75,7 @@ func update(delta):
 		check_next_message()
 
 func start_typing(message: ContactMessage):
-	if Global.Debug.skip_wait_times:
+	if Global.debug.skip_wait_times:
 		TYPING_TIMER = 0.1
 	else:
 		TYPING_TIMER = message.TIME_TYPING
@@ -96,6 +96,6 @@ func check_next_message():
 func end_conversation():
 	Events.texting_ended.emit(CONTACT)
 	SCREEN.ACTIVE = false
-	Global.PLAYER.ATTENTION_STATE_MACHINE.unlock()
-	Global.PLAYER_PHONE.STATE_MACHINE.unlock()
+	Global.player.ATTENTION_STATE_MACHINE.unlock()
+	Global.player_phone.STATE_MACHINE.unlock()
 	SCREEN.BACK_BUTTON.disabled = false

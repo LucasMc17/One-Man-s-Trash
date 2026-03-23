@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://j2j2u1vykxu3"]
+[gd_scene format=3 uid="uid://j2j2u1vykxu3"]
 
 [ext_resource type="PackedScene" uid="uid://bqaplirhi6ao5" path="res://scenes/characters/player/phone/phone_ui/top_bar.tscn" id="1_3dmou"]
 [ext_resource type="Script" uid="uid://c2cob8k531q64" path="res://scenes/characters/player/phone/phone_ui/phone_ui.gd" id="1_7oyur"]
@@ -34,7 +34,7 @@ curve_x = SubResource("Curve_3dmou")
 curve_y = SubResource("Curve_rbj2s")
 curve_z = SubResource("Curve_dk2uo")
 
-[node name="PhoneUi" type="Control"]
+[node name="PhoneUi" type="Control" unique_id=547783225]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +46,7 @@ grow_vertical = 2
 theme = ExtResource("1_uf4t0")
 script = ExtResource("1_7oyur")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1607261567]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +55,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CurveXYZTexture_da1kr")
 
-[node name="Screens" type="Control" parent="."]
+[node name="Screens" type="Control" parent="." unique_id=62936801]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,59 +63,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HomeScreen" parent="Screens" instance=ExtResource("1_dk2uo")]
+[node name="HomeScreen" parent="Screens" unique_id=568256482 instance=ExtResource("1_dk2uo")]
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="ChatsScreen" parent="Screens" instance=ExtResource("2_da1kr")]
+[node name="ChatsScreen" parent="Screens" unique_id=521859408 instance=ExtResource("2_da1kr")]
 visible = false
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 CONTACTS = Array[ExtResource("5_piq51")]([ExtResource("6_2vh5f"), ExtResource("6_22iid"), ExtResource("7_qm7od")])
 
-[node name="ChatScreen" parent="Screens" instance=ExtResource("4_qjcuk")]
+[node name="ChatScreen" parent="Screens" unique_id=194853204 instance=ExtResource("4_qjcuk")]
 visible = false
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="BankScreen" parent="Screens" instance=ExtResource("10_v3qjb")]
+[node name="BankScreen" parent="Screens" unique_id=1245316151 instance=ExtResource("10_v3qjb")]
 visible = false
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="TopBar" parent="." instance=ExtResource("1_3dmou")]
-layout_mode = 2
+[node name="TopBar" parent="." unique_id=395422414 instance=ExtResource("1_3dmou")]
+layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 offset_right = 1080.0
 offset_bottom = 52.0
+grow_horizontal = 1
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="StateMachine" type="Node" parent="." unique_id=1681606491 node_paths=PackedStringArray("CURRENT_STATE")]
 unique_name_in_owner = true
 script = ExtResource("3_rbj2s")
 CURRENT_STATE = NodePath("HomeState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="HomeState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
+[node name="HomeState" type="Node" parent="StateMachine" unique_id=407472773 node_paths=PackedStringArray("SCREEN")]
 script = ExtResource("4_dk2uo")
 SCREEN = NodePath("../../Screens/HomeScreen")
 metadata/_custom_type_script = "uid://dmw4uhl0a0to3"
 
-[node name="ChatState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
+[node name="ChatState" type="Node" parent="StateMachine" unique_id=749982663 node_paths=PackedStringArray("SCREEN")]
 script = ExtResource("9_35ghu")
 SCREEN = NodePath("../../Screens/ChatScreen")
 metadata/_custom_type_script = "uid://ccwb0p4od4hq2"
 
-[node name="ChatsState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
+[node name="ChatsState" type="Node" parent="StateMachine" unique_id=565916460 node_paths=PackedStringArray("SCREEN")]
 script = ExtResource("10_dqcrv")
 SCREEN = NodePath("../../Screens/ChatsScreen")
 metadata/_custom_type_script = "uid://cvbeqhcm51h3j"
 
-[node name="BankState" type="Node" parent="StateMachine" node_paths=PackedStringArray("SCREEN")]
+[node name="BankState" type="Node" parent="StateMachine" unique_id=335704790 node_paths=PackedStringArray("SCREEN")]
 script = ExtResource("16_8ja7m")
 SCREEN = NodePath("../../Screens/BankScreen")
 SHOULD_POP_UP = true

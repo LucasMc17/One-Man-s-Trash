@@ -7,4 +7,4 @@ var CURRENT_STATE : PhoneUIState:
 		return STATE_MACHINE.CURRENT_STATE
 
 func _ready():
-	Global.GameState.PLAYER_PHONE = self
+	Global.player_phone = self

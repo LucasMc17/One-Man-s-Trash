@@ -48,7 +48,7 @@ var hint := '':
 		hint = val
 
 func _ready():
-	Global.GameState.PLAYER = self
+	Global.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Events.text_received.connect(func(_contact, _new_messages): set_notification(true))
 
@@ -103,7 +103,7 @@ func exit_dialogue():
 		current_attention.transition("Freelook")
 
 func _process(_delta):
-	if Global.Debug.PLAYER_STATUS:
+	if Global.debug.player_status:
 		var degs = rad_to_deg(rotation.y) + 180
 		var letter = 'S'
 		if degs >= 22.5 and degs < 67.5:
@@ -120,8 +120,8 @@ func _process(_delta):
 			letter = 'W'
 		elif degs >= 292.5 and degs < 337.5:
 			letter = 'SW'
-		Global.Debug.PLAYER_STATUS.update_direction("%.2f" % degs + ' ' + letter)
-		Global.Debug.PLAYER_STATUS.update_velocity("%.2f" % velocity.length())
+		Global.debug.player_status.update_direction("%.2f" % degs + ' ' + letter)
+		Global.debug.player_status.update_velocity("%.2f" % velocity.length())
 
 func update_gravity(delta):
 	if not is_on_floor():

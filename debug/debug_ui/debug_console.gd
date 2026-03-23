@@ -12,9 +12,9 @@ var _history_pointer
 func _ready():
 	# TODO: This whole file needs an overhaul. See how Cryptr does it, I no longer like this format. 
 	# In particular, I feel like we shouldn't need this next line, and the commands for logging to the terminal should live here, not on `Debug`
-	Global.Debug.DEBUG_CONSOLE = self
-	if Global.Debug.debug_override == "DEFER":
-		visible = Global.Debug.show_debug_console
+	Global.debug.debug_console = self
+	if Global.debug.debug_override == "DEFER":
+		visible = Global.debug.show_debug_console
 
 
 func _gui_input(event):
@@ -56,7 +56,7 @@ func _on_command_line_text_submitted(new_text) -> void:
 	_history_pointer = null
 	var inputs = Array(new_text.split(' '))
 	var command_name = inputs.pop_front()
-	Global.Debug.command(command_name, inputs, 'Query: ' + new_text)
+	Global.debug.command(command_name, inputs, 'Query: ' + new_text)
 	_command_line.text = ''
 
 # REFACTORED TO BEST PRACTICE, MARCH 2026

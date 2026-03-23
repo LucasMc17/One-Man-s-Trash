@@ -38,8 +38,8 @@ func _ready():
 	add_child(animated_mesh)
 	INTERACTABLE.interacted.connect(_on_interactable_interacted)
 	DEBUG_LABEL.change_param('name', name)
-	if Global.Debug.debug_override == "DEFER":
-		DEBUG_LABEL.visible = Global.Debug.show_npc_status
+	if Global.debug.debug_override == "DEFER":
+		DEBUG_LABEL.visible = Global.debug.show_npc_status
 
 func update_movement(speed : float, target : Vector3, acceleration : float):
 	if current_attention.DISABLE_MOVEMENT:
@@ -53,7 +53,7 @@ func update_movement(speed : float, target : Vector3, acceleration : float):
 	move_and_slide()
 
 func look_at_player():
-	var direction = (Global.PLAYER.global_position - global_position).normalized()
+	var direction = (Global.player.global_position - global_position).normalized()
 	rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), 0.15)
 
 func _on_interactable_interacted(interactor : Player):

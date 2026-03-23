@@ -8,17 +8,17 @@ var DIALOGUE_OPTION = preload("./dialogue_option.tscn")
 	set(val):
 		if val:
 			if val.CAMERA_ID:
-				if Global.CAMERAS.has(val.CAMERA_ID):
-					Global.PLAYER.CAMERA.current = false
-					Global.CAMERAS[val.CAMERA_ID].current = true
+				if Global.cameras.has(val.CAMERA_ID):
+					Global.player.CAMERA.current = false
+					Global.cameras[val.CAMERA_ID].current = true
 				else:
 					push_warning('WARNING: No Camera by that ID found')
 					Global.log('WARNING: No Camera by that ID found')
 			else:
 				if TALK_TREE:
-					if Global.CAMERAS.has(TALK_TREE.CAMERA_ID):
-						Global.CAMERAS[TALK_TREE.CAMERA_ID].current = false
-					Global.PLAYER.CAMERA.current = true
+					if Global.cameras.has(TALK_TREE.CAMERA_ID):
+						Global.cameras[TALK_TREE.CAMERA_ID].current = false
+					Global.player.CAMERA.current = true
 			if NPC_LINE:
 				NPC_LINE.text = val.DIALOGUE
 			if PLAYER_OPTIONS:

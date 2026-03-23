@@ -1,26 +1,36 @@
 extends Node
 
-@onready var Debug = $Debug
-@onready var GameState = $GameState
+@onready var debug = $Debug
+@onready var game_state = $GameState
 
-var PLAYER : Player:
+# TODO: Ugh.
+
+var player : Player:
 	get():
-		return GameState.PLAYER
-var NPCS : Dictionary:
+		return game_state.player
+	set(val):
+		game_state.player = val
+var npcs : Dictionary:
 	get():
-		return GameState.NPCS
-var PLAYER_PHONE : Control:
+		return game_state.npcs
+var player_phone : Control:
 	get():
-		return GameState.PLAYER_PHONE
-var LEVEL : Node3D:
+		return game_state.player_phone
+	set(val):
+		game_state.player_phone = val
+var level : Node3D:
 	get():
-		return GameState.LEVEL
-var IMPORTANT_SCENES : Dictionary:
+		return game_state.level
+	set(val):
+		game_state.level = val
+var important_scenes : Dictionary:
 	get():
-		return GameState.IMPORTANT_SCENES
-var CAMERAS : Dictionary:
+		return game_state.important_scenes
+var cameras : Dictionary:
 	get():
-		return GameState.CAMERAS
+		return game_state.cameras
 
 func log(message):
-	Debug.cons_log(message)
+	debug.cons_log(message)
+
+# REFACTORED TO BEST PRACTICE, MARCH 2026
