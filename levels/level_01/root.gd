@@ -31,13 +31,13 @@ func _ready():
 ## Event listener for global event.
 func _on_dialog_chosen(npc : NPC, talk_tree : TalkTree):
 	if talk_tree.NEXT_TALK_TREE is TalkTree:
-		npc.TALK_TREE = talk_tree.NEXT_TALK_TREE
+		npc.talk_tree = talk_tree.NEXT_TALK_TREE
 	if talk_tree.BEHAVIOR_FLAGS.has('SET_NPC_TALK_TREE'):
 		var other_npc = talk_tree.BEHAVIOR_FLAGS.SET_NPC_TALK_TREE[0]
 		var new_talk_tree = talk_tree.BEHAVIOR_FLAGS.SET_NPC_TALK_TREE[1]
-		Global.npcs[other_npc].TALK_TREE = new_talk_tree
+		Global.npcs[other_npc].talk_tree = new_talk_tree
 	# if talk_tree.BEHAVIOR_FLAGS.has("CHANGE_TREE_BY_PATH"):
-	# 	npc.TALK_TREE = talk_tree.BEHAVIOR_FLAGS.CHANGE_TREE_BY_PATH
+	# 	npc.talk_tree = talk_tree.BEHAVIOR_FLAGS.CHANGE_TREE_BY_PATH
 	if talk_tree.BEHAVIOR_FLAGS.has("ASK_FOR_SCREWDRIVER"):
 		npcs_asked_for_screwdrivers += 1
 	if talk_tree.BEHAVIOR_FLAGS.has("ADD_TO_TAB"):

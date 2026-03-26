@@ -13,7 +13,7 @@ var POINT_COUNT := 0
 func enter(previous_state, ext):
 	super(previous_state, ext)
 	TARGET_INDEX = 0
-	PATH = ACTOR.MOVE_PATHS[PATH_INDEX]
+	PATH = ACTOR.move_paths[PATH_INDEX]
 	POINT_COUNT = PATH.curve.point_count - 1
 	TARGET_POSITION = PATH.curve.get_point_position(TARGET_INDEX)
 	ACTOR.animated_mesh.play_animation("humans/walk")

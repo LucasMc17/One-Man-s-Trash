@@ -5,13 +5,12 @@ extends CharacterBody3D
 ## The basic Non-Playable Character class for extension into specific characters.[br]
 ## Not an abstract class for the sake of easily adding new NPCs while testing.
 
-@export var TALK_TREE : TalkTree
-# MIGRATE TO talk_tree
-@export var MOVE_PATHS : Array[Path3D] = []
-# MIGRATE TO move_paths
-# must be AnimatedMesh
-@export var packed_mesh : PackedScene
-# MIGRATE TO _packed_mesh
+## The starting dialog for this NPC.
+@export var talk_tree : TalkTree
+## Movement paths throughout the level which will be utilized by this character for simple movement.
+@export var move_paths : Array[Path3D] = []
+## The AnimatedMesh which this NPC should instantiate immediately for visuals.[br]MUST BE AnimatedMesh!
+@export var _packed_mesh : PackedScene
 
 ## Animated Mesh instance which this NPC will use for visuals, after being instantiated from the packed scene passed in the `packed_mesh` exported variable.
 var animated_mesh : AnimatedMesh
@@ -40,7 +39,7 @@ var current_movement : NPCMovementState:
 @onready var _interactable := %Interactable
 
 func _ready():
-	animated_mesh = packed_mesh.instantiate()
+	animated_mesh = _packed_mesh.instantiate()
 	add_child(animated_mesh)
 	_interactable.interacted.connect(_on_interactable_interacted)
 	debug_label.change_param('name', name)
@@ -79,4 +78,4 @@ func look_at_player():
 func _on_interactable_interacted(interactor : Player):
 	if current_attention.TALK_ENABLED:
 		current_attention.transition("Talk")
-		interactor.current_attention.transition('Talk', {"TALK_TREE": TALK_TREE, "TALKING_TO": self})
+		interactor.current_attention.transition('Talk', {"TALK_TREE": talk_tree, "TALKING_TO": self})

@@ -10,7 +10,7 @@
 viewport_path = NodePath("DebugLabel/SubViewport")
 
 [node name="Bart" unique_id=1112921831 instance=ExtResource("1_mkmu5")]
-TALK_TREE = ExtResource("2_kcs5t")
+talk_tree = ExtResource("2_kcs5t")
 
 [node name="Talk" type="Node" parent="AttentionStateMachine" parent_id_path=PackedInt32Array(38415750) index="1" unique_id=49994326 node_paths=PackedStringArray("ACTOR")]
 script = ExtResource("6_clixb")
@@ -28,5 +28,7 @@ NEXT_STATE = NodePath("../IdleMovement")
 ACTOR = NodePath("../..")
 metadata/_custom_type_script = "uid://ckjkuwqqpjt54"
 
-[node name="DebugLabel" parent="." index="5" unique_id=1566404866]
+[node name="DebugLabel" parent="." index="4" unique_id=1566404866]
 texture = SubResource("ViewportTexture_oju1j")
+
+[editable path="template"]

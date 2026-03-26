@@ -28,7 +28,7 @@ viewport_path = NodePath("DebugLabel/SubViewport")
 
 [node name="BaseNPC" type="CharacterBody3D" unique_id=885084072 groups=["NPCs"]]
 script = ExtResource("1_wwrmc")
-packed_mesh = ExtResource("10_k4l0y")
+_packed_mesh = ExtResource("10_k4l0y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=358358567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
