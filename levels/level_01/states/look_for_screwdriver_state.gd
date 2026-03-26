@@ -20,7 +20,7 @@ func enter(previous_state, ext):
 func exit():
 	super()
 	Events.conversation_ended.disconnect(_on_conversation_ended)
-	Global.npcs.Bartender.INTERACTABLE.monitorable = true
+	# Global.npcs.Bartender._interactable.monitorable = true
 
 
 func _on_conversation_ended(npc : NPC):

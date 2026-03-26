@@ -1,5 +1,6 @@
 class_name LevelState extends State
 
+# TODO: Migrate the below to lower case.
 ## Optional new time stamp for the level state, updating the global time property
 @export var TIME : String
 

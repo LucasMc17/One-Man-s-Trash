@@ -14,13 +14,13 @@ func _populate_states(npc : NPC) -> void:
 		child.queue_free()
 	for child in _attention_states.get_children():
 		child.queue_free()
-	for state in npc.MOVEMENT_STATE_MACHINE.states.values():
+	for state in npc.movement_state_machine.states.values():
 		if state is NPCMovementState:
 			var button_scene = Button.new()
 			button_scene.text = state.name
 			button_scene.pressed.connect(func (): npc.current_movement.transition(state.name))
 			_movement_states.add_child(button_scene)
-	for state in npc.ATTENTION_STATE_MACHINE.states.values():
+	for state in npc.attention_state_machine.states.values():
 		if state is NPCAttentionState:
 			var button_scene = Button.new()
 			button_scene.text = state.name

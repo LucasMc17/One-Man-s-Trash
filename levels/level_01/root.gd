@@ -24,7 +24,7 @@ func _ready():
 	Events.dialog_chosen.connect(_on_dialog_chosen)
 	var mike = Global.npcs.Mike
 	var mike_chair = Global.important_scenes.MikeChair
-	mike.global_position = mike_chair.SIT_MARKER.global_position
+	mike.global_position = mike_chair._sit_marker.global_position
 	mike.current_movement.transition('Sit', { "seat": mike_chair })
 
 

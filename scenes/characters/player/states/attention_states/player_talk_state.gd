@@ -74,21 +74,21 @@ func _on_dialog_chosen(npc : NPC, talk_tree: TalkTree):
 	var target : Vector3
 
 	if talk_tree.FOCUS_TYPE == "DEFAULT":
-		target = npc.FOCUS_MARKER.global_position
+		target = npc.focus_marker.global_position
 	elif talk_tree.FOCUS_TYPE == "NPC":
 		var FOCUS_NPC = Global.npcs[talk_tree.FOCUS_NPC]
 		if FOCUS_NPC is NPC:
-			target = FOCUS_NPC.FOCUS_MARKER.global_position
+			target = FOCUS_NPC.focus_marker.global_position
 		else:
 			push_warning('NO NPC BY THAT NAME FOUND')
-			target = npc.FOCUS_MARKER.global_position
+			target = npc.focus_marker.global_position
 	elif talk_tree.FOCUS_TYPE == "OBJECT":
 		var FOCUS_OBJECT = Global.important_scenes[talk_tree.FOCUS_OBJECT]
 		if FOCUS_OBJECT:
 			target = FOCUS_OBJECT.global_position
 		else:
 			push_warning('NO SCENE BY THAT NAME FOUND')
-			target = npc.FOCUS_MARKER.global_position
+			target = npc.focus_marker.global_position
 	elif talk_tree.FOCUS_TYPE == "POINT":
 		target = talk_tree.FOCUS_POINT
 	

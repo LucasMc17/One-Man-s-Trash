@@ -1,46 +1,62 @@
+# TODO: There really should be an Actor class from which both NPC and Player inherit.
 @tool
-class_name NPC extends CharacterBody3D
+class_name NPC
+extends CharacterBody3D
+## The basic Non-Playable Character class for extension into specific characters.[br]
+## Not an abstract class for the sake of easily adding new NPCs while testing.
 
 @export var TALK_TREE : TalkTree
+# MIGRATE TO talk_tree
 @export var MOVE_PATHS : Array[Path3D] = []
+# MIGRATE TO move_paths
 # must be AnimatedMesh
 @export var packed_mesh : PackedScene
+# MIGRATE TO _packed_mesh
 
-@onready var ATTENTION_STATE_MACHINE := %AttentionStateMachine
-@onready var MOVEMENT_STATE_MACHINE := %MovementStateMachine
-@onready var DEBUG_LABEL := %DebugLabel
-@onready var INTERACTABLE := %Interactable
-@onready var FOCUS_MARKER := %FocusMarker
-
+## Animated Mesh instance which this NPC will use for visuals, after being instantiated from the packed scene passed in the `packed_mesh` exported variable.
 var animated_mesh : AnimatedMesh
-
+# TODO: Move this somewhere global.
+## The force of gravity affecting this actor.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+## Virtual property returning the current attention state of this NPC.
 var current_attention : NPCAttentionState:
 	get():
-		if ATTENTION_STATE_MACHINE:
-			return ATTENTION_STATE_MACHINE.CURRENT_STATE
+		if attention_state_machine:
+			return attention_state_machine.CURRENT_STATE
 		else:
 			return null
+## Virtual property returning the current movement state of this NPC.
 var current_movement : NPCMovementState:
 	get():
-		if MOVEMENT_STATE_MACHINE:
-			return MOVEMENT_STATE_MACHINE.CURRENT_STATE
+		if movement_state_machine:
+			return movement_state_machine.CURRENT_STATE
 		else:
 			return null
 
+@onready var attention_state_machine : StateMachine = %AttentionStateMachine
+@onready var movement_state_machine : StateMachine = %MovementStateMachine
+@onready var debug_label : DebugLabel = %DebugLabel
+@onready var focus_marker := %FocusMarker
+@onready var _interactable := %Interactable
+
+func _ready():
+	animated_mesh = packed_mesh.instantiate()
+	add_child(animated_mesh)
+	_interactable.interacted.connect(_on_interactable_interacted)
+	debug_label.change_param('name', name)
+	if Global.debug.debug_override == "DEFER":
+		debug_label.visible = Global.debug.show_npc_status
+
+
+## Function for increasing the NPC's downward momentum while not on the ground. Will be automatically called
+## automatically in the `update` function of any NPC Movement State which has `_gravity_enabled` set to true.
 func update_gravity(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		move_and_slide()
 
-func _ready():
-	animated_mesh = packed_mesh.instantiate()
-	add_child(animated_mesh)
-	INTERACTABLE.interacted.connect(_on_interactable_interacted)
-	DEBUG_LABEL.change_param('name', name)
-	if Global.debug.debug_override == "DEFER":
-		DEBUG_LABEL.visible = Global.debug.show_npc_status
 
+## Function for moving the NPC towards a destination point while on the floor. Called by some specific Movement States, and can be disabled by some specific Attention States.
 func update_movement(speed : float, target : Vector3, acceleration : float):
 	if current_attention.DISABLE_MOVEMENT:
 		return
@@ -52,10 +68,14 @@ func update_movement(speed : float, target : Vector3, acceleration : float):
 		rotation.y = lerp_angle(rotation.y, atan2(-velocity.x, -velocity.z), 0.15)
 	move_and_slide()
 
+
+## Rotates the NPC on the y axis to face the player. Called by certain Attention States.
 func look_at_player():
 	var direction = (Global.player.global_position - global_position).normalized()
 	rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), 0.15)
 
+
+## Event listener for when the interactable is interacted with by the player.
 func _on_interactable_interacted(interactor : Player):
 	if current_attention.TALK_ENABLED:
 		current_attention.transition("Talk")
