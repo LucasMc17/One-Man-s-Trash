@@ -11,11 +11,11 @@ class_name PlayerMovementState extends PlayerState
 func update(delta):
 	super(delta)
 	if GRAVITY_ENABLED:
-		ACTOR.update_gravity(delta)
+		actor.update_gravity(delta)
 
 func input(event):
 	super(event)
-	if !ACTOR.current_attention.DISABLE_INPUT:
+	if !actor.current_attention.DISABLE_INPUT:
 		movement_input(event)
 
 func movement_input(event):

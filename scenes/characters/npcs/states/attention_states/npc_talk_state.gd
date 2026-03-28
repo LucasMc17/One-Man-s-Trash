@@ -1,8 +1,11 @@
-class_name NPCTalkState extends NPCAttentionState
+class_name NPCTalkState
+extends NPCAttentionState
+## The attention state which the NPC should enter when engaged in dialog by the player.
 
 func _ready():
-	DISABLE_MOVEMENT = true
+	disable_movement = true
+
 
 func physics_update(delta):
 	super(delta)
-	ACTOR.look_at_player()
+	actor.look_at_player()

@@ -1,7 +1,10 @@
-class_name NPCAttentionState extends NPCState
+class_name NPCAttentionState
+extends NPCState
+## Attention state for use by an NPC.
 
-var TALK_ENABLED := true
+## Whether or not the NPC can currently be engaged in dialog by the player.
+var talk_enabled := true
 
 func enter(previous_state, ext):
 	super(previous_state, ext)
-	ACTOR.debug_label.change_param('attention',name)
+	actor.debug_label.change_param('attention',name)

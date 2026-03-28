@@ -16,7 +16,7 @@ func _ready():
 
 func enter(previous_state, ext):
 	super(previous_state, ext)
-	ACTOR.hint = 'Press [SPACE] to stand up'
+	actor.hint = 'Press [SPACE] to stand up'
 	if ext.has('seat'):
 		SEAT = ext.seat
 		SEAT.interactable.deactivate()
@@ -28,12 +28,12 @@ func enter(previous_state, ext):
 
 func update(delta):
 	if !_CAPTURED:
-		ACTOR.position = lerp(ACTOR.position, SIT_POSITION, 0.08)
-		if ACTOR.position.distance_to(SIT_POSITION) < 0.01:
+		actor.position = lerp(actor.position, SIT_POSITION, 0.08)
+		if actor.position.distance_to(SIT_POSITION) < 0.01:
 			_CAPTURED = true
 	elif _EXITING:
-		ACTOR.position = lerp(ACTOR.position, GET_OFF_POSITION, 0.08)
-		if ACTOR.position.distance_to(GET_OFF_POSITION) < 0.01:
+		actor.position = lerp(actor.position, GET_OFF_POSITION, 0.08)
+		if actor.position.distance_to(GET_OFF_POSITION) < 0.01:
 			super.transition(_NEXT_STATE_NAME, _NEXT_STATE_EXT)
 	else:
 		super(delta)
@@ -52,7 +52,7 @@ func movement_input(event):
 
 func exit():
 	SEAT.interactable.activate()
-	ACTOR.hint = ''
+	actor.hint = ''
 	_CAPTURED = false
 	_EXITING = false
 	_NEXT_STATE_NAME = ""

@@ -129,7 +129,7 @@ func update_gravity(delta):
 		move_and_slide()
 
 func update_input(speed : float, acceleration: float, deceleration: float):
-	if current_attention.DISABLE_MOVEMENT:
+	if current_attention.disable_movement:
 		return
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	

@@ -5,5 +5,5 @@ func _ready():
 	CAN_USE_PHONE = true
 
 func update(delta):
-	ACTOR.update_camera(delta)
+	actor.update_camera(delta)
 	super(delta)

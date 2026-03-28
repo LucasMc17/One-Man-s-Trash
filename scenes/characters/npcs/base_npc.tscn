@@ -35,10 +35,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_6qnc6")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Interactable" parent="." unique_id=2090614531 node_paths=PackedStringArray("ACTOR") instance=ExtResource("1_65blf")]
+[node name="Interactable" parent="." unique_id=2090614531 node_paths=PackedStringArray("actor") instance=ExtResource("1_65blf")]
 unique_name_in_owner = true
 script = ExtResource("3_2gx3w")
-ACTOR = NodePath("..")
+actor = NodePath("..")
 shape = SubResource("CapsuleShape3D_2gx3w")
 collision_position = Vector3(0, 0.9, 0)
 interact_button = SubResource("InputEventKey_2gx3w")
@@ -52,9 +52,9 @@ script = ExtResource("2_vy5f6")
 CURRENT_STATE = NodePath("IdleAttention")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="IdleAttention" type="Node" parent="AttentionStateMachine" unique_id=1227537185 node_paths=PackedStringArray("ACTOR")]
+[node name="IdleAttention" type="Node" parent="AttentionStateMachine" unique_id=1227537185 node_paths=PackedStringArray("actor")]
 script = ExtResource("6_c4o2l")
-ACTOR = NodePath("../..")
+actor = NodePath("../..")
 metadata/_custom_type_script = "uid://befgswxuxfmxp"
 
 [node name="MovementStateMachine" type="Node" parent="." unique_id=1007147406 node_paths=PackedStringArray("CURRENT_STATE")]
@@ -63,10 +63,16 @@ script = ExtResource("2_vy5f6")
 CURRENT_STATE = NodePath("IdleMovement")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="IdleMovement" type="Node" parent="MovementStateMachine" unique_id=241645056 node_paths=PackedStringArray("NEXT_STATE", "ACTOR")]
+[node name="IdleMovement" type="Node" parent="MovementStateMachine" unique_id=241645056 node_paths=PackedStringArray("_next_state", "actor")]
 script = ExtResource("4_iwxdd")
-NEXT_STATE = NodePath(".")
-ACTOR = NodePath("../..")
+_use_timer = null
+_timeout = null
+_next_state = NodePath(".")
+_gravity_enabled = null
+_speed = null
+_acceleration = null
+_deceleration = null
+actor = NodePath("../..")
 metadata/_custom_type_script = "uid://bunxtellu4roh"
 
 [node name="DebugLabel" parent="." unique_id=1566404866 instance=ExtResource("7_2gx3w")]

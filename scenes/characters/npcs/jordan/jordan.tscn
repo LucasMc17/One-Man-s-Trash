@@ -3,17 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://scenes/characters/npcs/base_npc.tscn" id="1_ivbon"]
 [ext_resource type="Resource" uid="uid://m8towykpux3a" path="res://scenes/characters/npcs/jordan/dialog/stranger_chat/index.tres" id="2_k2ap4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2ap4"]
-albedo_color = Color(0.9019608, 0.7372549, 0, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_4gok6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_k2ap4"]
 viewport_path = NodePath("DebugLabel/SubViewport")
 
 [node name="Jordan" unique_id=1850773610 instance=ExtResource("1_ivbon")]
-TALK_TREE = ExtResource("2_k2ap4")
+talk_tree = ExtResource("2_k2ap4")
 
-[node name="MeshInstance3D" parent="." index="2" unique_id=169582493]
-surface_material_override/0 = SubResource("StandardMaterial3D_k2ap4")
+[node name="DebugLabel" parent="." index="4" unique_id=1566404866]
+texture = SubResource("ViewportTexture_k2ap4")
 
-[node name="DebugLabel" parent="." index="5" unique_id=1566404866]
-texture = SubResource("ViewportTexture_4gok6")
+[editable path="template"]

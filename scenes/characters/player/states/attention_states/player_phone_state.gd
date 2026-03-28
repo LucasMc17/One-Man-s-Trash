@@ -4,7 +4,7 @@ class_name PlayerPhoneState extends PlayerAttentionState
 # var keep_momentum := false
 
 func _ready():
-	DISABLE_MOVEMENT = true
+	disable_movement = true
 	DISABLE_INPUT = true
 	CAPTURE_MOUSE = false
 
@@ -13,18 +13,18 @@ func enter(previous_state : State = null, ext := {}):
 	# if previous_state._movement_enabled:
 	# 	keep_momentum = true
 	# prev_state = previous_state
-	ACTOR.PHONE.activate()
-	ACTOR.kill_camera_momentum()
+	actor.PHONE.activate()
+	actor.kill_camera_momentum()
 
 func exit():
-	ACTOR.PHONE.deactivate()
+	actor.PHONE.deactivate()
 	Global.player_phone.CURRENT_STATE.transition('HomeState')
 	# keep_momentum = false
 	# prev_state = null
 
 # func update(_delta):
 # 	if keep_momentum:
-# 		ACTOR.handle_idle_momentum(DECELERATION)
+# 		actor.handle_idle_momentum(DECELERATION)
 
 func input(event):
 	if event.is_action_pressed("phone"):

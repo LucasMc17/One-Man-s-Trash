@@ -57,7 +57,7 @@ func update_gravity(delta):
 
 ## Function for moving the NPC towards a destination point while on the floor. Called by some specific Movement States, and can be disabled by some specific Attention States.
 func update_movement(speed : float, target : Vector3, acceleration : float):
-	if current_attention.DISABLE_MOVEMENT:
+	if current_attention.disable_movement:
 		return
 	var direction = (target) - global_position
 	if is_on_floor():
@@ -76,6 +76,6 @@ func look_at_player():
 
 ## Event listener for when the interactable is interacted with by the player.
 func _on_interactable_interacted(interactor : Player):
-	if current_attention.TALK_ENABLED:
+	if current_attention.talk_enabled:
 		current_attention.transition("Talk")
 		interactor.current_attention.transition('Talk', {"TALK_TREE": talk_tree, "TALKING_TO": self})

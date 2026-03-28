@@ -1,7 +1,6 @@
 class_name ActorState extends State
 
-# EXPORTS
-@export var ACTOR : CharacterBody3D
+@export var actor : CharacterBody3D
 
 # STATE ALLOWANCES
-var DISABLE_MOVEMENT := false
+var disable_movement := false

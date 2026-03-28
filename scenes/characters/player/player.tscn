@@ -215,19 +215,19 @@ script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("Freelook")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="Talk" type="Node" parent="AttentionStateMachine" unique_id=1713398366 node_paths=PackedStringArray("ACTOR")]
+[node name="Talk" type="Node" parent="AttentionStateMachine" unique_id=1713398366 node_paths=PackedStringArray("actor")]
 script = ExtResource("8_qek5x")
-ACTOR = NodePath("../..")
+actor = NodePath("../..")
 metadata/_custom_type_script = "uid://lh2j23ejhb7o"
 
-[node name="Freelook" type="Node" parent="AttentionStateMachine" unique_id=1339991340 node_paths=PackedStringArray("ACTOR")]
+[node name="Freelook" type="Node" parent="AttentionStateMachine" unique_id=1339991340 node_paths=PackedStringArray("actor")]
 script = ExtResource("7_xuses")
-ACTOR = NodePath("../..")
+actor = NodePath("../..")
 metadata/_custom_type_script = "uid://0kqfhx68yfos"
 
-[node name="Phone" type="Node" parent="AttentionStateMachine" unique_id=1459955273 node_paths=PackedStringArray("ACTOR")]
+[node name="Phone" type="Node" parent="AttentionStateMachine" unique_id=1459955273 node_paths=PackedStringArray("actor")]
 script = ExtResource("8_3xnwo")
-ACTOR = NodePath("../..")
+actor = NodePath("../..")
 metadata/_custom_type_script = "uid://c5iy7liovrtbk"
 
 [node name="MovementStateMachine" type="Node" parent="." unique_id=1337822167 node_paths=PackedStringArray("CURRENT_STATE")]
@@ -236,14 +236,14 @@ script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("Freemove")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="Freemove" type="Node" parent="MovementStateMachine" unique_id=1381410600 node_paths=PackedStringArray("ACTOR")]
+[node name="Freemove" type="Node" parent="MovementStateMachine" unique_id=1381410600 node_paths=PackedStringArray("actor")]
 script = ExtResource("8_xuses")
-ACTOR = NodePath("../..")
+actor = NodePath("../..")
 metadata/_custom_type_script = "uid://cd6aba0yvmgkq"
 
-[node name="Sit" type="Node" parent="MovementStateMachine" unique_id=1645005974 node_paths=PackedStringArray("ACTOR")]
+[node name="Sit" type="Node" parent="MovementStateMachine" unique_id=1645005974 node_paths=PackedStringArray("actor")]
 script = ExtResource("9_42irl")
-ACTOR = NodePath("../..")
+actor = NodePath("../..")
 metadata/_custom_type_script = "uid://papflnia2cun"
 
 [node name="ItemViewport" type="SubViewportContainer" parent="." unique_id=747481523]
