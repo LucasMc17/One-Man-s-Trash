@@ -1,34 +1,24 @@
-class_name PlayerPhoneState extends PlayerAttentionState
-
-# var prev_state : PlayerState
-# var keep_momentum := false
+class_name PlayerPhoneState
+extends PlayerAttentionState
+## The state wherein the player's attention is focused on their phone.
 
 func _ready():
 	disable_movement = true
-	DISABLE_INPUT = true
-	CAPTURE_MOUSE = false
+	disable_input = true
+	_capture_mouse = false
+
 
 func enter(previous_state : State = null, ext := {}):
 	super(previous_state, ext)
-	# if previous_state._movement_enabled:
-	# 	keep_momentum = true
-	# prev_state = previous_state
-	actor.PHONE.activate()
+	actor.phone.activate()
 	actor.kill_camera_momentum()
 
-func exit():
-	actor.PHONE.deactivate()
-	Global.player_phone.CURRENT_STATE.transition('HomeState')
-	# keep_momentum = false
-	# prev_state = null
 
-# func update(_delta):
-# 	if keep_momentum:
-# 		actor.handle_idle_momentum(DECELERATION)
+func exit():
+	actor.phone.deactivate()
+	Global.player_phone.CURRENT_STATE.transition('HomeState')
+
 
 func input(event):
 	if event.is_action_pressed("phone"):
-		# if prev_state:
-		# 	transition(prev_state.name)
-		# else:
-			transition('Freelook')
+		transition('Freelook')

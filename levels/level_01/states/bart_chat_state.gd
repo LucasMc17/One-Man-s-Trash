@@ -9,13 +9,13 @@ func enter(previous_state, ext):
 	bart.global_position = bart_chair._sit_marker.global_position
 	Global.player.global_position = player_chair._sit_marker.global_position
 	Global.player.current_movement.transition('Sit', { "seat": player_chair })
-	Global.player.MOVEMENT_STATE_MACHINE.lock()
+	Global.player.movement_state_machine.lock()
 	bart.current_movement.transition('Sit', { "seat": bart_chair })
 
 
 func exit():
 	super()
-	Global.player.MOVEMENT_STATE_MACHINE.unlock()
+	Global.player.movement_state_machine.unlock()
 	Events.conversation_ended.disconnect(_on_conversation_ended)
 
 

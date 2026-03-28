@@ -65,5 +65,3 @@ func activate() -> void:
 ## Make the object inelligible for potential interaction.
 func deactivate() -> void:
 	_active = false
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

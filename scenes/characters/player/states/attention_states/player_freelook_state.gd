@@ -1,8 +1,11 @@
-class_name PlayerFreelookState extends PlayerAttentionState
+class_name PlayerFreelookState
+extends PlayerAttentionState
+## The player's unrestricted free look state.
 
 func _ready():
-	CAN_INTERACT = true
-	CAN_USE_PHONE = true
+	can_interact = true
+	_can_use_phone = true
+
 
 func update(delta):
 	actor.update_camera(delta)

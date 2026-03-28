@@ -16,7 +16,7 @@ func enter(previous_state : PhoneUIState, ext := {}):
 	if ext.has("active") and ext.active:
 		SCREEN.activate_draft()
 		SCREEN.ACTIVE = true
-		Global.player.ATTENTION_STATE_MACHINE.lock()
+		Global.player.attention_state_machine.lock()
 		Global.player_phone.STATE_MACHINE.lock()
 		SCREEN.BACK_BUTTON.disabled = true
 	if ext.has("new_exchange") and ext.new_exchange:
@@ -96,6 +96,6 @@ func check_next_message():
 func end_conversation():
 	Events.texting_ended.emit(CONTACT)
 	SCREEN.ACTIVE = false
-	Global.player.ATTENTION_STATE_MACHINE.unlock()
+	Global.player.attention_state_machine.unlock()
 	Global.player_phone.STATE_MACHINE.unlock()
 	SCREEN.BACK_BUTTON.disabled = false

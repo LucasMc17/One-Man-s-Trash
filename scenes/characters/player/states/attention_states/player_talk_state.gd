@@ -1,76 +1,92 @@
-class_name TalkState extends PlayerAttentionState
+class_name TalkState
+extends PlayerAttentionState
+## The player's attention state while speaking with an NPC.
 
-var PREV_X_ROTATION : float
-var PREV_Y_ROTATION : float
-var TARGET_X_ROTATION : float
-var TARGET_Y_ROTATION : float
-var _NEXT_STATE_NAME : StringName = ""
-var _NEXT_STATE_EXT := {}
-var _EXITING := false
-var TALK_TREE : TalkTree
-var TALKING_TO : NPC
+## Tracks the the player's x rotation prior to beginning conversation, for reverting after conversation is over.
+var _prev_x_rotation : float
+## Tracks the the player's y rotation prior to beginning conversation, for reverting after conversation is over.
+var _prev_y_rotation : float
+## The x rotation the player needs to rotate to to face the NPC.
+var _target_x_rotation : float
+## The y rotation the player needs to rotate to to face the NPC.
+var _target_y_rotation : float
+## The next state which the player's attention should move to when dialog ends.
+var _next_state_name : StringName = ""
+## The extension object to pass to the next state.
+var _next_state_ext := {}
+## Whether or not the player is currently exiting dialog (lerping away from target rotation).
+var _exiting := false
+## The TalkTree to display in the dialog layer.
+var _talk_tree : TalkTree
+## The NPC currently being spoken with.
+var _talking_to : NPC
 
 func _ready():
 	disable_movement = true
-	DISABLE_INPUT = true
-	CAPTURE_MOUSE = false
+	disable_input = true
+	_capture_mouse = false
 	Events.dialog_chosen.connect(_on_dialog_chosen)
+
 
 func update(delta):
 	super(delta)
-	if _EXITING:
-		lerp_away_from_target()
-		if actor.rotation.y < PREV_Y_ROTATION + 0.01 && actor.rotation.y > PREV_Y_ROTATION - 0.01:
-			if actor.CAMERA_CONTROLLER.rotation.x < PREV_X_ROTATION + 0.01 && actor.CAMERA_CONTROLLER.rotation.x > PREV_X_ROTATION - 0.01:
-				super.transition(_NEXT_STATE_NAME, _NEXT_STATE_EXT)
+	if _exiting:
+		_lerp_away_from_target()
+		if actor.rotation.y < _prev_y_rotation + 0.01 && actor.rotation.y > _prev_y_rotation - 0.01:
+			if actor.camera_controller.rotation.x < _prev_x_rotation + 0.01 && actor.camera_controller.rotation.x > _prev_x_rotation - 0.01:
+				super.transition(_next_state_name, _next_state_ext)
 	else:
-		lerp_toward_target()
+		_lerp_toward_target()
+
 
 func enter(previous_state : State = null, ext := {}):
 	super(previous_state, ext)
-	PREV_X_ROTATION = actor.CAMERA_CONTROLLER.rotation.x
-	PREV_Y_ROTATION = actor.rotation.y
+	_prev_x_rotation = actor.camera_controller.rotation.x
+	_prev_y_rotation = actor.rotation.y
 
 	if ext.has('TALK_TREE') and ext.has('TALKING_TO'):
 		actor.talking_to = ext.TALKING_TO
 		ext.TALK_TREE.activate(ext.TALKING_TO)
-		actor.DIALOGUE_LAYER.TALK_TREE = TALK_TREE
+		actor.dialog_layer.TALK_TREE = _talk_tree
 
-	actor.DIALOGUE_LAYER.visible = true
+	actor.dialog_layer.visible = true
 	
-	# if previous_state._movement_enabled:
-	# 	keep_momentum = true
-	# prev_state = previous_state
 	actor.kill_camera_momentum()
 
+
 func exit():
-	PREV_X_ROTATION = 0.0
-	PREV_Y_ROTATION = 0.0
-	TARGET_X_ROTATION = 0.0
-	TARGET_Y_ROTATION = 0.0
-	_EXITING = false
-	# keep_momentum = false
-	# prev_state = null
-	TALKING_TO = null
+	_prev_x_rotation = 0.0
+	_prev_y_rotation = 0.0
+	_target_x_rotation = 0.0
+	_target_y_rotation = 0.0
+	_exiting = false
+	_talking_to = null
+
 
 func transition(new_state_name : StringName, ext := {}):
-	if !Global.player.ATTENTION_STATE_MACHINE.DISABLED:
-		actor.DIALOGUE_LAYER.visible = false
-		_NEXT_STATE_NAME = new_state_name
-		_NEXT_STATE_EXT = ext
-		_EXITING = true
+	if !Global.player.attention_state_machine.DISABLED:
+		actor.dialog_layer.visible = false
+		_next_state_name = new_state_name
+		_next_state_ext = ext
+		_exiting = true
 
-func lerp_toward_target():
-	actor.rotation.y = lerp_angle(actor.rotation.y, TARGET_Y_ROTATION, 0.15)
-	actor.CAMERA_CONTROLLER.rotation.x = lerp_angle(actor.CAMERA_CONTROLLER.rotation.x, TARGET_X_ROTATION, 0.15)
 
-func lerp_away_from_target():
-	actor.rotation.y = lerp_angle(actor.rotation.y, PREV_Y_ROTATION, 0.15)
-	actor.CAMERA_CONTROLLER.rotation.x = lerp_angle(actor.CAMERA_CONTROLLER.rotation.x, PREV_X_ROTATION, 0.15)
+## Steadily move the player's camera rotation towards the target NPC.
+func _lerp_toward_target() -> void:
+	actor.rotation.y = lerp_angle(actor.rotation.y, _target_y_rotation, 0.15)
+	actor.camera_controller.rotation.x = lerp_angle(actor.camera_controller.rotation.x, _target_x_rotation, 0.15)
 
-func _on_dialog_chosen(npc : NPC, talk_tree: TalkTree):
-	TALKING_TO = npc
-	TALK_TREE = talk_tree
+
+## Steadily move the player's camera rotation away from the target NPC and back towards their starting rotation.
+func _lerp_away_from_target() -> void:
+	actor.rotation.y = lerp_angle(actor.rotation.y, _prev_y_rotation, 0.15)
+	actor.camera_controller.rotation.x = lerp_angle(actor.camera_controller.rotation.x, _prev_x_rotation, 0.15)
+
+
+## Event listener for dialog option chosen.
+func _on_dialog_chosen(npc : NPC, talk_tree: TalkTree) -> void:
+	_talking_to = npc
+	_talk_tree = talk_tree
 	var target : Vector3
 
 	if talk_tree.FOCUS_TYPE == "DEFAULT":
@@ -92,10 +108,10 @@ func _on_dialog_chosen(npc : NPC, talk_tree: TalkTree):
 	elif talk_tree.FOCUS_TYPE == "POINT":
 		target = talk_tree.FOCUS_POINT
 	
-	var direction = target - actor.CAMERA_CONTROLLER.global_position
+	var direction = target - actor.camera_controller.global_position
 	var normalized = direction.normalized()
-	TARGET_Y_ROTATION = atan2(-normalized.x, -normalized.z)
+	_target_y_rotation = atan2(-normalized.x, -normalized.z)
 
 	var distance = sqrt(direction.x ** 2  + direction.z ** 2)
 	var x_direction = Vector2(distance, direction.y)
-	TARGET_X_ROTATION = atan2(x_direction.y, x_direction.x)
+	_target_x_rotation = atan2(x_direction.y, x_direction.x)
