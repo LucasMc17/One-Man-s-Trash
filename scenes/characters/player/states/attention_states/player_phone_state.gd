@@ -16,7 +16,7 @@ func enter(previous_state : State = null, ext := {}):
 
 func exit():
 	actor.phone.deactivate()
-	Global.player_phone.CURRENT_STATE.transition('HomeState')
+	Global.player_phone.current_state.transition('HomeState')
 
 
 func input(event):

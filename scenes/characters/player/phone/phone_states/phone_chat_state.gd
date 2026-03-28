@@ -1,101 +1,124 @@
-class_name PhoneChatState extends PhoneUIState
+class_name PhoneChatState
+extends PhoneUIState
+## The UI state for the phone's chat screen.
 
-var NEW_MESSAGES : MessageList
-var DRAFT := ""
-var BEFORE_TYPING_TIMER := 2.0
-var BEFORE_TYPING_TIMER_ON := false
-var TYPING_TIMER := 2.0
-var TYPING_TIMER_ON := false
-var CONTACT : TextContact
+## The new messages being actively sent, if any.
+var _new_messages : MessageList
+## What is currently typed into the player's chat bar.
+var _draft := ""
+## How long in seconds the contact will wait before starting to respond. Actively counts down.
+var _before_typing_timer := 2.0
+## Whether or not the `_before_typing_timer` is currently counting down.
+var _before_typing_timer_on := false
+## How long in seconds the contact will take to finish typing their response. Actively counts down.
+var _typing_timer := 2.0
+## Whether or not the `_typing_timer` is currently counting down.
+var _typing_timer_on := false
+## The contact this chat is with.
+var _contact : TextContact
 
-func enter(previous_state : PhoneUIState, ext := {}):
-	super(previous_state, ext)
+func enter(prev_state : PhoneUIState, ext := {}):
+	super(prev_state, ext)
 	if ext.has("contact"):
-		CONTACT = ext.contact
-		SCREEN.activate(ext.contact)
+		_contact = ext.contact
+		_screen.activate(ext.contact)
 	if ext.has("active") and ext.active:
-		SCREEN.activate_draft()
-		SCREEN.ACTIVE = true
+		_screen.activate_draft()
+		_screen.ACTIVE = true
 		Global.player.attention_state_machine.lock()
-		Global.player_phone.STATE_MACHINE.lock()
-		SCREEN.BACK_BUTTON.disabled = true
+		Global.player_phone.state_machine.lock()
+		_screen.BACK_BUTTON.disabled = true
 	if ext.has("new_exchange") and ext.new_exchange:
-		NEW_MESSAGES = ext.new_exchange
+		_new_messages = ext.new_exchange
+
 
 func input(event):
-	if NEW_MESSAGES and NEW_MESSAGES.MESSAGES.size() > 0 and NEW_MESSAGES.MESSAGES[0] is UserMessage:
+	if _new_messages and _new_messages.MESSAGES.size() > 0 and _new_messages.MESSAGES[0] is UserMessage:
 		if Input.is_action_just_pressed("enter"):
-			if DRAFT == NEW_MESSAGES.MESSAGES[0].MESSAGE:
-				send()
+			if _draft == _new_messages.MESSAGES[0].MESSAGE:
+				_send()
 			return
 		if event is InputEventKey and event.pressed == true:
 			var keycode = event.keycode
 			var is_alpha = keycode >= KEY_A && keycode <= KEY_Z
 			if is_alpha:
-				add_character(NEW_MESSAGES.MESSAGES[0].MESSAGE)
+				_add_character(_new_messages.MESSAGES[0].MESSAGE)
 
-func add_character(finished_message : String):
-	if Global.debug.skip_typing:
-		DRAFT = finished_message
-	else:
-		DRAFT = finished_message.left(DRAFT.length() + 2)
-	SCREEN.DRAFT = DRAFT
-
-func send():
-	var text = NEW_MESSAGES.MESSAGES.pop_front()
-	SCREEN.send_text(text)
-	CONTACT.TEXT_EXCHANGES[-1].MESSAGES.append(text)
-	DRAFT = ""
-	check_next_message()
-
-func start_response(message: ContactMessage):
-	if Global.debug.skip_wait_times:
-		BEFORE_TYPING_TIMER = 0.1
-	else:
-		BEFORE_TYPING_TIMER = message.TIME_BEFORE_TYPING
-	BEFORE_TYPING_TIMER_ON = true
 
 func update(delta):
 	super(delta)
-	if BEFORE_TYPING_TIMER_ON:
-		BEFORE_TYPING_TIMER -= delta
-	elif TYPING_TIMER_ON:
-		TYPING_TIMER -= delta
-	if BEFORE_TYPING_TIMER < 0:
-		BEFORE_TYPING_TIMER = 0
-		BEFORE_TYPING_TIMER_ON = false
-		var text = NEW_MESSAGES.MESSAGES[0]
-		start_typing(text)
-	elif TYPING_TIMER < 0:
-		TYPING_TIMER = 0
-		TYPING_TIMER_ON = false
-		var text = NEW_MESSAGES.MESSAGES.pop_front()
-		SCREEN.receive_text(text)
-		CONTACT.TEXT_EXCHANGES[-1].MESSAGES.append(text)
-		check_next_message()
+	if _before_typing_timer_on:
+		_before_typing_timer -= delta
+	elif _typing_timer_on:
+		_typing_timer -= delta
+	if _before_typing_timer < 0:
+		_before_typing_timer = 0
+		_before_typing_timer_on = false
+		var text = _new_messages.MESSAGES[0]
+		_start_typing(text)
+	elif _typing_timer < 0:
+		_typing_timer = 0
+		_typing_timer_on = false
+		var text = _new_messages.MESSAGES.pop_front()
+		_screen.receive_text(text)
+		_contact.TEXT_EXCHANGES[-1].MESSAGES.append(text)
+		_check_next_message()
 
-func start_typing(message: ContactMessage):
+
+## Add a character to the draft from the player's next message in the exchange.
+func _add_character(finished_message : String):
+	if Global.debug.skip_typing:
+		_draft = finished_message
+	else:
+		_draft = finished_message.left(_draft.length() + 2)
+	_screen.DRAFT = _draft
+
+
+## Send the player's completed message.
+func _send():
+	var text = _new_messages.MESSAGES.pop_front()
+	_screen.send_text(text)
+	_contact.TEXT_EXCHANGES[-1].MESSAGES.append(text)
+	_draft = ""
+	_check_next_message()
+
+
+## begin the process of receiving a response from the contact.
+func _start_response(message: ContactMessage):
 	if Global.debug.skip_wait_times:
-		TYPING_TIMER = 0.1
+		_before_typing_timer = 0.1
 	else:
-		TYPING_TIMER = message.TIME_TYPING
-	TYPING_TIMER_ON = true
-	SCREEN.set_typing()
-	TYPING_TIMER_ON = true
+		_before_typing_timer = message.TIME_BEFORE_TYPING
+	_before_typing_timer_on = true
 
-func check_next_message():
-	if NEW_MESSAGES.MESSAGES.size() == 0:
-		end_conversation()
+
+## Cause the contact to begin typing their response.
+func _start_typing(message: ContactMessage):
+	if Global.debug.skip_wait_times:
+		_typing_timer = 0.1
+	else:
+		_typing_timer = message.TIME_TYPING
+	_typing_timer_on = true
+	_screen.set_typing()
+	_typing_timer_on = true
+
+
+## Check for the next message in the exchange, or else end the conversation.
+func _check_next_message():
+	if _new_messages.MESSAGES.size() == 0:
+		_end_conversation()
 		return
-	if NEW_MESSAGES.MESSAGES[0] is ContactMessage:
-		start_response(NEW_MESSAGES.MESSAGES[0])
+	if _new_messages.MESSAGES[0] is ContactMessage:
+		_start_response(_new_messages.MESSAGES[0])
 		return
 	else:
-		SCREEN.activate_draft()
+		_screen.activate_draft()
 
-func end_conversation():
-	Events.texting_ended.emit(CONTACT)
-	SCREEN.ACTIVE = false
+
+## Ends the conversation and allows the player to exit the chat state.
+func _end_conversation():
+	Events.texting_ended.emit(_contact)
+	_screen.ACTIVE = false
 	Global.player.attention_state_machine.unlock()
-	Global.player_phone.STATE_MACHINE.unlock()
-	SCREEN.BACK_BUTTON.disabled = false
+	Global.player_phone.state_machine.unlock()
+	_screen.BACK_BUTTON.disabled = false

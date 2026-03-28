@@ -1,19 +1,21 @@
-@tool
 extends Control
+# TODO: Should be a global screen class.
 
-@export var CONTACTS : Array[TextContact]
+@export var _contacts : Array[TextContact]
 
-var LIST_CHAT = preload('./list_chat.tscn')
+var _list_chat = preload('./list_chat.tscn')
 
-@onready var CHATS = %Chats
-@onready var BACK_BUTTON = %BackButton
+@onready var back_button = %BackButton
+@onready var _chats = %Chats
 
 func _ready():
-	for contact in CONTACTS:
-		var list_chat_scene = LIST_CHAT.instantiate()
-		list_chat_scene.CONTACT = contact
-		CHATS.add_child(list_chat_scene)
+	for contact : TextContact in _contacts:
+		var list_chat_scene = _list_chat.instantiate()
+		list_chat_scene.contact = contact
+		_chats.add_child(list_chat_scene)
 
+
+## Trigger a refresh of the screen with the latest contacts and text messages
 func refresh_list_chats():
-	for chat in CHATS.get_children():
+	for chat in _chats.get_children():
 		chat.refresh()

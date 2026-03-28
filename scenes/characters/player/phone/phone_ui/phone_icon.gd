@@ -1,19 +1,24 @@
-@tool
 extends TextureButton
 
-@export var NOTIFICATION := false:
-	set(val):
-		if NOTIFICATION_CIRCLE:
-			NOTIFICATION_CIRCLE.visible = val
-		NOTIFICATION = val
-@export var APP_NAME := "App Name"
-@export var STATE_NAME := "StateName"
+## The name of this app.
+@export var _app_name := "App Name"
+## The state which this app should switch the phone to when clicked.
+@export var _state_name := "StateName"
 
-@onready var NOTIFICATION_CIRCLE = %NotificationCircle
-@onready var LABEL = %Label
+## Whether this icon should display a red notification circle.
+var has_notification := false:
+	set(val):
+		if _notification_circle:
+			_notification_circle.visible = val
+		has_notification = val
+
+@onready var _notification_circle = %NotificationCircle
+@onready var _label = %Label
 
 func _ready():
-	LABEL.text = APP_NAME
+	_label.text = _app_name
 
+
+## Event listener.
 func _pressed():
-	Global.player_phone.CURRENT_STATE.transition(STATE_NAME)
+	Global.player_phone.current_state.transition(_state_name)

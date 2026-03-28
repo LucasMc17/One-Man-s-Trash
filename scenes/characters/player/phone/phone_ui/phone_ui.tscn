@@ -73,7 +73,7 @@ visible = false
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
-CONTACTS = Array[ExtResource("5_piq51")]([ExtResource("6_2vh5f"), ExtResource("6_22iid"), ExtResource("7_qm7od")])
+_contacts = Array[ExtResource("5_piq51")]([ExtResource("6_2vh5f"), ExtResource("6_22iid"), ExtResource("7_qm7od")])
 
 [node name="ChatScreen" parent="Screens" unique_id=194853204 instance=ExtResource("4_qjcuk")]
 visible = false
@@ -101,23 +101,26 @@ script = ExtResource("3_rbj2s")
 CURRENT_STATE = NodePath("HomeState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
-[node name="HomeState" type="Node" parent="StateMachine" unique_id=407472773 node_paths=PackedStringArray("SCREEN")]
+[node name="HomeState" type="Node" parent="StateMachine" unique_id=407472773 node_paths=PackedStringArray("SCREEN", "_screen")]
 script = ExtResource("4_dk2uo")
 SCREEN = NodePath("../../Screens/HomeScreen")
+_screen = NodePath("../../Screens/HomeScreen")
 metadata/_custom_type_script = "uid://dmw4uhl0a0to3"
 
-[node name="ChatState" type="Node" parent="StateMachine" unique_id=749982663 node_paths=PackedStringArray("SCREEN")]
+[node name="ChatState" type="Node" parent="StateMachine" unique_id=749982663 node_paths=PackedStringArray("SCREEN", "_screen")]
 script = ExtResource("9_35ghu")
 SCREEN = NodePath("../../Screens/ChatScreen")
+_screen = NodePath("../../Screens/ChatScreen")
 metadata/_custom_type_script = "uid://ccwb0p4od4hq2"
 
-[node name="ChatsState" type="Node" parent="StateMachine" unique_id=565916460 node_paths=PackedStringArray("SCREEN")]
+[node name="ChatsState" type="Node" parent="StateMachine" unique_id=565916460 node_paths=PackedStringArray("SCREEN", "_screen")]
 script = ExtResource("10_dqcrv")
 SCREEN = NodePath("../../Screens/ChatsScreen")
+_screen = NodePath("../../Screens/ChatsScreen")
 metadata/_custom_type_script = "uid://cvbeqhcm51h3j"
 
-[node name="BankState" type="Node" parent="StateMachine" unique_id=335704790 node_paths=PackedStringArray("SCREEN")]
+[node name="BankState" type="Node" parent="StateMachine" unique_id=335704790 node_paths=PackedStringArray("SCREEN", "_screen")]
 script = ExtResource("16_8ja7m")
 SCREEN = NodePath("../../Screens/BankScreen")
-SHOULD_POP_UP = true
+_screen = NodePath("../../Screens/BankScreen")
 metadata/_custom_type_script = "uid://cvg0s8mggcbw"

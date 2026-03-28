@@ -4,6 +4,6 @@ extends Button
 
 func _pressed():
 	if PREVIOUS_STATE_NAME == "":
-		Global.player_phone.CURRENT_STATE.transition(Global.player_phone.CURRENT_STATE.PREVIOUS_STATE.name)
+		Global.player_phone.current_state.transition(Global.player_phone.current_state.previous_state.name)
 	else:
-		Global.player_phone.CURRENT_STATE.transition(PREVIOUS_STATE_NAME)
+		Global.player_phone.current_state.transition(PREVIOUS_STATE_NAME)
