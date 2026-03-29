@@ -1,9 +1,11 @@
 extends Control
 
-@onready var BALANCE := %Balance
+@onready var _balance : Label = %Balance
 
 func _ready():
 	Events.balance_changed.connect(_on_balance_changed)
 
+
+## Event listener.
 func _on_balance_changed(new_balance : float):
-	BALANCE.text = str(new_balance)
+	_balance.text = str(new_balance)

@@ -24,10 +24,10 @@ func enter(prev_state : PhoneUIState, ext := {}):
 		_screen.activate(ext.contact)
 	if ext.has("active") and ext.active:
 		_screen.activate_draft()
-		_screen.ACTIVE = true
+		_screen.active = true
 		Global.player.attention_state_machine.lock()
 		Global.player_phone.state_machine.lock()
-		_screen.BACK_BUTTON.disabled = true
+		_screen.back_button.disabled = true
 	if ext.has("new_exchange") and ext.new_exchange:
 		_new_messages = ext.new_exchange
 
@@ -71,7 +71,7 @@ func _add_character(finished_message : String):
 		_draft = finished_message
 	else:
 		_draft = finished_message.left(_draft.length() + 2)
-	_screen.DRAFT = _draft
+	_screen.draft = _draft
 
 
 ## Send the player's completed message.
@@ -118,7 +118,7 @@ func _check_next_message():
 ## Ends the conversation and allows the player to exit the chat state.
 func _end_conversation():
 	Events.texting_ended.emit(_contact)
-	_screen.ACTIVE = false
+	_screen.active = false
 	Global.player.attention_state_machine.unlock()
 	Global.player_phone.state_machine.unlock()
-	_screen.BACK_BUTTON.disabled = false
+	_screen.back_button.disabled = false
