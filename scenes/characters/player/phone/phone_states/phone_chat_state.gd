@@ -33,16 +33,16 @@ func enter(prev_state : PhoneUIState, ext := {}):
 
 
 func input(event):
-	if _new_messages and _new_messages.MESSAGES.size() > 0 and _new_messages.MESSAGES[0] is UserMessage:
+	if _new_messages and _new_messages.messages.size() > 0 and _new_messages.messages[0] is UserMessage:
 		if Input.is_action_just_pressed("enter"):
-			if _draft == _new_messages.MESSAGES[0].MESSAGE:
+			if _draft == _new_messages.messages[0].message:
 				_send()
 			return
 		if event is InputEventKey and event.pressed == true:
 			var keycode = event.keycode
 			var is_alpha = keycode >= KEY_A && keycode <= KEY_Z
 			if is_alpha:
-				_add_character(_new_messages.MESSAGES[0].MESSAGE)
+				_add_character(_new_messages.messages[0].message)
 
 
 func update(delta):
@@ -54,14 +54,14 @@ func update(delta):
 	if _before_typing_timer < 0:
 		_before_typing_timer = 0
 		_before_typing_timer_on = false
-		var text = _new_messages.MESSAGES[0]
+		var text = _new_messages.messages[0]
 		_start_typing(text)
 	elif _typing_timer < 0:
 		_typing_timer = 0
 		_typing_timer_on = false
-		var text = _new_messages.MESSAGES.pop_front()
+		var text = _new_messages.messages.pop_front()
 		_screen.receive_text(text)
-		_contact.text_exchanges[-1].MESSAGES.append(text)
+		_contact.text_exchanges[-1].messages.append(text)
 		_check_next_message()
 
 
@@ -76,9 +76,9 @@ func _add_character(finished_message : String):
 
 ## Send the player's completed message.
 func _send():
-	var text = _new_messages.MESSAGES.pop_front()
+	var text = _new_messages.messages.pop_front()
 	_screen.send_text(text)
-	_contact.text_exchanges[-1].MESSAGES.append(text)
+	_contact.text_exchanges[-1].messages.append(text)
 	_draft = ""
 	_check_next_message()
 
@@ -88,7 +88,7 @@ func _start_response(message: ContactMessage):
 	if Global.debug.skip_wait_times:
 		_before_typing_timer = 0.1
 	else:
-		_before_typing_timer = message.TIME_BEFORE_TYPING
+		_before_typing_timer = message.time_before_typing
 	_before_typing_timer_on = true
 
 
@@ -97,7 +97,7 @@ func _start_typing(message: ContactMessage):
 	if Global.debug.skip_wait_times:
 		_typing_timer = 0.1
 	else:
-		_typing_timer = message.TIME_TYPING
+		_typing_timer = message.time_typing
 	_typing_timer_on = true
 	_screen.set_typing()
 	_typing_timer_on = true
@@ -105,11 +105,11 @@ func _start_typing(message: ContactMessage):
 
 ## Check for the next message in the exchange, or else end the conversation.
 func _check_next_message():
-	if _new_messages.MESSAGES.size() == 0:
+	if _new_messages.messages.size() == 0:
 		_end_conversation()
 		return
-	if _new_messages.MESSAGES[0] is ContactMessage:
-		_start_response(_new_messages.MESSAGES[0])
+	if _new_messages.messages[0] is ContactMessage:
+		_start_response(_new_messages.messages[0])
 		return
 	else:
 		_screen.activate_draft()

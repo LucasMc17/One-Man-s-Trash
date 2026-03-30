@@ -35,10 +35,10 @@ func _on_text_received(new_contact : TextContact, new_exchange : MessageList):
 		get_parent().move_child(self, 0)
 		_has_notification = true
 		var new_text_exchange = MessageList.new()
-		new_text_exchange.TIME_STAMP = new_exchange.TIME_STAMP
-		var first_text = new_exchange.MESSAGES.pop_front()
-		new_text_exchange.MESSAGES.append(first_text)
-		_message_label.text = first_text.MESSAGE
+		new_text_exchange.time_stamp = new_exchange.time_stamp
+		var first_text = new_exchange.messages.pop_front()
+		new_text_exchange.messages.append(first_text)
+		_message_label.text = first_text.message
 		contact.text_exchanges.append(new_text_exchange)
 		_messages_to_come = new_exchange
 
@@ -46,4 +46,4 @@ func _on_text_received(new_contact : TextContact, new_exchange : MessageList):
 ## refresh the list chat scene with the latest information.
 func refresh():
 	_name_label.text = contact.contact_name
-	_message_label.text = contact.text_exchanges[-1].MESSAGES[-1].MESSAGE
+	_message_label.text = contact.text_exchanges[-1].messages[-1].message

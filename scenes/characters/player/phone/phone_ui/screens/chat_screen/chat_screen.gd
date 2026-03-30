@@ -30,16 +30,16 @@ func activate(contact : TextContact) -> void:
 		child.queue_free()
 	for exchange in contact.text_exchanges:
 		var time_stamp = _time_stamp.instantiate()
-		time_stamp.text = exchange.TIME_STAMP
+		time_stamp.text = exchange.time_stamp
 		_message_holder.add_child(time_stamp)
-		for message in exchange.MESSAGES:
+		for message in exchange.messages:
 			if message is ContactMessage:
 				var text_scene = _chat_message.instantiate()
-				text_scene.message = message.MESSAGE
+				text_scene.message = message.message
 				_message_holder.add_child(text_scene)
 			if message is UserMessage:
 				var text_scene = _user_message.instantiate()
-				text_scene.message = message.MESSAGE
+				text_scene.message = message.message
 				_message_holder.add_child(text_scene)
 	_scroll_to_bottom.call_deferred()
 
@@ -47,7 +47,7 @@ func activate(contact : TextContact) -> void:
 ## Send the finished text.
 func send_text(text : UserMessage) -> void:
 	var text_scene = _user_message.instantiate()
-	text_scene.message = text.MESSAGE
+	text_scene.message = text.message
 	draft = ""
 	_message_holder.add_child(text_scene)
 	_draft_holder.modulate = Color(1, 1, 1, 0.5)
@@ -62,7 +62,7 @@ func activate_draft() -> void:
 ## Instantiate a new text when received from the contact.
 func receive_text(text : ContactMessage) -> void:
 	var text_scene = _chat_message.instantiate()
-	text_scene.message = text.MESSAGE
+	text_scene.message = text.message
 	_message_holder.add_child(text_scene)
 	_typing_holder.visible = false
 	_scroll_to_bottom.call_deferred()

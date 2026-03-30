@@ -9,39 +9,45 @@
 [sub_resource type="Resource" id="Resource_cryl6"]
 script = ExtResource("3_6xmr5")
 MESSAGE = "Hello"
+message = "Hello"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_4dtfe"]
 script = ExtResource("4_6xmr5")
 MESSAGE = "Hi"
+message = "Hi"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_4q1o5"]
 script = ExtResource("1_7aiwx")
 MESSAGES = Array[ExtResource("2_1h4vw")]([SubResource("Resource_cryl6"), SubResource("Resource_4dtfe")])
+messages = Array[ExtResource("2_1h4vw")]([SubResource("Resource_cryl6"), SubResource("Resource_4dtfe")])
 TIME_STAMP = "8:46 AM"
+time_stamp = "8:46 AM"
 metadata/_custom_type_script = "uid://c7essjownyvxc"
 
 [sub_resource type="Resource" id="Resource_6xmr5"]
 script = ExtResource("4_6xmr5")
 MESSAGE = "What's up?"
+message = "What's up?"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_5cixp"]
 script = ExtResource("3_6xmr5")
 MESSAGE = "Oh, noth ing"
+message = "Oh, noth ing"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_7h0cv"]
 script = ExtResource("1_7aiwx")
 MESSAGES = Array[ExtResource("2_1h4vw")]([SubResource("Resource_6xmr5"), SubResource("Resource_5cixp")])
+messages = Array[ExtResource("2_1h4vw")]([SubResource("Resource_6xmr5"), SubResource("Resource_5cixp")])
 TIME_STAMP = "12:13 PM"
+time_stamp = "12:13 PM"
 metadata/_custom_type_script = "uid://c7essjownyvxc"
 
 [resource]
 script = ExtResource("2_hy3x0")
-TEXT_EXCHANGES = Array[ExtResource("1_7aiwx")]([SubResource("Resource_4q1o5"), SubResource("Resource_7h0cv")])
 text_exchanges = Array[ExtResource("1_7aiwx")]([SubResource("Resource_4q1o5"), SubResource("Resource_7h0cv")])
-CONTACT_NAME = "John Doe"
 contact_name = "John Doe"
 metadata/_custom_type_script = "uid://bl2o5yk4q2h54"

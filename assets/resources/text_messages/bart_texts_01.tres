@@ -8,40 +8,53 @@
 [sub_resource type="Resource" id="Resource_mmqck"]
 script = ExtResource("2_7nju4")
 MESSAGE = "Come here"
+message = "Come here"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_dp56g"]
 script = ExtResource("3_r3jcy")
 FALSE_STARTS = Array[String](["Wh"])
+false_starts = Array[String](["Wh"])
 MESSAGE = "?"
+message = "?"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_hntgb"]
 script = ExtResource("3_r3jcy")
 MESSAGE = "Where are you?"
+message = "Where are you?"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_7xxlg"]
 script = ExtResource("2_7nju4")
 TIME_BEFORE_TYPING = 1.0
+time_before_typing = 1.0
 TIME_TYPING = 5.0
+time_typing = 5.0
 MESSAGE = "The bathroom"
+message = "The bathroom"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_dfw6x"]
 script = ExtResource("3_r3jcy")
 MESSAGE = "And you want me to come in there?"
+message = "And you want me to come in there?"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_uh1xc"]
 script = ExtResource("2_7nju4")
 TIME_BEFORE_TYPING = 2.0
+time_before_typing = 2.0
 TIME_TYPING = 6.0
+time_typing = 6.0
 MESSAGE = "👍"
+message = "👍"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [resource]
 script = ExtResource("2_vl1cj")
 MESSAGES = Array[ExtResource("1_ebva7")]([SubResource("Resource_mmqck"), SubResource("Resource_dp56g"), SubResource("Resource_hntgb"), SubResource("Resource_7xxlg"), SubResource("Resource_dfw6x"), SubResource("Resource_uh1xc")])
+messages = Array[ExtResource("1_ebva7")]([SubResource("Resource_mmqck"), SubResource("Resource_dp56g"), SubResource("Resource_hntgb"), SubResource("Resource_7xxlg"), SubResource("Resource_dfw6x"), SubResource("Resource_uh1xc")])
 TIME_STAMP = "6:22 PM"
+time_stamp = "6:22 PM"
 metadata/_custom_type_script = "uid://c7essjownyvxc"

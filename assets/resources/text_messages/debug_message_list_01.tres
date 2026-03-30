@@ -8,41 +8,49 @@
 [sub_resource type="Resource" id="Resource_dvgt1"]
 script = ExtResource("2_73c3k")
 MESSAGE = "What's goodie?"
+message = "What's goodie?"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_tlods"]
 script = ExtResource("3_pispj")
 MESSAGE = "Chilling"
+message = "Chilling"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_nrqdq"]
 script = ExtResource("2_73c3k")
 MESSAGE = "Nice  !"
+message = "Nice  !"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_gxsmv"]
 script = ExtResource("2_73c3k")
 MESSAGE = "What's the shmovements tonight ??"
+message = "What's the shmovements tonight ??"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_hpqao"]
 script = ExtResource("3_pispj")
 MESSAGE = "I am being sued by starbucks"
+message = "I am being sued by starbucks"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_q4iwu"]
 script = ExtResource("2_73c3k")
 MESSAGE = "Why?"
+message = "Why?"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_eluww"]
 script = ExtResource("3_pispj")
 MESSAGE = "They don't say why"
+message = "They don't say why"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_vhytr"]
 script = ExtResource("3_pispj")
 MESSAGE = "They just start sending lawyers"
+message = "They just start sending lawyers"
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [sub_resource type="Resource" id="Resource_hjmcp"]
@@ -64,15 +72,35 @@ And I shall hear, though soft you tread above me,
 And all my grave will warmer, sweeter be,
 For you will bend and tell me that you love me,
 And I shall sleep in peace until you come to me!"
+message = "Oh, Danny boy, the pipes, the pipes are calling
+From glen to glen, and down the mountain side.
+The summer's gone, and all the roses falling,
+It's you, it's you must go and I must bide.
+But come ye back when summer's in the meadow,
+Or when the valley's hushed and white with snow,
+It's I'll be here in sunshine or in shadow,—
+Oh, Danny boy, Oh Danny boy, I love you so!
+
+But when ye come, and all the flowers are dying,
+If I am dead, as dead I well may be,
+Ye'll come and find the place where I am lying,
+And kneel and say an Avé there for me.
+And I shall hear, though soft you tread above me,
+And all my grave will warmer, sweeter be,
+For you will bend and tell me that you love me,
+And I shall sleep in peace until you come to me!"
 metadata/_custom_type_script = "uid://b0e2f45onhmdf"
 
 [sub_resource type="Resource" id="Resource_mvqhw"]
 script = ExtResource("3_pispj")
 MESSAGE = "Thank you."
+message = "Thank you."
 metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
 
 [resource]
 script = ExtResource("4_kjnxg")
 MESSAGES = Array[ExtResource("1_jgojf")]([SubResource("Resource_dvgt1"), SubResource("Resource_tlods"), SubResource("Resource_nrqdq"), SubResource("Resource_gxsmv"), SubResource("Resource_hpqao"), SubResource("Resource_q4iwu"), SubResource("Resource_eluww"), SubResource("Resource_vhytr"), SubResource("Resource_hjmcp"), SubResource("Resource_mvqhw")])
+messages = Array[ExtResource("1_jgojf")]([SubResource("Resource_dvgt1"), SubResource("Resource_tlods"), SubResource("Resource_nrqdq"), SubResource("Resource_gxsmv"), SubResource("Resource_hpqao"), SubResource("Resource_q4iwu"), SubResource("Resource_eluww"), SubResource("Resource_vhytr"), SubResource("Resource_hjmcp"), SubResource("Resource_mvqhw")])
 TIME_STAMP = "3:37 PM"
+time_stamp = "3:37 PM"
 metadata/_custom_type_script = "uid://c7essjownyvxc"
