@@ -95,10 +95,10 @@ offset_right = 1080.0
 offset_bottom = 52.0
 grow_horizontal = 1
 
-[node name="StateMachine" type="Node" parent="." unique_id=1681606491 node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="StateMachine" type="Node" parent="." unique_id=1681606491 node_paths=PackedStringArray("current_state")]
 unique_name_in_owner = true
 script = ExtResource("3_rbj2s")
-CURRENT_STATE = NodePath("HomeState")
+current_state = NodePath("HomeState")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="HomeState" type="Node" parent="StateMachine" unique_id=407472773 node_paths=PackedStringArray("_screen")]
@@ -119,4 +119,5 @@ metadata/_custom_type_script = "uid://cvbeqhcm51h3j"
 [node name="BankState" type="Node" parent="StateMachine" unique_id=335704790 node_paths=PackedStringArray("_screen")]
 script = ExtResource("16_8ja7m")
 _screen = NodePath("../../Screens/BankScreen")
+_should_pop_up = true
 metadata/_custom_type_script = "uid://cvg0s8mggcbw"

@@ -125,7 +125,7 @@ var _commands : Dictionary = {
 			var state_name = options[0]
 			if !Global.level.STATE_MACHINE.has_node(state_name):
 				return "Error: Level does not have that state"
-			Global.level.CURRENT_STATE.transition(state_name)
+			Global.level.current_state.transition(state_name)
 			return "Level transitioned to state " + state_name,
 		"description": "Transitions the level to a chosen state",
 		"parameters": "1. The name of the LevelState",

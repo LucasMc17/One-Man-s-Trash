@@ -7,7 +7,7 @@ extends Control
 ## Virtual property returning the state machine's current state.
 var current_state : PhoneUIState:
 	get():
-		return state_machine.CURRENT_STATE
+		return state_machine.current_state
 
 func _ready():
 	Global.player_phone = self

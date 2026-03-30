@@ -51,7 +51,7 @@ func update(delta):
 
 # NOTE: Overrides super function here to provide special behavior of moving away from chair while still in the sitting state.
 func transition(new_state_name : StringName, ext := {}):
-	if !Global.player.movement_state_machine.DISABLED:
+	if !Global.player.movement_state_machine.disabled:
 		_next_state_name = new_state_name
 		_next_state_ext = ext
 		_exiting = true

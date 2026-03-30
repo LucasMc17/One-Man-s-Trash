@@ -16,7 +16,7 @@ var bar_tab : float:
 # TODO: I really hate these virtual properties. Don't do this.
 var current_state : LevelState:
 	get():
-		return state_machine.CURRENT_STATE
+		return state_machine.current_state
 
 func _ready():
 	Global.level = self

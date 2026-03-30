@@ -46,10 +46,12 @@ max_distance = 4.0
 message = "Press [E] to talk"
 interactable_key = &"npc"
 
-[node name="AttentionStateMachine" type="Node" parent="." unique_id=38415750 node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="AttentionStateMachine" type="Node" parent="." unique_id=38415750 node_paths=PackedStringArray("CURRENT_STATE", "current_state")]
 unique_name_in_owner = true
 script = ExtResource("2_vy5f6")
+disabled = null
 CURRENT_STATE = NodePath("IdleAttention")
+current_state = NodePath("IdleAttention")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="IdleAttention" type="Node" parent="AttentionStateMachine" unique_id=1227537185 node_paths=PackedStringArray("actor")]
@@ -57,10 +59,12 @@ script = ExtResource("6_c4o2l")
 actor = NodePath("../..")
 metadata/_custom_type_script = "uid://befgswxuxfmxp"
 
-[node name="MovementStateMachine" type="Node" parent="." unique_id=1007147406 node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="MovementStateMachine" type="Node" parent="." unique_id=1007147406 node_paths=PackedStringArray("CURRENT_STATE", "current_state")]
 unique_name_in_owner = true
 script = ExtResource("2_vy5f6")
+disabled = null
 CURRENT_STATE = NodePath("IdleMovement")
+current_state = NodePath("IdleMovement")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="IdleMovement" type="Node" parent="MovementStateMachine" unique_id=241645056 node_paths=PackedStringArray("_next_state", "actor")]

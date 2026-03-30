@@ -1,10 +1,7 @@
 extends VBoxContainer
 
-# PRELOADS
-var DIALOGUE_OPTION = preload("./dialogue_option.tscn")
-
-# EXPORTS
-@export var TALK_TREE : TalkTree:
+## The TalkTree resource currently displayed in the dialog_layer.
+@export var talk_tree : TalkTree:
 	set(val):
 		if val:
 			if val.CAMERA_ID:
@@ -15,33 +12,34 @@ var DIALOGUE_OPTION = preload("./dialogue_option.tscn")
 					push_warning('WARNING: No Camera by that ID found')
 					Global.log('WARNING: No Camera by that ID found')
 			else:
-				if TALK_TREE:
-					if Global.cameras.has(TALK_TREE.CAMERA_ID):
-						Global.cameras[TALK_TREE.CAMERA_ID].current = false
+				if talk_tree:
+					if Global.cameras.has(talk_tree.CAMERA_ID):
+						Global.cameras[talk_tree.CAMERA_ID].current = false
 					Global.player.camera.current = true
-			if NPC_LINE:
-				NPC_LINE.text = val.DIALOGUE
-			if PLAYER_OPTIONS:
-				for child in PLAYER_OPTIONS.get_children():
+			if _npc_line:
+				_npc_line.text = val.DIALOGUE
+			if _player_options:
+				for child in _player_options.get_children():
 					child.queue_free()
 				for option in val.PLAYER_OPTIONS:
-					var button = DIALOGUE_OPTION.instantiate()
+					var button = _dialog_option.instantiate()
 					button.option_clicked.connect(_on_option_clicked)
 					button.text = option.PROMPT
-					button.TALK_TREE = option
-					PLAYER_OPTIONS.add_child(button)
+					button.talk_tree = option
+					_player_options.add_child(button)
 				if val.EXIT_OPTION.length() > 0:
-					var button = DIALOGUE_OPTION.instantiate()
+					var button = _dialog_option.instantiate()
 					button.text = val.EXIT_OPTION
 					button.is_exit = true
-					PLAYER_OPTIONS.add_child(button)
-		TALK_TREE = val
+					_player_options.add_child(button)
+		talk_tree = val
 
+## preloaded dialog option scene
+var _dialog_option = preload("./dialogue_option.tscn")
 
-# NODES
-@onready var NPC_LINE = %NPCLine
-@onready var PLAYER_OPTIONS = %PlayerOptions
+@onready var _npc_line : Label = %NPCLine
+@onready var _player_options : VBoxContainer = %PlayerOptions
 
-# SIGNAL LISTENERS
-func _on_option_clicked(talk_tree : TalkTree):
-	TALK_TREE = talk_tree
+## Event listener.
+func _on_option_clicked(new_talk_tree : TalkTree):
+	talk_tree = new_talk_tree

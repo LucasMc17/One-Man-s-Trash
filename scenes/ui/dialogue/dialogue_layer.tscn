@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cekqblrfqotxk"]
+[gd_scene format=3 uid="uid://cekqblrfqotxk"]
 
 [ext_resource type="Script" uid="uid://dfxcywirxqjuj" path="res://scenes/ui/dialogue/dialogue_layer.gd" id="1_h4cyo"]
 [ext_resource type="StyleBox" uid="uid://2li57s6rju8d" path="res://assets/themes/style_boxes/debug_background.tres" id="2_10yry"]
 
-[node name="DialogueLayer" type="VBoxContainer"]
+[node name="DialogueLayer" type="VBoxContainer" unique_id=1993636367]
 visible = false
 anchors_preset = -1
 anchor_top = 0.512
@@ -17,23 +17,23 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 script = ExtResource("1_h4cyo")
 
-[node name="NPCScrollContainer" type="ScrollContainer" parent="."]
+[node name="NPCScrollContainer" type="ScrollContainer" parent="." unique_id=1208389215]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.6
 theme_override_styles/panel = ExtResource("2_10yry")
 
-[node name="NPCLine" type="Label" parent="NPCScrollContainer"]
+[node name="NPCLine" type="Label" parent="NPCScrollContainer" unique_id=362307237]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Hi hi hi!!!!!!"
 
-[node name="PlayerScrollContainer" type="ScrollContainer" parent="."]
+[node name="PlayerScrollContainer" type="ScrollContainer" parent="." unique_id=1254069955]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 theme_override_styles/panel = ExtResource("2_10yry")
 
-[node name="PlayerOptions" type="VBoxContainer" parent="PlayerScrollContainer"]
+[node name="PlayerOptions" type="VBoxContainer" parent="PlayerScrollContainer" unique_id=1864619236]
 unique_name_in_owner = true
 layout_mode = 2

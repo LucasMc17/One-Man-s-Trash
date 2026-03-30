@@ -25,11 +25,11 @@ var looking_at : Interactable:
 ## Virtual property for the player's current attention state.
 var current_attention : PlayerAttentionState:
 	get():
-		return attention_state_machine.CURRENT_STATE
+		return attention_state_machine.current_state
 ## Virtual property for the player's current movement state.
 var current_movement : PlayerMovementState:
 	get():
-		return movement_state_machine.CURRENT_STATE
+		return movement_state_machine.current_state
 ## The hint at the bottom left of the screen.
 var hint := '':
 	set(val):

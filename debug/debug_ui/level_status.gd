@@ -41,7 +41,7 @@ func _populate_states() -> void:
 		if level_state is LevelState:
 			var button_scene = Button.new()
 			button_scene.text = level_state.name
-			button_scene.pressed.connect(func(): Global.level.CURRENT_STATE.transition(level_state.name))
+			button_scene.pressed.connect(func(): Global.level.current_state.transition(level_state.name))
 			_level_states.add_child(button_scene)
 
 # REFACTORED TO BEST PRACTICE, MARCH 2026

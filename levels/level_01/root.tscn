@@ -136,11 +136,13 @@ transform = Transform3D(0.891276, 0, 0.453462, 0, 1, 0, -0.453462, 0, 0.891276, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96809, 0, 12.9894)
 is_locked = true
 is_open = true
+_mesh_position = Vector3(0, 0, 0)
+_collision_position = Vector3(0, 0, 0)
 
-[node name="StateMachine" type="Node" parent="." unique_id=191255331 node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="StateMachine" type="Node" parent="." unique_id=191255331 node_paths=PackedStringArray("current_state")]
 unique_name_in_owner = true
 script = ExtResource("7_e1ace")
-CURRENT_STATE = NodePath("BartChat")
+current_state = NodePath("BartChat")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="DebugState" type="Node" parent="StateMachine" unique_id=1811699258]

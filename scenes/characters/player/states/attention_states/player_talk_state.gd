@@ -44,10 +44,10 @@ func enter(previous_state : State = null, ext := {}):
 	_prev_x_rotation = actor.camera_controller.rotation.x
 	_prev_y_rotation = actor.rotation.y
 
-	if ext.has('TALK_TREE') and ext.has('TALKING_TO'):
-		actor.talking_to = ext.TALKING_TO
-		ext.TALK_TREE.activate(ext.TALKING_TO)
-		actor.dialog_layer.TALK_TREE = _talk_tree
+	if ext.has('talk_tree') and ext.has('talking_to'):
+		actor.talking_to = ext.talking_to
+		ext.talk_tree.activate(ext.talking_to)
+		actor.dialog_layer.talk_tree = _talk_tree
 
 	actor.dialog_layer.visible = true
 	
@@ -64,7 +64,7 @@ func exit():
 
 
 func transition(new_state_name : StringName, ext := {}):
-	if !Global.player.attention_state_machine.DISABLED:
+	if !Global.player.attention_state_machine.disabled:
 		actor.dialog_layer.visible = false
 		_next_state_name = new_state_name
 		_next_state_ext = ext

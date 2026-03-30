@@ -21,14 +21,14 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var current_attention : NPCAttentionState:
 	get():
 		if attention_state_machine:
-			return attention_state_machine.CURRENT_STATE
+			return attention_state_machine.current_state
 		else:
 			return null
 ## Virtual property returning the current movement state of this NPC.
 var current_movement : NPCMovementState:
 	get():
 		if movement_state_machine:
-			return movement_state_machine.CURRENT_STATE
+			return movement_state_machine.current_state
 		else:
 			return null
 
@@ -78,4 +78,4 @@ func look_at_player():
 func _on_interactable_interacted(interactor : Player):
 	if current_attention.talk_enabled:
 		current_attention.transition("Talk")
-		interactor.current_attention.transition('Talk', {"TALK_TREE": talk_tree, "TALKING_TO": self})
+		interactor.current_attention.transition('Talk', {"talk_tree": talk_tree, "talking_to": self})

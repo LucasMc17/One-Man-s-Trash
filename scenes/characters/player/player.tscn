@@ -209,10 +209,11 @@ collision_mask = 3
 collide_with_areas = true
 debug_shape_thickness = 5
 
-[node name="AttentionStateMachine" type="Node" parent="." unique_id=34343123 node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="AttentionStateMachine" type="Node" parent="." unique_id=34343123 node_paths=PackedStringArray("CURRENT_STATE", "current_state")]
 unique_name_in_owner = true
 script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("Freelook")
+current_state = NodePath("Freelook")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="Talk" type="Node" parent="AttentionStateMachine" unique_id=1713398366 node_paths=PackedStringArray("actor")]
@@ -230,10 +231,11 @@ script = ExtResource("8_3xnwo")
 actor = NodePath("../..")
 metadata/_custom_type_script = "uid://c5iy7liovrtbk"
 
-[node name="MovementStateMachine" type="Node" parent="." unique_id=1337822167 node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="MovementStateMachine" type="Node" parent="." unique_id=1337822167 node_paths=PackedStringArray("CURRENT_STATE", "current_state")]
 unique_name_in_owner = true
 script = ExtResource("1_8afob")
 CURRENT_STATE = NodePath("Freemove")
+current_state = NodePath("Freemove")
 metadata/_custom_type_script = "uid://cau1wg8ulku16"
 
 [node name="Freemove" type="Node" parent="MovementStateMachine" unique_id=1381410600 node_paths=PackedStringArray("actor")]
