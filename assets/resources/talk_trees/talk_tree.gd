@@ -1,5 +1,6 @@
 @tool
-class_name TalkTree extends Resource
+class_name TalkTree
+extends Resource
 
 @export_category('Dialog')
 @export_multiline var PROMPT : String
@@ -54,3 +55,8 @@ func __migrate__():
 	focus_npc = FOCUS_NPC
 	focus_object = FOCUS_OBJECT
 	focus_point = FOCUS_POINT
+
+	# NEXT_TALK_TREE.__migrate__()
+
+	# for talk_tree : TalkTree in PLAYER_OPTIONS:
+	# 	talk_tree.__migrate__()

@@ -7,7 +7,7 @@ const MIGRATE_METHOD_NAME := &"__migrate__"
 
 func _run() -> void:
     print("Migrating resources")
-    var resource_files := get_all_file_paths("res://", [".tres", ".tscn"])
+    var resource_files := get_all_file_paths("res://", [".tres"])
     for resource_file: String in resource_files:
         var resource := ResourceLoader.load(resource_file)
         migrate_resource(resource)
