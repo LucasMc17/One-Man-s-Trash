@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_ygpov")
-DIALOGUE = "..."
 dialog = "..."
-EXIT_OPTION = "..."
 exit_option = "..."
 metadata/_custom_type_script = "uid://bymb602613n3g"

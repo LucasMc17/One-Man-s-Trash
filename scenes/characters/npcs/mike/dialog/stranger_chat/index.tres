@@ -5,40 +5,28 @@
 
 [sub_resource type="Resource" id="Resource_k220e"]
 script = ExtResource("2_jlfjk")
-PROMPT = "What's good here?"
 prompt = "What's good here?"
-DIALOGUE = "Uh, I just get the IPA. Listen, I'm waiting on a call here, I can't really talk."
 dialog = "Uh, I just get the IPA. Listen, I'm waiting on a call here, I can't really talk."
-EXIT_OPTION = "Oh yeah, no problem. Don't let me keep you."
 exit_option = "Oh yeah, no problem. Don't let me keep you."
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_y0je0"]
 script = ExtResource("2_jlfjk")
-PROMPT = "How are you doing tonight?"
 prompt = "How are you doing tonight?"
-DIALOGUE = "I'm good. Listen, buddy, I'm waiting on a call here, I can't talk right now."
 dialog = "I'm good. Listen, buddy, I'm waiting on a call here, I can't talk right now."
-EXIT_OPTION = "Oh yeah, no problem. Don't let me keep you."
 exit_option = "Oh yeah, no problem. Don't let me keep you."
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_52co2"]
 script = ExtResource("2_jlfjk")
-PROMPT = "Hi."
 prompt = "Hi."
-DIALOGUE = "Uh, hey."
 dialog = "Uh, hey."
-PLAYER_OPTIONS = Array[ExtResource("2_jlfjk")]([SubResource("Resource_k220e"), SubResource("Resource_y0je0")])
 player_options = Array[ExtResource("2_jlfjk")]([SubResource("Resource_k220e"), SubResource("Resource_y0je0")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
 script = ExtResource("2_jlfjk")
-DIALOGUE = "..."
 dialog = "..."
-PLAYER_OPTIONS = Array[ExtResource("2_jlfjk")]([SubResource("Resource_52co2")])
 player_options = Array[ExtResource("2_jlfjk")]([SubResource("Resource_52co2")])
-NEXT_TALK_TREE = ExtResource("1_2v5rl")
 next_talk_tree = ExtResource("1_2v5rl")
 metadata/_custom_type_script = "uid://bymb602613n3g"

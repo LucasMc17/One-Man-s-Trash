@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_y05jv")
-DIALOGUE = "I already told you, I don't have a screwdriver, a wrench, or any other fucking tools. Leave me alone."
 dialog = "I already told you, I don't have a screwdriver, a wrench, or any other fucking tools. Leave me alone."
-EXIT_OPTION = "Ok, ok, sorry."
 exit_option = "Ok, ok, sorry."
 metadata/_custom_type_script = "uid://bymb602613n3g"

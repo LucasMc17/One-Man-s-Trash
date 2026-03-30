@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_ecgwh")
-DIALOGUE = "Well? Get going so we can get out of here!"
 dialog = "Well? Get going so we can get out of here!"
-EXIT_OPTION = "Yeah yeah."
 exit_option = "Yeah yeah."
 metadata/_custom_type_script = "uid://bymb602613n3g"

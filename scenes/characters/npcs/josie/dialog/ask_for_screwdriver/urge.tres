@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_sngmg")
-DIALOGUE = "You're making me really uncomfortable."
 dialog = "You're making me really uncomfortable."
-EXIT_OPTION = "Oh shit. Sorry."
 exit_option = "Oh shit. Sorry."
 metadata/_custom_type_script = "uid://bymb602613n3g"

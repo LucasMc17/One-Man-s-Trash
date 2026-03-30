@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_oyrp3")
-DIALOGUE = "We're in the middle of a conversation here, man."
 dialog = "We're in the middle of a conversation here, man."
-EXIT_OPTION = "Sorry."
 exit_option = "Sorry."
 metadata/_custom_type_script = "uid://bymb602613n3g"

@@ -25,10 +25,10 @@ var _time_stamp := preload('./time_stamp.tscn')
 
 ## Initialize the screen with the contact and past messages.
 func activate(contact : TextContact) -> void:
-	_typing_label.text = contact.CONTACT_NAME + ' is typing...'
+	_typing_label.text = contact.contact_name + ' is typing...'
 	for child in _message_holder.get_children():
 		child.queue_free()
-	for exchange in contact.TEXT_EXCHANGES:
+	for exchange in contact.text_exchanges:
 		var time_stamp = _time_stamp.instantiate()
 		time_stamp.text = exchange.TIME_STAMP
 		_message_holder.add_child(time_stamp)

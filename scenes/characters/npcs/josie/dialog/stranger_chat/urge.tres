@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_j8hxc")
-DIALOGUE = "Sorry, but we're kind of on a date here. Could you leave us alone?"
 dialog = "Sorry, but we're kind of on a date here. Could you leave us alone?"
-EXIT_OPTION = "Of course, sorry."
 exit_option = "Of course, sorry."
 metadata/_custom_type_script = "uid://bymb602613n3g"

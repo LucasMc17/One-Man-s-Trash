@@ -39,11 +39,11 @@ func _on_text_received(new_contact : TextContact, new_exchange : MessageList):
 		var first_text = new_exchange.MESSAGES.pop_front()
 		new_text_exchange.MESSAGES.append(first_text)
 		_message_label.text = first_text.MESSAGE
-		contact.TEXT_EXCHANGES.append(new_text_exchange)
+		contact.text_exchanges.append(new_text_exchange)
 		_messages_to_come = new_exchange
 
 
 ## refresh the list chat scene with the latest information.
 func refresh():
-	_name_label.text = contact.CONTACT_NAME
-	_message_label.text = contact.TEXT_EXCHANGES[-1].MESSAGES[-1].MESSAGE
+	_name_label.text = contact.contact_name
+	_message_label.text = contact.text_exchanges[-1].MESSAGES[-1].MESSAGE

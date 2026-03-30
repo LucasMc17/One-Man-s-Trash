@@ -31,21 +31,3 @@ extends Resource
 
 func activate(npc : NPC):
 	Events.dialog_chosen.emit(npc, self)
-
-# func __migrate__():
-# 	prompt = PROMPT
-# 	dialog = DIALOGUE
-# 	player_options = PLAYER_OPTIONS
-# 	exit_option = EXIT_OPTION
-# 	camera_id = CAMERA_ID
-# 	next_talk_tree = NEXT_TALK_TREE
-# 	behavior_flags = BEHAVIOR_FLAGS
-# 	focus_type = FOCUS_TYPE
-# 	focus_npc = FOCUS_NPC
-# 	focus_object = FOCUS_OBJECT
-# 	focus_point = FOCUS_POINT
-
-# 	NEXT_TALK_TREE.__migrate__()
-
-# 	for talk_tree : TalkTree in PLAYER_OPTIONS:
-# 		talk_tree.__migrate__()

@@ -61,7 +61,7 @@ func update(delta):
 		_typing_timer_on = false
 		var text = _new_messages.MESSAGES.pop_front()
 		_screen.receive_text(text)
-		_contact.TEXT_EXCHANGES[-1].MESSAGES.append(text)
+		_contact.text_exchanges[-1].MESSAGES.append(text)
 		_check_next_message()
 
 
@@ -78,7 +78,7 @@ func _add_character(finished_message : String):
 func _send():
 	var text = _new_messages.MESSAGES.pop_front()
 	_screen.send_text(text)
-	_contact.TEXT_EXCHANGES[-1].MESSAGES.append(text)
+	_contact.text_exchanges[-1].MESSAGES.append(text)
 	_draft = ""
 	_check_next_message()
 

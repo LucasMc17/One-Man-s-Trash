@@ -4,10 +4,7 @@
 
 [resource]
 script = ExtResource("1_xamgn")
-PROMPT = "Fine. I'll go and see."
 prompt = "Fine. I'll go and see."
-DIALOGUE = "Great, ok. I'll wait here. Keep the drunks away so we can get this sorted."
 dialog = "Great, ok. I'll wait here. Keep the drunks away so we can get this sorted."
-EXIT_OPTION = "Amazing. You do that."
 exit_option = "Amazing. You do that."
 metadata/_custom_type_script = "uid://bymb602613n3g"

@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_j4hiy")
-DIALOGUE = "Fuck off already."
 dialog = "Fuck off already."
-EXIT_OPTION = "..."
 exit_option = "..."
 metadata/_custom_type_script = "uid://bymb602613n3g"

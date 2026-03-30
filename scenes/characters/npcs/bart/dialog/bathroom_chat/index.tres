@@ -5,58 +5,41 @@
 
 [sub_resource type="Resource" id="Resource_ybrp0"]
 script = ExtResource("1_ybrp0")
-PROMPT = "Hooked what?"
 prompt = "Hooked what?"
-DIALOGUE = "The keycard. Our keycard."
 dialog = "The keycard. Our keycard."
-PLAYER_OPTIONS = Array[ExtResource("1_ybrp0")]([ExtResource("2_65ojm")])
 player_options = Array[ExtResource("1_ybrp0")]([ExtResource("2_65ojm")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_65ojm"]
 script = ExtResource("1_ybrp0")
-PROMPT = "Hooked your phone?"
 prompt = "Hooked your phone?"
-DIALOGUE = "No, the, uh, key, keycard."
 dialog = "No, the, uh, key, keycard."
-PLAYER_OPTIONS = Array[ExtResource("1_ybrp0")]([ExtResource("2_65ojm")])
 player_options = Array[ExtResource("1_ybrp0")]([ExtResource("2_65ojm")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_ukuih"]
 script = ExtResource("1_ybrp0")
-PROMPT = "Hear what?"
 prompt = "Hear what?"
-DIALOGUE = "I guess my watch, or my sleeve or something, it like hooked it."
 dialog = "I guess my watch, or my sleeve or something, it like hooked it."
-PLAYER_OPTIONS = Array[ExtResource("1_ybrp0")]([SubResource("Resource_ybrp0"), SubResource("Resource_65ojm")])
 player_options = Array[ExtResource("1_ybrp0")]([SubResource("Resource_ybrp0"), SubResource("Resource_65ojm")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_vadej"]
 script = ExtResource("1_ybrp0")
-PROMPT = "Ok, with what?"
 prompt = "Ok, with what?"
-DIALOGUE = "It's, uh, kinda embarassing. I was standing here, pissing, and I went to grab my phone, and as I'm pulling it out of my pocket, I like hear something."
 dialog = "It's, uh, kinda embarassing. I was standing here, pissing, and I went to grab my phone, and as I'm pulling it out of my pocket, I like hear something."
-PLAYER_OPTIONS = Array[ExtResource("1_ybrp0")]([SubResource("Resource_ukuih")])
 player_options = Array[ExtResource("1_ybrp0")]([SubResource("Resource_ukuih")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_nhf45"]
 script = ExtResource("1_ybrp0")
-PROMPT = "What's up?"
 prompt = "What's up?"
-DIALOGUE = "I need your help."
 dialog = "I need your help."
-PLAYER_OPTIONS = Array[ExtResource("1_ybrp0")]([SubResource("Resource_vadej")])
 player_options = Array[ExtResource("1_ybrp0")]([SubResource("Resource_vadej")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
 script = ExtResource("1_ybrp0")
-DIALOGUE = "Hey."
 dialog = "Hey."
-PLAYER_OPTIONS = Array[ExtResource("1_ybrp0")]([SubResource("Resource_nhf45")])
 player_options = Array[ExtResource("1_ybrp0")]([SubResource("Resource_nhf45")])
 metadata/_custom_type_script = "uid://bymb602613n3g"

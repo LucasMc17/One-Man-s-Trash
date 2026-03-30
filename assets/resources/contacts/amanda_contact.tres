@@ -82,5 +82,7 @@ metadata/_custom_type_script = "uid://c7essjownyvxc"
 [resource]
 script = ExtResource("5_juyw8")
 TEXT_EXCHANGES = Array[ExtResource("1_4vptx")]([SubResource("Resource_m2rny"), SubResource("Resource_dd551"), SubResource("Resource_t7k4m")])
+text_exchanges = Array[ExtResource("1_4vptx")]([SubResource("Resource_m2rny"), SubResource("Resource_dd551"), SubResource("Resource_t7k4m")])
 CONTACT_NAME = "Amanda"
+contact_name = "Amanda"
 metadata/_custom_type_script = "uid://bl2o5yk4q2h54"
