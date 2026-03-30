@@ -5,9 +5,15 @@
 [sub_resource type="Resource" id="Resource_lchoe"]
 script = ExtResource("1_lchoe")
 PROMPT = "Can I get an old fashioned please?"
+prompt = "Can I get an old fashioned please?"
 DIALOGUE = "You got it."
+dialog = "You got it."
 EXIT_OPTION = "Thanks."
+exit_option = "Thanks."
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"ADD_TO_TAB": 12.0
+})
+behavior_flags = Dictionary[String, Variant]({
 "ADD_TO_TAB": 12.0
 })
 metadata/_custom_type_script = "uid://bymb602613n3g"
@@ -15,20 +21,33 @@ metadata/_custom_type_script = "uid://bymb602613n3g"
 [sub_resource type="Resource" id="Resource_c3xp3"]
 script = ExtResource("1_lchoe")
 PROMPT = "Could I have the IPA?"
+prompt = "Could I have the IPA?"
 DIALOGUE = "You got it."
+dialog = "You got it."
 EXIT_OPTION = "Thanks."
+exit_option = "Thanks."
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
 "ADD_TO_TAB": 8.0
 })
+behavior_flags = Dictionary[String, Variant]({
+"ADD_TO_TAB": 8.0
+})
 FOCUS_POINT = Vector3(1, 1, 1)
+focus_point = Vector3(1, 1, 1)
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_csfnt"]
 script = ExtResource("1_lchoe")
 PROMPT = "Just give me a shot of tequila please."
+prompt = "Just give me a shot of tequila please."
 DIALOGUE = "You got it."
+dialog = "You got it."
 EXIT_OPTION = "Thanks."
+exit_option = "Thanks."
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"ADD_TO_TAB": 6.0
+})
+behavior_flags = Dictionary[String, Variant]({
 "ADD_TO_TAB": 6.0
 })
 metadata/_custom_type_script = "uid://bymb602613n3g"
@@ -36,6 +55,9 @@ metadata/_custom_type_script = "uid://bymb602613n3g"
 [resource]
 script = ExtResource("1_lchoe")
 DIALOGUE = "What can I get you?"
+dialog = "What can I get you?"
 PLAYER_OPTIONS = Array[ExtResource("1_lchoe")]([SubResource("Resource_lchoe"), SubResource("Resource_c3xp3"), SubResource("Resource_csfnt")])
+player_options = Array[ExtResource("1_lchoe")]([SubResource("Resource_lchoe"), SubResource("Resource_c3xp3"), SubResource("Resource_csfnt")])
 EXIT_OPTION = "Actually, I'm ok for the moment."
+exit_option = "Actually, I'm ok for the moment."
 metadata/_custom_type_script = "uid://bymb602613n3g"

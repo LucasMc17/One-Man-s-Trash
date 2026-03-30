@@ -7,32 +7,49 @@
 [sub_resource type="Resource" id="Resource_2hls5"]
 script = ExtResource("1_xjefo")
 PROMPT = "..."
+prompt = "..."
 DIALOGUE = "Did you, uh... need something?"
+dialog = "Did you, uh... need something?"
 EXIT_OPTION = "...No, I guess not."
+exit_option = "...No, I guess not."
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_xjefo"]
 script = ExtResource("1_xjefo")
 PROMPT = "..."
+prompt = "..."
 DIALOGUE = "Hi."
+dialog = "Hi."
 PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_2hls5")])
+player_options = Array[ExtResource("1_xjefo")]([SubResource("Resource_2hls5")])
 FOCUS_TYPE = "NPC"
+focus_type = "NPC"
 FOCUS_NPC = &"Josie"
+focus_npc = &"Josie"
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_2w1ug"]
 script = ExtResource("1_xjefo")
 PROMPT = "Hey folks."
+prompt = "Hey folks."
 DIALOGUE = "Hey."
+dialog = "Hey."
 PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_xjefo")])
+player_options = Array[ExtResource("1_xjefo")]([SubResource("Resource_xjefo")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
 script = ExtResource("1_xjefo")
 DIALOGUE = "..."
+dialog = "..."
 PLAYER_OPTIONS = Array[ExtResource("1_xjefo")]([SubResource("Resource_2w1ug")])
+player_options = Array[ExtResource("1_xjefo")]([SubResource("Resource_2w1ug")])
 NEXT_TALK_TREE = ExtResource("1_2w1ug")
+next_talk_tree = ExtResource("1_2w1ug")
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"SET_NPC_TALK_TREE": ["Josie", ExtResource("1_2hls5")]
+})
+behavior_flags = Dictionary[String, Variant]({
 "SET_NPC_TALK_TREE": ["Josie", ExtResource("1_2hls5")]
 })
 metadata/_custom_type_script = "uid://bymb602613n3g"

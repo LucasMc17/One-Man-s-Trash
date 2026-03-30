@@ -30,18 +30,18 @@ func _ready():
 
 ## Event listener for global event.
 func _on_dialog_chosen(npc : NPC, talk_tree : TalkTree):
-	if talk_tree.NEXT_TALK_TREE is TalkTree:
-		npc.talk_tree = talk_tree.NEXT_TALK_TREE
-	if talk_tree.BEHAVIOR_FLAGS.has('SET_NPC_TALK_TREE'):
-		var other_npc = talk_tree.BEHAVIOR_FLAGS.SET_NPC_TALK_TREE[0]
-		var new_talk_tree = talk_tree.BEHAVIOR_FLAGS.SET_NPC_TALK_TREE[1]
+	if talk_tree.next_talk_tree is TalkTree:
+		npc.talk_tree = talk_tree.next_talk_tree
+	if talk_tree.behavior_flags.has('SET_NPC_TALK_TREE'):
+		var other_npc = talk_tree.behavior_flags.SET_NPC_TALK_TREE[0]
+		var new_talk_tree = talk_tree.behavior_flags.SET_NPC_TALK_TREE[1]
 		Global.npcs[other_npc].talk_tree = new_talk_tree
-	# if talk_tree.BEHAVIOR_FLAGS.has("CHANGE_TREE_BY_PATH"):
-	# 	npc.talk_tree = talk_tree.BEHAVIOR_FLAGS.CHANGE_TREE_BY_PATH
-	if talk_tree.BEHAVIOR_FLAGS.has("ASK_FOR_SCREWDRIVER"):
+	# if talk_tree.behavior_flags.has("CHANGE_TREE_BY_PATH"):
+	# 	npc.talk_tree = talk_tree.behavior_flags.CHANGE_TREE_BY_PATH
+	if talk_tree.behavior_flags.has("ASK_FOR_SCREWDRIVER"):
 		npcs_asked_for_screwdrivers += 1
-	if talk_tree.BEHAVIOR_FLAGS.has("ADD_TO_TAB"):
-		bar_tab += talk_tree.BEHAVIOR_FLAGS.ADD_TO_TAB
+	if talk_tree.behavior_flags.has("ADD_TO_TAB"):
+		bar_tab += talk_tree.behavior_flags.ADD_TO_TAB
 
 
 ## Event listener.

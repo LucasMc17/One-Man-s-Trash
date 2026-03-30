@@ -1,4 +1,4 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cwwb1h06ctaga"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://cwwb1h06ctaga"]
 
 [ext_resource type="Texture2D" uid="uid://bwncnit2xcjb4" path="res://assets/images/message_chat_bubble.png" id="1_7nnee"]
 

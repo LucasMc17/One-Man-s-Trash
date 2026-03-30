@@ -89,24 +89,24 @@ func _on_dialog_chosen(npc : NPC, talk_tree: TalkTree) -> void:
 	_talk_tree = talk_tree
 	var target : Vector3
 
-	if talk_tree.FOCUS_TYPE == "DEFAULT":
+	if talk_tree.focus_type == "DEFAULT":
 		target = npc.focus_marker.global_position
-	elif talk_tree.FOCUS_TYPE == "NPC":
-		var FOCUS_NPC = Global.npcs[talk_tree.FOCUS_NPC]
-		if FOCUS_NPC is NPC:
-			target = FOCUS_NPC.focus_marker.global_position
+	elif talk_tree.focus_type == "NPC":
+		var focus_npc = Global.npcs[talk_tree.focus_npc]
+		if focus_npc is NPC:
+			target = focus_npc.focus_marker.global_position
 		else:
 			push_warning('NO NPC BY THAT NAME FOUND')
 			target = npc.focus_marker.global_position
-	elif talk_tree.FOCUS_TYPE == "OBJECT":
-		var FOCUS_OBJECT = Global.important_scenes[talk_tree.FOCUS_OBJECT]
-		if FOCUS_OBJECT:
-			target = FOCUS_OBJECT.global_position
+	elif talk_tree.focus_type == "OBJECT":
+		var focus_object = Global.important_scenes[talk_tree.focus_object]
+		if focus_object:
+			target = focus_object.global_position
 		else:
 			push_warning('NO SCENE BY THAT NAME FOUND')
 			target = npc.focus_marker.global_position
-	elif talk_tree.FOCUS_TYPE == "POINT":
-		target = talk_tree.FOCUS_POINT
+	elif talk_tree.focus_type == "POINT":
+		target = talk_tree.focus_point
 	
 	var direction = target - actor.camera_controller.global_position
 	var normalized = direction.normalized()

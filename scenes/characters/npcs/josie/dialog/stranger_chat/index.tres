@@ -7,41 +7,63 @@
 [sub_resource type="Resource" id="Resource_7kuv6"]
 script = ExtResource("1_3xmym")
 PROMPT = "..."
+prompt = "..."
 DIALOGUE = "Do you need something? We're in the middle of a conversation here."
+dialog = "Do you need something? We're in the middle of a conversation here."
 EXIT_OPTION = "Sorry."
+exit_option = "Sorry."
 FOCUS_TYPE = "NPC"
+focus_type = "NPC"
 FOCUS_NPC = &"Jordan"
+focus_npc = &"Jordan"
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_45dgw"]
 script = ExtResource("1_3xmym")
 PROMPT = "..."
+prompt = "..."
 DIALOGUE = "Um..."
+dialog = "Um..."
 PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([SubResource("Resource_7kuv6")])
+player_options = Array[ExtResource("1_3xmym")]([SubResource("Resource_7kuv6")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_3xmym"]
 script = ExtResource("1_3xmym")
 PROMPT = "..."
+prompt = "..."
 DIALOGUE = "Hi."
+dialog = "Hi."
 PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([SubResource("Resource_45dgw")])
+player_options = Array[ExtResource("1_3xmym")]([SubResource("Resource_45dgw")])
 FOCUS_TYPE = "NPC"
+focus_type = "NPC"
 FOCUS_NPC = &"Jordan"
+focus_npc = &"Jordan"
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [sub_resource type="Resource" id="Resource_k3npg"]
 script = ExtResource("1_3xmym")
 PROMPT = "Hey folks."
+prompt = "Hey folks."
 DIALOGUE = "Oh, hi."
+dialog = "Oh, hi."
 PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([SubResource("Resource_3xmym")])
+player_options = Array[ExtResource("1_3xmym")]([SubResource("Resource_3xmym")])
 metadata/_custom_type_script = "uid://bymb602613n3g"
 
 [resource]
 script = ExtResource("1_3xmym")
 DIALOGUE = "..."
+dialog = "..."
 PLAYER_OPTIONS = Array[ExtResource("1_3xmym")]([SubResource("Resource_k3npg")])
+player_options = Array[ExtResource("1_3xmym")]([SubResource("Resource_k3npg")])
 NEXT_TALK_TREE = ExtResource("1_k3npg")
+next_talk_tree = ExtResource("1_k3npg")
 BEHAVIOR_FLAGS = Dictionary[String, Variant]({
+"SET_NPC_TALK_TREE": ["Jordan", ExtResource("1_45dgw")]
+})
+behavior_flags = Dictionary[String, Variant]({
 "SET_NPC_TALK_TREE": ["Jordan", ExtResource("1_45dgw")]
 })
 metadata/_custom_type_script = "uid://bymb602613n3g"

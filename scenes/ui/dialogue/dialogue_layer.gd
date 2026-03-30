@@ -4,32 +4,32 @@ extends VBoxContainer
 @export var talk_tree : TalkTree:
 	set(val):
 		if val:
-			if val.CAMERA_ID:
-				if Global.cameras.has(val.CAMERA_ID):
+			if val.camera_id:
+				if Global.cameras.has(val.camera_id):
 					Global.player.camera.current = false
-					Global.cameras[val.CAMERA_ID].current = true
+					Global.cameras[val.camera_id].current = true
 				else:
 					push_warning('WARNING: No Camera by that ID found')
 					Global.log('WARNING: No Camera by that ID found')
 			else:
 				if talk_tree:
-					if Global.cameras.has(talk_tree.CAMERA_ID):
-						Global.cameras[talk_tree.CAMERA_ID].current = false
+					if Global.cameras.has(talk_tree.camera_id):
+						Global.cameras[talk_tree.camera_id].current = false
 					Global.player.camera.current = true
 			if _npc_line:
-				_npc_line.text = val.DIALOGUE
+				_npc_line.text = val.dialog
 			if _player_options:
 				for child in _player_options.get_children():
 					child.queue_free()
-				for option in val.PLAYER_OPTIONS:
+				for option in val.player_options:
 					var button = _dialog_option.instantiate()
 					button.option_clicked.connect(_on_option_clicked)
-					button.text = option.PROMPT
+					button.text = option.prompt
 					button.talk_tree = option
 					_player_options.add_child(button)
-				if val.EXIT_OPTION.length() > 0:
+				if val.exit_option.length() > 0:
 					var button = _dialog_option.instantiate()
-					button.text = val.EXIT_OPTION
+					button.text = val.exit_option
 					button.is_exit = true
 					_player_options.add_child(button)
 		talk_tree = val
