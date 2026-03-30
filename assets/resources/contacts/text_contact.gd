@@ -1,4 +1,3 @@
-@tool
 class_name TextContact
 extends Resource
 ## A resource representing a contact in the player's phone, including their contact name,
