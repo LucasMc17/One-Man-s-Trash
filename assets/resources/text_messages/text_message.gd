@@ -1,5 +1,5 @@
 ## TODO: Make this abstract?
-class_name TextMessage
+@abstract class_name TextMessage
 extends Resource
 ## A custom resource representing a text message, be it from the player or a contact.
 
