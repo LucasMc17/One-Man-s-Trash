@@ -8,5 +8,3 @@ extends StaticBody3D
 func _ready():
 	if _player_only:
 		set_collision_layer_value(1, false)
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

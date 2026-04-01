@@ -63,5 +63,3 @@ func _handle_entered(_body : Node3D) -> void:
 ## To be extended by inheriting classes.
 func _handle_exited(_body : Node3D) -> void:
 	pass
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

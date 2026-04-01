@@ -17,5 +17,3 @@ func _ready():
 func _handle_entered(body : Node3D):
 	super(body)
 	_listening = false
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

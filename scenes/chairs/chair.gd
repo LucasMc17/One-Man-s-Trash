@@ -72,5 +72,3 @@ func _ready():
 ## Signal listener for interactable.
 func _on_interactable_interacted(interactor : Player):
 	interactor.current_movement.transition('Sit', { "seat": self, "get_off_position": interactor.position })
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

@@ -40,5 +40,3 @@ func _write_label() -> void:
 	var formatted = _text.format(_params)
 	if _label:
 		_label.text = formatted
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

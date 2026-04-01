@@ -32,5 +32,3 @@ var cameras : Dictionary:
 
 func log(message):
 	debug.cons_log(message)
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

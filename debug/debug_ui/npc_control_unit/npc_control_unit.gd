@@ -38,5 +38,3 @@ func _get_all_npcs() -> void:
 			button_scene.pressed.connect(func(): _populate_states(npc))
 			button_scene.text = npc.name
 			_npcs.add_child(button_scene)
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

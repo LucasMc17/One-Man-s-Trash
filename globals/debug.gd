@@ -184,5 +184,3 @@ func command(command_name : String, inputs : Array, full_command : String) -> vo
 ## Log a string to the debug console.
 func _log_string(string, prefix := '') -> void:
 	debug_console._history.text += '\n' + prefix + str(string)
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

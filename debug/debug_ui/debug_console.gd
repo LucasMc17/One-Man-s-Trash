@@ -59,4 +59,3 @@ func _on_command_line_text_submitted(new_text) -> void:
 	Global.debug.command(command_name, inputs, 'Query: ' + new_text)
 	_command_line.text = ''
 
-# REFACTORED TO BEST PRACTICE, MARCH 2026

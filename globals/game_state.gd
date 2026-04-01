@@ -38,5 +38,3 @@ func _ready():
 	var all_cameras = get_tree().get_nodes_in_group('LevelCameras')
 	for camera in all_cameras:
 		cameras[camera.name] = camera
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

@@ -32,5 +32,3 @@ func _set_properties():
 		_mesh.mesh.material = material
 	if _collision:
 		_collision.shape.size = size
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026

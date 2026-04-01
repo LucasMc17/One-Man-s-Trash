@@ -48,5 +48,3 @@ func _make_count():
 		return str(_count)
 	else:
 		return str(_count) + ' / ' + str(_limit)
-	
-# REFACTORED TO BEST PRACTICE, MARCH 2026

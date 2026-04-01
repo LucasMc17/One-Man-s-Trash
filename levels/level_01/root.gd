@@ -48,4 +48,3 @@ func _on_dialog_chosen(npc : NPC, talk_tree : TalkTree):
 func _on_bart_bathroom_oneoff_entered(_area, _body):
 	Global.important_scenes.BathroomDoor.is_open = false
 
-# REFACTORED TO BEST PRACTICE, MARCH 2026

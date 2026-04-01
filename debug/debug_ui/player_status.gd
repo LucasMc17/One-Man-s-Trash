@@ -30,5 +30,3 @@ func update_state(state_name : String) -> void:
 ## Update the label for the player's current direction.
 func update_direction(new_direction : String) -> void:
 	_direction_label.text = new_direction
-
-# REFACTORED TO BEST PRACTICE, MARCH 2026
