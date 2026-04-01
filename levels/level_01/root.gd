@@ -2,21 +2,19 @@ extends Node3D
 
 # TODO: Again, gotta make a level class/scene which this should inherit from.
 
-@onready var state_machine = %StateMachine
-
 ## How many NPCs the player has asked for a screwdriver.
-var npcs_asked_for_screwdrivers := 0
-
-## The amount of money the player has spent at the bar
-var bar_tab : float:
+var _npcs_asked_for_screwdrivers := 0
+## The amount of money the player has spent at the bar.
+var _bar_tab : float:
 	set(val):
-		bar_tab = val
-		Global.log(bar_tab)
-
-# TODO: I really hate these virtual properties. Don't do this.
+		_bar_tab = val
+		Global.log(_bar_tab)
+## Virtual property exposing the level's current state.
 var current_state : LevelState:
 	get():
 		return state_machine.current_state
+
+@onready var state_machine = %StateMachine
 
 func _ready():
 	Global.level = self
@@ -24,7 +22,7 @@ func _ready():
 	Events.dialog_chosen.connect(_on_dialog_chosen)
 	var mike = Global.npcs.Mike
 	var mike_chair = Global.important_scenes.MikeChair
-	mike.global_position = mike_chair._sit_marker.global_position
+	mike.global_position = mike_chair.sit_marker.global_position
 	mike.current_movement.transition('Sit', { "seat": mike_chair })
 
 
@@ -39,9 +37,9 @@ func _on_dialog_chosen(npc : NPC, talk_tree : TalkTree):
 	# if talk_tree.behavior_flags.has("CHANGE_TREE_BY_PATH"):
 	# 	npc.talk_tree = talk_tree.behavior_flags.CHANGE_TREE_BY_PATH
 	if talk_tree.behavior_flags.has("ASK_FOR_SCREWDRIVER"):
-		npcs_asked_for_screwdrivers += 1
+		_npcs_asked_for_screwdrivers += 1
 	if talk_tree.behavior_flags.has("ADD_TO_TAB"):
-		bar_tab += talk_tree.behavior_flags.ADD_TO_TAB
+		_bar_tab += talk_tree.behavior_flags.ADD_TO_TAB
 
 
 ## Event listener.

@@ -13,7 +13,7 @@ extends PlayerState
 ## How fast to decelerate from the maximum speed toward 0 while in this state.
 @export var _deceleration := 0.4
 ## A list of interactables (by `Interactable.interactable_key`) which the player cannot interact with from this state.
-@export var _blocked_interactables : Array[StringName] = []
+@export var blocked_interactables : Array[StringName] = []
 
 func update(delta):
 	super(delta)

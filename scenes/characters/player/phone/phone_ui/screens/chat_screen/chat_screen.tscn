@@ -128,5 +128,6 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 PREVIOUS_STATE_NAME = "ChatsState"
+_previous_state_name = "ChatsState"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder/HBoxContainer/SendButton" to="." method="_on_send_button_pressed"]

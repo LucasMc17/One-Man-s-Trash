@@ -1,9 +1,10 @@
 extends Button
 
-@export var PREVIOUS_STATE_NAME := ""
+## The name of the state to send the player back to when clicking this button
+@export var _previous_state_name := ""
 
 func _pressed():
-	if PREVIOUS_STATE_NAME == "":
+	if _previous_state_name == "":
 		Global.player_phone.current_state.transition(Global.player_phone.current_state.previous_state.name)
 	else:
-		Global.player_phone.current_state.transition(PREVIOUS_STATE_NAME)
+		Global.player_phone.current_state.transition(_previous_state_name)

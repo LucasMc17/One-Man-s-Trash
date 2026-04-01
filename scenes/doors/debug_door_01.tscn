@@ -9,8 +9,7 @@ size = Vector3(1, 2, 0.1)
 size = Vector3(1, 2, 0.1)
 
 [node name="DebugDoor01" unique_id=1505076371 instance=ExtResource("1_ljxpf")]
-_mesh_position = null
-_collision_position = null
+_mesh = SubResource("BoxMesh_ljxpf")
 
 [node name="DoorBody" parent="." index="0" unique_id=644540824]
 transform = Transform3D(1, 0, 4e-45, 0, 1, 0, -4e-45, 0, 1, 0.5, 0, 0)

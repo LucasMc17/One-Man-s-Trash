@@ -1,11 +1,10 @@
 class_name LevelState extends State
 
-# TODO: Migrate the below to lower case.
 ## Optional new time stamp for the level state, updating the global time property
-@export var TIME : String
+@export var time : String
 
 func enter(previous_state, ext):
 	super(previous_state, ext)
-	if !TIME.is_empty():
-		Global.game_state.time = TIME
+	if !time.is_empty():
+		Global.game_state.time = time
 	Events.level_state_changed.emit(self)

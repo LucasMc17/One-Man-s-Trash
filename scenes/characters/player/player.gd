@@ -191,7 +191,6 @@ func update_interactor(_delta) -> void:
 	else:
 		looking_at = null
 
-
 ## Gradually slow the player's momentum to 0 when no movement input is being made.
 func _handle_idle_momentum(deceleration : float) -> void:
 	var vel = Vector2(velocity.x,velocity.z)
@@ -206,4 +205,4 @@ func _get_interactibility(collider : Node3D) -> bool:
 	return collider is Interactable \
 	and (collider.global_position - _interactor.global_position).length() < collider.max_distance \
 	and collider.get_interactive() \
-	and !current_movement._blocked_interactables.has(collider.interactable_key)
+	and !current_movement.blocked_interactables.has(collider.interactable_key)

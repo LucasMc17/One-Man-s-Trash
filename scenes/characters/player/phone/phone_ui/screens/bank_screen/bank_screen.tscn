@@ -21,6 +21,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 PREVIOUS_STATE_NAME = "HomeState"
+_previous_state_name = "HomeState"
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" index="1" unique_id=1713074613]
 layout_mode = 2

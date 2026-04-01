@@ -46,7 +46,7 @@ extends Node3D
 @export var _mesh : Mesh:
 	set(val):
 		if _door_mesh:
-			_door_mesh._mesh = val
+			_door_mesh.mesh = val
 		_mesh = val
 ## The position of the mesh.
 @export var _mesh_position := Vector3.ZERO:
@@ -62,7 +62,7 @@ extends Node3D
 		if _door_collision_shape:
 			_door_collision_shape.position = val
 		if _interactable:
-			_interactable._collision_position = val
+			_interactable.collision_position = val
 		_collision_position = val
 ## The shape of the collider for this door.
 @export var _collision_shape : Shape3D:
@@ -80,7 +80,7 @@ var _target_rotation := 0.0
 @onready var _door_body : AnimatableBody3D = %DoorBody
 @onready var _door_mesh : MeshInstance3D= %DoorMesh
 @onready var _door_collision_shape : CollisionShape3D= %CollisionShape
-@onready var _interactable = %Interactable
+@onready var _interactable : Interactable = %Interactable
 
 func _ready():
 	is_open = is_open

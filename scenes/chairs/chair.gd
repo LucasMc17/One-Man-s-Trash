@@ -10,15 +10,15 @@ extends StaticBody3D
 		_true_sit_position = val
 		_true_sit_position.y += 1
 		sit_position = val
-		if _sit_marker:
-			_sit_marker.position = sit_position
+		if sit_marker:
+			sit_marker.position = sit_position
 		if _eyeline_marker:
 			_eyeline_marker.position = _true_sit_position
 ## The position which the actor will move to when leaving the sitting state.
 @export var get_off_position := Vector3(-1, 0, 0):
 	set(val):
-		if _get_off_marker:
-			_get_off_marker.position = val
+		if get_off_marker:
+			get_off_marker.position = val
 		get_off_position = val
 
 @export_category("Model Info")
@@ -58,11 +58,11 @@ extends StaticBody3D
 var _true_sit_position := Vector3(0, 0.5, 0)
 
 @onready var interactable = %Interactable
-@onready var _sit_marker = %SitMarker
+@onready var sit_marker = %SitMarker
+@onready var get_off_marker = %GetOffMarker
 @onready var _eyeline_marker = %EyelineMarker
 @onready var _chair_mesh_instance = %ChairMesh
 @onready var _collision_shape_instance = %CollisionShape
-@onready var _get_off_marker = %GetOffMarker
 
 func _ready():
 	# force subscenes to access set functions

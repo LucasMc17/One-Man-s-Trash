@@ -28,7 +28,7 @@ func _process(_delta):
 func _on_level_state_changed(new_state : LevelState) -> void:
 	_state.text = new_state.name
 	if new_state is LevelWaitState:
-		_timer = new_state.TIMER
+		_timer = new_state.timer
 	else:
 		_timer = null
 

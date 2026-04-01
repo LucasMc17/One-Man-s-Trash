@@ -20,7 +20,7 @@ var _next_state_ext := {}
 
 func _ready():
 	_gravity_enabled = false
-	_blocked_interactables = ['chair']
+	blocked_interactables = ['chair']
 
 
 func enter(previous_state, ext):
@@ -29,11 +29,11 @@ func enter(previous_state, ext):
 	if ext.has('seat'):
 		_seat = ext.seat
 		_seat.interactable.deactivate()
-	_sit_position = _seat._sit_marker.global_position
+	_sit_position = _seat.sit_marker.global_position
 	if ext.has('get_off_position'):
 		_get_off_position = ext.get_off_position
 	else:
-		_get_off_position = _seat._get_off_marker.global_position
+		_get_off_position = _seat.get_off_marker.global_position
 
 
 func update(delta):

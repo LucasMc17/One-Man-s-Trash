@@ -1,14 +1,17 @@
 extends Control
 
-@onready var ICON_CONTAINER = %IconContainer
+## Dictionary representing all icons in the home screen, keyed by their names.
+var icons := {}
 
-var ICONS := {}
+@onready var _icon_container = %IconContainer
 
 func _ready():
-	for child in ICON_CONTAINER.get_children():
-		ICONS[child.name] = child
+	for child in _icon_container.get_children():
+		icons[child.name] = child
 	Events.text_received.connect(_on_text_received)
 
+
+## Event listener for global signal.
 func _on_text_received(_contact_name : TextContact, _new_exchange : MessageList):
-	if ICONS.has('ChatsIcon'):
-		ICONS.ChatsIcon.has_notification = true
+	if icons.has('ChatsIcon'):
+		icons.ChatsIcon.has_notification = true
