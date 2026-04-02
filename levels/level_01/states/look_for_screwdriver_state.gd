@@ -7,7 +7,6 @@ var jordan_dialog = load(Paths.get_dialog_path('jordan', 'ask_for_screwdriver'))
 var josie_dialog = load(Paths.get_dialog_path('josie', 'ask_for_screwdriver'))
 
 func enter(previous_state, ext):
-	Global.log(mike_dialog)
 	super(previous_state, ext)
 	Events.conversation_ended.connect(_on_conversation_ended)
 	Global.npcs.Bart.talk_tree = bart_urge

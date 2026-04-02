@@ -31,4 +31,4 @@ var cameras : Dictionary:
 		return game_state.cameras
 
 func log(message):
-	debug.cons_log(message)
+	debug.log(message)

@@ -9,8 +9,7 @@ extends VBoxContainer
 					Global.player.camera.current = false
 					Global.cameras[val.camera_id].current = true
 				else:
-					push_warning('WARNING: No Camera by that ID found')
-					Global.log('WARNING: No Camera by that ID found')
+					Global.Debug.error('WARNING: No Camera by that ID found')
 			else:
 				if talk_tree:
 					if Global.cameras.has(talk_tree.camera_id):

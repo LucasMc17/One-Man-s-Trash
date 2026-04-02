@@ -8,7 +8,6 @@ var _npcs_asked_for_screwdrivers := 0
 var _bar_tab : float:
 	set(val):
 		_bar_tab = val
-		Global.log(_bar_tab)
 ## Virtual property exposing the level's current state.
 var current_state : LevelState:
 	get():
