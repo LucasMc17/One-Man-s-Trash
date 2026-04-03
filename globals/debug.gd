@@ -60,85 +60,6 @@ var debug_scenes : Array = []
 ## Queue of print commands which were executed before the Debug Console had loaded, to be ran as soon as it finishes.
 var print_queue : Array
 
-
-# TODO: Jesus put this somewhere else. Again, refer to Cryptr, I ended up liking what I did there.
-## Object representing functionality and examples of all supported console commands.
-# var _commands : Dictionary = {
-# 	"help": {
-# 		"logic": func(_options):
-# 			for key in _commands.keys():
-# 				cons_log(key + '\n')
-# 				cons_log('-- ' + _commands[key].description)
-# 				var examples
-# 				var params
-# 				if len(_commands[key].examples) == 0:
-# 					examples = "<none>"
-# 				else:
-# 					examples = "`" + "`, `".join(_commands[key].examples) + "`"
-# 				if len(_commands[key].parameters) == 0:
-# 					params = "<none>"
-# 				else:
-# 					params = _commands[key].parameters
-# 				cons_log('---- Parameters: ' + params)
-# 				cons_log('---- e.g. ' + examples + '\n'),
-# 		"description": "Lists the available _commands of this debug console.",
-# 		"parameters": "",
-# 		"examples": ["help"]
-# 	},
-
-# 	"echo": {
-# 		"logic": func(message): 
-# 			if message.size() == 1:
-# 				message = message[0]
-# 			return message,
-# 		"description": "Prints a message to the console.",
-# 		"parameters": "Pass any text following the command to echo it to the console",
-# 		"examples": ["echo this", "echo that", "echo this and that"]
-# 	},
-
-# 	"clear": {
-# 		"logic": func(_options):
-# 			debug_console.clear(),
-# 		"description": "Clears the console",
-# 		"parameters": "",
-# 		"examples": ["clear"]
-# 	},
-
-# 	"set_npc_state": {
-# 		"logic": func (options):
-# 			if options.size() < 2:
-# 				return "Error: Please provide an NPC name and a state to transition to"
-# 			var npc_name = options[0]
-# 			var npc_state_name = options[1]
-# 			# var npc_index = Global.npcs.find_custom(func (item): return item.name == npc_name)
-# 			# if npc_index == -1:
-# 			# 	return "Error: NPC not found"
-# 			# var npc = Global.npcs[npc_index]
-# 			var npc = Global.npcs[npc_name]
-# 			if !npc.STATE_MACHINE.has_node(npc_state_name):
-# 				return "Error: NPC " + npc_name + " does not have that state"
-# 			npc.current_state.transition(npc_state_name)
-# 			return "NPC " + npc_name + " transitioned to state " + npc_state_name,
-# 		"description": "Transitions a chosen NPC in the scene to a chosen behavior state",
-# 		"parameters": "1. The name of the NPC. 2. The name of the state to transition to",
-# 		"examples": ["set_npc_state Bartender MoveToPointA", "set_npc_state BarPatron01 TalkState"]
-# 	},
-
-# 	"set_level_state": {
-# 		"logic": func (options):
-# 			if options.size() < 1:
-# 				return "Error: Please provide a state name to transition to"
-# 			var state_name = options[0]
-# 			if !Global.level.STATE_MACHINE.has_node(state_name):
-# 				return "Error: Level does not have that state"
-# 			Global.level.current_state.transition(state_name)
-# 			return "Level transitioned to state " + state_name,
-# 		"description": "Transitions the level to a chosen state",
-# 		"parameters": "1. The name of the LevelState",
-# 		"examples": ["set_level_state DebugState", "set_level_state TextAmandaState"]
-# 	}
-# }
-
 func _ready():
 	debug_scenes = get_tree().get_nodes_in_group('debug')
 	# TODO: There is work to be done here. Not sure if new solution will be a group or a class
@@ -159,29 +80,14 @@ func _input(event):
 			debug_override = "OFF"
 
 
-## Log a string to the debug console, if it exists.
-func print(message, min_log_level := 0):
+## Log a string to the debug console. A log level of 0 will always successfully log, and will be considered an arbitrary log and push a warning as reminder to remove it before release.[br]
+## Logs with a minimum log level of 1 and above are considered production logs for monitoring, not arbitrary logs to be removed.
+func log(message, min_log_level := 0):
 	if debug_console:
 		if log_level >= min_log_level:
-			debug_console.log(message)
+			debug_console.print(message)
+		if min_log_level == 0:
+			debug_console.warn('Arbitrary print left in code.')
+			debug_console.print(message)
 	else:
 		print_queue.append({"message": message, "min_log_level": min_log_level})
-
-
-## Arbitrary print method, separate from main print method so as to be easiy removed.
-func log(message) -> void:
-	push_warning('Arbitrary print left in code.')
-	self.print(message)
-
-
-## Push a warning to the godot terminal AND the in game console.
-func warn(message) -> void:
-	push_warning(message)
-	self.print(message)
-
-
-## Push an error to the godot terminal AND the in game console.
-func error(message) -> void:
-	push_error(message)
-	self.print(message)
-

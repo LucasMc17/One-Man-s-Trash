@@ -15,3 +15,4 @@ script = ExtResource("2_u1vfw")
 debug_override = "ON"
 skip_wait_times = true
 skip_typing = true
+log_level = 1
