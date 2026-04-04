@@ -10,4 +10,4 @@ var current_state : PhoneUIState:
 		return state_machine.current_state
 
 func _ready():
-	Global.player_phone = self
+	World.player_phone = self

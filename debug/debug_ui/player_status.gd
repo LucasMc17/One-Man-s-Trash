@@ -8,9 +8,9 @@ extends PanelContainer
 @onready var _fps_label := %FPS
 
 func _ready():
-	Global.debug.player_status = self
-	if Global.debug.debug_override == "DEFER":
-		visible = Global.debug.show_player_status
+	Debug.player_status = self
+	if Debug.debug_override == "DEFER":
+		visible = Debug.show_player_status
 
 
 func _process(delta):

@@ -5,6 +5,6 @@ extends Button
 
 func _pressed():
 	if _previous_state_name == "":
-		Global.player_phone.current_state.transition(Global.player_phone.current_state.previous_state.name)
+		World.player_phone.current_state.transition(World.player_phone.current_state.previous_state.name)
 	else:
-		Global.player_phone.current_state.transition(_previous_state_name)
+		World.player_phone.current_state.transition(_previous_state_name)

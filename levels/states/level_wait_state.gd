@@ -12,7 +12,7 @@ class_name LevelWaitState extends LevelState
 func enter(previous_state, ext):
 	super(previous_state, ext)
 	timer.timeout.connect(_on_timer_timeout)
-	if Global.debug.skip_wait_times:
+	if Debug.skip_wait_times:
 		timer.wait_time = 0.1
 	else:
 		timer.wait_time = _wait_time

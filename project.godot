@@ -21,9 +21,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://globals/global_node.tscn"
 Events="*res://globals/events.gd"
 Paths="*res://globals/paths.gd"
+Debug="*uid://d4g4hu8imr3uy"
+World="*uid://b1ujpqy7nw0g4"
 
 [debug]
 

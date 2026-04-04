@@ -21,4 +21,4 @@ func _ready():
 
 ## Event listener.
 func _pressed():
-	Global.player_phone.current_state.transition(_state_name)
+	World.player_phone.current_state.transition(_state_name)

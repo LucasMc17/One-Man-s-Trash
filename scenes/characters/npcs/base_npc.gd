@@ -43,8 +43,8 @@ func _ready():
 	add_child(animated_mesh)
 	_interactable.interacted.connect(_on_interactable_interacted)
 	debug_label.change_param('name', name)
-	if Global.debug.debug_override == "DEFER":
-		debug_label.visible = Global.debug.show_npc_status
+	if Debug.debug_override == "DEFER":
+		debug_label.visible = Debug.show_npc_status
 
 
 ## Function for increasing the NPC's downward momentum while not on the ground. Will be automatically called
@@ -70,7 +70,7 @@ func update_movement(speed : float, target : Vector3, acceleration : float):
 
 ## Rotates the NPC on the y axis to face the player. Called by certain Attention States.
 func look_at_player():
-	var direction = (Global.player.global_position - global_position).normalized()
+	var direction = (World.player.global_position - global_position).normalized()
 	rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), 0.15)
 
 

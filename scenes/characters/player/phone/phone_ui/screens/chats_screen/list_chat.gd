@@ -22,11 +22,11 @@ func _ready():
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		Global.player_phone.current_state.transition('ChatState', { "contact": contact, "active": _has_notification, "new_exchange": _messages_to_come })
-		Global.player_phone.state_machine.states.HomeState.remove_notification('ChatsIcon')
+		World.player_phone.current_state.transition('ChatState', { "contact": contact, "active": _has_notification, "new_exchange": _messages_to_come })
+		World.player_phone.state_machine.states.HomeState.remove_notification('ChatsIcon')
 		if _has_notification:
 			_has_notification = false
-			Global.player.set_notification(false)
+			World.player.set_notification(false)
 
 
 ## Global event listener.

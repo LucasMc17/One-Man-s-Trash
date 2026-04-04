@@ -91,3 +91,11 @@ func log(message, min_log_level := 0):
 			debug_console.print(message)
 	else:
 		print_queue.append({"message": message, "min_log_level": min_log_level})
+
+
+func warn(message):
+	debug_console.warn(message)
+
+
+func error(message):
+	debug_console.error(message)

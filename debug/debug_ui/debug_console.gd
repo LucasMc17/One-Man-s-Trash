@@ -16,13 +16,13 @@ var _commands = CommandModule.new(self)
 func _ready():
 	# TODO: This whole file needs an overhaul. See how Cryptr does it, I no longer like this format. 
 	# In particular, I feel like we shouldn't need this next line, and the commands for logging to the terminal should live here, not on `Debug`
-	Global.debug.debug_console = self
-	for command in Global.debug.print_queue:
-		Global.debug.log(command.message, command.min_log_level)
-	Global.debug.print_queue.clear()
-	if Global.debug.debug_override == "DEFER":
-		visible = Global.debug.show_debug_console
-	Global.debug.log('---CONSOLE READY---', 1)
+	Debug.debug_console = self
+	for command in Debug.print_queue:
+		Debug.log(command.message, command.min_log_level)
+	Debug.print_queue.clear()
+	if Debug.debug_override == "DEFER":
+		visible = Debug.show_debug_console
+	Debug.log('---CONSOLE READY---', 1)
 
 
 func _gui_input(event):

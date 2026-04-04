@@ -10,9 +10,9 @@ var _timer : Timer
 @onready var _time_left := %Timer
 
 func _ready():
-	Global.debug.level_status = self
-	if Global.debug.debug_override == "DEFER":
-		visible = Global.debug.show_level_status
+	Debug.level_status = self
+	if Debug.debug_override == "DEFER":
+		visible = Debug.show_level_status
 	Events.level_state_changed.connect(_on_level_state_changed)
 	Events.level_loaded.connect(_populate_states)
 
@@ -37,10 +37,10 @@ func _on_level_state_changed(new_state : LevelState) -> void:
 func _populate_states() -> void:
 	for child in _level_states.get_children():
 		child.queue_free()
-	for level_state in Global.level.state_machine.states.values():
+	for level_state in World.current_level.state_machine.states.values():
 		if level_state is LevelState:
 			var button_scene = Button.new()
 			button_scene.text = level_state.name
-			button_scene.pressed.connect(func(): Global.level.current_state.transition(level_state.name))
+			button_scene.pressed.connect(func(): World.current_level.current_state.transition(level_state.name))
 			_level_states.add_child(button_scene)
 

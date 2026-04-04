@@ -9,11 +9,11 @@ var josie_dialog = load(Paths.get_dialog_path('josie', 'ask_for_screwdriver'))
 func enter(previous_state, ext):
 	super(previous_state, ext)
 	Events.conversation_ended.connect(_on_conversation_ended)
-	Global.npcs.Bart.talk_tree = bart_urge
-	Global.npcs.Bartender.talk_tree = bartender_dialog
-	Global.npcs.Mike.talk_tree = mike_dialog
-	Global.npcs.Jordan.talk_tree = jordan_dialog
-	Global.npcs.Josie.talk_tree = josie_dialog
+	World.npcs.Bart.talk_tree = bart_urge
+	World.npcs.Bartender.talk_tree = bartender_dialog
+	World.npcs.Mike.talk_tree = mike_dialog
+	World.npcs.Jordan.talk_tree = jordan_dialog
+	World.npcs.Josie.talk_tree = josie_dialog
 
 
 func exit():
@@ -22,6 +22,5 @@ func exit():
 
 
 func _on_conversation_ended(npc : NPC):
-	pass
-	if npc == Global.npcs.Bartender:
+	if npc == World.npcs.Bartender:
 		npc.talk_tree = null

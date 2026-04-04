@@ -5,16 +5,16 @@ extends VBoxContainer
 	set(val):
 		if val:
 			if val.camera_id:
-				if Global.cameras.has(val.camera_id):
-					Global.player.camera.current = false
-					Global.cameras[val.camera_id].current = true
+				if World.cameras.has(val.camera_id):
+					World.player.camera.current = false
+					World.cameras[val.camera_id].current = true
 				else:
-					Global.Debug.error('WARNING: No Camera by that ID found')
+					Debug.error('WARNING: No Camera by that ID found')
 			else:
 				if talk_tree:
-					if Global.cameras.has(talk_tree.camera_id):
-						Global.cameras[talk_tree.camera_id].current = false
-					Global.player.camera.current = true
+					if World.cameras.has(talk_tree.camera_id):
+						World.cameras[talk_tree.camera_id].current = false
+					World.player.camera.current = true
 			if _npc_line:
 				_npc_line.text = val.dialog
 			if _player_options:

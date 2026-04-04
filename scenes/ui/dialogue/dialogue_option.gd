@@ -11,7 +11,7 @@ signal option_clicked(talk_tree : TalkTree)
 ## Event listener.
 func _pressed():
 	if is_exit:
-		Global.player.exit_dialogue()
+		World.player.exit_dialogue()
 	else:
-		talk_tree.activate(Global.player.talking_to)
+		talk_tree.activate(World.player.talking_to)
 		option_clicked.emit(talk_tree)

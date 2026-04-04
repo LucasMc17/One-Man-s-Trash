@@ -16,11 +16,11 @@ var current_state : LevelState:
 @onready var state_machine = %StateMachine
 
 func _ready():
-	Global.level = self
+	World.current_level = self
 	Events.level_loaded.emit()
 	Events.dialog_chosen.connect(_on_dialog_chosen)
-	var mike = Global.npcs.Mike
-	var mike_chair = Global.important_scenes.MikeChair
+	var mike = World.npcs.Mike
+	var mike_chair = World.important_scenes.MikeChair
 	mike.global_position = mike_chair.sit_marker.global_position
 	mike.current_movement.transition('Sit', { "seat": mike_chair })
 
@@ -32,7 +32,7 @@ func _on_dialog_chosen(npc : NPC, talk_tree : TalkTree):
 	if talk_tree.behavior_flags.has('SET_NPC_TALK_TREE'):
 		var other_npc = talk_tree.behavior_flags.SET_NPC_TALK_TREE[0]
 		var new_talk_tree = talk_tree.behavior_flags.SET_NPC_TALK_TREE[1]
-		Global.npcs[other_npc].talk_tree = new_talk_tree
+		World.npcs[other_npc].talk_tree = new_talk_tree
 	# if talk_tree.behavior_flags.has("CHANGE_TREE_BY_PATH"):
 	# 	npc.talk_tree = talk_tree.behavior_flags.CHANGE_TREE_BY_PATH
 	if talk_tree.behavior_flags.has("ASK_FOR_SCREWDRIVER"):
@@ -43,5 +43,5 @@ func _on_dialog_chosen(npc : NPC, talk_tree : TalkTree):
 
 ## Event listener.
 func _on_bart_bathroom_oneoff_entered(_area, _body):
-	Global.important_scenes.BathroomDoor.is_open = false
+	World.important_scenes.BathroomDoor.is_open = false
 

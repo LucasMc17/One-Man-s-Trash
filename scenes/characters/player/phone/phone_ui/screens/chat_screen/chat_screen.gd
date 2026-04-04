@@ -83,7 +83,7 @@ func _scroll_to_bottom() -> void:
 ## Event listener.
 func _on_send_button_pressed() -> void:
 	# NOTE: To make this work, I think leveraging a global event might be the way.
-	Global.log("Nice try this doesn't work yet")
+	Debug.log("Nice try this doesn't work yet")
 	# var event = InputEventAction.new()
 	# # Set the action name to the one defined in Project Settings
 	# event.action = "enter" 

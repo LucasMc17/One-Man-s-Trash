@@ -136,8 +136,6 @@ transform = Transform3D(0.891276, 0, 0.453462, 0, 1, 0, -0.453462, 0, 0.891276, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96809, 0, 12.9894)
 is_locked = true
 is_open = true
-_mesh_position = Vector3(0, 0, 0)
-_collision_position = Vector3(0, 0, 0)
 
 [node name="StateMachine" type="Node" parent="." unique_id=191255331 node_paths=PackedStringArray("current_state")]
 unique_name_in_owner = true
@@ -158,14 +156,11 @@ timer = NodePath("../../LevelTimer")
 _next_state = NodePath("../TextAmandaState")
 metadata/_custom_type_script = "uid://daxt11k50236q"
 
-[node name="TextAmandaState" type="Node" parent="StateMachine" unique_id=348951805 node_paths=PackedStringArray("_next_state", "NEXT_STATE")]
+[node name="TextAmandaState" type="Node" parent="StateMachine" unique_id=348951805 node_paths=PackedStringArray("_next_state")]
 script = ExtResource("10_06tnj")
 _contact = ExtResource("11_v74tu")
-CONTACT = ExtResource("11_v74tu")
 _new_exchange = ExtResource("12_e1ace")
-NEW_EXCHANGE = ExtResource("12_e1ace")
 _next_state = NodePath("../WaitForBartText")
-NEXT_STATE = NodePath("../WaitForBartText")
 metadata/_custom_type_script = "uid://dvwhpd62w54hn"
 
 [node name="WaitForBartText" type="Node" parent="StateMachine" unique_id=1710754026 node_paths=PackedStringArray("timer", "_next_state")]
@@ -174,14 +169,11 @@ timer = NodePath("../../LevelTimer")
 _next_state = NodePath("../TextBartState")
 metadata/_custom_type_script = "uid://daxt11k50236q"
 
-[node name="TextBartState" type="Node" parent="StateMachine" unique_id=1040090896 node_paths=PackedStringArray("_next_state", "NEXT_STATE")]
+[node name="TextBartState" type="Node" parent="StateMachine" unique_id=1040090896 node_paths=PackedStringArray("_next_state")]
 script = ExtResource("10_06tnj")
 _contact = ExtResource("13_xjxtq")
-CONTACT = ExtResource("13_xjxtq")
 _new_exchange = ExtResource("14_x43fk")
-NEW_EXCHANGE = ExtResource("14_x43fk")
 _next_state = NodePath("../GoToBartState")
-NEXT_STATE = NodePath("../GoToBartState")
 time = "6:22 PM"
 metadata/_custom_type_script = "uid://dvwhpd62w54hn"
 

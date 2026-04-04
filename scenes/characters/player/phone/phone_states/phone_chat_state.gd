@@ -25,8 +25,8 @@ func enter(prev_state : PhoneUIState, ext := {}):
 	if ext.has("active") and ext.active:
 		_screen.activate_draft()
 		_screen.active = true
-		Global.player.attention_state_machine.lock()
-		Global.player_phone.state_machine.lock()
+		World.player.attention_state_machine.lock()
+		World.player_phone.state_machine.lock()
 		_screen.back_button.disabled = true
 	if ext.has("new_exchange") and ext.new_exchange:
 		_new_messages = ext.new_exchange
@@ -67,7 +67,7 @@ func update(delta):
 
 ## Add a character to the draft from the player's next message in the exchange.
 func _add_character(finished_message : String):
-	if Global.debug.skip_typing:
+	if Debug.skip_typing:
 		_draft = finished_message
 	else:
 		_draft = finished_message.left(_draft.length() + 2)
@@ -85,7 +85,7 @@ func _send():
 
 ## begin the process of receiving a response from the contact.
 func _start_response(message: ContactMessage):
-	if Global.debug.skip_wait_times:
+	if Debug.skip_wait_times:
 		_before_typing_timer = 0.1
 	else:
 		_before_typing_timer = message.time_before_typing
@@ -94,7 +94,7 @@ func _start_response(message: ContactMessage):
 
 ## Cause the contact to begin typing their response.
 func _start_typing(message: ContactMessage):
-	if Global.debug.skip_wait_times:
+	if Debug.skip_wait_times:
 		_typing_timer = 0.1
 	else:
 		_typing_timer = message.time_typing
@@ -119,6 +119,6 @@ func _check_next_message():
 func _end_conversation():
 	Events.texting_ended.emit(_contact)
 	_screen.active = false
-	Global.player.attention_state_machine.unlock()
-	Global.player_phone.state_machine.unlock()
+	World.player.attention_state_machine.unlock()
+	World.player_phone.state_machine.unlock()
 	_screen.back_button.disabled = false

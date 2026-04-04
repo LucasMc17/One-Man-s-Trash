@@ -3,8 +3,8 @@ extends ActorState
 ## A state specifically for use by the player.
 
 func enter(_previous_state : State, _ext : Dictionary):
-	if Global.debug.player_status:
-		Global.debug.player_status.update_state(name)
+	if Debug.player_status:
+		Debug.player_status.update_state(name)
 
 
 ## Checks if two key/button press events are the same.

@@ -6,5 +6,5 @@ class_name LevelState extends State
 func enter(previous_state, ext):
 	super(previous_state, ext)
 	if !time.is_empty():
-		Global.game_state.time = time
+		World.time = time
 	Events.level_state_changed.emit(self)

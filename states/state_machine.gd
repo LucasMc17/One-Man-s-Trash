@@ -38,7 +38,6 @@ func _input(event):
 
 func _process(delta):
 	current_state.update(delta)
-	# Global.debug.add_property("Current State", current_state.name, 1)
 
 
 func _physics_process(delta):

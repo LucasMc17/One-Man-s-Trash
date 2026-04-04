@@ -79,7 +79,7 @@ var _gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var _notification_label : Label = %NotificationLabel
 
 func _ready():
-	Global.player = self
+	World.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Events.text_received.connect(func(_contact, _new_messages): set_notification(true))
 
@@ -98,7 +98,7 @@ func _unhandled_input(event):
 
 func _process(_delta):
 	# NOTE: I don't think I like this here.
-	if Global.debug.player_status:
+	if Debug.player_status:
 		var degs = rad_to_deg(rotation.y) + 180
 		var letter = 'S'
 		if degs >= 22.5 and degs < 67.5:
@@ -115,8 +115,8 @@ func _process(_delta):
 			letter = 'W'
 		elif degs >= 292.5 and degs < 337.5:
 			letter = 'SW'
-		Global.debug.player_status.update_direction("%.2f" % degs + ' ' + letter)
-		Global.debug.player_status.update_velocity("%.2f" % velocity.length())
+		Debug.player_status.update_direction("%.2f" % degs + ' ' + letter)
+		Debug.player_status.update_velocity("%.2f" % velocity.length())
 
 
 ## Make the notification label visible or invisible.
