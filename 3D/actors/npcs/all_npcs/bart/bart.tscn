@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bo023d5lgrcn8" path="res://3D/actors/npcs/states/movement_states/npc_sit_state.gd" id="7_v1oga"]
 [ext_resource type="Script" uid="uid://ckjkuwqqpjt54" path="res://3D/actors/npcs/states/movement_states/npc_move_state.gd.gd" id="8_furea"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_oju1j"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bjdx4"]
 viewport_path = NodePath("DebugLabel/SubViewport")
 
 [node name="Bart" unique_id=1112921831 instance=ExtResource("1_mkmu5")]
@@ -29,6 +29,6 @@ actor = NodePath("../..")
 metadata/_custom_type_script = "uid://ckjkuwqqpjt54"
 
 [node name="DebugLabel" parent="." index="4" unique_id=1566404866]
-texture = SubResource("ViewportTexture_oju1j")
+texture = SubResource("ViewportTexture_bjdx4")
 
 [editable path="template"]

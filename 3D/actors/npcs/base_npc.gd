@@ -74,6 +74,15 @@ func look_at_player():
 	rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), 0.15)
 
 
+## Fetch a TalkTree from this NPC's files by name. By default will also set it as their currently active talk tree.
+func get_talk_tree(dialog_name : String, dialog_sub_phase := "index", set_talk_tree := true) -> TalkTree:
+	var path = "res://3D/actors/npcs/all_npcs/" + name.to_camel_case() +"/dialog/" + dialog_name + "/" + dialog_sub_phase + ".tres"
+	var loaded_talk_tree = load(path)
+	if set_talk_tree:
+		talk_tree = loaded_talk_tree
+	return loaded_talk_tree
+
+
 ## Event listener for when the interactable is interacted with by the player.
 func _on_interactable_interacted(interactor : Player):
 	if current_attention.talk_enabled:

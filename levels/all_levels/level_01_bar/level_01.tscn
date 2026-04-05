@@ -140,7 +140,7 @@ is_open = true
 [node name="StateMachine" type="Node" parent="." unique_id=191255331 node_paths=PackedStringArray("current_state")]
 unique_name_in_owner = true
 script = ExtResource("7_e1ace")
-current_state = NodePath("DebugState")
+current_state = NodePath("BartChat")
 
 [node name="DebugState" type="Node" parent="StateMachine" unique_id=1811699258]
 script = ExtResource("8_34nx1")
