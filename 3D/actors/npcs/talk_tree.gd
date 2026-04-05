@@ -14,7 +14,7 @@ extends Resource
 @export var exit_option : String
 
 @export_category('Special Behavior')
-## The unique Name property of the camera to be used for this dialogue line. Will revert to player's POV on next line if it has no unique camera
+## The unique Name property of the camera to be used for this dialog line. Will revert to player's POV on next line if it has no unique camera
 @export var camera_id : StringName
 ## Optional parameter which updates the NPC's talk tree when this dialog is accessed. Useful for switching to urge dialog after initial interaction.
 @export var next_talk_tree : TalkTree

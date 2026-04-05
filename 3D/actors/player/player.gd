@@ -151,7 +151,7 @@ func update_camera(delta) -> void:
 
 # TODO: I think we can have the global event emitted from the exit option itself, and move this to a global event listener.
 ## Handle variable updates when the player exists conversation.
-func exit_dialogue() -> void:
+func exit_dialog() -> void:
 	Events.conversation_ended.emit(talking_to)
 	if talking_to:
 		if talking_to.current_attention is NPCTalkState:
