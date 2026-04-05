@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="TalkTree" format=3 uid="uid://cuomc2uvbh06c"]
-
-[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://assets/resources/talk_trees/talk_tree.gd" id="1_oyrp3"]
-
-[resource]
-script = ExtResource("1_oyrp3")
-dialog = "We're in the middle of a conversation here, man."
-exit_option = "Sorry."
-metadata/_custom_type_script = "uid://bymb602613n3g"

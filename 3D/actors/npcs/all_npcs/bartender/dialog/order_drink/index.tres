@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="TalkTree" format=3 uid="uid://bss4ohvgq7bp8"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://3D/actors/npcs/talk_tree.gd" id="1_lchoe"]
+
+[sub_resource type="Resource" id="Resource_lchoe"]
+script = ExtResource("1_lchoe")
+prompt = "Can I get an old fashioned please?"
+dialog = "You got it."
+exit_option = "Thanks."
+behavior_flags = Dictionary[String, Variant]({
+"ADD_TO_TAB": 12.0
+})
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_c3xp3"]
+script = ExtResource("1_lchoe")
+prompt = "Could I have the IPA?"
+dialog = "You got it."
+exit_option = "Thanks."
+behavior_flags = Dictionary[String, Variant]({
+"ADD_TO_TAB": 8.0
+})
+focus_point = Vector3(1, 1, 1)
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_csfnt"]
+script = ExtResource("1_lchoe")
+prompt = "Just give me a shot of tequila please."
+dialog = "You got it."
+exit_option = "Thanks."
+behavior_flags = Dictionary[String, Variant]({
+"ADD_TO_TAB": 6.0
+})
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_lchoe")
+dialog = "What can I get you?"
+player_options = Array[ExtResource("1_lchoe")]([SubResource("Resource_lchoe"), SubResource("Resource_c3xp3"), SubResource("Resource_csfnt")])
+exit_option = "Actually, I'm ok for the moment."
+metadata/_custom_type_script = "uid://bymb602613n3g"

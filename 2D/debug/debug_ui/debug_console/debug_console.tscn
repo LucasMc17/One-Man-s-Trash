@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://m6prpp4m68s6"]
+
+[ext_resource type="Script" uid="uid://dl4npam5575wb" path="res://2D/debug/debug_ui/debug_console/debug_console.gd" id="1_bp33c"]
+
+[node name="DebugConsole" type="PanelContainer" unique_id=1769601121 groups=["debug"]]
+custom_minimum_size = Vector2(0, 500)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bp33c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1548276580]
+layout_mode = 2
+
+[node name="History" type="RichTextLabel" parent="VBoxContainer" unique_id=395716296]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+scroll_following = true
+
+[node name="CommandLine" type="LineEdit" parent="VBoxContainer" unique_id=993273537]
+unique_name_in_owner = true
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[connection signal="gui_input" from="VBoxContainer/History" to="." method="_on_history_gui_input"]
+[connection signal="text_submitted" from="VBoxContainer/CommandLine" to="." method="_on_command_line_text_submitted"]

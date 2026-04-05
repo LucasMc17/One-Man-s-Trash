@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TalkTree" format=3 uid="uid://bx8yf763n5s"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://3D/actors/npcs/talk_tree.gd" id="1_y05jv"]
+
+[resource]
+script = ExtResource("1_y05jv")
+dialog = "I already told you, I don't have a screwdriver, a wrench, or any other fucking tools. Leave me alone."
+exit_option = "Ok, ok, sorry."
+metadata/_custom_type_script = "uid://bymb602613n3g"

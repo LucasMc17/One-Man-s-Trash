@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="TalkTree" format=3 uid="uid://dy8rk04w3ifxj"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://3D/actors/npcs/talk_tree.gd" id="1_3xmym"]
+[ext_resource type="Resource" uid="uid://cuomc2uvbh06c" path="res://3D/actors/npcs/all_npcs/jordan/dialog/stranger_chat/urge.tres" id="1_45dgw"]
+[ext_resource type="Resource" uid="uid://1moyiihku2i" path="res://3D/actors/npcs/all_npcs/josie/dialog/stranger_chat/urge.tres" id="1_k3npg"]
+
+[sub_resource type="Resource" id="Resource_7kuv6"]
+script = ExtResource("1_3xmym")
+prompt = "..."
+dialog = "Do you need something? We're in the middle of a conversation here."
+exit_option = "Sorry."
+focus_type = "NPC"
+focus_npc = &"Jordan"
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_45dgw"]
+script = ExtResource("1_3xmym")
+prompt = "..."
+dialog = "Um..."
+player_options = Array[ExtResource("1_3xmym")]([SubResource("Resource_7kuv6")])
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_3xmym"]
+script = ExtResource("1_3xmym")
+prompt = "..."
+dialog = "Hi."
+player_options = Array[ExtResource("1_3xmym")]([SubResource("Resource_45dgw")])
+focus_type = "NPC"
+focus_npc = &"Jordan"
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[sub_resource type="Resource" id="Resource_k3npg"]
+script = ExtResource("1_3xmym")
+prompt = "Hey folks."
+dialog = "Oh, hi."
+player_options = Array[ExtResource("1_3xmym")]([SubResource("Resource_3xmym")])
+metadata/_custom_type_script = "uid://bymb602613n3g"
+
+[resource]
+script = ExtResource("1_3xmym")
+dialog = "..."
+player_options = Array[ExtResource("1_3xmym")]([SubResource("Resource_k3npg")])
+next_talk_tree = ExtResource("1_k3npg")
+behavior_flags = Dictionary[String, Variant]({
+"SET_NPC_TALK_TREE": ["Jordan", ExtResource("1_45dgw")]
+})
+metadata/_custom_type_script = "uid://bymb602613n3g"

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bbfb6b3h24aq1"]
+
+[ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://3D/actors/npcs/base_npc.tscn" id="1_jld5o"]
+[ext_resource type="Script" uid="uid://bo023d5lgrcn8" path="res://3D/actors/npcs/states/movement_states/npc_sit_state.gd" id="2_aewfi"]
+[ext_resource type="Resource" uid="uid://d3rlr2lnahcrt" path="res://3D/actors/npcs/all_npcs/mike/dialog/stranger_chat/index.tres" id="2_im3f3"]
+[ext_resource type="Script" uid="uid://b1sqa5tyud8nt" path="res://3D/actors/npcs/states/attention_states/npc_talk_state.gd" id="3_jc5k1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_orqlb"]
+viewport_path = NodePath("DebugLabel/SubViewport")
+
+[node name="Mike" unique_id=1299273643 instance=ExtResource("1_jld5o")]
+talk_tree = ExtResource("2_im3f3")
+
+[node name="Talk" type="Node" parent="AttentionStateMachine" parent_id_path=PackedInt32Array(38415750) index="1" unique_id=304594916 node_paths=PackedStringArray("ACTOR", "actor")]
+script = ExtResource("3_jc5k1")
+ACTOR = NodePath("../..")
+actor = NodePath("../..")
+metadata/_custom_type_script = "uid://b1sqa5tyud8nt"
+
+[node name="Sit" type="Node" parent="MovementStateMachine" parent_id_path=PackedInt32Array(1007147406) index="1" unique_id=185505366 node_paths=PackedStringArray("ACTOR", "actor")]
+script = ExtResource("2_aewfi")
+ACTOR = NodePath("../..")
+actor = NodePath("../..")
+metadata/_custom_type_script = "uid://bo023d5lgrcn8"
+
+[node name="DebugLabel" parent="." index="4" unique_id=1566404866]
+texture = SubResource("ViewportTexture_orqlb")
+
+[editable path="template"]

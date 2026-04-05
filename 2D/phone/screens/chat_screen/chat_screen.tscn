@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://d34xb5tjwqrov"]
+
+[ext_resource type="PackedScene" uid="uid://cxym2k2saibfc" path="res://2D/phone/screens/base_screen.tscn" id="1_q06pi"]
+[ext_resource type="Script" uid="uid://b3jdo1rro1fw5" path="res://2D/phone/screens/chat_screen/chat_screen.gd" id="2_gk1qu"]
+[ext_resource type="PackedScene" uid="uid://cca71k1osut06" path="res://2D/phone/screens/chat_screen/chat_message.tscn" id="2_u7c3f"]
+[ext_resource type="PackedScene" uid="uid://bqfxkwcaplgun" path="res://2D/phone/screens/chat_screen/user_message.tscn" id="3_jprlh"]
+[ext_resource type="PackedScene" uid="uid://cjag8is6tjtke" path="res://2D/phone/screens/chat_screen/chat_header.tscn" id="3_o5shx"]
+[ext_resource type="PackedScene" uid="uid://d23h4bucuawbg" path="res://2D/phone/screens/chat_screen/time_stamp.tscn" id="4_2611e"]
+[ext_resource type="PackedScene" uid="uid://y8p0fji702iu" path="res://2D/phone/phone_ui/back_button/back_button.tscn" id="7_s6c32"]
+
+[sub_resource type="Gradient" id="Gradient_s6c32"]
+offsets = PackedFloat32Array(0.458853, 1)
+colors = PackedColorArray(0.760297, 0.760297, 0.760297, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n1dg7"]
+gradient = SubResource("Gradient_s6c32")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d02ju"]
+texture = SubResource("GradientTexture1D_n1dg7")
+
+[node name="ChatScreen" unique_id=1375617849 instance=ExtResource("1_q06pi")]
+script = ExtResource("2_gk1qu")
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(1, 1, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0" unique_id=1475135770]
+layout_mode = 2
+
+[node name="ChatHeader" parent="MarginContainer/VBoxContainer" index="0" unique_id=1832169165 instance=ExtResource("3_o5shx")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" index="1" unique_id=825728076]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+vertical_scroll_mode = 2
+
+[node name="MessageHolder" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" index="0" unique_id=959198323]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TimeStamp" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="0" unique_id=45294708 instance=ExtResource("4_2611e")]
+layout_mode = 2
+
+[node name="ChatMessage4" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="1" unique_id=817307717 instance=ExtResource("2_u7c3f")]
+layout_mode = 2
+
+[node name="UserMessage2" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="2" unique_id=1760899402 instance=ExtResource("3_jprlh")]
+layout_mode = 2
+
+[node name="ChatMessage5" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="3" unique_id=1548554812 instance=ExtResource("2_u7c3f")]
+layout_mode = 2
+
+[node name="ChatMessage6" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="4" unique_id=1400597648 instance=ExtResource("2_u7c3f")]
+layout_mode = 2
+
+[node name="UserMessage" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="5" unique_id=1342416984 instance=ExtResource("3_jprlh")]
+layout_mode = 2
+
+[node name="ChatMessage7" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="6" unique_id=281105525 instance=ExtResource("2_u7c3f")]
+layout_mode = 2
+
+[node name="UserMessage3" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="7" unique_id=52098768 instance=ExtResource("3_jprlh")]
+layout_mode = 2
+
+[node name="ChatMessage8" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="8" unique_id=1911933313 instance=ExtResource("2_u7c3f")]
+layout_mode = 2
+
+[node name="UserMessage4" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="9" unique_id=1867195806 instance=ExtResource("3_jprlh")]
+layout_mode = 2
+
+[node name="ChatMessage9" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="10" unique_id=1324478898 instance=ExtResource("2_u7c3f")]
+layout_mode = 2
+
+[node name="UserMessage5" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="11" unique_id=2111154770 instance=ExtResource("3_jprlh")]
+layout_mode = 2
+
+[node name="ChatMessage10" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="12" unique_id=1775444762 instance=ExtResource("2_u7c3f")]
+layout_mode = 2
+
+[node name="UserMessage6" parent="MarginContainer/VBoxContainer/ScrollContainer/MessageHolder" index="13" unique_id=1922231966 instance=ExtResource("3_jprlh")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="2" unique_id=1461851451]
+layout_mode = 2
+
+[node name="TypingHolder" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" index="0" unique_id=1381989137]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d02ju")
+
+[node name="TypingLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/TypingHolder" index="0" unique_id=2106384442]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Amanda is typing..."
+autowrap_mode = 2
+
+[node name="DraftHolder" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" index="1" unique_id=676098140]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5)
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder" index="0" unique_id=1560345447]
+layout_mode = 2
+
+[node name="DraftText" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder/HBoxContainer" index="0" unique_id=145508934]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 2
+
+[node name="SendButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder/HBoxContainer" index="1" unique_id=842811334]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "SEND"
+
+[node name="BackButton" parent="MarginContainer" index="1" unique_id=1051227428 instance=ExtResource("7_s6c32")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+_previous_state_name = "ChatsState"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/DraftHolder/HBoxContainer/SendButton" to="." method="_on_send_button_pressed"]

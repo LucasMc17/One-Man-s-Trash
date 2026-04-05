@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TalkTree" format=3 uid="uid://bqwcusa34trt3"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://3D/actors/npcs/talk_tree.gd" id="1_xamgn"]
+
+[resource]
+script = ExtResource("1_xamgn")
+prompt = "Fine. I'll go and see."
+dialog = "Great, ok. I'll wait here. Keep the drunks away so we can get this sorted."
+exit_option = "Amazing. You do that."
+metadata/_custom_type_script = "uid://bymb602613n3g"

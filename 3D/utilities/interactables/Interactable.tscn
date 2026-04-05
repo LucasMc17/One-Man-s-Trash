@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cc3i1lkhw8w7t"]
+
+[ext_resource type="Script" uid="uid://bw60giack856u" path="res://3D/utilities/interactables/interactable.gd" id="1_837h8"]
+
+[node name="Interactable" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_837h8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+debug_color = Color(0, 0.6, 0.7, 0.42)

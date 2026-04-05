@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TalkTree" format=3 uid="uid://1moyiihku2i"]
+
+[ext_resource type="Script" uid="uid://bymb602613n3g" path="res://3D/actors/npcs/talk_tree.gd" id="1_j8hxc"]
+
+[resource]
+script = ExtResource("1_j8hxc")
+dialog = "Sorry, but we're kind of on a date here. Could you leave us alone?"
+exit_option = "Of course, sorry."
+metadata/_custom_type_script = "uid://bymb602613n3g"

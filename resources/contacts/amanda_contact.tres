@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="TextContact" format=3 uid="uid://dv8ce25mon2xc"]
+
+[ext_resource type="Script" uid="uid://c7essjownyvxc" path="res://resources/text_messages/message_list.gd" id="1_4vptx"]
+[ext_resource type="Script" uid="uid://c8bspvq4oc3xf" path="res://resources/text_messages/text_message.gd" id="2_0w7sl"]
+[ext_resource type="Script" uid="uid://b0e2f45onhmdf" path="res://resources/text_messages/contact_message.gd" id="3_v1rta"]
+[ext_resource type="Script" uid="uid://c4nkxj81ujh5u" path="res://resources/text_messages/user_message.gd" id="4_5e307"]
+[ext_resource type="Script" uid="uid://bl2o5yk4q2h54" path="res://resources/contacts/text_contact.gd" id="5_juyw8"]
+
+[sub_resource type="Resource" id="Resource_c4h55"]
+script = ExtResource("3_v1rta")
+message = "Hey hey! Today's the big day!"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_3m3op"]
+script = ExtResource("3_v1rta")
+message = "Just wanted to say break a leg. You and Bart are gonna be great! 🎉🎉🎉"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_30ai8"]
+script = ExtResource("4_5e307")
+message = "Thanks Amanda! So excited to finally get this off the ground"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_vmr02"]
+script = ExtResource("4_5e307")
+message = "A little nervous too haha."
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_qmi2x"]
+script = ExtResource("3_v1rta")
+message = "Don't be. You got this. You both do."
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_nrvf5"]
+script = ExtResource("4_5e307")
+message = "🤞"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_m2rny"]
+script = ExtResource("1_4vptx")
+messages = Array[ExtResource("2_0w7sl")]([SubResource("Resource_c4h55"), SubResource("Resource_3m3op"), SubResource("Resource_30ai8"), SubResource("Resource_vmr02"), SubResource("Resource_qmi2x"), SubResource("Resource_nrvf5")])
+time_stamp = "7:02 AM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[sub_resource type="Resource" id="Resource_1uj31"]
+script = ExtResource("3_v1rta")
+message = "Hey, how's it going?"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_dfmpm"]
+script = ExtResource("3_v1rta")
+message = "I know you're probably busy with the shoot, but give me a call when you can"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_dd551"]
+script = ExtResource("1_4vptx")
+messages = Array[ExtResource("2_0w7sl")]([SubResource("Resource_1uj31"), SubResource("Resource_dfmpm")])
+time_stamp = "11:47 AM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[sub_resource type="Resource" id="Resource_0247w"]
+script = ExtResource("3_v1rta")
+message = "Did you guys break for lunch yet?"
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_e83pw"]
+script = ExtResource("4_5e307")
+message = "Sorry! Ended up working through lunch. I'll sneak away to give you a call in a bit"
+metadata/_custom_type_script = "uid://c4nkxj81ujh5u"
+
+[sub_resource type="Resource" id="Resource_bna37"]
+script = ExtResource("3_v1rta")
+message = "Ok."
+metadata/_custom_type_script = "uid://b0e2f45onhmdf"
+
+[sub_resource type="Resource" id="Resource_t7k4m"]
+script = ExtResource("1_4vptx")
+messages = Array[ExtResource("2_0w7sl")]([SubResource("Resource_0247w"), SubResource("Resource_e83pw"), SubResource("Resource_bna37")])
+time_stamp = "1:00 PM"
+metadata/_custom_type_script = "uid://c7essjownyvxc"
+
+[resource]
+script = ExtResource("5_juyw8")
+text_exchanges = Array[ExtResource("1_4vptx")]([SubResource("Resource_m2rny"), SubResource("Resource_dd551"), SubResource("Resource_t7k4m")])
+contact_name = "Amanda"
+metadata/_custom_type_script = "uid://bl2o5yk4q2h54"

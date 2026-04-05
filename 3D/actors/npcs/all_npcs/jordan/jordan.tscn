@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bf24jn3v0wwk5"]
+
+[ext_resource type="PackedScene" uid="uid://buguuxwjtfcow" path="res://3D/actors/npcs/base_npc.tscn" id="1_ivbon"]
+[ext_resource type="Resource" uid="uid://m8towykpux3a" path="res://3D/actors/npcs/all_npcs/jordan/dialog/stranger_chat/index.tres" id="2_k2ap4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k2ap4"]
+viewport_path = NodePath("DebugLabel/SubViewport")
+
+[node name="Jordan" unique_id=1850773610 instance=ExtResource("1_ivbon")]
+talk_tree = ExtResource("2_k2ap4")
+
+[node name="DebugLabel" parent="." index="4" unique_id=1566404866]
+texture = SubResource("ViewportTexture_k2ap4")
+
+[editable path="template"]

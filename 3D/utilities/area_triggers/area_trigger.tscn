@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cjdsdi4crt385"]
+
+[ext_resource type="Script" uid="uid://b1c2osh2mibjm" path="res://3D/utilities/area_triggers/area_trigger.gd" id="1_obwg5"]
+[ext_resource type="PackedScene" uid="uid://bghca01qsq1sq" path="res://3D/debug/debug_label/debug_label.tscn" id="2_65f6i"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_65f6i"]
+viewport_path = NodePath("DebugLabel/SubViewport")
+
+[node name="AreaTrigger" type="Area3D" unique_id=1716690957]
+collision_layer = 0
+script = ExtResource("1_obwg5")
+
+[node name="DebugLabel" parent="." unique_id=1515549952 instance=ExtResource("2_65f6i")]
+unique_name_in_owner = true
+texture = SubResource("ViewportTexture_65f6i")
+_viewport_size = Vector2i(400, 80)
+_text = "AreaTrigger
+Listening for scnes: {scenes}
+Listening for groups: {groups}"

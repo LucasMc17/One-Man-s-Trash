@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://b2m4463t40ea1"]
+
+[ext_resource type="Script" uid="uid://krn38ubei1hi" path="res://levels/all_levels/level_01_bar/level_01.gd" id="1_06tnj"]
+[ext_resource type="PackedScene" uid="uid://bquo2sra7l7e6" path="res://3D/environments/daytime_env.tscn" id="1_jsf6y"]
+[ext_resource type="PackedScene" uid="uid://dp1q3ngso06dk" path="res://3D/actors/player/player.tscn" id="2_34nx1"]
+[ext_resource type="PackedScene" uid="uid://brwpkrrtos4o5" path="res://3D/debug/debug_block/debug_block.tscn" id="3_qgp6h"]
+[ext_resource type="PackedScene" uid="uid://cd024r0w1hp4p" path="res://3D/utilities/invisible_walls/invisible_wall.tscn" id="5_metud"]
+[ext_resource type="PackedScene" uid="uid://8t3idewsxgn6" path="res://3D/utilities/doors/debug_door_01.tscn" id="6_510th"]
+[ext_resource type="PackedScene" uid="uid://rew0b8feotqq" path="res://3D/geometry/misc/bar.tscn" id="6_afycl"]
+[ext_resource type="PackedScene" uid="uid://bctvs0pbevh86" path="res://3D/actors/npcs/all_npcs/bartender/bartender.tscn" id="6_v74tu"]
+[ext_resource type="Material" uid="uid://r83u4ggd56sv" path="res://assets/materials/wood_boards.tres" id="6_vy6qu"]
+[ext_resource type="Script" uid="uid://cau1wg8ulku16" path="res://state_management/state_machine.gd" id="7_e1ace"]
+[ext_resource type="PackedScene" uid="uid://oi5poak31x26" path="res://3D/actors/npcs/all_npcs/bart/bart.tscn" id="7_thd0o"]
+[ext_resource type="PackedScene" uid="uid://6belqg5jikur" path="res://3D/utilities/chairs/bar_stool.tscn" id="7_vy6qu"]
+[ext_resource type="Script" uid="uid://cl72tt8fe8l65" path="res://levels/level_state.gd" id="8_34nx1"]
+[ext_resource type="Script" uid="uid://dvwhpd62w54hn" path="res://levels/states/level_texting_state.gd" id="10_06tnj"]
+[ext_resource type="Resource" uid="uid://dv8ce25mon2xc" path="res://resources/contacts/amanda_contact.tres" id="11_v74tu"]
+[ext_resource type="Resource" uid="uid://dq4emaufqar8g" path="res://resources/text_messages/amanda_texts_01.tres" id="12_e1ace"]
+[ext_resource type="Script" uid="uid://d0jnhn152jsa0" path="res://levels/all_levels/level_01_bar/states/wait_for_amanda_text_state.gd" id="13_dv2dd"]
+[ext_resource type="Resource" uid="uid://ddfh7v57htm4s" path="res://resources/contacts/bart_contact.tres" id="13_xjxtq"]
+[ext_resource type="Script" uid="uid://6ijnyw0ae7iu" path="res://levels/all_levels/level_01_bar/states/bart_chat_state.gd" id="14_dv2dd"]
+[ext_resource type="Resource" uid="uid://b28n4idy1lf3m" path="res://resources/text_messages/bart_texts_01.tres" id="14_x43fk"]
+[ext_resource type="PackedScene" uid="uid://c7jcuvst7cih2" path="res://3D/props/inert_props/beer_bottle.tscn" id="15_thd0o"]
+[ext_resource type="Script" uid="uid://daxt11k50236q" path="res://levels/states/level_wait_state.gd" id="15_x43fk"]
+[ext_resource type="Script" uid="uid://c6pfgu73jm2sd" path="res://levels/all_levels/level_01_bar/states/go_to_bart_state.gd" id="18_bt03r"]
+[ext_resource type="Script" uid="uid://b6p3ht05y6mes" path="res://levels/all_levels/level_01_bar/states/look_for_screwdriver_state.gd" id="19_2q5mi"]
+[ext_resource type="PackedScene" uid="uid://dps1at258aprq" path="res://3D/utilities/area_triggers/area_trigger_oneoff.tscn" id="21_2q5mi"]
+[ext_resource type="PackedScene" uid="uid://bf24jn3v0wwk5" path="res://3D/actors/npcs/all_npcs/jordan/jordan.tscn" id="23_f78q5"]
+[ext_resource type="PackedScene" uid="uid://bbfb6b3h24aq1" path="res://3D/actors/npcs/all_npcs/mike/mike.tscn" id="23_q0ki3"]
+[ext_resource type="PackedScene" uid="uid://bms2osakwmclh" path="res://3D/actors/npcs/all_npcs/josie/josie.tscn" id="24_vy6qu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bt03r"]
+size = Vector3(1, 1.96729, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_dv2dd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 3, 0, 9, 0, 0, 0, 0, 0, 0, 3, 0, 15, 0, 0, 0, 0, 0, 0, 2, 0, 16),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_510th"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.137, 0, -4),
+"tilts": PackedFloat32Array(0)
+}
+point_count = 1
+
+[sub_resource type="Curve3D" id="Curve3D_3qwjj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.137, 0, 2.25),
+"tilts": PackedFloat32Array(0)
+}
+point_count = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxjo0"]
+size = Vector3(2.41992, 1.68164, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1070320797]
+script = ExtResource("1_06tnj")
+
+[node name="DaytimeEnv" parent="." unique_id=391888432 instance=ExtResource("1_jsf6y")]
+
+[node name="Player" parent="." unique_id=916336877 instance=ExtResource("2_34nx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0856678, 0, -1.38034)
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1711430130]
+
+[node name="Visible" type="Node3D" parent="Geometry" unique_id=1684706776]
+
+[node name="RightWall" parent="Geometry/Visible" unique_id=1036580698 instance=ExtResource("3_qgp6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.5, 0)
+size = Vector3(0.5, 7, 40)
+
+[node name="LeftWall" parent="Geometry/Visible" unique_id=1745066409 instance=ExtResource("3_qgp6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.5, 0)
+size = Vector3(0.5, 7, 40)
+
+[node name="Floor" parent="Geometry/Visible" unique_id=596158913 instance=ExtResource("3_qgp6h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.25, 0)
+material = ExtResource("6_vy6qu")
+size = Vector3(40, 0.5, 7.5)
+
+[node name="Ceiling" parent="Geometry/Visible" unique_id=254546647 instance=ExtResource("3_qgp6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+size = Vector3(7.5, 0.5, 40)
+
+[node name="BackWall" parent="Geometry/Visible" unique_id=357910634 instance=ExtResource("3_qgp6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 20.3)
+size = Vector3(8, 7, 0.5)
+
+[node name="Bar" parent="Geometry/Visible" unique_id=520624485 instance=ExtResource("6_afycl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0166, 0, 0)
+
+[node name="BathroomWall" parent="Geometry/Visible" unique_id=857098044 instance=ExtResource("3_qgp6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22085, 1.01758, 12.9966)
+size = Vector3(1.5, 2, 0.2)
+
+[node name="BathroomWall2" parent="Geometry/Visible" unique_id=8209275 instance=ExtResource("3_qgp6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.703888, 1.01758, 12.9966)
+size = Vector3(1.5, 2, 0.2)
+
+[node name="Invisible" type="Node3D" parent="Geometry" unique_id=2110811526]
+
+[node name="BathroomInvisP" parent="Geometry/Invisible" unique_id=292482563 groups=["LevelImportant"] instance=ExtResource("5_metud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96389, 0.533929, 13.3911)
+_player_only = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Invisible/BathroomInvisP" unique_id=1890408597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483643, 0)
+shape = SubResource("BoxShape3D_bt03r")
+
+[node name="Seats" type="Node3D" parent="." unique_id=2086812262]
+
+[node name="BarStool2" parent="Seats" unique_id=658468240 instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.994014, 0, 0.109249, 0, 1, 0, -0.109249, 0, 0.994014, 0.969832, 0, -2.77164)
+
+[node name="BarStool3" parent="Seats" unique_id=54985101 instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.736794, 0, -0.676118, 0, 1, 0, 0.676118, 0, 0.736794, 1.06479, 0, -1.48258)
+
+[node name="BartChair" parent="Seats" unique_id=1386921130 groups=["LevelImportant"] instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.997947, 0, -0.0640446, 0, 1, 0, 0.0640446, 0, 0.997947, 0.989219, -2.38419e-07, 1.42217)
+
+[node name="PlayerChair" parent="Seats" unique_id=1759412062 groups=["LevelImportant"] instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.754366, 0, -0.656454, 0, 1, 0, 0.656454, 0, 0.754366, 0.964934, 0, -0.0179952)
+
+[node name="MikeChair" parent="Seats" unique_id=1117452856 groups=["LevelImportant"] instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.826324, 0, -0.563194, 0, 1, 0, 0.563194, 0, 0.826324, 0.965058, 0, -4.22544)
+
+[node name="BarStool" parent="Seats" unique_id=1645389608 instance=ExtResource("7_vy6qu")]
+transform = Transform3D(0.891276, 0, 0.453462, 0, 1, 0, -0.453462, 0, 0.891276, 0.891695, 2.38419e-07, 2.98454)
+
+[node name="Doors" type="Node3D" parent="." unique_id=486515224]
+
+[node name="BathroomDoor" parent="Doors" unique_id=653699473 groups=["LevelImportant"] instance=ExtResource("6_510th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96809, 0, 12.9894)
+is_locked = true
+is_open = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=191255331 node_paths=PackedStringArray("current_state")]
+unique_name_in_owner = true
+script = ExtResource("7_e1ace")
+current_state = NodePath("DebugState")
+
+[node name="DebugState" type="Node" parent="StateMachine" unique_id=1811699258]
+script = ExtResource("8_34nx1")
+
+[node name="BartChat" type="Node" parent="StateMachine" unique_id=1282842520]
+script = ExtResource("14_dv2dd")
+
+[node name="WaitForAmandaText" type="Node" parent="StateMachine" unique_id=1895773746 node_paths=PackedStringArray("timer", "_next_state")]
+script = ExtResource("13_dv2dd")
+timer = NodePath("../../LevelTimer")
+_next_state = NodePath("../TextAmandaState")
+
+[node name="TextAmandaState" type="Node" parent="StateMachine" unique_id=348951805 node_paths=PackedStringArray("_next_state")]
+script = ExtResource("10_06tnj")
+_contact = ExtResource("11_v74tu")
+_new_exchange = ExtResource("12_e1ace")
+_next_state = NodePath("../WaitForBartText")
+
+[node name="WaitForBartText" type="Node" parent="StateMachine" unique_id=1710754026 node_paths=PackedStringArray("timer", "_next_state")]
+script = ExtResource("15_x43fk")
+timer = NodePath("../../LevelTimer")
+_next_state = NodePath("../TextBartState")
+
+[node name="TextBartState" type="Node" parent="StateMachine" unique_id=1040090896 node_paths=PackedStringArray("_next_state")]
+script = ExtResource("10_06tnj")
+_contact = ExtResource("13_xjxtq")
+_new_exchange = ExtResource("14_x43fk")
+_next_state = NodePath("../GoToBartState")
+time = "6:22 PM"
+
+[node name="GoToBartState" type="Node" parent="StateMachine" unique_id=168205953]
+script = ExtResource("18_bt03r")
+
+[node name="LookForScrewdriverState" type="Node" parent="StateMachine" unique_id=1813137226]
+script = ExtResource("19_2q5mi")
+time = "6:25 PM"
+
+[node name="LevelTimer" type="Timer" parent="." unique_id=755238126]
+
+[node name="Props" type="Node3D" parent="." unique_id=839489395]
+
+[node name="InertProps" type="Node3D" parent="Props" unique_id=604861055]
+
+[node name="BeerBottle" parent="Props/InertProps" unique_id=101401331 instance=ExtResource("15_thd0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86657, 1.11745, 0)
+
+[node name="BeerBottle2" parent="Props/InertProps" unique_id=1501257053 instance=ExtResource("15_thd0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78854, 1.11745, 0.128315)
+
+[node name="BeerBottle3" parent="Props/InertProps" unique_id=1966432744 instance=ExtResource("15_thd0o")]
+transform = Transform3D(-3.63786e-08, -0.832245, -0.554409, 1, -4.37114e-08, 0, -2.4234e-08, -0.554409, 0.832245, 2.07561, 1.10137, -1.59145)
+
+[node name="PhysicsProps" type="Node3D" parent="Props" unique_id=1053153706]
+
+[node name="NPCs" type="Node" parent="." unique_id=796095572]
+
+[node name="Bartender" parent="NPCs" unique_id=2090468612 node_paths=PackedStringArray("move_paths") instance=ExtResource("6_v74tu")]
+transform = Transform3D(1, -6.1206e-15, -2.98023e-07, -5.32907e-14, 1, -4.9738e-14, 2.98023e-07, -6.80743e-15, 1, 3.137, 1.19209e-07, 2.25)
+move_paths = [NodePath("../../Paths/Bartender/PointA"), NodePath("../../Paths/Bartender/PointB")]
+
+[node name="Bart" parent="NPCs" unique_id=1112921831 node_paths=PackedStringArray("move_paths") instance=ExtResource("7_thd0o")]
+move_paths = [NodePath("../../Paths/Bart/ToBathroom")]
+
+[node name="Jordan" parent="NPCs" unique_id=1850773610 instance=ExtResource("23_f78q5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9225, 0, 2.21473)
+
+[node name="Josie" parent="NPCs" unique_id=1786495334 instance=ExtResource("24_vy6qu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95512, 0, 0.0283406)
+
+[node name="Mike" parent="NPCs" unique_id=1299273643 instance=ExtResource("23_q0ki3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.16871)
+
+[node name="Paths" type="Node" parent="." unique_id=386690959]
+
+[node name="Bart" type="Node" parent="Paths" unique_id=854386613]
+
+[node name="ToBathroom" type="Path3D" parent="Paths/Bart" unique_id=602714929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11433, 0.109519, 0)
+curve = SubResource("Curve3D_dv2dd")
+
+[node name="Bartender" type="Node" parent="Paths" unique_id=645174937]
+
+[node name="PointA" type="Path3D" parent="Paths/Bartender" unique_id=2134385328]
+curve = SubResource("Curve3D_510th")
+
+[node name="PointB" type="Path3D" parent="Paths/Bartender" unique_id=1404943744]
+curve = SubResource("Curve3D_3qwjj")
+
+[node name="Triggers" type="Node" parent="." unique_id=228868267]
+unique_name_in_owner = true
+
+[node name="BartBathroomOneoff" parent="Triggers" unique_id=1711742388 node_paths=PackedStringArray("_included") instance=ExtResource("21_2q5mi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.978, 0.67, 15.295)
+_included = [NodePath("../../NPCs/Bart")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/BartBathroomOneoff" unique_id=1800127974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34082, 0)
+shape = SubResource("BoxShape3D_xxjo0")
+
+[node name="Cameras" type="Node" parent="." unique_id=1719785531]
+
+[node name="BathroomGrateCam" type="Camera3D" parent="Cameras" unique_id=492751499 groups=["LevelCameras"]]
+transform = Transform3D(0.194799, 0, -0.980843, 0, 1, 0, 0.980843, 0, 0.194799, 2.80012, 0.31477, 14.4723)
+
+[connection signal="entered" from="Triggers/BartBathroomOneoff" to="." method="_on_bart_bathroom_oneoff_entered"]

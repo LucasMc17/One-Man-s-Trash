@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://7felxpnuw878"]
+
+[ext_resource type="Script" uid="uid://di021taalrmk8" path="res://3D/utilities/doors/door.gd" id="1_vl1pl"]
+[ext_resource type="PackedScene" uid="uid://cc3i1lkhw8w7t" path="res://3D/utilities/interactables/Interactable.tscn" id="2_cjc7v"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cjc7v"]
+device = -1
+keycode = 69
+unicode = 101
+
+[node name="Door" type="Node3D" unique_id=449775733]
+script = ExtResource("1_vl1pl")
+
+[node name="DoorBody" type="AnimatableBody3D" parent="." unique_id=644540824]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="DoorBody" unique_id=162127902]
+
+[node name="DoorMesh" type="MeshInstance3D" parent="DoorBody" unique_id=2085275813]
+unique_name_in_owner = true
+
+[node name="CollisionShape" type="CollisionShape3D" parent="DoorBody" unique_id=2012297939]
+unique_name_in_owner = true
+
+[node name="Interactable" parent="DoorBody" unique_id=867248540 instance=ExtResource("2_cjc7v")]
+unique_name_in_owner = true
+interact_button = SubResource("InputEventKey_cjc7v")
+max_distance = 3.0
+message = "Press [E] to open"
+interactable_key = &"door"

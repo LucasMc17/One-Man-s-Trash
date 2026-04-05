@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://brwpkrrtos4o5"]
+
+[ext_resource type="Script" uid="uid://cmh5mgw00xk0d" path="res://3D/debug/debug_block/debug_block.gd" id="1_la5i3"]
+[ext_resource type="Material" uid="uid://cn1gsy15bkaff" path="res://assets/materials/grid.tres" id="2_k8i8b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_la5i3"]
+resource_local_to_scene = true
+material = ExtResource("2_k8i8b")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_la5i3"]
+resource_local_to_scene = true
+
+[node name="DebugBlock" type="StaticBody3D"]
+script = ExtResource("1_la5i3")
+material = ExtResource("2_k8i8b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_la5i3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_la5i3")
